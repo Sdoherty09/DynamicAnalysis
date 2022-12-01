@@ -6,7 +6,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MenuItem;
-import capstone.Capstone;
+import capstone.*;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -25,12 +25,12 @@ public class Window {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/*Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
+		Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
 	    Capstone.CsInsn[] allInsn = cs.disasm(CODE, 0x1000);
 	    for (int i=0; i<allInsn.length; i++) {
 	      System.out.printf("0x%x:\t%s\t%s\n", allInsn[i].address,
 	          allInsn[i].mnemonic, allInsn[i].opStr);
-	  } */
+	  } 
 		try {
 			Window window = new Window();
 			window.open();

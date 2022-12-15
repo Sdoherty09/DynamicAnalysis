@@ -5,9 +5,9 @@ public class ExecuteCode {
 	private byte code;
 	private boolean isArr;
 	
-	private native void executeInstruction(byte code);
+	//private native void executeInstruction(byte code);
 	
-	static {System.loadLibrary("ExecuteImpl");}
+	//static {System.loadLibrary("ExecuteImpl");}
 	
 	public ExecuteCode(byte[] codes) {
 		setCodes(codes);
@@ -29,8 +29,6 @@ public class ExecuteCode {
 	public void setCode(byte code) {
 		this.code = code;
 	}
-	public void execute() {
-		ExecuteCode executeCode = new ExecuteCode(getCode());
-		executeCode.execute();
-	}
+	public native String test();
+	
 }

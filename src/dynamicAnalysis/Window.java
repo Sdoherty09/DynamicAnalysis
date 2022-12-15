@@ -99,6 +99,8 @@ public class Window {
                     String[] codeArr = codeExtract.getCodeArr();
                     byte[] resources = codeExtract.getResources();
                     codeExtract.execute(resources[0]);
+                    table.clearAll();
+                    table.setItemCount(0);
                     for(int index=0;index<codeArr.length;index++)
                     {
                     	TableItem tableItem = new TableItem(table, SWT.NULL);

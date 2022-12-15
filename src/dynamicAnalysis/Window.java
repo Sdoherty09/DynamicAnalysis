@@ -14,6 +14,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 
 import java.io.File;
 
@@ -26,9 +27,10 @@ import org.eclipse.swt.layout.GridData;
 public class Window {
 
 	protected Shell shell;
-	public static byte [] CODE = { 0x55, 0x48, (byte) 0x8b, 0x05, (byte) 0xb8,
-		    0x13, 0x00, 0x00 };
-	private Text text;
+	private Table table;
+	private native void executeInstruction(byte code);
+	
+	static {System.loadLibrary("ExecuteImpl");}
 
 	/**
 	 * Launch the application.
@@ -64,9 +66,9 @@ public class Window {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(673, 482);
+		shell.setSize(1045, 735);
 		shell.setText("SWT Application");
-		shell.setLayout(new GridLayout(3, false));
+		shell.setLayout(new GridLayout(4, false));
 		
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
@@ -87,24 +89,25 @@ public class Window {
 		mntmHelp.setText("Help");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
 		
 		Label lblCode = new Label(shell, SWT.NONE);
 		lblCode.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
 		lblCode.setAlignment(SWT.RIGHT);
 		lblCode.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblCode.setText("Code");
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		
-		text = new Text(shell, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
-		text.setEditable(false);
-		GridData gd_text = new GridData(SWT.FILL, SWT.CENTER, false, true, 1, 1);
-		gd_text.widthHint = 194;
-		gd_text.heightHint = 350;
-		text.setLayoutData(gd_text);
 
 		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
 		mntmOpen.setText("Open");
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		
+		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
+		table = tableViewer.getTable();
+		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1);
+		gd_table.heightHint = 571;
+		gd_table.widthHint = 243;
+		table.setLayoutData(gd_table);
 		
 		mntmOpen.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
@@ -115,7 +118,12 @@ public class Window {
                     fileDialog.setFilterExtensions(files);
                     String filePath = fileDialog.open();
                     CodeExtract codeExtract = new CodeExtract(new File(filePath));
-                    text.setText(codeExtract.getCode());
+                    String[] codeArr = codeExtract.getCodeArr();
+                    for(int index=0;index<codeArr.length;index++)
+                    {
+                    	TableItem tableItem = new TableItem(table, SWT.NULL);
+                    	tableItem.setText(codeArr[index]);
+                    }
                     
             }
 		});

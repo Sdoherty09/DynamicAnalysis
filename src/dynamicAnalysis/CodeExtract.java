@@ -20,17 +20,19 @@ public class CodeExtract {
 	private File file;
 	private byte[] resources;
 	private String code;
-
+	private String[] codeArr;
 	
 	public CodeExtract(File file) {
 		setFile(file);
 		resources = loadPE(getFile());
 		code = extract(getResources());
+		codeArr = extractArr(getResources());
 	}
 
 	private byte[] loadPE(File file)
 	{
 		byte [] bytes = null;
+		
 		String output = "";
 		try {
 			PEData data = PELoader.loadPE(file);
@@ -69,6 +71,20 @@ public class CodeExtract {
 	   return code;
 	}
 	
+	private String[] extractArr(byte[] resources)
+	{
+		Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+		cs.setDetail(1);
+	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
+	    String[] code = new String[allInsn.length];
+	    for (int i=0; i<allInsn.length; i++) 
+	    {
+	    	code[i] = String.format("0x%x:\t%s\t%s\n", allInsn[i].address,
+	  	          allInsn[i].mnemonic, allInsn[i].opStr);
+	    } 
+	   return code;
+	}
+	
 	public File getFile() {
 		return file;
 	}
@@ -84,7 +100,11 @@ public class CodeExtract {
 	public String getCode() {
 		return code;
 	}
-
+	
+	public String[] getCodeArr() {
+		return codeArr;
+	}
+	
 	@Override
 	public String toString() {
 		return "CodeExtract [file=" + file + ", resources=" + Arrays.toString(resources) + ", code=" + code + "]";

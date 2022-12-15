@@ -4,6 +4,7 @@ public class ExecuteCode {
 	private byte[] codes;
 	private byte code;
 	private boolean isArr;
+	
 	private native void executeInstruction(byte code);
 	
 	static {System.loadLibrary("ExecuteImpl");}

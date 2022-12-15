@@ -85,6 +85,12 @@ public class CodeExtract {
 	   return code;
 	}
 	
+	public void execute(byte code)
+	{
+		ExecuteCode executeCode = new ExecuteCode(code);
+		executeCode.execute();
+	}
+	
 	public File getFile() {
 		return file;
 	}

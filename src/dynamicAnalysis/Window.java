@@ -19,36 +19,14 @@ import org.eclipse.swt.widgets.TableItem;
 import java.io.File;
 
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 
 public class Window {
 
 	protected Shell shell;
 	private Table table;
-	private native void executeInstruction(byte code);
 	
-	static {System.loadLibrary("ExecuteImpl");}
-
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		try {
-			Window window = new Window();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
-
-	/**
-	 * Open the window.
-	 */
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -74,7 +52,7 @@ public class Window {
 		shell.setMenuBar(menu);
 		
 		MenuItem mntmFile_1 = new MenuItem(menu, SWT.CASCADE);
-		mntmFile_1.setText("FIle");
+		mntmFile_1.setText("File");
 		
 		Menu menu_1 = new Menu(mntmFile_1);
 		mntmFile_1.setMenu(menu_1);
@@ -119,12 +97,13 @@ public class Window {
                     String filePath = fileDialog.open();
                     CodeExtract codeExtract = new CodeExtract(new File(filePath));
                     String[] codeArr = codeExtract.getCodeArr();
+                    byte[] resources = codeExtract.getResources();
+                    codeExtract.execute(resources[0]);
                     for(int index=0;index<codeArr.length;index++)
                     {
                     	TableItem tableItem = new TableItem(table, SWT.NULL);
                     	tableItem.setText(codeArr[index]);
-                    }
-                    
+                    }  
             }
 		});
 	}

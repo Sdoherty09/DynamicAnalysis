@@ -5,9 +5,9 @@ public class ExecuteCode {
 	private byte code;
 	private boolean isArr;
 	
-	//private native void executeInstruction(byte code);
+	private native void executeInstruction(byte code);
 	
-	//static {System.loadLibrary("ExecuteImpl");}
+	static {System.loadLibrary("ExecuteImpl");}
 	
 	public ExecuteCode(byte[] codes) {
 		setCodes(codes);
@@ -32,3 +32,5 @@ public class ExecuteCode {
 	public native String test();
 	
 }
+ //gcc ExecuteImpl.c -I I:/jre/jre6/include -I I:/jre/jre6/include/win32
+//x86_64-w64-mingw32-gcc -I I:/jre/jre6/include -I I:/jre/jre6/include/win32 -shared -o execute.dll ExecuteImpl.c

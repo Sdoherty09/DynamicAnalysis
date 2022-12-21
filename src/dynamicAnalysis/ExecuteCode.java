@@ -7,7 +7,7 @@ public class ExecuteCode {
 	
 	private native void executeInstruction(byte code);
 	
-	static {System.loadLibrary("ExecuteImpl");}
+	static {System.load("C:\\Users\\shane\\eclipse-workspace\\DynamicAnalysis\\src\\dynamicAnalysis\\execute.dll");}
 	
 	public ExecuteCode(byte[] codes) {
 		setCodes(codes);
@@ -30,6 +30,11 @@ public class ExecuteCode {
 		this.code = code;
 	}
 	public native String test();
+	public void execute()
+	{
+		ExecuteCode executeCode = new ExecuteCode(getCode());
+		executeCode.executeInstruction(getCode());
+	}
 	
 }
  //gcc ExecuteImpl.c -I I:/jre/jre6/include -I I:/jre/jre6/include/win32

@@ -88,7 +88,7 @@ public class CodeExtract {
 	public void execute(byte code)
 	{
 		ExecuteCode executeCode = new ExecuteCode(code);
-		//executeCode.execute();
+		executeCode.execute();
 	}
 	
 	public File getFile() {

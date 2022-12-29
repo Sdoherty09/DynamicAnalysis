@@ -34,8 +34,6 @@ public class CodeExtract {
 	private byte[] loadPE(File file)
 	{
 		byte [] bytes = null;
-		
-		String output = "";
 		try {
 			PEData data = PELoader.loadPE(file);
 			ResourceSection rsrc = new SectionLoader(data).loadResourceSection();
@@ -48,14 +46,16 @@ public class CodeExtract {
 			try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
 			    bytes = IOUtil.loadBytes(offset, size, raf);
 			}
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for(int index=0;index<bytes.length;index++)
+		{
+			System.out.println(bytes[index]);
 		}
 		return bytes;
 	}
-	
-	private String extract(byte[] resources)
+	private Capstone.CsInsn[] loadCapstone(byte[] resources)
 	{
 		file = new File(file.getAbsolutePath());
         byte[] bytes = null;
@@ -82,9 +82,15 @@ public class CodeExtract {
         		break;
         	}       	
         }
-		String code="";	
 		cs.setDetail(1);
 	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
+	    System.out.println("insn length: "+allInsn.length);
+	    return allInsn;
+	}
+	private String extract(byte[] resources)
+	{
+		String code = "";
+		Capstone.CsInsn[] allInsn = loadCapstone(resources);
 	    for (int i=0; i<allInsn.length; i++) 
 	    {
 	    	code += String.format("0x%x:\t%s\t%s\n", allInsn[i].address,
@@ -95,33 +101,7 @@ public class CodeExtract {
 	
 	private String[] extractArr(byte[] resources)
 	{
-		file = new File(file.getAbsolutePath());
-        byte[] bytes = null;
-        try {
-            bytes = Files.readAllBytes(Paths.get(file.toString()));
-        } catch (IOException | NullPointerException e) {
-            e.printStackTrace();
-        }
-        Capstone cs = null;
-        for(int index=0;index<bytes.length;index++)
-        {
-        	if(bytes[index]==0x50)
-        	{
-        		if(bytes[index+4]==0x4c)
-        		{
-        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
-        			System.out.println("Running x32 exe");
-        		}
-        		else
-        		{
-        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
-        			System.out.println("Running x64 exe");
-        		}     
-        		break;
-        	}       	
-        }
-		cs.setDetail(1);
-	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
+		Capstone.CsInsn[] allInsn = loadCapstone(resources);
 	    String[] code = new String[allInsn.length];
 	    for (int i=0; i<allInsn.length; i++) 
 	    {

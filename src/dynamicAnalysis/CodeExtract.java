@@ -3,6 +3,8 @@ package dynamicAnalysis;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,14 +43,10 @@ public class CodeExtract {
 			Resource resource = resources.get(0);
 			Location loc = resource.rawBytesLocation();
 			long offset = loc.from();
-			// this example only works for small resources
 			assert loc.size() == (int) loc.size();
 			int size = (int) loc.size();
 			try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
 			    bytes = IOUtil.loadBytes(offset, size, raf);
-			    // print as hex string
-			
-			    //System.out.println(ByteArrayUtil.byteToHex(bytes));
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -59,8 +57,32 @@ public class CodeExtract {
 	
 	private String extract(byte[] resources)
 	{
-		String code="";
-		Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+		file = new File(file.getAbsolutePath());
+        byte[] bytes = null;
+        try {
+            bytes = Files.readAllBytes(Paths.get(file.toString()));
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+        }
+        Capstone cs = null;
+        for(int index=0;index<bytes.length;index++)
+        {
+        	if(bytes[index]==0x50)
+        	{
+        		if(bytes[index+4]==0x4c)
+        		{
+        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+        			System.out.println("Running x32 exe");
+        		}
+        		else
+        		{
+        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
+        			System.out.println("Running x64 exe");
+        		}     
+        		break;
+        	}       	
+        }
+		String code="";	
 		cs.setDetail(1);
 	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
 	    for (int i=0; i<allInsn.length; i++) 
@@ -73,13 +95,37 @@ public class CodeExtract {
 	
 	private String[] extractArr(byte[] resources)
 	{
-		Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+		file = new File(file.getAbsolutePath());
+        byte[] bytes = null;
+        try {
+            bytes = Files.readAllBytes(Paths.get(file.toString()));
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+        }
+        Capstone cs = null;
+        for(int index=0;index<bytes.length;index++)
+        {
+        	if(bytes[index]==0x50)
+        	{
+        		if(bytes[index+4]==0x4c)
+        		{
+        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+        			System.out.println("Running x32 exe");
+        		}
+        		else
+        		{
+        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
+        			System.out.println("Running x64 exe");
+        		}     
+        		break;
+        	}       	
+        }
 		cs.setDetail(1);
 	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
 	    String[] code = new String[allInsn.length];
 	    for (int i=0; i<allInsn.length; i++) 
 	    {
-	    	code[i] = String.format("0x%x:\t%s\t%s\n", allInsn[i].address,
+	    	code[i] = String.format("0x%x: %s\t%s\n", allInsn[i].address,
 	  	          allInsn[i].mnemonic, allInsn[i].opStr);
 	    } 
 	   return code;

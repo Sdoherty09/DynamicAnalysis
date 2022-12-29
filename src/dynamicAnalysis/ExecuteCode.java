@@ -6,8 +6,9 @@ public class ExecuteCode {
 	private boolean isArr;
 	
 	private native void executeInstruction(byte code);
+	private native int[] readRegisters();
 	
-	static {System.load("C:\\Users\\shane\\eclipse-workspace\\DynamicAnalysis\\src\\dynamicAnalysis\\execute.dll");}
+	static {System.load(getFile("execute.dll"));}
 	
 	public ExecuteCode(byte[] codes) {
 		setCodes(codes);
@@ -29,11 +30,22 @@ public class ExecuteCode {
 	public void setCode(byte code) {
 		this.code = code;
 	}
+	private static String getFile(String fileName)
+	{
+		return System.getProperty("user.dir")+"\\src\\dynamicAnalysis\\"+fileName;
+	}
 	public native String test();
 	public void execute()
 	{
 		ExecuteCode executeCode = new ExecuteCode(getCode());
 		executeCode.executeInstruction(getCode());
+	}
+	public int[] read()
+	{
+		int[] registers = new int[4];
+		ExecuteCode executeCode = new ExecuteCode(getCode());
+		registers = executeCode.readRegisters();
+		return registers;
 	}
 	
 }

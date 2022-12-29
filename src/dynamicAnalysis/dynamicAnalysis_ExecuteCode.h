@@ -14,6 +14,13 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_dynamicAnalysis_ExecuteCode_executeInstruction
   (JNIEnv *, jobject, jbyte);
+/*
+ * Class:     dynamicAnalysis_ExecuteCode
+ * Method:    read
+ * Signature: (V)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_dynamicAnalysis_ExecuteCode_read
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

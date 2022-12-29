@@ -7,7 +7,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -17,16 +16,27 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
 import java.io.File;
+import java.nio.file.Files;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.jface.viewers.ListViewer;
 
 public class Window {
 
 	protected Shell shell;
 	private Table table;
-	
+	public static void main(String[] args) {
+		try {
+			Window window = new Window();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -82,8 +92,8 @@ public class Window {
 		
 		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
 		table = tableViewer.getTable();
-		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1);
-		gd_table.heightHint = 571;
+		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, true, 2, 1);
+		gd_table.heightHint = 11;
 		gd_table.widthHint = 243;
 		table.setLayoutData(gd_table);
 		

@@ -23,6 +23,7 @@ public class CodeExtract {
 	private byte[] resources;
 	private String code;
 	private String[] codeArr;
+	private PEFile peFile;
 	
 	public CodeExtract(File file) {
 		setFile(file);
@@ -35,7 +36,9 @@ public class CodeExtract {
 	{
 		byte [] bytes = null;
 		try {
-			PEData data = PELoader.loadPE(file);
+			peFile = new PEFile(file);
+			PEData data = PELoader.loadPE(peFile.getFile());
+			peFile.readFile();
 			ResourceSection rsrc = new SectionLoader(data).loadResourceSection();
 			List<Resource> resources = rsrc.getResources();
 			Resource resource = resources.get(0);
@@ -49,10 +52,6 @@ public class CodeExtract {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for(int index=0;index<bytes.length;index++)
-		{
-			System.out.println(bytes[index]);
-		}
 		return bytes;
 	}
 	private Capstone.CsInsn[] loadCapstone(byte[] resources)
@@ -65,26 +64,18 @@ public class CodeExtract {
             e.printStackTrace();
         }
         Capstone cs = null;
-        for(int index=0;index<bytes.length;index++)
-        {
-        	if(bytes[index]==0x50)
-        	{
-        		if(bytes[index+4]==0x4c)
-        		{
-        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
-        			System.out.println("Running x32 exe");
-        		}
-        		else
-        		{
-        			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
-        			System.out.println("Running x64 exe");
-        		}     
-        		break;
-        	}       	
-        }
+		if(peFile.isX32())
+		{
+			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
+			System.out.println("Running x32 exe");
+		}
+		else
+		{
+			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
+			System.out.println("Running x64 exe");
+		}      	
 		cs.setDetail(1);
 	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
-	    System.out.println("insn length: "+allInsn.length);
 	    return allInsn;
 	}
 	private String extract(byte[] resources)

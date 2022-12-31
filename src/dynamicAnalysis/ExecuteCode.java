@@ -1,22 +1,37 @@
 package dynamicAnalysis;
 
+import java.io.File;
+import java.io.IOException;
+
 public class ExecuteCode {
 	private byte[] codes;
 	private byte code;
 	private boolean isArr;
+	private File file;
 	
 	private native void executeInstruction(byte code);
 	private native int[] readRegisters();
 	
 	static {System.load(getFile("execute.dll"));}
 	
-	public ExecuteCode(byte[] codes) {
+	public ExecuteCode(byte[] codes, File file) {
 		setCodes(codes);
+		setFile(file);
 		isArr=true;
 	}
-	public ExecuteCode(byte code) {
+	public ExecuteCode(byte code, File file) {
 		setCode(code);
+		setFile(file);
 		isArr=false;
+	}
+	
+	public File getFile()
+	{
+		return file;
+	}
+	public void setFile(File file)
+	{
+		this.file = file;
 	}
 	public byte[] getCodes() {
 		return codes;
@@ -35,15 +50,16 @@ public class ExecuteCode {
 		return System.getProperty("user.dir")+"\\src\\dynamicAnalysis\\"+fileName;
 	}
 	public native String test();
-	public void execute()
+	
+	/*public ProcessManager execute()
 	{
-		ExecuteCode executeCode = new ExecuteCode(getCode());
+		ExecuteCode executeCode = new ExecuteCode(getCode(), getFile());
 		executeCode.executeInstruction(getCode());
-	}
+	}*/
 	public int[] read()
 	{
 		int[] registers = new int[4];
-		ExecuteCode executeCode = new ExecuteCode(getCode());
+		ExecuteCode executeCode = new ExecuteCode(getCode(), getFile());
 		registers = executeCode.readRegisters();
 		return registers;
 	}

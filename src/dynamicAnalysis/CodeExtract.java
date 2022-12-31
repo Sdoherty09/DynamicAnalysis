@@ -102,10 +102,10 @@ public class CodeExtract {
 	   return code;
 	}
 	
-	public void execute(byte code)
+	public Process execute(byte code, File file)
 	{
-		ExecuteCode executeCode = new ExecuteCode(code);
-		executeCode.execute();
+		ExecuteCode executeCode = new ExecuteCode(code, file);
+		return executeCode.execute();
 	}
 	
 	public File getFile() {

@@ -25,6 +25,9 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class Window {
 
@@ -32,6 +35,7 @@ public class Window {
 	private Table table;
 	private Table table_1;
 	private Table table_2;
+	private String filePath;
 	public static void main(String[] args) {
 		try {
 			Window window = new Window();
@@ -58,9 +62,9 @@ public class Window {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(1045, 735);
+		shell.setSize(958, 520);
 		shell.setText("SWT Application");
-		shell.setLayout(new GridLayout(18, false));
+		shell.setLayout(new GridLayout(9, false));
 		
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
@@ -81,6 +85,44 @@ public class Window {
 		mntmHelp.setText("Help");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
+		Button btnRun = new Button(shell, SWT.NONE);
+		TableItem tableItems[] = new TableItem[4];
+		
+		btnRun.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				try
+				{
+					ProcessManager process = new ProcessManager(new File(filePath));
+					tableItems[2].setText(1, process.getName());
+					tableItems[3].setText(1, process.getPidAsString());
+					String[] DLLs = process.getDLLs();
+					table_2.clearAll();
+	                table_2.setItemCount(0);
+	                for(int index=0;index<DLLs.length;index++)
+	                {
+	                	TableItem tableItem = new TableItem(table_2, SWT.NULL);
+	                	tableItem.setText(DLLs[index]);
+	                } 
+				}
+				catch(NullPointerException e1) {}
+			}
+		});
+		btnRun.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		btnRun.setText("Run");
+
+		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
+		mntmOpen.setText("Open");
+		
+		
+		
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
 		Label lblCode = new Label(shell, SWT.NONE);
@@ -88,9 +130,6 @@ public class Window {
 		lblCode.setAlignment(SWT.RIGHT);
 		lblCode.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblCode.setText("Code");
-
-		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
-		mntmOpen.setText("Open");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
@@ -103,14 +142,6 @@ public class Window {
 		lblDetails.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblDetails.setAlignment(SWT.CENTER);
 		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
 		
 		Label lblDllImports = new Label(shell, SWT.NONE);
 		lblDllImports.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
@@ -122,7 +153,7 @@ public class Window {
 		
 		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
 		table = tableViewer.getTable();
-		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1);
+		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
 		gd_table.widthHint = 121;
 		gd_table.heightHint = 349;
 		table.setLayoutData(gd_table);
@@ -132,38 +163,36 @@ public class Window {
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		GridData gd_table_1 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_table_1.widthHint = 223;
+		gd_table_1.widthHint = 316;
 		table_1.setLayoutData(gd_table_1);
 		table_1.setHeaderVisible(true);
 		table_1.setLinesVisible(true);
 		
 		TableColumn tblclmnNewColumn = new TableColumn(table_1, SWT.CENTER);
-		tblclmnNewColumn.setWidth(120);
+		tblclmnNewColumn.setWidth(160);
 		tblclmnNewColumn.setText("Labels");
 		
-		TableColumn tblclmnNewColumn_1 = new TableColumn(table_1, SWT.CENTER);
-		tblclmnNewColumn_1.setWidth(120);
+		TableColumn tblclmnNewColumn_1 = new TableColumn(table_1, SWT.CENTER | SWT.V_SCROLL);
+		tblclmnNewColumn_1.setWidth(170);
 		tblclmnNewColumn_1.setText("Values");
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table_2.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 5, 1));
+		GridData gd_table_2 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_table_2.widthHint = 200;
+		table_2.setLayoutData(gd_table_2);
 		table_2.setHeaderVisible(true);
 		table_2.setLinesVisible(true);
 		
-		
-		
-		TableItem tableItems[] = new TableItem[2];
 		for(int index = 0;index<tableItems.length;index++)
 		{
 			tableItems[index] = new TableItem(table_1, SWT.NONE);
 		}
-		tableItems[0].setText(0, "Name");
-		tableItems[1].setText(0, "PID");
+		tableItems[0].setText(0, "Directory");
+		tableItems[1].setText(0, "Version");
+		tableItems[2].setText(0, "Name");		
+		tableItems[3].setText(0, "PID");
+		
 		
 		mntmOpen.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
@@ -172,28 +201,37 @@ public class Window {
                         "*.exe",
                     };
                     fileDialog.setFilterExtensions(files);
-                    String filePath = fileDialog.open();
-                    CodeExtract codeExtract = new CodeExtract(new File(filePath));
-                    String[] codeArr = codeExtract.getCodeArr();
-                    byte[] resources = codeExtract.getResources();
-                    ProcessManager process = new ProcessManager(new File(filePath));
-                    tableItems[0].setText(1, process.getName());
-                    tableItems[1].setText(1, process.getPidAsString());
-                    String[] DLLs = process.getDLLs();
-                    table.clearAll();
-                    table.setItemCount(0);
-                    for(int index=0;index<codeArr.length;index++)
+                    filePath = fileDialog.open();
+                    try
                     {
-                    	TableItem tableItem = new TableItem(table, SWT.NULL);
-                    	tableItem.setText(codeArr[index]);
+                    	CodeExtract codeExtract = new CodeExtract(new File(filePath));
+                        String[] codeArr = codeExtract.getCodeArr();
+                        byte[] resources = codeExtract.getResources();
+                        
+                        tableItems[0].setText(1, filePath);
+                        
+                        if(codeExtract.getPeFile().isX32())
+                        {
+                        	tableItems[1].setText(1, "32-bit");
+                        }
+                        else
+                        {
+                        	tableItems[1].setText(1, "64-bit");
+                        }
+                        
+                        table.clearAll();
+                        table.setItemCount(0);
+                        for(int index=0;index<codeArr.length;index++)
+                        {
+                        	TableItem tableItem = new TableItem(table, SWT.NULL);
+                        	tableItem.setText(codeArr[index]);
+                        }
+                        
                     }
-                    table_2.clearAll();
-                    table_2.setItemCount(0);
-                    for(int index=0;index<DLLs.length;index++)
+                    catch (NullPointerException e1)
                     {
-                    	TableItem tableItem = new TableItem(table_2, SWT.NULL);
-                    	tableItem.setText(DLLs[index]);
-                    } 
+                    	e1.printStackTrace();
+                    }
             }
 		});
 	}

@@ -102,11 +102,11 @@ public class CodeExtract {
 	   return code;
 	}
 	
-	public Process execute(byte code, File file)
+	/*public Process execute(byte code, File file)
 	{
 		ExecuteCode executeCode = new ExecuteCode(code, file);
 		return executeCode.execute();
-	}
+	}*/
 	
 	public File getFile() {
 		return file;
@@ -128,6 +128,16 @@ public class CodeExtract {
 		return codeArr;
 	}
 	
+	public PEFile getPeFile()
+	{
+		return peFile;
+	}
+
+	public void setPeFile(PEFile peFile)
+	{
+		this.peFile = peFile;
+	}
+
 	@Override
 	public String toString() {
 		return "CodeExtract [file=" + file + ", resources=" + Arrays.toString(resources) + ", code=" + code + "]";

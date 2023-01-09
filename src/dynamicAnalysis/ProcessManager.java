@@ -8,12 +8,16 @@ public class ProcessManager
 	private File file;
 	private Process process;
 	private CommandLine commandLine;
+	private String name;
+	private String[] dlls;
 	
 	public ProcessManager(File file)
 	{
 		setFile(file);
 		createProcess();
 		commandLine = new CommandLine(getPid());
+		setName();
+		setDLLs();
 	}
 
 	public File getFile()
@@ -49,14 +53,12 @@ public class ProcessManager
 	{
 		return Long.toString(process.pid());
 	}
-	
-	public String getName()
+	private void setName()
 	{
-		String output = commandLine.runName();
-		output=output.substring(output.lastIndexOf("\"", output.indexOf(".exe"))+1, output.lastIndexOf("\"", output.indexOf(".exe")+4));
-		return output;
+		String name = commandLine.runName();
+		this.name = name.substring(name.lastIndexOf("\"", name.indexOf(".exe"))+1, name.lastIndexOf("\"", name.indexOf(".exe")+4));
 	}
-	public String[] getDLLs()
+	private void setDLLs()
 	{
 		String dllString = commandLine.runDLLs();
 		int count=0;
@@ -83,7 +85,15 @@ public class ProcessManager
 			index=dllString.indexOf('\n', index)+1;
 			dllIndex++;
 		}
-		return DLLs;
+		this.dlls = DLLs;
+	}
+	public String getName()
+	{
+		return this.name;
+	}
+	public String[] getDLLs()
+	{
+		return this.dlls;
 	}
 	
 }

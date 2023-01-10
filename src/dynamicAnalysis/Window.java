@@ -177,7 +177,7 @@ public class Window {
 		tblclmnNewColumn_1.setText("Values");
 		new Label(shell, SWT.NONE);
 		
-		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
 		GridData gd_table_2 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		gd_table_2.widthHint = 200;
 		table_2.setLayoutData(gd_table_2);

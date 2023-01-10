@@ -72,7 +72,6 @@ public class PEFile {
         	{
         		importAddress+=12;
         		stringAddress = ((bytes[importAddress] & 0xff) | (bytes[importAddress+1] & 0xff) << 8 | (bytes[importAddress+2] & 0xff) << 16 | (bytes[importAddress+3] & 0xff) << 24)+offset;
-        		System.out.println("string address: "+stringAddress);
         		/*while(bytes[stringAddress]!=0)
         		{
         			string+=bytes[stringAddress];

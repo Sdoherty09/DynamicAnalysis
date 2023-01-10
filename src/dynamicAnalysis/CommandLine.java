@@ -22,10 +22,12 @@ public class CommandLine
 		this.pid = pid;
 	}
 	
-	private String run(String command)
+	private String run(String command, boolean cmdCheck)
 	{
 		String response = "";
-		ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", command);
+		ProcessBuilder builder;
+		if(cmdCheck) builder = new ProcessBuilder("cmd.exe", "/c", command);
+		else builder = new ProcessBuilder("cmd.exe", "/c", "cd /d \""+System.getProperty("user.dir")+"\\lib\" && "+command);
 		builder.redirectErrorStream(true);
         Process p = null;
         try {
@@ -49,13 +51,14 @@ public class CommandLine
         return response;
 	}
 	
+	//replace with listdlls
 	public String runName()
 	{
-		return run("tasklist /fi \"pid eq "+getPid()+"\" /fo csv");
+		return run("tasklist /fi \"pid eq "+getPid()+"\" /fo csv", true);
 	}
 	
 	public String runDLLs()
 	{
-		return run("tasklist /m /fi \"pid eq "+getPid()+"\" /fo list");
+		return run("listdlls "+getPid(), false);
 	}
 }

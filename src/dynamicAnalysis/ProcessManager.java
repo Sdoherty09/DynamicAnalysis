@@ -62,7 +62,7 @@ public class ProcessManager
 	{
 		String dllString = commandLine.runDLLs();
 		int count=0;
-		for(int index=dllString.indexOf("Modules:")+8;index<dllString.length();index++)
+		for(int index=dllString.indexOf('\n', dllString.indexOf("Path")+5)+1;index<dllString.length();index++)
 		{
 			if(dllString.charAt(index)=='\n')
 			{
@@ -70,21 +70,23 @@ public class ProcessManager
 			}
 		}
 		String DLLs[] = new String[count];
-		int index=dllString.indexOf("Modules:")+8;
-		int dllIndex=0;
-		while(index<=dllString.length())
+		int index=dllString.indexOf('\n', dllString.indexOf("Path")+5)+1;
+		int dllIndex=0;		
+		while(count!=1)
 		{
 			try
 			{
-				DLLs[dllIndex]=dllString.substring(index, dllString.indexOf('\n', index)).replace(" ", "");
-			} catch(StringIndexOutOfBoundsException e)
+				DLLs[dllIndex]=dllString.substring(dllString.lastIndexOf(' ', dllString.indexOf('\n', index)), dllString.lastIndexOf('\n', dllString.indexOf('\n', index)));
+			} catch(StringIndexOutOfBoundsException | IllegalArgumentException e) //MAY BLOCK SOME DLLS
 			{
-				break;
+				DLLs[dllIndex] = "";
+				e.printStackTrace();
 			}
-			//System.out.println(dllString.substring(index, dllString.indexOf('\n', index)));
-			index=dllString.indexOf('\n', index)+1;
+			index=dllString.indexOf('\n', index+1);
 			dllIndex++;
+			count--;
 		}
+		DLLs[dllIndex]=dllString.substring(dllString.lastIndexOf(' '));
 		this.dlls = DLLs;
 	}
 	public String getName()

@@ -2,6 +2,7 @@ package dynamicAnalysis;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ProcessManager
 {
@@ -10,6 +11,7 @@ public class ProcessManager
 	private CommandLine commandLine;
 	private String name;
 	private String[] dlls;
+	private DllFile[] dllFiles;
 	
 	public ProcessManager(File file)
 	{
@@ -87,6 +89,11 @@ public class ProcessManager
 			count--;
 		}
 		DLLs[dllIndex]=dllString.substring(dllString.lastIndexOf(' '));
+		dllFiles = new DllFile[DLLs.length];
+		for(int j = 0;j<DLLs.length;j++)
+		{
+			dllFiles[j] = new DllFile(DLLs[j]);
+		}
 		this.dlls = DLLs;
 	}
 	public String getName()
@@ -96,6 +103,18 @@ public class ProcessManager
 	public String[] getDLLs()
 	{
 		return this.dlls;
+	}
+
+	public DllFile[] getDllFiles()
+	{
+		return dllFiles;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "ProcessManager [file=" + file + ", process=" + process + ", commandLine=" + commandLine + ", name="
+				+ name + ", dlls=" + Arrays.toString(dlls) + ", dllFiles=" + Arrays.toString(dllFiles) + "]";
 	}
 	
 }

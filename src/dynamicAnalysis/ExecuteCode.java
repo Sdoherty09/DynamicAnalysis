@@ -2,6 +2,7 @@ package dynamicAnalysis;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ExecuteCode {
 	private byte[] codes;
@@ -62,6 +63,12 @@ public class ExecuteCode {
 		ExecuteCode executeCode = new ExecuteCode(getCode(), getFile());
 		registers = executeCode.readRegisters();
 		return registers;
+	}
+	@Override
+	public String toString()
+	{
+		return "ExecuteCode [codes=" + Arrays.toString(codes) + ", code=" + code + ", isArr=" + isArr + ", file=" + file
+				+ "]";
 	}
 	
 }

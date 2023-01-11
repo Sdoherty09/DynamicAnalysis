@@ -88,4 +88,11 @@ public class PEFile {
             e.printStackTrace();
         }
 	}
+
+	@Override
+	public String toString()
+	{
+		return "PEFile [file=" + file + ", offset=" + offset + ", x32=" + x32 + "]";
+	}
+	
 }

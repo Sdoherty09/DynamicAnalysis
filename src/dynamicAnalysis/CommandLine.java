@@ -61,4 +61,11 @@ public class CommandLine
 	{
 		return run("listdlls "+getPid(), false);
 	}
+
+	@Override
+	public String toString()
+	{
+		return "CommandLine [pid=" + pid + "]";
+	}
+	
 }

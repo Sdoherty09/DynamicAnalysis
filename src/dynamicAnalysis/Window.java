@@ -62,9 +62,11 @@ public class Window {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(958, 520);
+		shell.setSize(881, 520);
 		shell.setText("SWT Application");
-		shell.setLayout(new GridLayout(9, false));
+		GridLayout gl_shell = new GridLayout(9, false);
+		gl_shell.marginBottom = 15;
+		shell.setLayout(gl_shell);
 		
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
@@ -85,10 +87,14 @@ public class Window {
 		mntmHelp.setText("Help");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
-		Button btnRun = new Button(shell, SWT.NONE);
 		TableItem tableItems[] = new TableItem[4];
+
+		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
+		mntmOpen.setText("Open");		
 		
-		btnRun.addSelectionListener(new SelectionAdapter() {
+		MenuItem mntmRun = new MenuItem(menu, SWT.NONE);
+		mntmRun.setText("Run");
+		mntmRun.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				try
@@ -108,14 +114,6 @@ public class Window {
 				catch(NullPointerException e1) {}
 			}
 		});
-		btnRun.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		btnRun.setText("Run");
-
-		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
-		mntmOpen.setText("Open");
-		
-		
-		
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
@@ -126,7 +124,7 @@ public class Window {
 		new Label(shell, SWT.NONE);
 		
 		Label lblCode = new Label(shell, SWT.NONE);
-		lblCode.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		lblCode.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
 		lblCode.setAlignment(SWT.RIGHT);
 		lblCode.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblCode.setText("Code");
@@ -135,7 +133,7 @@ public class Window {
 		new Label(shell, SWT.NONE);
 		
 		Label lblDetails = new Label(shell, SWT.NONE);
-		GridData gd_lblDetails = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
+		GridData gd_lblDetails = new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1);
 		gd_lblDetails.widthHint = 82;
 		lblDetails.setLayoutData(gd_lblDetails);
 		lblDetails.setText("Details");
@@ -144,7 +142,7 @@ public class Window {
 		new Label(shell, SWT.NONE);
 		
 		Label lblDllImports = new Label(shell, SWT.NONE);
-		lblDllImports.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		lblDllImports.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
 		lblDllImports.setText("DLL Imports");
 		lblDllImports.setFont(SWTResourceManager.getFont("Segoe UI", 11, SWT.BOLD));
 		lblDllImports.setAlignment(SWT.CENTER);
@@ -153,16 +151,16 @@ public class Window {
 		
 		TableViewer tableViewer = new TableViewer(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
 		table = tableViewer.getTable();
-		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
+		GridData gd_table = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		gd_table.widthHint = 121;
-		gd_table.heightHint = 349;
+		gd_table.heightHint = 313;
 		table.setLayoutData(gd_table);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
 		table_1 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		GridData gd_table_1 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_table_1 = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_table_1.widthHint = 316;
 		table_1.setLayoutData(gd_table_1);
 		table_1.setHeaderVisible(true);
@@ -178,7 +176,7 @@ public class Window {
 		new Label(shell, SWT.NONE);
 		
 		table_2 = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.V_SCROLL);
-		GridData gd_table_2 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_table_2 = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
 		gd_table_2.widthHint = 200;
 		table_2.setLayoutData(gd_table_2);
 		table_2.setHeaderVisible(true);
@@ -221,6 +219,7 @@ public class Window {
                         
                         table.clearAll();
                         table.setItemCount(0);
+                        table_2.clearAll();
                         for(int index=0;index<codeArr.length;index++)
                         {
                         	TableItem tableItem = new TableItem(table, SWT.NULL);

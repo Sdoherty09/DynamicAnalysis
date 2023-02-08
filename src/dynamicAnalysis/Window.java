@@ -15,7 +15,11 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
+
+import javax.swing.JFrame;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.layout.GridLayout;
@@ -60,6 +64,10 @@ public class Window {
 		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
 		shell.setSize(881, 520);
 		shell.setText("SWT Application");
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		shell.setLocation((dim.width/2)-400,(dim.height/2)-200);
+		
 		GridLayout gl_shell = new GridLayout(9, false);
 		gl_shell.marginBottom = 15;
 		shell.setLayout(gl_shell);

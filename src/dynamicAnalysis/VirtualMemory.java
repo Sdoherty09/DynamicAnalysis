@@ -1,12 +1,14 @@
 package dynamicAnalysis;
 
+import java.io.File;
+
 public class VirtualMemory
 {
 	private int processId;
 
-	static {System.loadLibrary("memory");}
+	static {System.load(getFile("memory.dll"));}
 	
-	private native char[] scanProcess(int processId);
+	private native byte[] scanProcess(int processId);
 	
 	public VirtualMemory(int processId)
 	{
@@ -28,7 +30,7 @@ public class VirtualMemory
 		return System.getProperty("user.dir")+"\\src\\dynamicAnalysis\\"+fileName;
 	}
 	
-	public char[] readMemory()
+	public byte[] readMemory()
 	{
 		VirtualMemory virtualMemory = new VirtualMemory(getProcessId());
 		return virtualMemory.scanProcess(getProcessId());

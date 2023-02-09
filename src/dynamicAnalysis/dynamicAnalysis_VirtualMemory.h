@@ -10,9 +10,9 @@ extern "C" {
 /*
  * Class:     dynamicAnalysis_VirtualMemory
  * Method:    scanProcess
- * Signature: (I)[C
+ * Signature: (I)[B
  */
-JNIEXPORT jcharArray JNICALL Java_dynamicAnalysis_VirtualMemory_scanProcess
+JNIEXPORT jbyteArray JNICALL Java_dynamicAnalysis_VirtualMemory_scanProcess
   (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus

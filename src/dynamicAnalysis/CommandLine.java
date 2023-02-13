@@ -12,6 +12,11 @@ public class CommandLine
 		setPid(pid);
 	}
 
+	public CommandLine()
+	{
+		
+	}
+	
 	public long getPid()
 	{
 		return pid;
@@ -61,7 +66,12 @@ public class CommandLine
 	{
 		return run("listdlls "+getPid(), false);
 	}
-
+	
+	public String getAll()
+	{
+		return run("tasklist /fo csv", true);
+	}
+	
 	@Override
 	public String toString()
 	{

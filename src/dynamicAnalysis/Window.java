@@ -2,7 +2,6 @@ package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
@@ -18,8 +17,6 @@ import org.eclipse.swt.widgets.TableItem;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
-
-import javax.swing.JFrame;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.layout.GridLayout;
@@ -100,8 +97,6 @@ public class Window {
 		shell.setSize(881, 520);
 		shell.setText("Dynamic Malware Analysis");
 		
-		
-		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		shell.setLocation((dim.width/2)-400,(dim.height/2)-200);
 		
@@ -135,7 +130,8 @@ public class Window {
             	System.out.println(tableItems[3].getText(1));
             	try
             	{
-            		MemoryWindow memoryWindow = new MemoryWindow(Integer.parseInt(tableItems[3].getText(1)));
+            		MemoryWindow memoryWindow = new MemoryWindow(Integer.parseInt(tableItems[3].getText(1)), shell.getLocation().x, shell.getLocation().y);
+            		memoryWindow.open();
             	}
             	catch(NumberFormatException e1)
             	{
@@ -268,7 +264,8 @@ public class Window {
 		
 		mntmOpen.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
-            	SelectFile selectFile = new SelectFile();
+            	SelectFile selectFile = new SelectFile(shell.getLocation().x, shell.getLocation().y);
+            	code.clearAll();
             	filePath = selectFile.getText();
             	try
             	{
@@ -288,9 +285,7 @@ public class Window {
                         else
                         {
                         	tableItems[1].setText(1, "64-bit");
-                        }
-                        
-                        code.clearAll();
+                        }               
                         code.setItemCount(0);
                         dllImports.clearAll();
                         for(int index=0;index<codeArr.length;index++)

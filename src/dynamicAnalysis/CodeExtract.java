@@ -57,7 +57,8 @@ public class CodeExtract {
 	private Capstone.CsInsn[] loadCapstone(byte[] resources)
 	{
 		file = new File(file.getAbsolutePath());
-        byte[] bytes = null;
+        @SuppressWarnings("unused")
+		byte[] bytes = null;
         try {
             bytes = Files.readAllBytes(Paths.get(file.toString()));
         } catch (IOException | NullPointerException e) {

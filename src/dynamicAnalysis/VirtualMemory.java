@@ -27,6 +27,8 @@ public class VirtualMemory
 	
 	private static String getFile(String fileName)
 	{
+		/*File file = new File(".\\"+fileName);
+		return file.getAbsolutePath();*/ //JAR release
 		return System.getProperty("user.dir")+"\\src\\dynamicAnalysis\\"+fileName;
 	}
 	

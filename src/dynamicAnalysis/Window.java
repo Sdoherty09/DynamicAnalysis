@@ -15,7 +15,11 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
+
+import javax.swing.JFrame;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.layout.GridLayout;
@@ -24,6 +28,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import javax.sound.sampled.*;
+
 public class Window {
 
 	protected Shell shell;
@@ -31,6 +37,8 @@ public class Window {
 	private Table details;
 	private Table dllImports;
 	private String filePath;
+	static TableItem tableItems[] = new TableItem[4];
+	
 	public static void main(String[] args) {
 		try {
 			Window window = new Window();
@@ -52,6 +60,37 @@ public class Window {
 		}
 	}
 
+	public static float SAMPLE_RATE = 8000f;
+	
+	public void tone(int hz, int msecs) throws LineUnavailableException 
+	  {
+	     tone(hz, msecs, 1.0);
+	  }
+
+	  public static void tone(int hz, int msecs, double vol)
+	      throws LineUnavailableException 
+	  {
+	    byte[] buf = new byte[1];
+	    AudioFormat af = 
+	        new AudioFormat(
+	            SAMPLE_RATE, // sampleRate
+	            8,           // sampleSizeInBits
+	            1,           // channels
+	            true,        // signed
+	            false);      // bigEndian
+	    SourceDataLine sdl = AudioSystem.getSourceDataLine(af);
+	    sdl.open(af);
+	    sdl.start();
+	    for (int i=0; i < msecs*8; i++) {
+	      double angle = i / (SAMPLE_RATE / hz) * 2.0 * Math.PI;
+	      buf[0] = (byte)(Math.sin(angle) * 127.0 * vol);
+	      sdl.write(buf,0,1);
+	    }
+	    sdl.drain();
+	    sdl.stop();
+	    sdl.close();
+	  }
+	
 	/**
 	 * Create contents of the window.
 	 */
@@ -59,7 +98,13 @@ public class Window {
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
 		shell.setSize(881, 520);
-		shell.setText("SWT Application");
+		shell.setText("Dynamic Malware Analysis");
+		
+		
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		shell.setLocation((dim.width/2)-400,(dim.height/2)-200);
+		
 		GridLayout gl_shell = new GridLayout(9, false);
 		gl_shell.marginBottom = 15;
 		shell.setLayout(gl_shell);
@@ -76,15 +121,34 @@ public class Window {
 		MenuItem mntmEdit = new MenuItem(menu, SWT.NONE);
 		mntmEdit.setText("Edit");
 		
-		MenuItem mntmView = new MenuItem(menu, SWT.NONE);
+		MenuItem mntmView = new MenuItem(menu, SWT.CASCADE);
 		mntmView.setText("View");
+		
+		Menu menu_2 = new Menu(mntmView);
+		mntmView.setMenu(menu_2);
+		
+		MenuItem mntmVirtualMemory = new MenuItem(menu_2, SWT.NONE);
+		mntmVirtualMemory.setText("Virtual Memory");
+		
+		mntmVirtualMemory.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event e) {
+            	System.out.println(tableItems[3].getText(1));
+            	try
+            	{
+            		MemoryWindow memoryWindow = new MemoryWindow(Integer.parseInt(tableItems[3].getText(1)));
+            	}
+            	catch(NumberFormatException e1)
+            	{
+            		Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            	}
+            }
+		});
 		
 		MenuItem mntmHelp = new MenuItem(menu, SWT.NONE);
 		mntmHelp.setText("Help");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
-		TableItem tableItems[] = new TableItem[4];
-
+		
 		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
 		mntmOpen.setText("Open");		
 		
@@ -204,51 +268,43 @@ public class Window {
 		
 		mntmOpen.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
-            	FileDialog fileDialog = new FileDialog(shell, SWT.MULTI);
-            	String[] files = {
-                        "*.exe",
-                    };
-                    fileDialog.setFilterExtensions(files);
-                    filePath = fileDialog.open();
-                    tableItems[0].setText(1, filePath);
-                   /* new Thread(new Runnable()
+            	SelectFile selectFile = new SelectFile();
+            	filePath = selectFile.getText();
+            	try
+            	{
+            		tableItems[0].setText(1, filePath);
+                	try
                     {
-                        @Override
-                        public void run()
-                        {*/
-                        	try
-                            {
-                            	CodeExtract codeExtract = new CodeExtract(new File(filePath));
-                                String[] codeArr = codeExtract.getCodeArr();
-                               // byte[] resources = codeExtract.getResources();
-                                
-                                
-                                
-                                if(codeExtract.getPeFile().isX32())
-                                {
-                                	tableItems[1].setText(1, "32-bit");
-                                }
-                                else
-                                {
-                                	tableItems[1].setText(1, "64-bit");
-                                }
-                                
-                                code.clearAll();
-                                code.setItemCount(0);
-                                dllImports.clearAll();
-                                for(int index=0;index<codeArr.length;index++)
-                                {
-                                	TableItem tableItem = new TableItem(code, SWT.NULL);
-                                	tableItem.setText(codeArr[index]);
-                                }
-                                
-                            }
-                            catch (NullPointerException e1)
-                            {
-                            	System.out.println("Explorer closed");
-                            }
-                       /* }
-                    }).start();*/
+                    	CodeExtract codeExtract = new CodeExtract(new File(filePath));
+                        String[] codeArr = codeExtract.getCodeArr();
+                       // byte[] resources = codeExtract.getResources();
+                        
+                        
+                        
+                        if(codeExtract.getPeFile().isX32())
+                        {
+                        	tableItems[1].setText(1, "32-bit");
+                        }
+                        else
+                        {
+                        	tableItems[1].setText(1, "64-bit");
+                        }
+                        
+                        code.clearAll();
+                        code.setItemCount(0);
+                        dllImports.clearAll();
+                        for(int index=0;index<codeArr.length;index++)
+                        {
+                        	TableItem tableItem = new TableItem(code, SWT.NULL);
+                        	tableItem.setText(codeArr[index]);
+                        }
+                        
+                    }
+                    catch (NullPointerException e1) {}
+            	}
+                catch (IllegalArgumentException e1) {}
+               /* }
+            }).start();*/
             }
 		});
 	}

@@ -24,6 +24,7 @@ public class SelectFile
 	private int x;
 	private int y;
 	private boolean pidMode = false;
+	private int pid;
 	/**
 	 * Launch the application.
 	 * @param args
@@ -84,8 +85,16 @@ public class SelectFile
 		btnOk.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				filePath = text.getText();
-				shell.dispose();
+				if(!isPidMode())
+				{
+					filePath = text.getText();
+					shell.dispose();
+				}
+				else
+				{
+					setPid(Integer.parseInt(text.getText()));
+					shell.dispose();
+				}
 			}
 		});
 		btnOk.setBounds(315, 105, 46, 25);
@@ -95,7 +104,7 @@ public class SelectFile
 		btnSelectFile.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(!pidMode)
+				if(!isPidMode())
 				{
 					FileDialog fileDialog = new FileDialog(shell, SWT.MULTI);
 	            	String[] files = {
@@ -106,10 +115,10 @@ public class SelectFile
 				}
 				else
 				{
-					System.out.println("running here");
 					CommandLine commandLine = new CommandLine();
 					String output = commandLine.getAll();
 					int breakCount = 0;
+					
 					for(int index = 0;index<output.length();index++)
 					{
 						if(output.charAt(index)=='\n')
@@ -117,18 +126,28 @@ public class SelectFile
 							breakCount++;
 						}
 					}
-					String[] names = new String[breakCount-1];
-					int[] pids = new int[breakCount-1];
+					
+					String[] names = new String[breakCount-2];
+					int[] pids = new int[breakCount-2];
 					int outputIndex = output.indexOf('\n');
 					int arrayIndex = 0;
 					while(outputIndex <= output.length())
 					{
-						names[arrayIndex]=output.substring(outputIndex+1, output.indexOf('\"', outputIndex+1));
-						pids[arrayIndex]=Integer.parseInt(output.substring(output.indexOf(',', outputIndex), output.indexOf('"', output.indexOf(',', outputIndex)+2)));
-						outputIndex=output.indexOf('\n', outputIndex);
+						try
+						{
+							names[arrayIndex]=output.substring(outputIndex+2, output.indexOf('\"', outputIndex+2));
+							pids[arrayIndex]=Integer.parseInt(output.substring(output.indexOf(',', outputIndex)+2, output.indexOf('\"', output.indexOf(',', outputIndex)+2))); //stuck here
+							outputIndex=output.indexOf('\n', outputIndex+1);
+						}
+						catch(ArrayIndexOutOfBoundsException e1)
+						{
+							break;
+						}
+						arrayIndex++;
 					}
-					SelectProcess2 selectProcess = new SelectProcess2(shell.getDisplay(), names, pids);
+					SelectProcess selectProcess = new SelectProcess(names, pids);
 					selectProcess.open();
+					text.setText(Integer.toString(selectProcess.getPid()));
 				}
 			}
 		});
@@ -144,9 +163,9 @@ public class SelectFile
 		btnEnterPid.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(!pidMode)
+				if(!isPidMode())
 				{
-					pidMode = true;
+					setPidMode(true);
 					lblFileLocation.setText("Process ID");
 					btnEnterPid.setText("Enter File Location");
 					btnSelectFile.setText("Select Process");
@@ -156,7 +175,7 @@ public class SelectFile
 				}
 				else
 				{
-					pidMode = false;
+					setPidMode(false);
 					lblFileLocation.setText("File Location");
 					btnEnterPid.setText("Enter PID");
 					btnSelectFile.setText("Select File");
@@ -191,11 +210,32 @@ public class SelectFile
 	{
 		this.y = y;
 	}
+	
+	public boolean isPidMode()
+	{
+		return pidMode;
+	}
+
+	public void setPidMode(boolean pidMode)
+	{
+		this.pidMode = pidMode;
+	}
 
 	public String getText()
 	{
 		return filePath;
 	}
+
+	public int getPid()
+	{
+		return pid;
+	}
+
+	public void setPid(int pid)
+	{
+		this.pid = pid;
+	}
+	
 }
 
 

@@ -266,38 +266,55 @@ public class Window {
             public void handleEvent(Event e) {
             	SelectFile selectFile = new SelectFile(shell.getLocation().x, shell.getLocation().y);
             	code.clearAll();
-            	filePath = selectFile.getText();
-            	try
+            	if(!selectFile.isPidMode())
             	{
-            		tableItems[0].setText(1, filePath);
+            		filePath = selectFile.getText();
                 	try
-                    {
-                    	CodeExtract codeExtract = new CodeExtract(new File(filePath));
-                        String[] codeArr = codeExtract.getCodeArr();
-                       // byte[] resources = codeExtract.getResources();
-                        
-                        
-                        
-                        if(codeExtract.getPeFile().isX32())
+                	{
+                		tableItems[0].setText(1, filePath);
+                    	try
                         {
-                        	tableItems[1].setText(1, "32-bit");
+                        	CodeExtract codeExtract = new CodeExtract(new File(filePath));
+                            String[] codeArr = codeExtract.getCodeArr();
+                           // byte[] resources = codeExtract.getResources();
+                            if(codeExtract.getPeFile().isX32())
+                            {
+                            	tableItems[1].setText(1, "32-bit");
+                            }
+                            else
+                            {
+                            	tableItems[1].setText(1, "64-bit");
+                            }               
+                            code.setItemCount(0);
+                            dllImports.clearAll();
+                            for(int index=0;index<codeArr.length;index++)
+                            {
+                            	TableItem tableItem = new TableItem(code, SWT.NULL);
+                            	tableItem.setText(codeArr[index]);
+                            }
+                            tableItems[0].setGrayed(false);
+        	                tableItems[1].setGrayed(false);
                         }
-                        else
-                        {
-                        	tableItems[1].setText(1, "64-bit");
-                        }               
-                        code.setItemCount(0);
-                        dllImports.clearAll();
-                        for(int index=0;index<codeArr.length;index++)
-                        {
-                        	TableItem tableItem = new TableItem(code, SWT.NULL);
-                        	tableItem.setText(codeArr[index]);
-                        }
-                        
-                    }
-                    catch (NullPointerException e1) {}
+                        catch (NullPointerException e1) {}
+                	}
+                    catch (IllegalArgumentException e1) {}
             	}
-                catch (IllegalArgumentException e1) {}
+            	else
+            	{
+            		ProcessManager process = new ProcessManager(selectFile.getPid());
+					tableItems[2].setText(1, process.getName());
+					tableItems[3].setText(1, Integer.toString(selectFile.getPid()));
+					String[] DLLs = process.getDLLs();
+					dllImports.clearAll();
+	                dllImports.setItemCount(0);
+	                for(int index=0;index<DLLs.length;index++)
+	                {
+	                	TableItem tableItem = new TableItem(dllImports, SWT.NULL);
+	                	tableItem.setText(DLLs[index]);
+	                } 
+	                tableItems[0].setGrayed(true);
+	                tableItems[1].setGrayed(true);
+            	}
                /* }
             }).start();*/
             }

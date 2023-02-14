@@ -120,7 +120,7 @@ public class MemoryWindow
 		String output = "";
 		int sizeIndex = 0;
 		int index = 0;
-		while(sizeIndex!=100000)
+		while(sizeIndex!=10000)
 		{
 			try
 			{
@@ -201,6 +201,7 @@ public class MemoryWindow
 		gd_text.widthHint = 399;
 		text.setLayoutData(gd_text);
 		
+		updateMemory();
 		text.setText(updateMemory());
 		txtLength.setText("Length: "+getBytes().length);
 		

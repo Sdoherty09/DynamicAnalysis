@@ -22,6 +22,13 @@ public class ProcessManager
 		setDLLs();
 	}
 
+	public ProcessManager(int pid)
+	{
+		commandLine = new CommandLine(pid);
+		setName();
+		setDLLs();
+	}
+	
 	public File getFile()
 	{
 		return file;

@@ -28,8 +28,12 @@ public class MemoryWindow
 	private int x;
 	private int y;
 	private Table asciiTable;
-	
-	/*public static void main(String[] args)
+	private Button btnNewButton;
+	private Text searchText;
+	private TableItem[] tableStore = null;
+	private TableItem[] tableItems;
+	/*
+	public static void main(String[] args)
 	{
 		MemoryWindow memoryWindow = new MemoryWindow();
 		memoryWindow.open();
@@ -170,11 +174,24 @@ public class MemoryWindow
 		return character>=32&&character<=126;
 	}
 	
+	private String[] search(String[] entries, String toSearch)
+	{
+		ArrayList<String> filtered = new ArrayList<String>();
+		for(int index = 0; index < entries.length; index++)
+		{
+			if(entries[index].toLowerCase().contains(toSearch.toLowerCase()))
+			{
+				filtered.add(entries[index]);
+			}
+		}
+		return filtered.toArray(new String[0]);
+	}
+	
 	protected void createContents()
 	{
 		shell = new Shell();
-		shell.setSize(673, 432);
-		shell.setLayout(new GridLayout(3, false));
+		shell.setSize(865, 432);
+		shell.setLayout(new GridLayout(5, false));
 		shell.setLocation(x+490/2, y+342/2);
 		
 		Button btnUpdate = new Button(shell, SWT.NONE);
@@ -190,6 +207,8 @@ public class MemoryWindow
 		txtLength = new Text(shell, SWT.BORDER);
 		txtLength.setText("Length: ");
 		txtLength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		new Label(shell, SWT.NONE);
+		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
 		new Label(shell, SWT.NONE);
@@ -212,15 +231,53 @@ public class MemoryWindow
 		asciiTable.setHeaderVisible(true);
 		asciiTable.setLinesVisible(true);
 		String[] asciiSections = findAsciiSections();
-		TableItem[] tableItems = new TableItem[asciiSections.length];
+		tableItems = new TableItem[asciiSections.length];
 		for(int index=0;index<asciiSections.length;index++)
 		{
 			tableItems[index] = new TableItem(asciiTable, SWT.NULL);
 			tableItems[index].setText(asciiSections[index]);
 		}
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
-		new Label(shell, SWT.NONE);
+		
+		searchText = new Text(shell, SWT.BORDER);
+		GridData gd_searchText = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
+		gd_searchText.widthHint = 70;
+		searchText.setLayoutData(gd_searchText);
+
+		btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(searchText.getText()=="")
+				{
+					asciiTable.setItemCount(0);
+					for(int index=0;index<asciiSections.length;index++)
+					{
+						tableItems = new TableItem[asciiSections.length];
+						tableItems[index]=new TableItem(asciiTable, SWT.NULL);
+						tableItems[index].setText(asciiSections[index]);
+					}
+				}
+				else
+				{
+					if(tableStore==null)
+					{
+						tableStore = tableItems;
+					}
+					String[] filtered = search(asciiSections, searchText.getText());
+					asciiTable.setItemCount(0);
+					tableItems = new TableItem[filtered.length];
+					for(int index=0;index<filtered.length;index++)
+					{
+						tableItems[index]=new TableItem(asciiTable, SWT.NULL);
+						tableItems[index].setText(filtered[index]);
+					}
+				}
+			}
+		});
+		GridData gd_btnNewButton = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+		gd_btnNewButton.widthHint = 62;
+		btnNewButton.setLayoutData(gd_btnNewButton);
+		btnNewButton.setText("Search");
 		
 		
 		//VirtualMemory virtualMemory = new VirtualMemory(pr)

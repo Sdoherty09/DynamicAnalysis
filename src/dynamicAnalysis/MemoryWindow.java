@@ -151,7 +151,7 @@ public class MemoryWindow
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
-			if(asciiSections.size()>=6000)
+			if(asciiSections.size()>=200000)
 			{
 				break;
 			}
@@ -179,10 +179,28 @@ public class MemoryWindow
 		ArrayList<String> filtered = new ArrayList<String>();
 		for(int index = 0; index < entries.length; index++)
 		{
-			if(entries[index].toLowerCase().contains(toSearch.toLowerCase()))
+			if(toSearch.endsWith("*"))
 			{
-				filtered.add(entries[index]);
+				if(entries[index].toLowerCase().startsWith(toSearch.toLowerCase().substring(0, toSearch.length()-1)))
+				{
+					filtered.add(entries[index]);
+				}
 			}
+			else if(toSearch.startsWith("*"))
+			{
+				if(entries[index].toLowerCase().endsWith(toSearch.toLowerCase().substring(1)))
+				{
+					filtered.add(entries[index]);
+				}
+			}
+			else
+			{
+				if(entries[index].toLowerCase().contains(toSearch.toLowerCase()))
+				{
+					filtered.add(entries[index]);
+				}
+			}
+			
 		}
 		return filtered.toArray(new String[0]);
 	}
@@ -234,6 +252,10 @@ public class MemoryWindow
 		tableItems = new TableItem[asciiSections.length];
 		for(int index=0;index<asciiSections.length;index++)
 		{
+			if(index>6000)
+			{
+				break;
+			}
 			tableItems[index] = new TableItem(asciiTable, SWT.NULL);
 			tableItems[index].setText(asciiSections[index]);
 		}
@@ -252,6 +274,10 @@ public class MemoryWindow
 					asciiTable.setItemCount(0);
 					for(int index=0;index<asciiSections.length;index++)
 					{
+						if(index>6000)
+						{
+							break;
+						}
 						tableItems = new TableItem[asciiSections.length];
 						tableItems[index]=new TableItem(asciiTable, SWT.NULL);
 						tableItems[index].setText(asciiSections[index]);

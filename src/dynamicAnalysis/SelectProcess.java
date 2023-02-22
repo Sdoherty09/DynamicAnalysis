@@ -23,6 +23,8 @@ public class SelectProcess
 	private String[] names;
 	private int[] pids;
 	private int pid;
+	private int x;
+	private int y;
 
 	/*
 	public static void main(String[] args)
@@ -36,10 +38,12 @@ public class SelectProcess
 	 * @param args
 	 */
 	
-	public SelectProcess(String[] names, int[] pids)
+	public SelectProcess(String[] names, int[] pids, int x, int y)
 	{
 		setNames(names);
 		setPids(pids);
+		setX(x);
+		setY(y);
 	}
 
 	/**
@@ -90,6 +94,26 @@ public class SelectProcess
 	{
 		this.pid = pid;
 	}
+	
+	public int getX()
+	{
+		return x;
+	}
+
+	public void setX(int x)
+	{
+		this.x = x;
+	}
+
+	public int getY()
+	{
+		return y;
+	}
+
+	public void setY(int y)
+	{
+		this.y = y;
+	}
 
 	/**
 	 * Create contents of the window.
@@ -103,7 +127,7 @@ public class SelectProcess
 			shell.setSize(450, 300);
 			shell.setText("SWT Application");
 			shell.setLayout(new GridLayout(1, false));
-			
+			shell.setLocation(getX(), getY());
 			Button btnNewButton = new Button(shell, SWT.NONE);
 			
 			table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);

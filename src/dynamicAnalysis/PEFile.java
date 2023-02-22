@@ -47,6 +47,7 @@ public class PEFile {
         	else if (bytes[offset+1]==0x02) x32 = false;
         	else System.out.println("ERROR finding version");
         	int sizeOfCode = (bytes[offset+4] & 0xff) | (bytes[offset+5] & 0xff) << 8 | (bytes[offset+6] & 0xff) << 16 | (bytes[offset+7] & 0xff) << 24;
+        	System.out.println("size of code: "+sizeOfCode);
         	int imageBaseOffset = offset + 24;
         	int imageBase;
         	if(x32)

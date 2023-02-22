@@ -145,7 +145,7 @@ public class SelectFile
 						}
 						arrayIndex++;
 					}
-					SelectProcess selectProcess = new SelectProcess(names, pids);
+					SelectProcess selectProcess = new SelectProcess(names, pids, shell.getLocation().x, shell.getLocation().y);
 					selectProcess.open();
 					text.setText(Integer.toString(selectProcess.getPid()));
 				}

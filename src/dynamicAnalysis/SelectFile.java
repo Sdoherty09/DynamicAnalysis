@@ -23,23 +23,19 @@ public class SelectFile
 	private String filePath;
 	private int x;
 	private int y;
-	private boolean pidMode = false;
+	private boolean pidMode;
 	private int pid;
+	
 	/**
 	 * Launch the application.
 	 * @param args
 	 */
-	public SelectFile(int x, int y)
+	public SelectFile(int x, int y, boolean pidMode)
 	{
-		try
-		{
-			setX(x);
-			setY(y);
-			open();
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		setX(x);
+		setY(y);
+		setPidMode(pidMode);
+		open();
 	}
 
 	/**
@@ -73,7 +69,8 @@ public class SelectFile
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
 		shell.setSize(400, 180);
-		shell.setText("Choose a file");
+		if(isPidMode()) shell.setText("Choose a file");
+		else shell.setText("Choose a Process");
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		shell.setLocation(getX()+200,getY()+90);
 		
@@ -93,6 +90,7 @@ public class SelectFile
 				else
 				{
 					setPid(Integer.parseInt(text.getText()));
+					System.out.println("pid: "+getPid());
 					shell.dispose();
 				}
 			}
@@ -147,7 +145,8 @@ public class SelectFile
 					}
 					SelectProcess selectProcess = new SelectProcess(names, pids, shell.getLocation().x, shell.getLocation().y);
 					selectProcess.open();
-					text.setText(Integer.toString(selectProcess.getPid()));
+					if(selectProcess.getPid() == 0) text.setText("");
+					else text.setText(Integer.toString(selectProcess.getPid()));
 				}
 			}
 		});
@@ -159,7 +158,31 @@ public class SelectFile
 		lblFileLocation.setBounds(161, 17, 67, 15);
 		lblFileLocation.setText("File Location");
 		
+		if(isPidMode())
+		{
+			setPidMode(true);
+			lblFileLocation.setText("Process ID");
+			//btnEnterPid.setText("Enter File Location");
+			btnSelectFile.setText("Select Process");
+			//btnEnterPid.setBounds(116, 105, 103, 25);
+			btnSelectFile.setBounds(223, 105, 86, 25);
+			
+		}
+		else
+		{
+			setPidMode(false);
+			lblFileLocation.setText("File Location");
+			//btnEnterPid.setText("Enter PID");
+			btnSelectFile.setText("Select File");
+			lblFileLocation.setBounds(161, 17, 67, 15);
+			btnSelectFile.setBounds(235, 105, 74, 25);
+			//btnEnterPid.setBounds(162, 105, 67, 25);
+			
+		}
+		
 		Button btnEnterPid = new Button(shell, SWT.NONE);
+		btnEnterPid.setVisible(false);
+		btnEnterPid.setSelection(true);
 		btnEnterPid.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

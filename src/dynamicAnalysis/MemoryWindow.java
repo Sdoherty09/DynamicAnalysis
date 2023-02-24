@@ -118,10 +118,11 @@ public class MemoryWindow
 	}
 
 
-	private String updateMemory()
+	private synchronized String updateMemory(Text text)
 	{
 		byte[] chars = readMemory();
 		String output = "";
+		String update = "";
 		int sizeIndex = 0;
 		int index = 0;
 		while(sizeIndex!=10000)
@@ -137,7 +138,7 @@ public class MemoryWindow
 			}
 			catch(ArrayIndexOutOfBoundsException e)
 			{
-				MessageDialog.openError(shell, "Error", "Process was closed.");
+				//MessageDialog.openError(shell, "Error", "Process was closed.");
 				break;
 			}
 		}
@@ -145,7 +146,7 @@ public class MemoryWindow
 		return output;
 	}
 	
-	private String[] findAsciiSections()
+	private synchronized String[] findAsciiSections()
 	{
 		ArrayList<String> asciiSections = new ArrayList<String>();
 		String current="";
@@ -216,7 +217,7 @@ public class MemoryWindow
 		btnUpdate.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				updateMemory();
+				updateMemory(text);
 				txtLength.setText("Length: "+getBytes().length);
 			}
 		});
@@ -238,8 +239,8 @@ public class MemoryWindow
 		gd_text.widthHint = 399;
 		text.setLayoutData(gd_text);
 		
-		updateMemory();
-		text.setText(updateMemory());
+		updateMemory(text);
+		text.setText(updateMemory(text));
 		txtLength.setText("Length: "+getBytes().length);
 		
 		asciiTable = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);

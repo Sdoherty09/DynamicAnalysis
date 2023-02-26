@@ -28,8 +28,15 @@ public class CodeExtract {
 	public CodeExtract(File file) {
 		setFile(file);
 		resources = loadPE(getFile());
-		code = extract(getResources());
-		codeArr = extractArr(getResources());
+		try
+		{
+			code = extract(getResources());
+			codeArr = extractArr(getResources());
+		}
+		catch(RuntimeException e)
+		{
+			//TODO: handle wrong arch
+		}
 	}
 
 	private byte[] loadPE(File file)

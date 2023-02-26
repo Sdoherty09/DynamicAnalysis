@@ -16,6 +16,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.ProgressBar;
 
 public class MemoryWindow
 {
@@ -23,7 +24,7 @@ public class MemoryWindow
 	protected Shell shell;
 	private int processId;
 	private Text text;
-	private Text txtLength;
+	private Label txtLength;
 	private byte[] bytes;
 	private int x;
 	private int y;
@@ -32,13 +33,16 @@ public class MemoryWindow
 	private Text searchText;
 	private TableItem[] tableStore = null;
 	private TableItem[] tableItems;
+	private Button btnUpdate;
+	private GridData gd_asciiTable;
+	private ProgressBar progressBar;
+	
 	/*
 	public static void main(String[] args)
 	{
 		MemoryWindow memoryWindow = new MemoryWindow();
 		memoryWindow.open();
 	}*/
-	
 	public MemoryWindow(int processId, int x, int y)
 	{
 		try
@@ -87,8 +91,9 @@ public class MemoryWindow
 	public void open()
 	{
 		Display display = Display.getDefault();
-		createContents();
+		createBaseContents();
 		shell.open();
+		createContents();		
 		while (!shell.isDisposed())
 		{
 			if (!display.readAndDispatch())
@@ -118,8 +123,9 @@ public class MemoryWindow
 	}
 
 
-	private synchronized String updateMemory(Text text)
+	private String updateMemory(Text text)
 	{
+		long start = System.currentTimeMillis();
 		byte[] chars = readMemory();
 		String output = "";
 		String update = "";
@@ -143,19 +149,17 @@ public class MemoryWindow
 			}
 		}
 		setBytes(chars);
+		System.out.println("memory time: "+(System.currentTimeMillis()-start));
 		return output;
 	}
 	
-	private synchronized String[] findAsciiSections()
+	private String[] findAsciiSections()
 	{
+		long start = System.currentTimeMillis();
 		ArrayList<String> asciiSections = new ArrayList<String>();
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
-			if(asciiSections.size()>=200000)
-			{
-				break;
-			}
 			while(isAscii((char)getBytes()[index]))
 			{
 				current+=(char)getBytes()[index];
@@ -167,6 +171,7 @@ public class MemoryWindow
 			}
 			current="";
 		}
+		System.out.println("ascii time: "+(System.currentTimeMillis()-start));
 		return asciiSections.toArray(new String[0]);
 	}
 	
@@ -203,17 +208,18 @@ public class MemoryWindow
 			}
 			
 		}
-		return filtered.toArray(new String[0]);
+		String[] filteredArray = filtered.toArray(new String[0]);
+		return filteredArray;
 	}
 	
-	protected void createContents()
+	protected void createBaseContents()
 	{
 		shell = new Shell();
 		shell.setSize(865, 432);
 		shell.setLayout(new GridLayout(5, false));
 		shell.setLocation(x+490/2, y+342/2);
 		
-		Button btnUpdate = new Button(shell, SWT.NONE);
+		btnUpdate = new Button(shell, SWT.NONE);
 		btnUpdate.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -222,11 +228,11 @@ public class MemoryWindow
 			}
 		});
 		btnUpdate.setText("Update");
-		
-		txtLength = new Text(shell, SWT.BORDER);
+		txtLength = new Label(shell, SWT.BORDER);
 		txtLength.setText("Length: ");
 		txtLength.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		new Label(shell, SWT.NONE);
+		
+		progressBar = new ProgressBar(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
@@ -239,18 +245,47 @@ public class MemoryWindow
 		gd_text.widthHint = 399;
 		text.setLayoutData(gd_text);
 		
-		updateMemory(text);
-		text.setText(updateMemory(text));
-		txtLength.setText("Length: "+getBytes().length);
-		
 		asciiTable = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		GridData gd_asciiTable = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_asciiTable = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		gd_asciiTable.widthHint = 186;
 		asciiTable.setLayoutData(gd_asciiTable);
 		asciiTable.setHeaderVisible(true);
 		asciiTable.setLinesVisible(true);
+		
+		searchText = new Text(shell, SWT.BORDER);
+		GridData gd_searchText = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
+		gd_searchText.widthHint = 70;
+		searchText.setLayoutData(gd_searchText);
+		
+		btnNewButton = new Button(shell, SWT.NONE);
+		GridData gd_btnNewButton = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+		gd_btnNewButton.widthHint = 62;
+		btnNewButton.setLayoutData(gd_btnNewButton);
+		btnNewButton.setText("Search");
+	}
+	/*
+	private void updateBar(ProgressBar progresBar, int selection)
+	{
+		progressBar.getDisplay().asyncExec(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setSelection(selection);
+            }});
+	}*/
+	
+	protected synchronized void createContents()
+	{
+		progressBar.setMaximum(100);
+		progressBar.setVisible(true);
+		long start = System.currentTimeMillis();
+		text.setText(updateMemory(text));
+		progressBar.setSelection(33);
+		System.out.println("set memory text time: "+(System.currentTimeMillis()-start));
+		txtLength.setText("Length: "+getBytes().length);		
+		progressBar.setSelection(66);
 		String[] asciiSections = findAsciiSections();
 		tableItems = new TableItem[asciiSections.length];
+		start = System.currentTimeMillis();
 		for(int index=0;index<asciiSections.length;index++)
 		{
 			if(index>6000)
@@ -260,13 +295,8 @@ public class MemoryWindow
 			tableItems[index] = new TableItem(asciiTable, SWT.NULL);
 			tableItems[index].setText(asciiSections[index]);
 		}
+		System.out.println("set table time: "+(System.currentTimeMillis()-start));
 		
-		searchText = new Text(shell, SWT.BORDER);
-		GridData gd_searchText = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
-		gd_searchText.widthHint = 70;
-		searchText.setLayoutData(gd_searchText);
-
-		btnNewButton = new Button(shell, SWT.NONE);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -301,13 +331,10 @@ public class MemoryWindow
 				}
 			}
 		});
-		GridData gd_btnNewButton = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
-		gd_btnNewButton.widthHint = 62;
-		btnNewButton.setLayoutData(gd_btnNewButton);
-		btnNewButton.setText("Search");
 		
 		
-		//VirtualMemory virtualMemory = new VirtualMemory(pr)
+		
+		progressBar.setVisible(false);
 	}
 
 }

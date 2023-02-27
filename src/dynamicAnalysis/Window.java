@@ -5,6 +5,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Text;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
 
 import org.eclipse.swt.SWT;
@@ -25,6 +27,11 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
 
 public class Window
 {
@@ -75,9 +82,12 @@ public class Window
 	protected void createContents()
 	{
 		shell = new Shell();
-		shell.setSize(567, 295);
+		shell.setSize(491, 594);
 		shell.setText("Dynamic Malware Analyzer");
 		shell.setLayout(new FormLayout());
+		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		shell.setLocation((dim.width/2)-200,(dim.height/2)-150);
 		
 		Button btnProcess = new Button(shell, SWT.CHECK);
 		
@@ -100,32 +110,22 @@ public class Window
 			}
 		});
 		FormData fd_btnInstructions = new FormData();
-		fd_btnInstructions.top = new FormAttachment(0, 90);
-		fd_btnInstructions.left = new FormAttachment(100, -157);
-		fd_btnInstructions.right = new FormAttachment(100, -32);
 		btnInstructions.setLayoutData(fd_btnInstructions);
 		btnInstructions.setText("x86 Instructions");
 		
 		Button btnMemory = new Button(shell, SWT.NONE);
-		btnMemory.setEnabled(false);
 		fd_btnInstructions.bottom = new FormAttachment(btnMemory, -6);
-		btnMemory.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				MemoryWindow memoryWindow = new MemoryWindow(Integer.parseInt(tableItems[3].getText(1)), shell.getLocation().x, shell.getLocation().y);
-        		memoryWindow.open();
-			}
-		});
+		btnMemory.setEnabled(false);
+		
 		btnMemory.setText("Virtual Memory");
 		FormData fd_btnMemory = new FormData();
-		fd_btnMemory.top = new FormAttachment(0, 121);
-		fd_btnMemory.left = new FormAttachment(100, -157);
-		fd_btnMemory.right = new FormAttachment(100, -32);
+		fd_btnInstructions.bottom = new FormAttachment(btnMemory, -6);
+		
 		btnMemory.setLayoutData(fd_btnMemory);
 		
 		Button btnAdvanced = new Button(shell, SWT.NONE);
-		btnAdvanced.setEnabled(false);
 		fd_btnMemory.bottom = new FormAttachment(btnAdvanced, -6);
+		btnAdvanced.setEnabled(false);
 		btnAdvanced.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -133,23 +133,27 @@ public class Window
 		});
 		btnAdvanced.setText("Advanced");
 		FormData fd_btnAdvanced = new FormData();
-		fd_btnAdvanced.left = new FormAttachment(100, -157);
-		fd_btnAdvanced.right = new FormAttachment(100, -32);
+		fd_btnAdvanced.bottom = new FormAttachment(0, 178);
 		fd_btnAdvanced.top = new FormAttachment(0, 152);
-		fd_btnAdvanced.bottom = new FormAttachment(100, -59);
-		btnAdvanced.setLayoutData(fd_btnAdvanced);
 		
+		btnAdvanced.setLayoutData(fd_btnAdvanced);		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_btnAdvanced.right = new FormAttachment(table, 101, SWT.RIGHT);
+		fd_btnMemory.right = new FormAttachment(table, 101, SWT.RIGHT);
+		fd_btnInstructions.right = new FormAttachment(table, 101, SWT.RIGHT);
+		fd_btnInstructions.left = new FormAttachment(table, 6);
+		fd_btnMemory.left = new FormAttachment(table, 6);
+		fd_btnAdvanced.left = new FormAttachment(table, 6);
+		fd_btnMemory.left = new FormAttachment(table, 6);
 		FormData fd_table = new FormData();
-		fd_table.bottom = new FormAttachment(btnAdvanced, 0, SWT.BOTTOM);
-		fd_table.top = new FormAttachment(btnAdvanced, -87);
+		fd_table.bottom = new FormAttachment(0, 177);
+		fd_table.top = new FormAttachment(0, 90);
 		fd_table.right = new FormAttachment(0, 331);
 		table.setLayoutData(fd_table);
 		table.setHeaderVisible(false);
 		table.setLinesVisible(true);
 		
 		Button btnSelect = new Button(shell, SWT.NONE);
-		fd_text.right = new FormAttachment(100, -249);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -184,18 +188,20 @@ public class Window
 		});
 		btnSelect.setText("Select File");
 		FormData fd_btnSelect = new FormData();
-		fd_btnSelect.top = new FormAttachment(text, -5, SWT.TOP);
-		fd_btnSelect.left = new FormAttachment(text, 6);
+		fd_btnSelect.right = new FormAttachment(0, 367);
+		fd_btnSelect.bottom = new FormAttachment(btnInstructions, -58);
+		fd_btnSelect.left = new FormAttachment(0, 271);
 		btnSelect.setLayoutData(fd_btnSelect);
 		
 		Label lblFilePath = new Label(shell, SWT.NONE);
-		fd_text.left = new FormAttachment(lblFilePath, 6);
+		fd_text.right = new FormAttachment(lblFilePath, 181, SWT.RIGHT);
+		fd_text.left = new FormAttachment(lblFilePath, 13);
 		lblFilePath.setAlignment(SWT.RIGHT);
 		fd_table.left = new FormAttachment(0, 26);
 		FormData fd_lblFilePath = new FormData();
+		fd_lblFilePath.right = new FormAttachment(0, 79);
+		fd_lblFilePath.left = new FormAttachment(0, 26);
 		fd_lblFilePath.top = new FormAttachment(0, 11);
-		fd_lblFilePath.left = new FormAttachment(table, 0, SWT.LEFT);
-		fd_lblFilePath.right = new FormAttachment(100, -465);
 		lblFilePath.setLayoutData(fd_lblFilePath);
 		lblFilePath.setText("File Path");
 		
@@ -235,8 +241,6 @@ public class Window
 		
 		MenuItem mntmSelectProcess = new MenuItem(menu_2, SWT.NONE);
 		mntmSelectProcess.setText("Select Process");
-		
-		fd_btnSelect.right = new FormAttachment(100, -142);
 		btnProcess.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -255,14 +259,11 @@ public class Window
 			}
 		});
 		FormData fd_btnProcess = new FormData();
-		fd_btnProcess.top = new FormAttachment(text, 6);
-		fd_btnProcess.left = new FormAttachment(btnSelect, 0, SWT.LEFT);
 		fd_btnProcess.right = new FormAttachment(100, -129);
+		fd_btnProcess.left = new FormAttachment(btnLaunch, 54);
+		fd_btnProcess.top = new FormAttachment(btnSelect, 6);
 		btnProcess.setLayoutData(fd_btnProcess);
 		btnProcess.setText("Process");
-		
-		
-		fd_btnProcess.bottom = new FormAttachment(btnLaunch, 0, SWT.BOTTOM);
 		btnLaunch.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -296,13 +297,33 @@ public class Window
 			}
 		});
 		FormData fd_btnLaunch = new FormData();
-		fd_btnLaunch.bottom = new FormAttachment(btnInstructions, -31);
-		fd_btnLaunch.top = new FormAttachment(text, 6);
+		fd_btnLaunch.top = new FormAttachment(btnProcess, -4, SWT.TOP);
+		fd_btnLaunch.right = new FormAttachment(lblFilePath, 66, SWT.RIGHT);
 		fd_btnLaunch.left = new FormAttachment(text, 0, SWT.LEFT);
-		fd_btnLaunch.right = new FormAttachment(100, -388);
 		btnLaunch.setLayoutData(fd_btnLaunch);
 		btnLaunch.setText("Launch");
 		btnLaunch.setEnabled(false);
 		
+		CTabFolder tabFolder = new CTabFolder(shell, SWT.BORDER);
+		FormData fd_tabFolder = new FormData();
+		fd_tabFolder.left = new FormAttachment(table, -305);
+		fd_tabFolder.top = new FormAttachment(100, -315);
+		fd_tabFolder.bottom = new FormAttachment(100, -23);
+		fd_tabFolder.right = new FormAttachment(50, 200);
+		tabFolder.setLayoutData(fd_tabFolder);
+		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+		
+		CTabItem tbtmNewItem_1 = new CTabItem(tabFolder, SWT.NONE);
+		tbtmNewItem_1.setText("New Item");
+		btnMemory.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+        		CTabItem tbtmNewItem = new CTabItem(tabFolder, SWT.NONE);
+        		tbtmNewItem.setText("Memory");
+        		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL);
+        		memoryComposite.setProcessId(Integer.parseInt(tableItems[3].getText(1)));
+        		tbtmNewItem.setControl(memoryComposite);
+			}
+		});
 	}
 }

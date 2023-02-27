@@ -46,6 +46,7 @@ public class MemoryWindow
 		MemoryWindow memoryWindow = new MemoryWindow();
 		memoryWindow.open();
 	}*/
+	
 	public MemoryWindow(int processId, int x, int y)
 	{
 		try
@@ -163,6 +164,10 @@ public class MemoryWindow
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
+			if(asciiSections.size()>100000)
+			{
+				break;
+			}
 			while(isAscii((char)getBytes()[index]))
 			{
 				current+=(char)getBytes()[index];

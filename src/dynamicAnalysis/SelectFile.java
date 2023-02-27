@@ -69,7 +69,7 @@ public class SelectFile
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
 		shell.setSize(400, 180);
-		if(isPidMode()) shell.setText("Choose a file");
+		if(!isPidMode()) shell.setText("Choose a file");
 		else shell.setText("Choose a Process");
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		shell.setLocation(getX()+200,getY()+90);
@@ -127,6 +127,7 @@ public class SelectFile
 					
 					String[] names = new String[breakCount-2];
 					int[] pids = new int[breakCount-2];
+					String[] memory = new String[breakCount-2];
 					int outputIndex = output.indexOf('\n');
 					int arrayIndex = 0;
 					while(outputIndex <= output.length())
@@ -135,6 +136,7 @@ public class SelectFile
 						{
 							names[arrayIndex]=output.substring(outputIndex+2, output.indexOf('\"', outputIndex+2));
 							pids[arrayIndex]=Integer.parseInt(output.substring(output.indexOf(',', outputIndex)+2, output.indexOf('\"', output.indexOf(',', outputIndex)+2))); //stuck here
+							memory[arrayIndex]=output.substring(output.lastIndexOf("\"", output.indexOf("\n", outputIndex+1)-2)+1, output.lastIndexOf("\"", output.indexOf("\n", outputIndex+1)));
 							outputIndex=output.indexOf('\n', outputIndex+1);
 						}
 						catch(ArrayIndexOutOfBoundsException e1)
@@ -143,7 +145,7 @@ public class SelectFile
 						}
 						arrayIndex++;
 					}
-					SelectProcess selectProcess = new SelectProcess(names, pids, shell.getLocation().x, shell.getLocation().y);
+					SelectProcess selectProcess = new SelectProcess(names, pids, memory, shell.getLocation().x, shell.getLocation().y);
 					selectProcess.open();
 					if(selectProcess.getPid() == 0) text.setText("");
 					else text.setText(Integer.toString(selectProcess.getPid()));
@@ -259,6 +261,15 @@ public class SelectFile
 		this.pid = pid;
 	}
 	
+	public boolean isDisposed()
+	{
+		return shell.isDisposed();
+	}
+	
+	public void focus()
+	{
+		shell.forceFocus();
+	}
 }
 
 

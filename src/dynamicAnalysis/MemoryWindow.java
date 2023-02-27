@@ -12,6 +12,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Table;
@@ -36,6 +38,7 @@ public class MemoryWindow
 	private Button btnUpdate;
 	private GridData gd_asciiTable;
 	private ProgressBar progressBar;
+	private String[] asciiSections;
 	
 	/*
 	public static void main(String[] args)
@@ -212,6 +215,39 @@ public class MemoryWindow
 		return filteredArray;
 	}
 	
+	private void searchEvent()
+	{
+		if(searchText.getText()=="")
+		{
+			asciiTable.setItemCount(0);
+			for(int index=0;index<asciiSections.length;index++)
+			{
+				if(index>6000)
+				{
+					break;
+				}
+				tableItems = new TableItem[asciiSections.length];
+				tableItems[index]=new TableItem(asciiTable, SWT.NULL);
+				tableItems[index].setText(asciiSections[index]);
+			}
+		}
+		else
+		{
+			if(tableStore==null)
+			{
+				tableStore = tableItems;
+			}
+			String[] filtered = search(asciiSections, searchText.getText());
+			asciiTable.setItemCount(0);
+			tableItems = new TableItem[filtered.length];
+			for(int index=0;index<filtered.length;index++)
+			{
+				tableItems[index]=new TableItem(asciiTable, SWT.NULL);
+				tableItems[index].setText(filtered[index]);
+			}
+		}
+	}
+	
 	protected void createBaseContents()
 	{
 		shell = new Shell();
@@ -256,6 +292,14 @@ public class MemoryWindow
 		GridData gd_searchText = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
 		gd_searchText.widthHint = 70;
 		searchText.setLayoutData(gd_searchText);
+		searchText.addKeyListener(new KeyAdapter(){
+			public void keyPressed(KeyEvent e){	
+				if(e.keyCode == SWT.CR) {
+					searchEvent();	
+				}	
+			}	
+		});
+		
 		
 		btnNewButton = new Button(shell, SWT.NONE);
 		GridData gd_btnNewButton = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
@@ -283,7 +327,7 @@ public class MemoryWindow
 		System.out.println("set memory text time: "+(System.currentTimeMillis()-start));
 		txtLength.setText("Length: "+getBytes().length);		
 		progressBar.setSelection(66);
-		String[] asciiSections = findAsciiSections();
+		asciiSections = findAsciiSections();
 		tableItems = new TableItem[asciiSections.length];
 		start = System.currentTimeMillis();
 		for(int index=0;index<asciiSections.length;index++)
@@ -300,35 +344,7 @@ public class MemoryWindow
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(searchText.getText()=="")
-				{
-					asciiTable.setItemCount(0);
-					for(int index=0;index<asciiSections.length;index++)
-					{
-						if(index>6000)
-						{
-							break;
-						}
-						tableItems = new TableItem[asciiSections.length];
-						tableItems[index]=new TableItem(asciiTable, SWT.NULL);
-						tableItems[index].setText(asciiSections[index]);
-					}
-				}
-				else
-				{
-					if(tableStore==null)
-					{
-						tableStore = tableItems;
-					}
-					String[] filtered = search(asciiSections, searchText.getText());
-					asciiTable.setItemCount(0);
-					tableItems = new TableItem[filtered.length];
-					for(int index=0;index<filtered.length;index++)
-					{
-						tableItems[index]=new TableItem(asciiTable, SWT.NULL);
-						tableItems[index].setText(filtered[index]);
-					}
-				}
+				searchEvent();
 			}
 		});
 		

@@ -76,7 +76,7 @@ public class Window
 	{
 		shell = new Shell();
 		shell.setSize(567, 295);
-		shell.setText("SWT Application");
+		shell.setText("Dynamic Malware Analyzer");
 		shell.setLayout(new FormLayout());
 		
 		Button btnProcess = new Button(shell, SWT.CHECK);

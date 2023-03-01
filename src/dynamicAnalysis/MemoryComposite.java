@@ -1,6 +1,7 @@
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Button;
 
 import java.util.ArrayList;
@@ -49,13 +50,10 @@ public class MemoryComposite extends Composite
 	{
 		
 		super(parent, style);
-		setLayout(new FormLayout());
-		
+		setProcessId(Window.processId);
+		System.out.println("id here: "+getProcessId());
+		setLayout(new GridLayout(4, false));
 		Button btnUpdate = new Button(this, SWT.NONE);
-		FormData fd_btnUpdate = new FormData();
-		fd_btnUpdate.top = new FormAttachment(0, 10);
-		fd_btnUpdate.left = new FormAttachment(0, 10);
-		btnUpdate.setLayoutData(fd_btnUpdate);
 		btnUpdate.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnUpdate.setText("Update");
 		btnUpdate.addSelectionListener(new SelectionAdapter() {
@@ -67,47 +65,15 @@ public class MemoryComposite extends Composite
 		});
 		
 		Label txtLength = new Label(this, SWT.BORDER);
-		FormData fd_txtLength = new FormData();
-		fd_txtLength.right = new FormAttachment(0, 245);
-		fd_txtLength.top = new FormAttachment(0, 14);
-		fd_txtLength.left = new FormAttachment(0, 66);
-		txtLength.setLayoutData(fd_txtLength);
+		GridData gd_txtLength = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_txtLength.widthHint = 109;
+		txtLength.setLayoutData(gd_txtLength);
 		txtLength.setText("Length: ");
 		
-		text = new Text(this, SWT.BORDER);
-		FormData fd_text = new FormData();
-		fd_text.bottom = new FormAttachment(0, 254);
-		fd_text.right = new FormAttachment(0, 245);
-		fd_text.top = new FormAttachment(0, 41);
-		fd_text.left = new FormAttachment(0, 10);
-		text.setLayoutData(fd_text);
-		text.setText(updateMemory(text));
-		
-		asciiTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
-		FormData fd_asciiTable = new FormData();
-		fd_asciiTable.bottom = new FormAttachment(0, 254);
-		fd_asciiTable.right = new FormAttachment(0, 396);
-		fd_asciiTable.top = new FormAttachment(0, 41);
-		fd_asciiTable.left = new FormAttachment(0, 251);
-		asciiTable.setLayoutData(fd_asciiTable);
-		asciiTable.setHeaderVisible(true);
-		asciiTable.setLinesVisible(true);
-		
-		Button btnNewButton = new Button(this, SWT.NONE);
-		FormData fd_btnNewButton = new FormData();
-		fd_btnNewButton.right = new FormAttachment(0, 396);
-		fd_btnNewButton.top = new FormAttachment(0, 10);
-		fd_btnNewButton.left = new FormAttachment(0, 346);
-		btnNewButton.setLayoutData(fd_btnNewButton);
-		btnNewButton.setText("Search");
-		
 		searchText = new Text(this, SWT.BORDER);
-		FormData fd_searchText = new FormData();
-		fd_searchText.bottom = new FormAttachment(0, 31);
-		fd_searchText.right = new FormAttachment(0, 340);
-		fd_searchText.top = new FormAttachment(0, 14);
-		fd_searchText.left = new FormAttachment(0, 251);
-		searchText.setLayoutData(fd_searchText);
+		GridData gd_searchText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
+		gd_searchText.widthHint = 157;
+		searchText.setLayoutData(gd_searchText);
 		searchText.addKeyListener(new KeyAdapter(){
 			public void keyPressed(KeyEvent e){	
 				if(e.keyCode == SWT.CR) {
@@ -115,6 +81,24 @@ public class MemoryComposite extends Composite
 				}	
 			}	
 		});
+		
+		Button btnNewButton_1 = new Button(this, SWT.NONE);
+		btnNewButton_1.setText("Search");
+		
+		text = new Text(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		GridData gd_text = new GridData(SWT.FILL, SWT.FILL, false, true, 2, 1);
+		gd_text.widthHint = 154;
+		gd_text.heightHint = 217;
+		text.setLayoutData(gd_text);
+		text.setText(updateMemory(text));
+		
+		asciiTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		GridData gd_asciiTable = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
+		gd_asciiTable.heightHint = 225;
+		gd_asciiTable.widthHint = 197;
+		asciiTable.setLayoutData(gd_asciiTable);
+		asciiTable.setHeaderVisible(true);
+		asciiTable.setLinesVisible(true);
 		
 		
 		txtLength.setText("Length: "+getBytes().length);
@@ -208,7 +192,6 @@ public class MemoryComposite extends Composite
 			}
 			current="";
 		}
-		System.out.println("ascii time: "+(System.currentTimeMillis()-start));
 		return asciiSections.toArray(new String[0]);
 	}
 	

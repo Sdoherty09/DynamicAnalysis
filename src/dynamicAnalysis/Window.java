@@ -1,6 +1,7 @@
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Text;
@@ -11,10 +12,12 @@ import java.io.File;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
@@ -22,6 +25,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
@@ -41,6 +45,7 @@ public class Window
 	private Table table;
 	private String filePath;
 	private SelectFile selectFile;
+	public static int processId;
 	
 	/**
 	 * Launch the application.
@@ -82,7 +87,7 @@ public class Window
 	protected void createContents()
 	{
 		shell = new Shell();
-		shell.setSize(491, 594);
+		shell.setSize(491, 573);
 		shell.setText("Dynamic Malware Analyzer");
 		shell.setLayout(new FormLayout());
 		
@@ -306,24 +311,35 @@ public class Window
 		
 		CTabFolder tabFolder = new CTabFolder(shell, SWT.BORDER);
 		FormData fd_tabFolder = new FormData();
-		fd_tabFolder.left = new FormAttachment(table, -305);
-		fd_tabFolder.top = new FormAttachment(100, -315);
+		fd_tabFolder.right = new FormAttachment(100, -45);
+		fd_tabFolder.top = new FormAttachment(table, 30);
 		fd_tabFolder.bottom = new FormAttachment(100, -23);
-		fd_tabFolder.right = new FormAttachment(50, 200);
+		fd_tabFolder.left = new FormAttachment(table, 0, SWT.LEFT);
 		tabFolder.setLayoutData(fd_tabFolder);
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
+
 		
-		CTabItem tbtmNewItem_1 = new CTabItem(tabFolder, SWT.NONE);
-		tbtmNewItem_1.setText("New Item");
 		btnMemory.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
         		CTabItem tbtmNewItem = new CTabItem(tabFolder, SWT.NONE);
         		tbtmNewItem.setText("Memory");
+        		processId = Integer.parseInt(tableItems[3].getText(1));
         		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL);
-        		memoryComposite.setProcessId(Integer.parseInt(tableItems[3].getText(1)));
+        		memoryComposite.layout();
+        		System.out.println(memoryComposite.getProcessId());
         		tbtmNewItem.setControl(memoryComposite);
 			}
 		});
+		shell.addListener (SWT.Resize,  new Listener () {
+		    public void handleEvent (Event e) {
+		    	Control[] composites = tabFolder.getChildren();
+		    	for(int index = 0; index < composites.length; index++)
+		    	{
+		    		composites[index].requestLayout();
+		    		System.out.println("modified "+index);
+		    	}
+		    }
+		  });
 	}
 }

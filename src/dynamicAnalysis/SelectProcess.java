@@ -220,6 +220,11 @@ public class SelectProcess
 			table.setLayoutData(fd_table);
 			table.setHeaderVisible(true);
 			table.setLinesVisible(true);
+			table.addListener(SWT.SELECTED, new Listener() {
+				public void handleEvent(Event e) {
+					btnNewButton.setEnabled(true);
+				}
+			});
 			table.addListener(SWT.DefaultSelection, new Listener() {
 				public void handleEvent(Event e) {
 					setPid(Integer.parseInt(table.getSelection()[0].getText(1)));
@@ -248,6 +253,7 @@ public class SelectProcess
 			btnNewButton.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
+					
 				}
 			});
 			btnNewButton.setText("Select");

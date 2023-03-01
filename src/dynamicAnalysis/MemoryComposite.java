@@ -56,6 +56,14 @@ public class MemoryComposite extends Composite
 		Button btnUpdate = new Button(this, SWT.NONE);
 		btnUpdate.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnUpdate.setText("Update");
+		
+		
+		Label txtLength = new Label(this, SWT.BORDER);
+		GridData gd_txtLength = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_txtLength.widthHint = 109;
+		txtLength.setLayoutData(gd_txtLength);
+		txtLength.setText("Length: ");
+		
 		btnUpdate.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -63,12 +71,6 @@ public class MemoryComposite extends Composite
 				txtLength.setText("Length: "+getBytes().length);
 			}
 		});
-		
-		Label txtLength = new Label(this, SWT.BORDER);
-		GridData gd_txtLength = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_txtLength.widthHint = 109;
-		txtLength.setLayoutData(gd_txtLength);
-		txtLength.setText("Length: ");
 		
 		searchText = new Text(this, SWT.BORDER);
 		GridData gd_searchText = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
@@ -161,6 +163,7 @@ public class MemoryComposite extends Composite
 			}
 			catch(ArrayIndexOutOfBoundsException e)
 			{
+				e.printStackTrace();
 				//MessageDialog.openError(shell, "Error", "Process was closed.");
 				break;
 			}
@@ -177,9 +180,9 @@ public class MemoryComposite extends Composite
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
-			if(asciiSections.size()>100000)
+			if(index%10000==0)
 			{
-				break;
+				System.out.println("index: "+index);
 			}
 			while(isAscii((char)getBytes()[index]))
 			{

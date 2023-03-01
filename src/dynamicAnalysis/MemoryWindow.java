@@ -164,10 +164,6 @@ public class MemoryWindow
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
-			if(asciiSections.size()>100000)
-			{
-				break;
-			}
 			while(isAscii((char)getBytes()[index]))
 			{
 				current+=(char)getBytes()[index];
@@ -337,7 +333,7 @@ public class MemoryWindow
 		start = System.currentTimeMillis();
 		for(int index=0;index<asciiSections.length;index++)
 		{
-			if(index>6000)
+			if(index>10000)
 			{
 				break;
 			}

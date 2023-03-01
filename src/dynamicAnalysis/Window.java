@@ -322,11 +322,12 @@ public class Window
 		btnMemory.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-        		CTabItem tbtmNewItem = new CTabItem(tabFolder, SWT.NONE);
+        		CTabItem tbtmNewItem = new CTabItem(tabFolder, SWT.CLOSE);
         		tbtmNewItem.setText("Memory");
         		processId = Integer.parseInt(tableItems[3].getText(1));
         		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL);
         		memoryComposite.layout();
+        		memoryComposite.setFocus();
         		System.out.println(memoryComposite.getProcessId());
         		tbtmNewItem.setControl(memoryComposite);
 			}

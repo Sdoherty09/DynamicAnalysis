@@ -12,6 +12,7 @@ public class ProcessManager
 	private String name;
 	private String[] dlls;
 	private DllFile[] dllFiles;
+	private String[] files;
 	
 	public ProcessManager(File file)
 	{
@@ -27,6 +28,7 @@ public class ProcessManager
 		commandLine = new CommandLine(pid);
 		setName();
 		setDLLs();
+		setFiles();
 	}
 	
 	public File getFile()
@@ -87,7 +89,7 @@ public class ProcessManager
 			try
 			{
 				DLLs[dllIndex]=dllString.substring(dllString.lastIndexOf(' ', dllString.indexOf('\n', index)), dllString.lastIndexOf('\n', dllString.indexOf('\n', index)));
-			} catch(StringIndexOutOfBoundsException | IllegalArgumentException e) //MAY BLOCK SOME DLLS
+			} catch(StringIndexOutOfBoundsException | IllegalArgumentException e)
 			{
 				DLLs[dllIndex] = "";
 				e.printStackTrace();
@@ -116,6 +118,46 @@ public class ProcessManager
 	public DllFile[] getDllFiles()
 	{
 		return dllFiles;
+	}
+	
+	public String[] getFiles()
+	{
+		return files;
+	}
+
+	private void setFiles()
+	{
+		String filesOutput = commandLine.runFiles();
+		System.out.println("output: "+filesOutput);
+		int count=0;
+		int index = filesOutput.indexOf("File,");
+		while (index != -1)
+		{
+			count++;
+			index = filesOutput.indexOf("File,", index+1);
+		}
+		String filesArr[] = new String[count];
+		String file="";
+		index=filesOutput.indexOf("Name")+7;
+		int filesIndex=0;
+		while(count!=0)
+		{
+			try
+			{
+				file=filesOutput.substring(filesOutput.indexOf("File,",index)+6, filesOutput.indexOf(10, index+1));
+			}
+			catch(StringIndexOutOfBoundsException e)
+			{
+				file=filesOutput.substring(filesOutput.indexOf("File,",index)+6);
+			}
+			filesArr[filesIndex]=file;
+			filesIndex++;
+			index=filesOutput.indexOf(10, index+1);
+			System.out.println("index: "+index);
+			count--;
+			System.out.println(count);
+		}
+		this.files = filesArr;
 	}
 
 	@Override

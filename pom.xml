@@ -8,8 +8,13 @@
 		   <groupId>com.github.katjahahn</groupId>
 		   <artifactId>portex_2.12</artifactId>
 		   <version>3.0.3</version>
-		</dependency> 
-   </dependencies>
+		</dependency>
+	    <dependency>
+	    	<groupId>Random_URL</groupId>
+	    	<artifactId>Random_URL</artifactId>
+	    	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+  </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

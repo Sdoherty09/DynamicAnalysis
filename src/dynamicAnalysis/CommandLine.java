@@ -67,6 +67,11 @@ public class CommandLine
 		return run("listdlls "+getPid(), false);
 	}
 	
+	public String runFiles()
+	{
+		return run("handle -p "+getPid()+" -v", false);
+	}
+	
 	public String getAll()
 	{
 		return run("tasklist /fo csv", true);

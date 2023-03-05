@@ -131,11 +131,6 @@ public class Window
 		Button btnAdvanced = new Button(shell, SWT.NONE);
 		fd_btnMemory.bottom = new FormAttachment(btnAdvanced, -6);
 		btnAdvanced.setEnabled(false);
-		btnAdvanced.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
 		btnAdvanced.setText("Advanced");
 		FormData fd_btnAdvanced = new FormData();
 		fd_btnAdvanced.bottom = new FormAttachment(0, 178);
@@ -322,14 +317,28 @@ public class Window
 		btnMemory.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-        		CTabItem tbtmNewItem = new CTabItem(tabFolder, SWT.CLOSE);
-        		tbtmNewItem.setText("Memory");
+        		CTabItem tbtmMemory = new CTabItem(tabFolder, SWT.CLOSE);
+        		tbtmMemory.setText("Memory");
         		processId = Integer.parseInt(tableItems[3].getText(1));
         		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL);
         		memoryComposite.layout();
         		memoryComposite.setFocus();
         		System.out.println(memoryComposite.getProcessId());
-        		tbtmNewItem.setControl(memoryComposite);
+        		tbtmMemory.setControl(memoryComposite);
+        		tabFolder.setSelection(tbtmMemory);
+			}
+		});
+		
+		btnAdvanced.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				CTabItem tbtmAdvanced = new CTabItem(tabFolder, SWT.CLOSE);
+				tbtmAdvanced.setText("Advanced");
+        		processId = Integer.parseInt(tableItems[3].getText(1));
+        		FilesComposite filesComposite = new FilesComposite(tabFolder, SWT.NULL);
+        		filesComposite.layout();
+        		tbtmAdvanced.setControl(filesComposite);
+        		tabFolder.setSelection(tbtmAdvanced);
 			}
 		});
 		shell.addListener (SWT.Resize,  new Listener () {

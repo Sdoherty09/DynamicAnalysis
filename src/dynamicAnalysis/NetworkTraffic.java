@@ -1,11 +1,18 @@
 package dynamicAnalysis;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import org.pcap4j.core.*;
+import org.pcap4j.core.BpfProgram.BpfCompileMode;
+import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.Packet;
+import org.pcap4j.packet.TcpPacket;
+import org.pcap4j.packet.namednumber.IpNumber;
+import org.pcap4j.packet.namednumber.TcpPort;
+
 
 public class NetworkTraffic {
 
@@ -28,9 +35,21 @@ public class NetworkTraffic {
                     try {
                         while (true) {
                             Packet packet = handle.getNextPacket();
-                            if (packet != null) {
-                                System.out.println(device.getName() + ": " + packet);
+                            
+                            if(packet!=null)
+                            {
+                            	if (packet.contains(IpPacket.class)) {
+                            	    IpPacket ipPacket = packet.get(IpPacket.class);
+                            	    System.out.println(ipPacket);
+                            	    // Now you can access the IP packet fields
+                            	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
+                            	    System.out.println(srcAddr);
+                            	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
+                            	    int protocol = ipPacket.getHeader().getProtocol().value();
+                            	    // etc.
+                            	}
                             }
+                            
                         }
                     } catch (NotOpenException e) {
                         e.printStackTrace();
@@ -39,11 +58,6 @@ public class NetworkTraffic {
                 listenerThread.start();
             }
 
-            // Wait for all listener threads to complete
-            Thread.sleep(60000);
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (PcapNativeException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -51,3 +65,5 @@ public class NetworkTraffic {
 	}
 
 }
+// netstat -ano -p tcp - gets local address and port
+// Destination port always 49389 (unknown)

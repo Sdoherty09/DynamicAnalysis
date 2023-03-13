@@ -25,6 +25,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.TableColumn;
@@ -46,6 +47,7 @@ public class Window
 	private String filePath;
 	private SelectFile selectFile;
 	public static int processId;
+	private Display display;
 	
 	/**
 	 * Launch the application.
@@ -68,7 +70,7 @@ public class Window
 	 */
 	public void open()
 	{
-		Display display = Display.getDefault();
+		display = Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
@@ -92,7 +94,7 @@ public class Window
 		shell.setLayout(new FormLayout());
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		shell.setLocation((dim.width/2)-200,(dim.height/2)-150);
+		shell.setLocation((dim.width/2)-200,(dim.height/2)-250);
 		
 		Button btnProcess = new Button(shell, SWT.CHECK);
 		
@@ -320,7 +322,8 @@ public class Window
         		CTabItem tbtmMemory = new CTabItem(tabFolder, SWT.CLOSE);
         		tbtmMemory.setText("Memory");
         		processId = Integer.parseInt(tableItems[3].getText(1));
-        		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL);
+        		Color red = display.getSystemColor(SWT.COLOR_RED);
+        		MemoryComposite memoryComposite = new MemoryComposite(tabFolder, SWT.NULL, red);
         		memoryComposite.layout();
         		memoryComposite.setFocus();
         		System.out.println(memoryComposite.getProcessId());

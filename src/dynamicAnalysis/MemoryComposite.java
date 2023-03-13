@@ -11,6 +11,7 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
@@ -22,10 +23,12 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.custom.StyledText;
 
 public class MemoryComposite extends Composite
 {
-	private Text text;
+	private StyledText text;
 	private int processId;
 	private Label txtLength;
 	private byte[] bytes;
@@ -40,17 +43,19 @@ public class MemoryComposite extends Composite
 	private GridData gd_asciiTable;
 	private ProgressBar progressBar;
 	private String[] asciiSections;
+	private Color red;
 
 	/**
 	 * Create the composite.
 	 * @param parent
 	 * @param style
 	 */
-	public MemoryComposite(Composite parent, int style)
+	public MemoryComposite(Composite parent, int style, Color green)
 	{
 		
 		super(parent, style);
 		setProcessId(Window.processId);
+		setRed(green);
 		System.out.println("id here: "+getProcessId());
 		setLayout(new GridLayout(4, false));
 		Button btnUpdate = new Button(this, SWT.NONE);
@@ -87,7 +92,7 @@ public class MemoryComposite extends Composite
 		Button btnNewButton_1 = new Button(this, SWT.NONE);
 		btnNewButton_1.setText("Search");
 		
-		text = new Text(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		text = new StyledText(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		GridData gd_text = new GridData(SWT.FILL, SWT.FILL, false, true, 2, 1);
 		gd_text.widthHint = 154;
 		gd_text.heightHint = 217;
@@ -95,6 +100,16 @@ public class MemoryComposite extends Composite
 		text.setText(updateMemory(text));
 		
 		asciiTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		asciiTable.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				int index=asciiTable.getSelectionIndex();
+				int startIndex=(int)asciiTable.getItem(index).getData();
+				String tableText = asciiTable.getItem(index).getText();
+				System.out.println(tableText);
+				populateMemory(text, startIndex, tableText);
+			}
+		});
 		GridData gd_asciiTable = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
 		gd_asciiTable.heightHint = 225;
 		gd_asciiTable.widthHint = 197;
@@ -113,7 +128,8 @@ public class MemoryComposite extends Composite
 				break;
 			}
 			tableItems[index] = new TableItem(asciiTable, SWT.NULL);
-			tableItems[index].setText(asciiSections[index]);
+			tableItems[index].setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
+			tableItems[index].setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
 		}
 	}
 
@@ -129,7 +145,8 @@ public class MemoryComposite extends Composite
 	private byte[] readMemory()
 	{
 		VirtualMemory virtualMemory = new VirtualMemory(getProcessId());
-		return virtualMemory.readMemory();
+		setBytes(virtualMemory.readMemory());
+		return getBytes();
 	}
 	
 	public byte[] getBytes()
@@ -142,7 +159,15 @@ public class MemoryComposite extends Composite
 		this.bytes = bytes;
 	}
 	
-	private String updateMemory(Text text)
+	public Color getRed() {
+		return red;
+	}
+
+	public void setRed(Color red) {
+		this.red = red;
+	}
+
+	private String updateMemory(StyledText text)
 	{
 		long start = System.currentTimeMillis();
 		byte[] chars = readMemory();
@@ -175,24 +200,28 @@ public class MemoryComposite extends Composite
 	
 	private String[] findAsciiSections()
 	{
-		long start = System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();
+		int startIndex = 0;
+		boolean start = true;
 		ArrayList<String> asciiSections = new ArrayList<String>();
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
-			if(index%10000==0)
-			{
-				System.out.println("index: "+index);
-			}
 			while(isAscii((char)getBytes()[index]))
 			{
+				if(start)
+				{
+					startIndex=index;
+					start=false;
+				}
 				current+=(char)getBytes()[index];
 				index++;
 			}
 			if(current.length()>8)
 			{
-				asciiSections.add(current);
+				asciiSections.add("{"+startIndex+"}"+current);
 			}
+			if(!start) start=true;
 			current="";
 		}
 		return asciiSections.toArray(new String[0]);
@@ -203,6 +232,8 @@ public class MemoryComposite extends Composite
 		return character>=32&&character<=126;
 	}
 	
+	
+	// REMOVE INDEX METADATA FROM SEARCH
 	private String[] search(String[] entries, String toSearch)
 	{
 		ArrayList<String> filtered = new ArrayList<String>();
@@ -267,6 +298,29 @@ public class MemoryComposite extends Composite
 			}
 		}
 	}
+	
+	private String populateMemory(StyledText text, int memoryIndex, String tableText)
+	{
+		byte[] fullMemory = getBytes();
+		String memory = "";
+		int startIndex;
+		if(memoryIndex<5000) startIndex = 0;
+		else startIndex=memoryIndex-5000;
+		for(int index = startIndex; index<startIndex+10000; index++)
+		{
+			memory+=(char)fullMemory[index];
+		}
+		text.setText(memory);
+		System.out.println(memory);
+		System.out.println("startindex: "+memory.indexOf(tableText));
+		System.out.println("endindex: "+(memory.indexOf(tableText)+tableText.length()));
+	    StyleRange range = new StyleRange(memory.indexOf(tableText), tableText.length(), getRed(), null);
+
+	    text.setStyleRange(range);
+	    text.setSelection(memory.indexOf(tableText));
+		return memory;
+	}
+	
 	@Override
 	protected void checkSubclass()
 	{

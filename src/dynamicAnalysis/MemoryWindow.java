@@ -159,23 +159,31 @@ public class MemoryWindow
 	
 	private String[] findAsciiSections()
 	{
-		long start = System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();
+		int startIndex = 0;
+		boolean start = true;
 		ArrayList<String> asciiSections = new ArrayList<String>();
 		String current="";
 		for(int index=0;index<getBytes().length;index++)
 		{
 			while(isAscii((char)getBytes()[index]))
 			{
+				if(start)
+				{
+					startIndex=index;
+					start=false;
+				}
 				current+=(char)getBytes()[index];
 				index++;
 			}
 			if(current.length()>8)
 			{
-				asciiSections.add(current);
+				asciiSections.add("{"+startIndex+"}"+current);
 			}
+			if(!start) start=true;
 			current="";
 		}
-		System.out.println("ascii time: "+(System.currentTimeMillis()-start));
+		System.out.println("ascii time: "+(System.currentTimeMillis()-startTime));
 		return asciiSections.toArray(new String[0]);
 	}
 	

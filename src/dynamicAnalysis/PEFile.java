@@ -9,6 +9,9 @@ public class PEFile {
 	private File file;
 	private int offset;
 	private Version version;
+	private byte[] instructions;
+	private int pointer;
+	private byte[] bytes = null;
 	
 	public PEFile(File file)
 	{
@@ -35,13 +38,50 @@ public class PEFile {
 		return version;
 	}
 
+
+	public byte[] getInstructions()
+	{
+		int bytesIndex = offset;
+    	while(true)
+    	{
+    		if(bytes[bytesIndex]==0x2e && bytes[bytesIndex+1] == 0x74 && bytes[bytesIndex+2] == 0x65 && bytes[bytesIndex+3] == 0x78 && bytes[bytesIndex+4] == 0x74) break;
+    		bytesIndex++;
+    	}
+    	System.out.println("bytes index: "+bytesIndex);
+    	bytesIndex+=16;
+    	int sizeOfRawData = ((bytes[bytesIndex] & 0xff) | (bytes[bytesIndex+1] & 0xff) << 8 | (bytes[bytesIndex+2] & 0xff) << 16 | (bytes[bytesIndex+3] & 0xff) << 24);
+    	System.out.println("size of raw: "+sizeOfRawData);
+    	bytesIndex+=4;
+    	int pointerToRawData = ((bytes[bytesIndex] & 0xff) | (bytes[bytesIndex+1] & 0xff) << 8 | (bytes[bytesIndex+2] & 0xff) << 16 | (bytes[bytesIndex+3] & 0xff) << 24);
+    	System.out.println("pointer to raw: "+pointerToRawData);
+    	setPointer(pointerToRawData);
+    	byte[] instructions = new byte[sizeOfRawData];
+    	for(int index = pointerToRawData;index < sizeOfRawData + pointerToRawData;index++)
+    	{
+    		instructions[index-pointerToRawData] = (byte)(bytes[index] & 0xff);
+    		if(index-pointerToRawData <100) System.out.print(instructions[index-pointerToRawData] + " "); 		
+    	}
+    	return instructions;
+	}
+
+	
+	public int getPointer()
+	{
+		return pointer;
+	}
+
+	private void setPointer(int pointer)
+	{
+		this.pointer = pointer;
+	}
+
 	public void readFile()
 	{
-		byte[] bytes = null;
+		
         try 
         {
         	bytes = Files.readAllBytes(Paths.get(file.toString()));
-        	int offset = (((bytes[0x3c] & 0xff) | (bytes[0x3d] & 0xff) << 8 | (bytes[0x3e] & 0xff) << 16 | (bytes[0x3f] & 0xff) << 24)) + 24;
+        	offset = (((bytes[0x3c] & 0xff) | (bytes[0x3d] & 0xff) << 8 | (bytes[0x3e] & 0xff) << 16 | (bytes[0x3f] & 0xff) << 24)) + 24;
         	System.out.println("offset: "+offset);
         	if(bytes[offset+1]==0x01) version = Version.x32;
         	else if (bytes[offset+1]==0x02) version = Version.x64;
@@ -71,7 +111,24 @@ public class PEFile {
         	if(version == Version.x32) rvaOffset = offset + 92;
         	else rvaOffset = offset + 108;
         	int numberOfRvaAndSizes = ((bytes[rvaOffset] & 0xff) | (bytes[rvaOffset+1] & 0xff) << 8 | (bytes[rvaOffset+2] & 0xff) << 16 | (bytes[rvaOffset+3] & 0xff) << 24);
+        	DataDirectory dataDirectories[] = new DataDirectory[numberOfRvaAndSizes];
+        	int directoryOffset;
+        	if(version == Version.x32) directoryOffset = offset + 96;
+        	else directoryOffset = offset + 112;
+        	int virtualAddress;
+        	int size;
+        	for(int index = 0; index < numberOfRvaAndSizes; index++)
+        	{
+        		virtualAddress = ((bytes[directoryOffset] & 0xff) | (bytes[directoryOffset+1] & 0xff) << 8 | (bytes[directoryOffset+2] & 0xff) << 16 | (bytes[directoryOffset+3] & 0xff) << 24);
+        		size = ((bytes[directoryOffset+4] & 0xff) | (bytes[directoryOffset+5] & 0xff) << 8 | (bytes[directoryOffset+6] & 0xff) << 16 | (bytes[directoryOffset+7] & 0xff) << 24);
+        		dataDirectories[index] = new DataDirectory(bytes, virtualAddress, size);
+        	}
         	System.out.println("rva: "+numberOfRvaAndSizes);
+        	
+        	/*for(int index = 0;index<numberOfRvaAndSizes;index++)
+        	{
+        		
+        	}*/
         	System.out.println("import address: "+importAddress);
         	int stringAddress;
         	String string="";
@@ -96,7 +153,7 @@ public class PEFile {
         }
         //rawDataOffset, rawDataSize
 	}
-
+	
 	@Override
 	public String toString()
 	{

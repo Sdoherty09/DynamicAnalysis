@@ -70,7 +70,15 @@ public class ProcessManager
 	private void setName()
 	{
 		String name = commandLine.runName();
-		this.name = name.substring(name.lastIndexOf("\"", name.indexOf(".exe"))+1, name.lastIndexOf("\"", name.indexOf(".exe")+4));
+		try
+		{
+			this.name = name.substring(name.lastIndexOf("\"", name.indexOf(".exe"))+1, name.lastIndexOf("\"", name.indexOf(".exe")+4));
+		}
+		catch(StringIndexOutOfBoundsException e)
+		{
+			e.printStackTrace();
+			this.name = "Error";
+		}
 	}
 	private void setDLLs()
 	{

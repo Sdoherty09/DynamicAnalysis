@@ -7,61 +7,43 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-
-import com.github.katjahahn.parser.IOUtil;
-import com.github.katjahahn.parser.Location;
-import com.github.katjahahn.parser.PEData;
-import com.github.katjahahn.parser.PELoader;
-import com.github.katjahahn.parser.sections.SectionLoader;
-import com.github.katjahahn.parser.sections.rsrc.Resource;
-import com.github.katjahahn.parser.sections.rsrc.ResourceSection;
-
 import capstone.Capstone;
 
 public class CodeExtract {
 	private File file;
-	private byte[] resources;
+	private byte[] instructions;
 	private String code;
 	private String[] codeArr;
 	private PEFile peFile;
+	private Capstone.CsInsn[] allInsn;
 	
 	public CodeExtract(File file) {
 		setFile(file);
-		resources = loadPE(getFile());
+		loadPE(getFile());
+	}
+
+	private void loadPE(File file)
+	{
+		peFile = new PEFile(file);
+		peFile.readFile();
+		
+	}
+	public byte[] loadInstructions()
+	{
+		byte[] bytes = peFile.getInstructions();
+		setInstructions(bytes);
 		try
 		{
-			code = extract(getResources());
-			codeArr = extractArr(getResources());
+			code = extract(getInstructions());
+			codeArr = extractArr(getInstructions());
 		}
 		catch(RuntimeException e)
 		{
 			//TODO: handle wrong arch
 		}
-	}
-
-	private byte[] loadPE(File file)
-	{
-		byte [] bytes = null;
-		try {
-			peFile = new PEFile(file);
-			PEData data = PELoader.loadPE(peFile.getFile());
-			peFile.readFile();
-			ResourceSection rsrc = new SectionLoader(data).loadResourceSection();
-			List<Resource> resources = rsrc.getResources();
-			Resource resource = resources.get(0);
-			Location loc = resource.rawBytesLocation();
-			long offset = loc.from();
-			assert loc.size() == (int) loc.size();
-			int size = (int) loc.size();
-			try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
-			    bytes = IOUtil.loadBytes(offset, size, raf);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		return bytes;
 	}
-	private Capstone.CsInsn[] loadCapstone(byte[] resources)
+	private Capstone.CsInsn[] loadCapstone(byte[] instructions)
 	{
 		file = new File(file.getAbsolutePath());
         @SuppressWarnings("unused")
@@ -83,28 +65,29 @@ public class CodeExtract {
 			System.out.println("Running x64 exe");
 		}      	
 		cs.setDetail(1);
-	    Capstone.CsInsn[] allInsn = cs.disasm(resources, 0x1000);
+	    Capstone.CsInsn[] allInsn = cs.disasm(instructions, peFile.getPointer());
+	    setAllInsn(allInsn);
 	    return allInsn;
 	}
-	private String extract(byte[] resources)
+	private String extract(byte[] instructions)
 	{
 		String code = "";
-		Capstone.CsInsn[] allInsn = loadCapstone(resources);
+		Capstone.CsInsn[] allInsn = loadCapstone(instructions);
 	    for (int i=0; i<allInsn.length; i++) 
 	    {
-	    	code += String.format("0x%x:\t%s\t%s\n", allInsn[i].address,
+	    	code += String.format("0x%x: %s %s\n", allInsn[i].address,
 	  	          allInsn[i].mnemonic, allInsn[i].opStr);
 	    } 
 	   return code;
 	}
 	
-	private String[] extractArr(byte[] resources)
+	private String[] extractArr(byte[] instructions)
 	{
-		Capstone.CsInsn[] allInsn = loadCapstone(resources);
+		Capstone.CsInsn[] allInsn = loadCapstone(instructions);
 	    String[] code = new String[allInsn.length];
 	    for (int i=0; i<allInsn.length; i++) 
 	    {
-	    	code[i] = String.format("0x%x: %s\t%s\n", allInsn[i].address,
+	    	code[i] = String.format("0x%x: %s %s\n", allInsn[i].address,
 	  	          allInsn[i].mnemonic, allInsn[i].opStr);
 	    } 
 	   return code;
@@ -123,9 +106,11 @@ public class CodeExtract {
 	public void setFile(File file) {
 		this.file = file;
 	}
-	
-	public byte[] getResources() {
-		return resources;
+	private void setInstructions(byte[] instructions) {
+		this.instructions = instructions;
+	}
+	public byte[] getInstructions() {
+		return instructions;
 	}
 	
 	public String getCode() {
@@ -145,9 +130,19 @@ public class CodeExtract {
 	{
 		this.peFile = peFile;
 	}
+	
+	public Capstone.CsInsn[] getAllInsn()
+	{
+		return allInsn;
+	}
+
+	public void setAllInsn(Capstone.CsInsn[] allInsn)
+	{
+		this.allInsn = allInsn;
+	}
 
 	@Override
 	public String toString() {
-		return "CodeExtract [file=" + file + ", resources=" + Arrays.toString(resources) + ", code=" + code + "]";
+		return "CodeExtract [file=" + file + ", instructions=" + Arrays.toString(instructions) + ", code=" + code + "]";
 	}
 }

@@ -111,12 +111,7 @@ public class Window
 		
 		Button btnInstructions = new Button(shell, SWT.NONE);
 		btnInstructions.setEnabled(false);
-		btnInstructions.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				
-			}
-		});
+		
 		FormData fd_btnInstructions = new FormData();
 		btnInstructions.setLayoutData(fd_btnInstructions);
 		btnInstructions.setText("x86 Instructions");
@@ -346,6 +341,19 @@ public class Window
         		tabFolder.setSelection(tbtmAdvanced);
 			}
 		});
+		
+		btnInstructions.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				CTabItem tbtmInstructions = new CTabItem(tabFolder, SWT.CLOSE);
+				tbtmInstructions.setText("Instructions");
+        		InstructionsComposite instructionsComposite = new InstructionsComposite(tabFolder, SWT.NULL, new File(filePath));
+        		instructionsComposite.layout();
+        		tbtmInstructions.setControl(instructionsComposite);
+        		tabFolder.setSelection(tbtmInstructions);
+			}
+		});
+		
 		shell.addListener (SWT.Resize,  new Listener () {
 		    public void handleEvent (Event e) {
 		    	Control[] composites = tabFolder.getChildren();

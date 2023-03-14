@@ -26,8 +26,11 @@ public class CapstoneTest
 	private static PEFile peFile;
 	private static File file = new File("D:\\Downloads\\Everything-1.4.1.1022.x86-Setup\\$PLUGINSDIR\\Everything\\Everything.exe");
 		  public static void main(String argv[]) {
+			  peFile = new PEFile(file);
+			  peFile.readFile();
+			  byte[] bytes = peFile.getInstructions();
 			  Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
-			    Capstone.CsInsn[] allInsn = cs.disasm(CODE, 0x1000);
+			    Capstone.CsInsn[] allInsn = cs.disasm(bytes, 0x1000);
 			    for (int i=0; i<allInsn.length; i++)
 			      System.out.printf("0x%x:\t%s\t%s\n", allInsn[i].address,
 			          allInsn[i].mnemonic, allInsn[i].opStr);

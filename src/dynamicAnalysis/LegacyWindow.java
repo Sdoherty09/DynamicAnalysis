@@ -277,7 +277,7 @@ public class LegacyWindow {
                         	CodeExtract codeExtract = new CodeExtract(new File(filePath));
                             String[] codeArr = codeExtract.getCodeArr();
                            // byte[] resources = codeExtract.getResources();
-                            if(codeExtract.getPeFile().isX32())
+                            if(codeExtract.getPeFile().getVersion() == Version.x32)
                             {
                             	tableItems[1].setText(1, "32-bit");
                             }

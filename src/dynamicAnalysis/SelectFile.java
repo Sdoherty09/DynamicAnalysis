@@ -183,7 +183,7 @@ public class SelectFile
 		}
 		
 		Button btnEnterPid = new Button(shell, SWT.NONE);
-		btnEnterPid.setVisible(false);
+		btnEnterPid.setVisible(true);
 		btnEnterPid.setSelection(true);
 		btnEnterPid.addSelectionListener(new SelectionAdapter() {
 			@Override

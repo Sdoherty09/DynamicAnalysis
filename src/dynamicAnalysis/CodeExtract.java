@@ -72,7 +72,7 @@ public class CodeExtract {
             e.printStackTrace();
         }
         Capstone cs = null;
-		if(peFile.isX32())
+		if(peFile.getVersion() == Version.x32)
 		{
 			cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
 			System.out.println("Running x32 exe");

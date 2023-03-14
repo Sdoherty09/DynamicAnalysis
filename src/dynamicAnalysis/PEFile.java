@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class PEFile {
 	private File file;
 	private int offset;
-	private boolean x32;
+	private Version version;
 	
 	public PEFile(File file)
 	{
@@ -30,9 +30,9 @@ public class PEFile {
 		return offset;
 	}
 
-	public boolean isX32()
+	public Version getVersion()
 	{
-		return x32;
+		return version;
 	}
 
 	public void readFile()
@@ -43,14 +43,16 @@ public class PEFile {
         	bytes = Files.readAllBytes(Paths.get(file.toString()));
         	int offset = (((bytes[0x3c] & 0xff) | (bytes[0x3d] & 0xff) << 8 | (bytes[0x3e] & 0xff) << 16 | (bytes[0x3f] & 0xff) << 24)) + 24;
         	System.out.println("offset: "+offset);
-        	if(bytes[offset+1]==0x01) x32 = true;
-        	else if (bytes[offset+1]==0x02) x32 = false;
+        	if(bytes[offset+1]==0x01) version = Version.x32;
+        	else if (bytes[offset+1]==0x02) version = Version.x64;
         	else System.out.println("ERROR finding version");
         	int sizeOfCode = (bytes[offset+4] & 0xff) | (bytes[offset+5] & 0xff) << 8 | (bytes[offset+6] & 0xff) << 16 | (bytes[offset+7] & 0xff) << 24;
         	System.out.println("size of code: "+sizeOfCode);
+        	int baseOfCode = (bytes[offset+20] & 0xff) | (bytes[offset+21] & 0xff) << 8 | (bytes[offset+22] & 0xff) << 16 | (bytes[offset+23] & 0xff) << 24;
+        	System.out.println("base of code: "+(baseOfCode));
         	int imageBaseOffset = offset + 24;
         	int imageBase;
-        	if(x32)
+        	if(version == Version.x32)
     		{
     			imageBaseOffset += 4;
     			imageBase = (bytes[imageBaseOffset] & 0xff) | (bytes[imageBaseOffset+1] & 0xff) << 8 | (bytes[imageBaseOffset+2] & 0xff) << 16 | (bytes[imageBaseOffset+3] & 0xff) << 24;
@@ -61,11 +63,15 @@ public class PEFile {
         	}
         	System.out.println("image base: "+imageBaseOffset);
         	int importOffset;
-        	if(x32) importOffset = offset + 104;
+        	if(version == Version.x32) importOffset = offset + 104;
         	else importOffset = offset + 120;
-        	System.out.println("imp offset: "+importOffset);
         	int importAddress = ((bytes[importOffset] & 0xff) | (bytes[importOffset+1] & 0xff) << 8 | (bytes[importOffset+2] & 0xff) << 16 | (bytes[importOffset+3] & 0xff) << 24); //uses virtual address
         	int importSize = (bytes[importOffset+4] & 0xff) | (bytes[importOffset+5] & 0xff) << 8 | (bytes[importOffset+6] & 0xff) << 16 | (bytes[importOffset+7] & 0xff) << 24; //should still be correct pointer
+        	int rvaOffset;
+        	if(version == Version.x32) rvaOffset = offset + 92;
+        	else rvaOffset = offset + 108;
+        	int numberOfRvaAndSizes = ((bytes[rvaOffset] & 0xff) | (bytes[rvaOffset+1] & 0xff) << 8 | (bytes[rvaOffset+2] & 0xff) << 16 | (bytes[rvaOffset+3] & 0xff) << 24);
+        	System.out.println("rva: "+numberOfRvaAndSizes);
         	System.out.println("import address: "+importAddress);
         	int stringAddress;
         	String string="";
@@ -88,12 +94,13 @@ public class PEFile {
         {
             e.printStackTrace();
         }
+        //rawDataOffset, rawDataSize
 	}
 
 	@Override
 	public String toString()
 	{
-		return "PEFile [file=" + file + ", offset=" + offset + ", x32=" + x32 + "]";
+		return "PEFile [file=" + file + ", offset=" + offset + ", version=" + version + "]";
 	}
 	
 }

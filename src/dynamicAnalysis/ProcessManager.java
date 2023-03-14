@@ -53,6 +53,8 @@ public class ProcessManager
 			e.printStackTrace();
 			
 		}
+		System.out.println("children: "+process.children());
+		System.out.println("info: " + process.info());
 		return process;
 	}
 	

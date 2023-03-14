@@ -114,6 +114,7 @@ public class Window
 		btnInstructions.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				
 			}
 		});
 		FormData fd_btnInstructions = new FormData();
@@ -241,8 +242,8 @@ public class Window
 		Menu menu_2 = new Menu(mntmProcess);
 		mntmProcess.setMenu(menu_2);
 		
-		MenuItem mntmSelectProcess = new MenuItem(menu_2, SWT.NONE);
-		mntmSelectProcess.setText("Select Process");
+		MenuItem mntmDestroyProcess = new MenuItem(menu_2, SWT.NONE);
+		mntmDestroyProcess.setText("Destroy Process");
 		btnProcess.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -278,7 +279,7 @@ public class Window
 					ProcessManager process = new ProcessManager(new File(filePath));
 					CodeExtract codeExtract = new CodeExtract(new File(filePath));				
 					tableItems[0].setText(1, filePath);
-					if(codeExtract.getPeFile().isX32())
+					if(codeExtract.getPeFile().getVersion() == Version.x32)
 	                {
 						tableItems[1].setText(1, "32-bit");
 	                }
@@ -288,6 +289,7 @@ public class Window
 	                }  
 					tableItems[2].setText(1, process.getName());
 					tableItems[3].setText(1, process.getPidAsString());
+					System.out.println("version: "+codeExtract.getPeFile().getVersion());
 				}
 				else
 				{

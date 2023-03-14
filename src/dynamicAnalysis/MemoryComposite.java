@@ -53,7 +53,7 @@ public class MemoryComposite extends Composite
 	private Color red;
 	private String memory;
 	private final int memoryCount = 100000;
-	
+	private final int asciiCount = 12000;
 	
 	/**
 	 * Create the composite.
@@ -114,7 +114,7 @@ public class MemoryComposite extends Composite
                     	tableItems = new TableItem[asciiSections.length];
                     	for(int index=0;index<asciiSections.length;index++)
                 		{
-                			if(index>6000)
+                			if(index>asciiCount)
                 			{
                 				break;
                 			}
@@ -304,7 +304,7 @@ public class MemoryComposite extends Composite
 			asciiTable.setItemCount(0);
 			for(int index=0;index<asciiSections.length;index++)
 			{
-				if(index>6000)
+				if(index>asciiCount)
 				{
 					break;
 				}

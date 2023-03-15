@@ -30,7 +30,9 @@ public class CodeExtract {
 	}
 	public byte[] loadInstructions()
 	{
+		long start = System.currentTimeMillis();
 		byte[] bytes = peFile.getInstructions();
+		System.out.println("time for loadInstruction: "+(System.currentTimeMillis()-start));
 		setInstructions(bytes);
 		try
 		{

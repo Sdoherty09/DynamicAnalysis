@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.Semaphore;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.TableItem;
 
 public class PEFile {
 	private File file;
@@ -12,6 +17,11 @@ public class PEFile {
 	private byte[] instructions;
 	private int pointer;
 	private byte[] bytes = null;
+	private byte[][] bytesArr;
+	private Thread[] threads;
+	private int threadIndex;
+	private Semaphore semaphore = new Semaphore(1);
+	private int numOfThreads = 8;
 	
 	public PEFile(File file)
 	{
@@ -38,7 +48,69 @@ public class PEFile {
 		return version;
 	}
 
+	public byte[][] getBytesArr()
+	{
+		return bytesArr;
+	}
 
+	public void setBytesArr(byte[][] bytesArr)
+	{
+		this.bytesArr = bytesArr;
+	}
+
+	public int search(byte[] toSearch, byte[] search)
+	{
+		numOfThreads = 8;
+		threads = new Thread[numOfThreads];
+		bytesArr = new byte[numOfThreads][toSearch.length];
+		for(int index = 0;index<bytesArr.length;index++)
+		{
+			for(int j=0;j<bytesArr[index].length;j++)
+			{
+				bytesArr[index][j] = toSearch[j+(index*numOfThreads)];
+			}
+		}
+		for (int index = 0; index < threads.length; index++) {
+			
+		    threads[index] = new Thread(new Runnable() {
+		        public void run() {
+		        	try
+					{
+						PEFile.this.semaphore.acquire();
+						byte[] toSearch = null;
+						int threadID;
+						for(int index=0;index<PEFile.this.numOfThreads;index++)
+						{
+							if(PEFile.this.getBytesArr()[index]!=null)
+							{
+								toSearch = PEFile.this.getBytesArr()[index];
+								PEFile.this.getBytesArr()[index] = null;
+								threadID = index;
+								break;
+							}
+						}
+						PEFile.this.semaphore.release();
+						for(int index = 0; index < toSearch.length;index++)
+						{
+							// search for the search array here
+						}
+						
+					} catch (InterruptedException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	//if(PEFile.this.semaphore.)
+		            //byte[] toSearch = PEFile.this.getBytesArr()[];
+		        }
+		    });
+		   threads[index].setName(""+index);
+		   threads[index].start();
+		   
+		}
+		return 0; //first found index of search array
+	}
+	
 	public byte[] getInstructions()
 	{
 		int bytesIndex = offset;
@@ -73,6 +145,16 @@ public class PEFile {
 	private void setPointer(int pointer)
 	{
 		this.pointer = pointer;
+	}
+	
+	public Thread[] getThreads()
+	{
+		return threads;
+	}
+
+	public void setThreads(Thread[] threads)
+	{
+		this.threads = threads;
 	}
 
 	public void readFile()

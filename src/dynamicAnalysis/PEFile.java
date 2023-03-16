@@ -22,6 +22,8 @@ public class PEFile {
 	private int threadIndex;
 	private Semaphore semaphore = new Semaphore(1);
 	private int numOfThreads = 8;
+	private int pointerToRawData;
+	private byte[] updatedBytes;
 	
 	public PEFile(File file)
 	{
@@ -114,20 +116,24 @@ public class PEFile {
 	public byte[] getInstructions()
 	{
 		int bytesIndex = offset;
+		System.out.println("printing here");
+		long start = System.currentTimeMillis();
     	while(true)
     	{
     		if(bytes[bytesIndex]==0x2e && bytes[bytesIndex+1] == 0x74 && bytes[bytesIndex+2] == 0x65 && bytes[bytesIndex+3] == 0x78 && bytes[bytesIndex+4] == 0x74) break;
     		bytesIndex++;
     	}
+    	System.out.println("while loop time: "+(System.currentTimeMillis()-start));
     	System.out.println("bytes index: "+bytesIndex);
     	bytesIndex+=16;
     	int sizeOfRawData = ((bytes[bytesIndex] & 0xff) | (bytes[bytesIndex+1] & 0xff) << 8 | (bytes[bytesIndex+2] & 0xff) << 16 | (bytes[bytesIndex+3] & 0xff) << 24);
     	System.out.println("size of raw: "+sizeOfRawData);
     	bytesIndex+=4;
-    	int pointerToRawData = ((bytes[bytesIndex] & 0xff) | (bytes[bytesIndex+1] & 0xff) << 8 | (bytes[bytesIndex+2] & 0xff) << 16 | (bytes[bytesIndex+3] & 0xff) << 24);
+    	pointerToRawData = ((bytes[bytesIndex] & 0xff) | (bytes[bytesIndex+1] & 0xff) << 8 | (bytes[bytesIndex+2] & 0xff) << 16 | (bytes[bytesIndex+3] & 0xff) << 24);
     	System.out.println("pointer to raw: "+pointerToRawData);
     	setPointer(pointerToRawData);
     	byte[] instructions = new byte[sizeOfRawData];
+    	System.out.println("size of raw data: "+sizeOfRawData);
     	for(int index = pointerToRawData;index < sizeOfRawData + pointerToRawData;index++)
     	{
     		instructions[index-pointerToRawData] = (byte)(bytes[index] & 0xff);
@@ -136,6 +142,15 @@ public class PEFile {
     	return instructions;
 	}
 
+	public byte[] writeInstructions(byte[] instructions)
+	{
+		updatedBytes=bytes.clone();
+		for(int index = pointerToRawData; index<instructions.length;index++)
+		{
+			updatedBytes[index] = instructions[index-pointerToRawData];
+		}
+		return updatedBytes;
+	}
 	
 	public int getPointer()
 	{
@@ -155,6 +170,16 @@ public class PEFile {
 	public void setThreads(Thread[] threads)
 	{
 		this.threads = threads;
+	}
+	
+	public byte[] getBytes() throws IOException
+	{
+		return Files.readAllBytes(Paths.get(file.toString()));
+	}
+
+	public void setBytes(byte[] bytes)
+	{
+		this.bytes = bytes;
 	}
 
 	public void readFile()

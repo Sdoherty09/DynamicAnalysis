@@ -52,8 +52,7 @@ public class MemoryComposite extends Composite
 	private String[] asciiSections;
 	private Color red;
 	private String memory;
-	private final int memoryCount = 100000;
-	private final int asciiCount = 12000;
+	private final int memoryCount = 10000;
 	
 	/**
 	 * Create the composite.
@@ -83,6 +82,12 @@ public class MemoryComposite extends Composite
 		searchText.setLayoutData(gd_searchText);	
 		
 		Button btnNewButton_1 = new Button(this, SWT.NONE);
+		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				searchEvent();
+			}
+		});
 		btnNewButton_1.setText("Search");
 		
 		memoryField = new Text(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
@@ -93,7 +98,7 @@ public class MemoryComposite extends Composite
 		memoryField.setLayoutData(gd_memoryField);
 		 
 			
-		asciiTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		asciiTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
 		
 		GridData gd_asciiTable = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
 		gd_asciiTable.heightHint = 225;
@@ -109,18 +114,15 @@ public class MemoryComposite extends Composite
             	Display.getDefault().asyncExec(new Runnable() {
                     @Override
                     public void run() {
+                    	System.out.println(memoryText);
                     	memoryField.setText(memoryText);
                     	txtLength.setText("Length: "+getBytes().length);
                     	tableItems = new TableItem[asciiSections.length];
+                    	asciiTable.setItemCount(asciiSections.length);
                     	for(int index=0;index<asciiSections.length;index++)
                 		{
-                			if(index>asciiCount)
-                			{
-                				break;
-                			}
-                			tableItems[index] = new TableItem(asciiTable, SWT.NULL);
-                			tableItems[index].setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
-                			tableItems[index].setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
+                    		asciiTable.getItem(index).setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
+                    		asciiTable.getItem(index).setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
                 		}
                     }
                  });
@@ -263,8 +265,6 @@ public class MemoryComposite extends Composite
 		return character>=32&&character<=126;
 	}
 	
-	
-	// REMOVE INDEX METADATA FROM SEARCH
 	private String[] search(String[] entries, String toSearch)
 	{
 		ArrayList<String> filtered = new ArrayList<String>();
@@ -272,21 +272,21 @@ public class MemoryComposite extends Composite
 		{
 			if(toSearch.endsWith("*"))
 			{
-				if(entries[index].toLowerCase().startsWith(toSearch.toLowerCase().substring(0, toSearch.length()-1)))
+				if(entries[index].toLowerCase().substring(entries[index].indexOf('}')+1).startsWith(toSearch.toLowerCase().substring(0, toSearch.length()-1)))
 				{
 					filtered.add(entries[index]);
 				}
 			}
 			else if(toSearch.startsWith("*"))
 			{
-				if(entries[index].toLowerCase().endsWith(toSearch.toLowerCase().substring(1)))
+				if(entries[index].toLowerCase().substring(entries[index].indexOf('}')+1).endsWith(toSearch.toLowerCase().substring(1)))
 				{
 					filtered.add(entries[index]);
 				}
 			}
 			else
 			{
-				if(entries[index].toLowerCase().contains(toSearch.toLowerCase()))
+				if(entries[index].toLowerCase().substring(entries[index].indexOf('}')+1).contains(toSearch.toLowerCase()))
 				{
 					filtered.add(entries[index]);
 				}
@@ -301,17 +301,11 @@ public class MemoryComposite extends Composite
 	{
 		if(searchText.getText()=="")
 		{
-			asciiTable.setItemCount(0);
+			asciiTable.setItemCount(asciiSections.length);
 			for(int index=0;index<asciiSections.length;index++)
 			{
-				if(index>asciiCount)
-				{
-					break;
-				}
-				tableItems = new TableItem[asciiSections.length];
-				tableItems[index]=new TableItem(asciiTable, SWT.NULL);
-				tableItems[index].setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
-				tableItems[index].setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
+				asciiTable.getItem(index).setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
+				asciiTable.getItem(index).setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
 			}
 		}
 		else
@@ -321,13 +315,11 @@ public class MemoryComposite extends Composite
 				tableStore = tableItems;
 			}
 			String[] filtered = search(asciiSections, searchText.getText());
-			asciiTable.setItemCount(0);
-			tableItems = new TableItem[filtered.length];
+			asciiTable.setItemCount(filtered.length);
 			for(int index=0;index<filtered.length;index++)
 			{
-				tableItems[index]=new TableItem(asciiTable, SWT.NULL);
-				tableItems[index].setText(filtered[index].substring(filtered[index].indexOf('}')+1));
-				tableItems[index].setData(Integer.parseInt(filtered[index].substring(1, filtered[index].indexOf('}'))));
+				asciiTable.getItem(index).setText(filtered[index].substring(filtered[index].indexOf('}')+1));
+				asciiTable.getItem(index).setData(Integer.parseInt(filtered[index].substring(1, filtered[index].indexOf('}'))));
 			}
 		}
 	}

@@ -169,7 +169,26 @@ public class ProcessManager
 		}
 		this.files = filesArr;
 	}
+	
+	public Process getProcess()
+	{
+		return process;
+	}
 
+	public void setProcess(Process process)
+	{
+		this.process = process;
+	}
+
+	public boolean destroyProcess()
+	{
+		Process process = getProcess();
+		if(process == null) return false;
+		process = process.destroyForcibly();
+		setProcess(process);
+		return true;
+	}
+	
 	@Override
 	public String toString()
 	{

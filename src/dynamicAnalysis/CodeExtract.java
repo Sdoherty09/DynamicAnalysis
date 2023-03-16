@@ -36,7 +36,6 @@ public class CodeExtract {
 		setInstructions(bytes);
 		try
 		{
-			code = extract(getInstructions());
 			codeArr = extractArr(getInstructions());
 		}
 		catch(RuntimeException e)
@@ -67,10 +66,13 @@ public class CodeExtract {
 			System.out.println("Running x64 exe");
 		}      	
 		cs.setDetail(1);
+		long start = System.currentTimeMillis();
 	    Capstone.CsInsn[] allInsn = cs.disasm(instructions, peFile.getPointer());
+	    System.out.println("dissasemble time: "+(System.currentTimeMillis()-start));
 	    setAllInsn(allInsn);
 	    return allInsn;
 	}
+	/*
 	private String extract(byte[] instructions)
 	{
 		String code = "";
@@ -81,7 +83,7 @@ public class CodeExtract {
 	  	          allInsn[i].mnemonic, allInsn[i].opStr);
 	    } 
 	   return code;
-	}
+	}*/
 	
 	private String[] extractArr(byte[] instructions)
 	{
@@ -143,6 +145,21 @@ public class CodeExtract {
 		this.allInsn = allInsn;
 	}
 
+	public byte[] getBytes() throws IOException
+	{
+		return peFile.getBytes();
+	}
+	
+	public byte[] writeInstructions(byte[] bytes)
+	{
+		return peFile.writeInstructions(bytes);
+	}
+	
+	public Version getVersion()
+	{
+		return peFile.getVersion();
+	}
+	
 	@Override
 	public String toString() {
 		return "CodeExtract [file=" + file + ", instructions=" + Arrays.toString(instructions) + ", code=" + code + "]";

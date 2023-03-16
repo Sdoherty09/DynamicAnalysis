@@ -32,6 +32,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
@@ -48,6 +49,7 @@ public class Window
 	private SelectFile selectFile;
 	public static int processId;
 	private Display display;
+	private ProcessManager process;
 	
 	/**
 	 * Launch the application.
@@ -239,6 +241,12 @@ public class Window
 		
 		MenuItem mntmDestroyProcess = new MenuItem(menu_2, SWT.NONE);
 		mntmDestroyProcess.setText("Destroy Process");
+		
+		mntmDestroyProcess.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event e) {
+            	if(process!=null) process.destroyProcess();
+            }
+		});
 		btnProcess.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -271,20 +279,30 @@ public class Window
 				{
 					btnInstructions.setEnabled(true);
 					String filePath = text.getText();
-					ProcessManager process = new ProcessManager(new File(filePath));
-					CodeExtract codeExtract = new CodeExtract(new File(filePath));				
-					tableItems[0].setText(1, filePath);
-					if(codeExtract.getPeFile().getVersion() == Version.x32)
-	                {
-						tableItems[1].setText(1, "32-bit");
-	                }
-	                else
-	                {
-	                	tableItems[1].setText(1, "64-bit");
-	                }  
-					tableItems[2].setText(1, process.getName());
-					tableItems[3].setText(1, process.getPidAsString());
-					System.out.println("version: "+codeExtract.getPeFile().getVersion());
+					try
+					{
+						process = new ProcessManager(new File(filePath));
+						CodeExtract codeExtract = new CodeExtract(new File(filePath));				
+						tableItems[0].setText(1, filePath);
+						if(codeExtract.getPeFile().getVersion() == Version.x32)
+		                {
+							tableItems[1].setText(1, "32-bit");
+		                }
+		                else
+		                {
+		                	tableItems[1].setText(1, "64-bit");
+		                }  
+						tableItems[2].setText(1, process.getName());
+						tableItems[3].setText(1, process.getPidAsString());
+						System.out.println("version: "+codeExtract.getPeFile().getVersion());
+					}
+					catch(NullPointerException e1)
+					{
+						MessageBox messageBox = new MessageBox(shell, SWT.ERROR);				        
+				        messageBox.setText("Error");
+				        messageBox.setMessage("Admin privileges are required to run the process.");
+				        messageBox.open();
+					}
 				}
 				else
 				{
@@ -366,3 +384,5 @@ public class Window
 		  });
 	}
 }
+
+//TODO: Implement import and export by automatic logging

@@ -84,7 +84,15 @@ public class Window
 			}
 		}
 	}
-
+	
+	private void errorAlert(String message)
+	{
+		MessageBox messageBox = new MessageBox(shell, SWT.ERROR);				        
+        messageBox.setText("Error");
+        messageBox.setMessage(message);
+        messageBox.open();
+	}
+	
 	/**
 	 * Create contents of the window.
 	 */
@@ -298,10 +306,13 @@ public class Window
 					}
 					catch(NullPointerException e1)
 					{
-						MessageBox messageBox = new MessageBox(shell, SWT.ERROR);				        
-				        messageBox.setText("Error");
-				        messageBox.setMessage("Admin privileges are required to run the process.");
-				        messageBox.open();
+						e1.printStackTrace();
+						errorAlert("Admin privileges are required to run the process.");
+					}
+					catch(ArrayIndexOutOfBoundsException e1)
+					{
+						e1.printStackTrace();
+						errorAlert("Could not open the selected process.");
 					}
 				}
 				else

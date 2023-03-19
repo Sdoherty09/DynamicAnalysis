@@ -142,15 +142,15 @@ public class PEFile {
     	return instructions;
 	}
 
-	public byte[] writeInstructions(byte[] instructions)
+	/*public byte[] writeInstructions(byte[] instructions)
 	{
 		updatedBytes=bytes.clone();
-		for(int index = pointerToRawData; index<instructions.length;index++)
+		for(int index = 0; index<instructions.length;index++)
 		{
 			updatedBytes[index] = instructions[index-pointerToRawData];
 		}
 		return updatedBytes;
-	}
+	}*/
 	
 	public int getPointer()
 	{

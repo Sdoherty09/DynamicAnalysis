@@ -111,7 +111,7 @@ public class InstructionsComposite extends Composite
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
-				int bytesIndex = 0;
+				int bytesIndex = codeExtract.getPointer();
 				for(int index=0;index<table.getItemCount();index++)
 				{
 					Capstone.CsInsn instruction = (Capstone.CsInsn) table.getItem(index).getData();
@@ -121,9 +121,8 @@ public class InstructionsComposite extends Composite
 						bytesIndex++;
 					}
 				}
-				updatedInstructions = codeExtract.writeInstructions(bytes);
 				try (FileOutputStream fos = new FileOutputStream(codeExtract.getFile().getAbsolutePath()+"_1.exe")) {
-					   fos.write(updatedInstructions);
+					   fos.write(bytes);
 					   //fos.close(); There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
 					} catch (FileNotFoundException e1)
 					{

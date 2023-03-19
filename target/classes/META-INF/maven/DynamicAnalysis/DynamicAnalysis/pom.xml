@@ -10,6 +10,11 @@
 		   <version>3.0.3</version>
 		</dependency>
 		<dependency>
+	<groupId>com.github.transcurity</groupId>
+	<artifactId>capstone</artifactId>
+	<version>4.0.2</version>
+</dependency>
+		<dependency>
       <groupId>org.pcap4j</groupId>
       <artifactId>pcap4j-core</artifactId>
       <version>1.8.2</version>

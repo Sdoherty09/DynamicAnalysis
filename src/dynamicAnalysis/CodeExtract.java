@@ -40,7 +40,7 @@ public class CodeExtract {
 		}
 		catch(RuntimeException e)
 		{
-			//TODO: handle wrong arch
+			e.printStackTrace();
 		}
 		return bytes;
 	}
@@ -135,6 +135,11 @@ public class CodeExtract {
 		this.peFile = peFile;
 	}
 	
+	public int getPointer()
+	{
+		return peFile.getPointer();
+	}
+	
 	public Capstone.CsInsn[] getAllInsn()
 	{
 		return allInsn;
@@ -150,10 +155,10 @@ public class CodeExtract {
 		return peFile.getBytes();
 	}
 	
-	public byte[] writeInstructions(byte[] bytes)
+	/*public byte[] writeInstructions(byte[] bytes)
 	{
 		return peFile.writeInstructions(bytes);
-	}
+	}*/
 	
 	public Version getVersion()
 	{

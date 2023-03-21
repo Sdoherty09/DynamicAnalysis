@@ -208,7 +208,7 @@ public class PEFile {
         	{
         		imageBase = (bytes[imageBaseOffset] & 0xff) | (bytes[imageBaseOffset+1] & 0xff) << 8 | (bytes[imageBaseOffset+2] & 0xff) << 16 | (bytes[imageBaseOffset+3] & 0xff) << 24 | (bytes[imageBaseOffset+4] & 0xff) << 32 | (bytes[imageBaseOffset+5] & 0xff) << 40 | (bytes[imageBaseOffset+6] & 0xff) << 48 | (bytes[imageBaseOffset+7] & 0xff) << 56;
         	}
-        	System.out.println("image base: "+imageBaseOffset);
+        	System.out.println("image base: "+imageBase);
         	int importOffset;
         	if(version == Version.x32) importOffset = offset + 104;
         	else importOffset = offset + 120;

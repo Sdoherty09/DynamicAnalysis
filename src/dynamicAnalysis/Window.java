@@ -57,14 +57,16 @@ public class Window
 	 */
 	public static void main(String[] args)
 	{
+		Window window = null;
 		try
 		{
-			Window window = new Window();
+			window = new Window();
 			window.open();
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+		if(window.process!=null) window.process.destroyProcess();
 	}
 
 	/**
@@ -83,6 +85,7 @@ public class Window
 				display.sleep();
 			}
 		}
+		
 	}
 	
 	private void errorAlert(String message)
@@ -281,11 +284,17 @@ public class Window
 		btnLaunch.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				tableItems[0].setText(1, "");
+				tableItems[1].setText(1, "");
+				tableItems[2].setText(1, "");		
+				tableItems[3].setText(1, "");
 				btnMemory.setEnabled(true);
 				btnAdvanced.setEnabled(true);
+				tableItems[0].setGrayed(btnProcess.getSelection());
+				tableItems[1].setGrayed(btnProcess.getSelection());
+				btnInstructions.setEnabled(!btnProcess.getSelection());
 				if(!btnProcess.getSelection())
 				{
-					btnInstructions.setEnabled(true);
 					String filePath = text.getText();
 					try
 					{
@@ -317,7 +326,6 @@ public class Window
 				}
 				else
 				{
-					btnInstructions.setEnabled(false);
 					ProcessManager process = new ProcessManager(Integer.parseInt(text.getText()));
 					tableItems[2].setText(1, process.getName());
 					tableItems[3].setText(1, Integer.toString(selectFile.getPid()));

@@ -30,4 +30,5 @@ hs_err_pid*
 
 target/classes/META-INF/maven/DynamicAnalysis/DynamicAnalysis/pom.properties
 
-/target/
+backup
+

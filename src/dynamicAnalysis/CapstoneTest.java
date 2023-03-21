@@ -1,39 +1,74 @@
-package dynamicAnalysis;
-
-import capstone.Capstone;
-import java.io.BufferedReader;
-import java.io.File;
+// Java Program to illustrate ProxySelector Class
+// of java.net package
+// only creating methods here
+  
+// Importing standard input output classes
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
+// Importing classes from java.net package
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.net.SocketAddress;
+import java.net.URI;
+// Importing List and ArrayList as utility classes from
+// java.util package
+import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
-import com.github.katjahahn.parser.IOUtil;
-import com.github.katjahahn.parser.Location;
-import com.github.katjahahn.parser.PEData;
-import com.github.katjahahn.parser.PELoader;
-import com.github.katjahahn.parser.sections.SectionLoader;
-import com.github.katjahahn.parser.sections.rsrc.Resource;
-import com.github.katjahahn.parser.sections.rsrc.ResourceSection;
-
-public class CapstoneTest
-{
-
-	public static byte [] CODE = { (byte)0x8b, (byte)0x4c, (byte) 0x24, (byte) 0x04 };
-	
-	private static PEFile peFile;
-	private static File file = new File("D:\\Downloads\\Everything-1.4.1.1022.x86-Setup\\$PLUGINSDIR\\Everything\\Everything.exe");
-		  public static void main(String argv[]) {
-			  peFile = new PEFile(file);
-			  peFile.readFile();
-			  byte[] bytes = peFile.getInstructions();
-			  Capstone cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
-			    Capstone.CsInsn[] allInsn = cs.disasm(bytes, 0x1000);
-			    for (int i=0; i<allInsn.length; i++)
-			      System.out.printf("0x%x:\t%s\t%s\n", allInsn[i].address,
-			          allInsn[i].mnemonic, allInsn[i].opStr);
-		  }
-
+  
+// Class 1
+// Helper class extending ProxySelector class
+public class CapstoneTest extends ProxySelector {
+  
+    // According to API we need to return List<Proxy>
+    // even if we return only one element, so
+  
+    // Creating List class object of Proxy type
+    private final List<Proxy> noProxy = new ArrayList<>();
+    private final List<Proxy> proxies = new ArrayList<>();
+  
+    // Constructor of this class
+    public void  PrivateDataProxy()
+    {
+  
+        // If no proxy required to access resource
+        // use Proxy.NO_PROXY
+        noProxy.add(Proxy.NO_PROXY);
+  
+        // Creating  InetSocketAddress, and
+        // secure.connection.com doesn't exist 443 is an
+        // https port
+        InetSocketAddress inetSocketAddress
+            = new InetSocketAddress("secure.connection.com",
+                                    443);
+  
+        // Now creating http proxy
+        Proxy proxy
+            = new Proxy(Proxy.Type.HTTP, inetSocketAddress);
+  
+        // Finally adding proxy into proxy list
+        proxies.add(proxy);
+    }
+  
+    // Method 1 of this class
+    //@Override
+    public List<Proxy> select(URI uri)
+    {
+        if (uri.getPath().startsWith("/confidential")) {
+            // If URI path starts with '/confidential' then
+            // use proxy server
+            return proxies;
+        }
+  
+        // If url don't start with '/confidential' then
+        //  no need in proxy
+        return noProxy;
+    }
+  
+    // Method 2 of this class
+    // @Override
+    public void connectFailed(URI arg0, SocketAddress arg1,
+                              IOException arg2)
+    {
+        // Properly handle connection failing
+    }
 }

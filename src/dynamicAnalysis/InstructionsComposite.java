@@ -24,6 +24,7 @@ import capstone.Capstone;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.widgets.Text;
 
@@ -36,6 +37,8 @@ public class InstructionsComposite extends Composite
 	private TableColumn tblclmnMnemonic;
 	private TableColumn tblclmnOpcode;
 	private byte[] updatedInstructions;
+	private Composite parent;
+	private TableItem[] tableItems = null;
 	
 	/**
 	 * Create the composite.
@@ -45,6 +48,7 @@ public class InstructionsComposite extends Composite
 	public InstructionsComposite(Composite parent, int style, File file)
 	{
 		super(parent, style);
+		this.parent = parent;
 		setLayout(new FormLayout());
 		
 		CodeExtract codeExtract = new CodeExtract(file);
@@ -66,19 +70,56 @@ public class InstructionsComposite extends Composite
 		
 		table.addListener(SWT.Selection, new Listener() {
 		      public void handleEvent(Event e) {
-		    	  Capstone.CsInsn instruction = getAllInsn()[table.getSelectionIndex()];
-		    	  TableItem item = table.getSelection()[0];
-					System.out.println(item.getText());
-					//comboMnemonic.setText(Integer.toString(instruction.bytes[0] & 0xff));
-					comboMnemonic.setText(Byte.toString(instruction.bytes[0]));
-					String opcode = "";
-					for(int index = 1;index<instruction.bytes.length;index++)
-					{
-						//opcode+=Integer.toString(instruction.bytes[index] & 0xff)+" ";
-						opcode+=Byte.toString(instruction.bytes[index])+" ";
-					}
-					if(opcode.length()!=0) textOpcode.setText(opcode.substring(0, opcode.length()-1));
-					else textOpcode.setText(opcode);
+		    	Capstone.CsInsn instruction = getAllInsn()[table.getSelectionIndex()];
+		    	if(tableItems!=null) clearColors(tableItems);
+		    	tableItems = null;
+		    	if(instruction.groups.length == 2)
+		    	{
+		    		if(instruction.groups[0] == 7 && instruction.groups[1] == 1) //group for jump instructions, jmp works differently ?
+		    		{
+		    			long entryIndex = table.getSelectionIndex();
+		    			long operandIndex = instruction.bytes[1] + entryIndex;
+		    			boolean lowerOperand = instruction.bytes[1] < 0;
+		    			System.out.println("lower operand: "+lowerOperand);
+		    			System.out.println("entry index" + entryIndex);
+		    			System.out.println("operand index " + operandIndex );
+	    				if(lowerOperand) entryIndex--;
+	    				else entryIndex++;
+	    				System.out.println("instruction addr: "+Long.decode(instruction.opStr));
+	    				tableItems = new TableItem[Math.abs(instruction.bytes[1])];
+	    				int tableIndex = 0;
+	    				while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(table.getItem((int) entryIndex).getData())).address)
+	    				{
+	    					System.out.println(entryIndex);
+	    					try
+	    					{
+	    						tableItems = setGray(table.getItem((int) entryIndex), tableItems, tableIndex);
+		    					tableIndex++;
+	    					}
+	    					catch(ArrayIndexOutOfBoundsException e1)
+	    					{
+	    						e1.printStackTrace();
+	    						clearColors(tableItems);
+	    					}
+	    					if(lowerOperand) entryIndex--;
+	    					else entryIndex++;
+	    				}    				
+	    				tableItems = setGreen(table.getItem((int) entryIndex), tableItems, tableIndex);
+		    		}
+		    	}
+	    	  	TableItem item = table.getSelection()[0];
+				System.out.println(item.getText());
+				//comboMnemonic.setText(Integer.toString(instruction.bytes[0] & 0xff));
+				comboMnemonic.setText(Byte.toString(instruction.bytes[0]));
+				String opcode = "";
+				for(int index = 1;index<instruction.bytes.length;index++)
+				{
+					//opcode+=Integer.toString(instruction.bytes[index] & 0xff)+" ";
+					opcode+=Byte.toString(instruction.bytes[index])+" ";
+				}
+				if(opcode.length()!=0) textOpcode.setText(opcode.substring(0, opcode.length()-1));
+				else textOpcode.setText(opcode);
+		    	  
 		      }
 		});
 		
@@ -91,12 +132,8 @@ public class InstructionsComposite extends Composite
 		tblclmnMnemonic.setText("Mnemonic");
 		
 		tblclmnOpcode = new TableColumn(table, SWT.NONE);
-		tblclmnOpcode.setWidth(100);
-		
+		tblclmnOpcode.setWidth(5000);	
 		tblclmnOpcode.setText("Opcode");
-		tblclmnOpcode.pack();
-		
-		
 		
 		Button btnSave = new Button(this, SWT.NONE);
 		btnSave.addSelectionListener(new SelectionAdapter() {
@@ -108,7 +145,6 @@ public class InstructionsComposite extends Composite
 					bytes = codeExtract.getBytes();
 				} catch (IOException e2)
 				{
-					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
 				int bytesIndex = codeExtract.getPointer();
@@ -123,14 +159,11 @@ public class InstructionsComposite extends Composite
 				}
 				try (FileOutputStream fos = new FileOutputStream(codeExtract.getFile().getAbsolutePath()+"_1.exe")) {
 					   fos.write(bytes);
-					   //fos.close(); There is no more need for this line since you had created the instance of "fos" inside the try. And this will automatically close the OutputStream
 					} catch (FileNotFoundException e1)
 					{
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} catch (IOException e1)
 					{
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 			}
@@ -200,6 +233,7 @@ public class InstructionsComposite extends Composite
 			    table.getSelection()[0].setText(1, instruction[0].mnemonic);
 			    table.getSelection()[0].setText(2, instruction[0].opStr);
 			    table.getSelection()[0].setData(instruction[0]);
+			    System.out.println(((Capstone.CsInsn)table.getSelection()[0].getData()).opStr);
 			}
 		});
 		fd_textOpcode.right = new FormAttachment(100, -143);
@@ -239,6 +273,45 @@ public class InstructionsComposite extends Composite
 		
 		
 	}
+	
+	private TableItem[] setColor(TableItem item, Color color, TableItem[] items, int index)
+	{
+		items[index] = item;
+		item.setBackground(color);
+		return items;
+	}
+	
+	private void setColor(TableItem item, Color color)
+	{
+		item.setBackground(color);
+	}
+	
+	private TableItem[] setGray(TableItem item, TableItem[] items, int index)
+	{
+		return setColor(item, new Color(parent.getDisplay(), 200, 200, 200), items, index);
+	}
+	
+	private TableItem[] setGreen(TableItem item, TableItem[] items, int index)
+	{
+		return setColor(item, new Color(parent.getDisplay(), 0, 255, 0), items, index);
+	}
+	
+	private void clearColors(TableItem[] items)
+	{
+		for(int index = 0;index < items.length;index++)
+		{
+			try
+			{
+				System.out.println("data: "+items[index]);
+				setColor(items[index], new Color(parent.getDisplay(), 255, 255, 255));
+			}
+			catch(NullPointerException e)
+			{
+				break;
+			}
+		}
+	}
+	
 	@Override
 	public void layout()
 	{

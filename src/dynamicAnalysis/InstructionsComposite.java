@@ -4,6 +4,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Table;
@@ -157,7 +158,14 @@ public class InstructionsComposite extends Composite
 						bytesIndex++;
 					}
 				}
-				try (FileOutputStream fos = new FileOutputStream(codeExtract.getFile().getAbsolutePath()+"_1.exe")) {
+				FileDialog fileDialog = new FileDialog(parent.getShell(), SWT.MULTI);
+            	String[] files = {
+                        "*.exe",
+                    };
+                    fileDialog.setFilterExtensions(files);
+                    fileDialog.setFilterPath(file.getPath());
+                    fileDialog.setFileName(codeExtract.getFile().getName().substring(0, codeExtract.getFile().getName().length()-4)+"_1.exe");
+				try (FileOutputStream fos = new FileOutputStream(fileDialog.open())) {
 					   fos.write(bytes);
 					} catch (FileNotFoundException e1)
 					{

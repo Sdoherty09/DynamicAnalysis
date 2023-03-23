@@ -1,5 +1,6 @@
 package dynamicAnalysis;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
@@ -12,6 +13,8 @@ import org.pcap4j.packet.Packet;
 import org.pcap4j.packet.TcpPacket;
 import org.pcap4j.packet.namednumber.IpNumber;
 import org.pcap4j.packet.namednumber.TcpPort;
+import org.pcap4j.packet.namednumber.UdpPort;
+import org.pcap4j.packet.IpV4Packet;
 
 
 public class NetworkTraffic {
@@ -34,19 +37,19 @@ public class NetworkTraffic {
                 Thread listenerThread = new Thread(() -> {
                     try {
                         while (true) {
-                            Packet packet = handle.getNextPacket();
-                            
+                        	Packet packet = handle.getNextPacket();
                             if(packet!=null)
                             {
                             	if (packet.contains(IpPacket.class)) {
                             	    IpPacket ipPacket = packet.get(IpPacket.class);
                             	    System.out.println(ipPacket);
+                            	    TcpPort port = new TcpPort((short)16488, "name");
+                            	    port = TcpPort.register(port);
                             	    // Now you can access the IP packet fields
                             	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
-                            	    System.out.println(srcAddr);
+                            	    //System.out.println(srcAddr);
                             	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
                             	    int protocol = ipPacket.getHeader().getProtocol().value();
-                            	    // etc.
                             	}
                             }
                             

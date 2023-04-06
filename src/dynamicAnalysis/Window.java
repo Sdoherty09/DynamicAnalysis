@@ -44,7 +44,7 @@ public class Window
 
 	protected Shell shell;
 	private Label text;
-	private Table table;
+	private Composite detailsComp;
 	private String filePath;
 	private SelectFile selectFile;
 	public static int processId;
@@ -105,7 +105,7 @@ public class Window
 	protected void createContents()
 	{
 		shell = new Shell();
-		shell.setSize(491, 573);
+		shell.setSize(639, 573);
 		shell.setText("Dynamic Malware Analyzer");
 		shell.setLayout(new FormLayout());
 		
@@ -129,6 +129,7 @@ public class Window
 		btnInstructions.setEnabled(false);
 		
 		FormData fd_btnInstructions = new FormData();
+		fd_btnInstructions.right = new FormAttachment(100, -148);
 		btnInstructions.setLayoutData(fd_btnInstructions);
 		btnInstructions.setText("x86 Instructions");
 		
@@ -138,6 +139,7 @@ public class Window
 		
 		btnMemory.setText("Virtual Memory");
 		FormData fd_btnMemory = new FormData();
+		fd_btnMemory.right = new FormAttachment(100, -148);
 		fd_btnInstructions.bottom = new FormAttachment(btnMemory, -6);
 		
 		btnMemory.setLayoutData(fd_btnMemory);
@@ -147,25 +149,23 @@ public class Window
 		btnAdvanced.setEnabled(false);
 		btnAdvanced.setText("Advanced");
 		FormData fd_btnAdvanced = new FormData();
+		fd_btnAdvanced.right = new FormAttachment(100, -148);
 		fd_btnAdvanced.bottom = new FormAttachment(0, 178);
 		fd_btnAdvanced.top = new FormAttachment(0, 152);
 		
-		btnAdvanced.setLayoutData(fd_btnAdvanced);		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		fd_btnAdvanced.right = new FormAttachment(table, 101, SWT.RIGHT);
-		fd_btnMemory.right = new FormAttachment(table, 101, SWT.RIGHT);
-		fd_btnInstructions.right = new FormAttachment(table, 101, SWT.RIGHT);
-		fd_btnInstructions.left = new FormAttachment(table, 6);
-		fd_btnMemory.left = new FormAttachment(table, 6);
-		fd_btnAdvanced.left = new FormAttachment(table, 6);
-		fd_btnMemory.left = new FormAttachment(table, 6);
-		FormData fd_table = new FormData();
-		fd_table.bottom = new FormAttachment(0, 177);
-		fd_table.top = new FormAttachment(0, 90);
-		fd_table.right = new FormAttachment(0, 331);
-		table.setLayoutData(fd_table);
-		table.setHeaderVisible(false);
-		table.setLinesVisible(true);
+		btnAdvanced.setLayoutData(fd_btnAdvanced);
+		Details details = new Details(shell, SWT.NULL, btnProcess.getSelection());
+		fd_btnAdvanced.left = new FormAttachment(details, 6);
+		fd_btnMemory.left = new FormAttachment(details, 6);
+		fd_btnInstructions.left = new FormAttachment(details, 6);
+		detailsComp = details;
+		fd_btnMemory.left = new FormAttachment(detailsComp, 6);
+		FormData fd_detailsComp = new FormData();
+		fd_detailsComp.left = new FormAttachment(0, 26);
+		fd_detailsComp.bottom = new FormAttachment(0, 177);
+		fd_detailsComp.top = new FormAttachment(0, 90);
+		fd_detailsComp.right = new FormAttachment(0, 331);
+		detailsComp.setLayoutData(fd_detailsComp);
 		
 		Button btnSelect = new Button(shell, SWT.NONE);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
@@ -211,7 +211,6 @@ public class Window
 		fd_text.right = new FormAttachment(lblFilePath, 181, SWT.RIGHT);
 		fd_text.left = new FormAttachment(lblFilePath, 13);
 		lblFilePath.setAlignment(SWT.RIGHT);
-		fd_table.left = new FormAttachment(0, 26);
 		FormData fd_lblFilePath = new FormData();
 		fd_lblFilePath.right = new FormAttachment(0, 79);
 		fd_lblFilePath.left = new FormAttachment(0, 26);
@@ -219,22 +218,6 @@ public class Window
 		lblFilePath.setLayoutData(fd_lblFilePath);
 		lblFilePath.setText("File Path");
 		
-		TableColumn labels = new TableColumn(table, SWT.NONE);
-		labels.setWidth(100);
-		
-		TableColumn values = new TableColumn(table, SWT.CENTER | SWT.V_SCROLL);
-		values.setWidth(200);
-
-		
-		for(int index = 0;index<tableItems.length;index++)
-		{
-			tableItems[index] = new TableItem(table, SWT.NONE);
-		}
-		
-		tableItems[0].setText(0, "Directory");
-		tableItems[1].setText(0, "Version");
-		tableItems[2].setText(0, "Name");		
-		tableItems[3].setText(0, "PID");
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 		
@@ -264,6 +247,7 @@ public class Window
 		btnProcess.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				details.setSelection(btnProcess.getSelection());
 				text.setText("");
 				btnLaunch.setEnabled(false);
 				if (btnProcess.getSelection())
@@ -287,15 +271,8 @@ public class Window
 		btnLaunch.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				tableItems[0].setText(1, "");
-				tableItems[1].setText(1, "");
-				tableItems[2].setText(1, "");		
-				tableItems[3].setText(1, "");
-				btnMemory.setEnabled(true);
-				btnAdvanced.setEnabled(true);
-				tableItems[0].setGrayed(btnProcess.getSelection());
-				tableItems[1].setGrayed(btnProcess.getSelection());
-				btnInstructions.setEnabled(!btnProcess.getSelection());
+				details.clearData();
+				
 				if(!btnProcess.getSelection())
 				{
 					String filePath = text.getText();
@@ -345,10 +322,10 @@ public class Window
 		
 		CTabFolder tabFolder = new CTabFolder(shell, SWT.BORDER);
 		FormData fd_tabFolder = new FormData();
-		fd_tabFolder.right = new FormAttachment(100, -45);
-		fd_tabFolder.top = new FormAttachment(table, 30);
-		fd_tabFolder.bottom = new FormAttachment(100, -23);
-		fd_tabFolder.left = new FormAttachment(table, 0, SWT.LEFT);
+		fd_tabFolder.bottom = new FormAttachment(100, -66);
+		fd_tabFolder.top = new FormAttachment(btnAdvanced, 29);
+		fd_tabFolder.left = new FormAttachment(0, 26);
+		fd_tabFolder.right = new FormAttachment(100, -2);
 		tabFolder.setLayoutData(fd_tabFolder);
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 
@@ -396,6 +373,7 @@ public class Window
 		
 		shell.addListener (SWT.Resize,  new Listener () {
 		    public void handleEvent (Event e) {
+		    	details.requestLayout();
 		    	Control[] composites = tabFolder.getChildren();
 		    	for(int index = 0; index < composites.length; index++)
 		    	{

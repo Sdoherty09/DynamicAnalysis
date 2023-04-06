@@ -43,8 +43,7 @@ public class NetworkTraffic {
                             	if (packet.contains(IpPacket.class)) {
                             	    IpPacket ipPacket = packet.get(IpPacket.class);
                             	    System.out.println(ipPacket);
-                            	    TcpPort port = new TcpPort((short)16488, "name");
-                            	    port = TcpPort.register(port);
+                            	    //System.out.println("Port: "+ port.);
                             	    // Now you can access the IP packet fields
                             	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
                             	    //System.out.println(srcAddr);

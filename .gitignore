@@ -32,3 +32,5 @@ target/classes/META-INF/maven/DynamicAnalysis/DynamicAnalysis/pom.properties
 
 backup
 
+/bin/
+/target/

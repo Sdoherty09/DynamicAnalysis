@@ -49,7 +49,7 @@ public class Window
 	private SelectFile selectFile;
 	public static int processId;
 	private Display display;
-	private ProcessManager process;
+	private ProcessManager process = null;
 	
 	/**
 	 * Launch the application.
@@ -66,7 +66,10 @@ public class Window
 		{
 			e.printStackTrace();
 		}
-		if(window.process!=null) window.process.destroyProcess();
+		if(window.process!=null) 
+		{
+			window.process.destroyProcess();
+		}
 	}
 
 	/**

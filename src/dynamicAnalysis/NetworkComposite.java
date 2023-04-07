@@ -6,6 +6,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.jface.viewers.ListViewer;
 
 public class NetworkComposite extends Composite
 {
@@ -19,20 +22,11 @@ public class NetworkComposite extends Composite
 	{
 		super(parent, style);
 		
-		ToolBar toolBar = new ToolBar(this, SWT.FLAT | SWT.RIGHT);
-		toolBar.setBounds(10, 10, 138, 280);
+		List networkInterfaces = new List(this, SWT.BORDER);
+		networkInterfaces.setBounds(0, 0, 115, 300);
 		
-		ToolItem tltmNetworkinterface = new ToolItem(toolBar, SWT.DROP_DOWN);
-		tltmNetworkinterface.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		tltmNetworkinterface.setText("NetworkInterface1");
-		
-		ToolBar toolBar_1 = new ToolBar(this, SWT.FLAT | SWT.RIGHT);
-		toolBar_1.setBounds(154, 10, 138, 280);
-
+		List addresses = new List(this, SWT.BORDER);
+		addresses.setBounds(121, 0, 115, 300);
 	}
 
 	@Override

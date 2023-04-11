@@ -26,7 +26,7 @@ public class NetworkTraffic {
 
             // Create a separate PcapHandle for each interface and start capturing traffic
             for (PcapNetworkInterface device : devices) {
-            	System.out.println(device.getName());
+            	//System.out.println(device.getName());
                 PcapHandle handle = device.openLive(65536, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);
                 try {
 					handle.setFilter("ip", BpfProgram.BpfCompileMode.OPTIMIZE);
@@ -47,7 +47,7 @@ public class NetworkTraffic {
                             	    //System.out.println("Port: "+ port.);
                             	    // Now you can access the IP packet fields
                             	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
-                            	    //System.out.println(srcAddr);
+                            	    System.out.println(srcAddr);
                             	    //System.out.println(srcAddr);
                             	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
                             	    int protocol = ipPacket.getHeader().getProtocol().value();

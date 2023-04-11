@@ -1,5 +1,7 @@
 package dynamicAnalysis;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,19 +22,17 @@ import scala.collection.mutable.MultiMap;
 public class PacketTrace
 {
 	private List<PcapNetworkInterface> devices;
-	Multimap<Integer, IpPacket> packets[]; // Maps 
-	Multimap<String, MultiMap<Integer, String>> addresses[]; // Maps network interface to the sending packet
-	HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>(); // Maps network interface to incrementing index
-	HashMap<String, String> idMap = new HashMap<String, String>(); // Maps network's unique ID to readable description
-	@SuppressWarnings("unchecked")
+	private Multimap<String, IpPacket> packets[]; // Maps multiple packets to single address
+	private HashMap<String, String> addressMap = new HashMap<String, String>(); // Maps multiple addresses to single network interface
+	private HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>(); // Maps network interface to incrementing index
+	private HashMap<String, String> idMap = new HashMap<String, String>(); // Maps network's unique ID to readable description
 	public PacketTrace() throws PcapNativeException
 	{
 		devices = Pcaps.findAllDevs();
-		addresses = new Multimap[devices.size()];
 		for(int index = 0;index < devices.size();index++)
 		{
 			idMap.put(devices.get(index).getName(), devices.get(index).getDescription());
-			interfaceMap.put(devices.get(index).getName(), index); // Separating to avoid synchronization issues
+			interfaceMap.put(devices.get(index).getName(), index); // Separating from multithread to avoid synchronization issues
 		}
 		for (PcapNetworkInterface device : devices)
 		{
@@ -40,33 +40,26 @@ public class PacketTrace
             try {
 				handle.setFilter("ip", BpfProgram.BpfCompileMode.OPTIMIZE);
 			} catch (NotOpenException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
-            Thread listenerThread = new Thread(() -> {
+            Thread listenerThread = new Thread(() -> { // Set up thread for each network interface
                 try {
                     while (true) {
                     	Packet packet = handle.getNextPacket();
                         if(packet!=null)
                         {                 	
-                        	//packets[)]
                         	if (packet.contains(IpPacket.class)) {
                         	    IpPacket ipPacket = packet.get(IpPacket.class);
-                        	    packets[interfaceMap.get(device.getName())].put(interfaceMap.get(device.getName()), ipPacket);
-                        	    //System.out.println(ipPacket);
-                        	    //System.out.println("Port: "+ port.);
-                        	    // Now you can access the IP packet fields
-                        	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
-                        	    //System.out.println(srcAddr);
-                        	    //System.out.println(srcAddr);
-                        	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
-                        	    int protocol = ipPacket.getHeader().getProtocol().value();
+                        	    this.wait();
+                        	    addressMap.put(device.getName(), ipPacket.getHeader().getSrcAddr().getHostAddress());
+                        	    packets[interfaceMap.get(device.getName())].put(ipPacket.getHeader().getSrcAddr().getHostAddress(), ipPacket); //needs address
+                        	    this.notify();
                         	}
                         }
                         
                     }
-                } catch (NotOpenException e) {
+                } catch (NotOpenException | InterruptedException e) {
                     e.printStackTrace();
                 }
             });
@@ -74,4 +67,29 @@ public class PacketTrace
 		}
 	}
 	
+	public HashMap<String, String> getDevices()
+	{
+		return idMap;
+	}
+	
+	public Multimap<String, IpPacket>[] getPackets()
+	{
+		return packets;
+	}
+	
+	public ArrayList<IpPacket> getPackets(String address)
+	{
+		ArrayList<IpPacket> packetList = new ArrayList<IpPacket>();
+		Collection<IpPacket> packetCollection;
+		for(int index = 0;index < packets.length;index++)
+		{
+			packetCollection = packets[index].get(address);
+			for(IpPacket packet : packetCollection)
+			{
+				packetList.add(packet);
+			}
+		}
+		return packetList;
+	}
+
 }

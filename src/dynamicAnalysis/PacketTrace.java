@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.pcap4j.core.BpfProgram;
 import org.pcap4j.core.NotOpenException;
@@ -22,10 +23,11 @@ import scala.collection.mutable.MultiMap;
 public class PacketTrace
 {
 	private List<PcapNetworkInterface> devices;
-	private Multimap<String, IpPacket> packets[]; // Maps multiple packets to single address
-	private HashMap<String, String> addressMap = new HashMap<String, String>(); // Maps multiple addresses to single network interface
+	private ArrayList<Multimap<String, IpPacket>> packets = new ArrayList<Multimap<String, IpPacket>>(); // Maps multiple packets to single address
+	private Multimap<String, String> addressMap = ArrayListMultimap.create(); // Maps multiple addresses to single network interface
 	private HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>(); // Maps network interface to incrementing index
 	private HashMap<String, String> idMap = new HashMap<String, String>(); // Maps network's unique ID to readable description
+	private Thread listenerThread;
 	public PacketTrace() throws PcapNativeException
 	{
 		devices = Pcaps.findAllDevs();
@@ -33,6 +35,7 @@ public class PacketTrace
 		{
 			idMap.put(devices.get(index).getName(), devices.get(index).getDescription());
 			interfaceMap.put(devices.get(index).getName(), index); // Separating from multithread to avoid synchronization issues
+			packets.add(ArrayListMultimap.create());
 		}
 		for (PcapNetworkInterface device : devices)
 		{
@@ -42,8 +45,7 @@ public class PacketTrace
 			} catch (NotOpenException e1) {
 				e1.printStackTrace();
 			}
-
-            Thread listenerThread = new Thread(() -> { // Set up thread for each network interface
+            listenerThread = new Thread(() -> { // Set up thread for each network interface
                 try {
                     while (true) {
                     	Packet packet = handle.getNextPacket();
@@ -51,15 +53,13 @@ public class PacketTrace
                         {                 	
                         	if (packet.contains(IpPacket.class)) {
                         	    IpPacket ipPacket = packet.get(IpPacket.class);
-                        	    this.wait();
-                        	    addressMap.put(device.getName(), ipPacket.getHeader().getSrcAddr().getHostAddress());
-                        	    packets[interfaceMap.get(device.getName())].put(ipPacket.getHeader().getSrcAddr().getHostAddress(), ipPacket); //needs address
-                        	    this.notify();
+                        	    if(!addressMap.containsKey(ipPacket.getHeader().getSrcAddr().getHostAddress())) addressMap.put(device.getName(), ipPacket.getHeader().getSrcAddr().getHostAddress());
+                        	    packets.get(interfaceMap.get(device.getName())).put(ipPacket.getHeader().getSrcAddr().getHostAddress(), ipPacket); //needs address
                         	}
                         }
                         
                     }
-                } catch (NotOpenException | InterruptedException e) {
+                } catch (NotOpenException e) {
                     e.printStackTrace();
                 }
             });
@@ -69,10 +69,23 @@ public class PacketTrace
 	
 	public HashMap<String, String> getDevices()
 	{
-		return idMap;
+		HashMap<String, String> activeDevices = new HashMap<String, String>();
+		for(PcapNetworkInterface device : devices)
+		{
+			if(addressMap.containsKey(device.getName()))
+			{
+				activeDevices.put(device.getName(), device.getDescription());
+			}
+		}
+		return activeDevices;
 	}
 	
-	public Multimap<String, IpPacket>[] getPackets()
+	public String[] getAddresses(String deviceName)
+	{
+		return addressMap.get(deviceName).toArray(new String[addressMap.size()]);
+	}
+	
+	public ArrayList<Multimap<String, IpPacket>> getPackets()
 	{
 		return packets;
 	}
@@ -81,9 +94,9 @@ public class PacketTrace
 	{
 		ArrayList<IpPacket> packetList = new ArrayList<IpPacket>();
 		Collection<IpPacket> packetCollection;
-		for(int index = 0;index < packets.length;index++)
+		for(int index = 0;index < packets.size();index++)
 		{
-			packetCollection = packets[index].get(address);
+			packetCollection = packets.get(index).get(address);
 			for(IpPacket packet : packetCollection)
 			{
 				packetList.add(packet);

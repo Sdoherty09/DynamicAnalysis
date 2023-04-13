@@ -5,6 +5,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Text;
+import org.pcap4j.core.PcapNativeException;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -148,7 +149,7 @@ public class Window
 		fd_btnAdvanced.top = new FormAttachment(0, 152);
 		
 		btnAdvanced.setLayoutData(fd_btnAdvanced);		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
+		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.NO_SCROLL);
 		fd_btnAdvanced.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnMemory.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnInstructions.right = new FormAttachment(table, 101, SWT.RIGHT);
@@ -199,13 +200,13 @@ public class Window
 		});
 		btnSelect.setText("Select File");
 		FormData fd_btnSelect = new FormData();
-		fd_btnSelect.right = new FormAttachment(0, 367);
+		fd_btnSelect.right = new FormAttachment(btnInstructions, 0, SWT.RIGHT);
 		fd_btnSelect.bottom = new FormAttachment(btnInstructions, -58);
-		fd_btnSelect.left = new FormAttachment(0, 271);
+		fd_btnSelect.left = new FormAttachment(text, 5, SWT.RIGHT);
 		btnSelect.setLayoutData(fd_btnSelect);
 		
 		Label lblFilePath = new Label(shell, SWT.NONE);
-		fd_text.right = new FormAttachment(lblFilePath, 181, SWT.RIGHT);
+		fd_text.right = new FormAttachment(table, 0, SWT.RIGHT);
 		fd_text.left = new FormAttachment(lblFilePath, 13);
 		lblFilePath.setAlignment(SWT.RIGHT);
 		fd_table.left = new FormAttachment(0, 26);
@@ -253,6 +254,9 @@ public class Window
 		MenuItem mntmDestroyProcess = new MenuItem(menu_2, SWT.NONE);
 		mntmDestroyProcess.setText("Destroy Process");
 		
+		MenuItem mntmNetwork = new MenuItem(menu, SWT.NONE);
+		mntmNetwork.setText("Network");
+		
 		mntmDestroyProcess.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
             	if(process!=null) process.destroyProcess();
@@ -276,8 +280,8 @@ public class Window
 			}
 		});
 		FormData fd_btnProcess = new FormData();
-		fd_btnProcess.right = new FormAttachment(100, -129);
-		fd_btnProcess.left = new FormAttachment(btnLaunch, 54);
+		fd_btnProcess.right = new FormAttachment(btnLaunch, 130);
+		fd_btnProcess.left = new FormAttachment(btnLaunch, 10);
 		fd_btnProcess.top = new FormAttachment(btnSelect, 6);
 		btnProcess.setLayoutData(fd_btnProcess);
 		btnProcess.setText("Process");
@@ -389,6 +393,23 @@ public class Window
         		tbtmInstructions.setControl(instructionsComposite);
         		tabFolder.setSelection(tbtmInstructions);
 			}
+		});
+		
+		mntmNetwork.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event e) {
+            	CTabItem tbtmNetwork = new CTabItem(tabFolder, SWT.CLOSE);
+            	tbtmNetwork.setText("Network");
+            	try
+				{
+					NetworkComposite networkComposite = new NetworkComposite(tabFolder, SWT.NULL);
+					tbtmNetwork.setControl(networkComposite);
+					tabFolder.setSelection(tbtmNetwork);
+				} catch (PcapNativeException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
 		});
 		
 		shell.addListener (SWT.Resize,  new Listener () {

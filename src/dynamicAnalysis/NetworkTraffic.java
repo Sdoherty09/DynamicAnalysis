@@ -47,8 +47,12 @@ public class NetworkTraffic {
                             	    //System.out.println("Port: "+ port.);
                             	    // Now you can access the IP packet fields
                             	    String srcAddr = ipPacket.getHeader().getSrcAddr().getHostAddress();
-                            	    System.out.println(srcAddr);
-                            	    //System.out.println(srcAddr);
+                            	   /* byte[] data = ipPacket.getPayload().getRawData();
+                            	    for(int index = 0;index<data.length;index++)
+                            	    {
+                            	    	System.out.print((char)data[index]+"");
+                            	    }*/
+                            	    System.out.println(ipPacket.getHeader().getProtocol().name()+" - "+ipPacket.getPayload().getRawData().length+" bytes {"+ipPacket.hashCode()+"}");
                             	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
                             	    int protocol = ipPacket.getHeader().getProtocol().value();
                             	}

@@ -2,6 +2,7 @@ package dynamicAnalysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,17 +91,25 @@ public class PacketTrace
 		return packets;
 	}
 	
-	public ArrayList<IpPacket> getPackets(String address)
+	public ArrayList<IpPacket> getPackets(String address, int attempts)
 	{
 		ArrayList<IpPacket> packetList = new ArrayList<IpPacket>();
 		Collection<IpPacket> packetCollection;
 		for(int index = 0;index < packets.size();index++)
 		{
 			packetCollection = packets.get(index).get(address);
-			for(IpPacket packet : packetCollection)
+			try
 			{
-				packetList.add(packet);
+				for(IpPacket packet : packetCollection)
+				{
+					packetList.add(packet);
+				}
+			} catch (ConcurrentModificationException e)
+			{
+				if(attempts > 10) return null;
+				else return getPackets(address, attempts+1);
 			}
+			
 		}
 		return packetList;
 	}

@@ -106,6 +106,7 @@ public class Window
 		shell.setSize(491, 573);
 		shell.setText("Dynamic Malware Analyzer");
 		shell.setLayout(new FormLayout());
+		shell.setMinimumSize(491, 573);
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		shell.setLocation((dim.width/2)-200,(dim.height/2)-250);
@@ -140,22 +141,22 @@ public class Window
 		
 		btnMemory.setLayoutData(fd_btnMemory);
 		
-		Button btnAdvanced = new Button(shell, SWT.NONE);
-		fd_btnMemory.bottom = new FormAttachment(btnAdvanced, -6);
-		btnAdvanced.setEnabled(false);
-		btnAdvanced.setText("Advanced");
-		FormData fd_btnAdvanced = new FormData();
-		fd_btnAdvanced.bottom = new FormAttachment(0, 178);
-		fd_btnAdvanced.top = new FormAttachment(0, 152);
+		Button btnFiles = new Button(shell, SWT.NONE);
+		fd_btnMemory.bottom = new FormAttachment(btnFiles, -6);
+		btnFiles.setEnabled(false);
+		btnFiles.setText("Files");
+		FormData fd_btnFiles = new FormData();
+		fd_btnFiles.bottom = new FormAttachment(0, 178);
+		fd_btnFiles.top = new FormAttachment(0, 152);
 		
-		btnAdvanced.setLayoutData(fd_btnAdvanced);		
+		btnFiles.setLayoutData(fd_btnFiles);		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.NO_SCROLL);
-		fd_btnAdvanced.right = new FormAttachment(table, 101, SWT.RIGHT);
+		fd_btnFiles.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnMemory.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnInstructions.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnInstructions.left = new FormAttachment(table, 6);
 		fd_btnMemory.left = new FormAttachment(table, 6);
-		fd_btnAdvanced.left = new FormAttachment(table, 6);
+		fd_btnFiles.left = new FormAttachment(table, 6);
 		fd_btnMemory.left = new FormAttachment(table, 6);
 		FormData fd_table = new FormData();
 		fd_table.bottom = new FormAttachment(0, 177);
@@ -245,6 +246,22 @@ public class Window
 		MenuItem mntmOpen = new MenuItem(menu_1, SWT.NONE);
 		mntmOpen.setText("Open");
 		
+		mntmOpen.addListener(SWT.Selection, new Listener() {
+            public void handleEvent(Event e) {
+            	selectFile = new SelectFile(shell.getLocation().x, shell.getLocation().y, btnProcess.getSelection());
+            	filePath = selectFile.getText();
+            	try
+				{
+					text.setText(filePath);
+					btnLaunch.setEnabled(true);
+				}
+				catch(IllegalArgumentException e1) 
+				{
+					btnLaunch.setEnabled(false);
+				}
+            }
+		});
+		
 		MenuItem mntmProcess = new MenuItem(menu, SWT.CASCADE);
 		mntmProcess.setText("Process");
 		
@@ -293,7 +310,7 @@ public class Window
 				tableItems[2].setText(1, "");		
 				tableItems[3].setText(1, "");
 				btnMemory.setEnabled(true);
-				btnAdvanced.setEnabled(true);
+				btnFiles.setEnabled(true);
 				tableItems[0].setGrayed(btnProcess.getSelection());
 				tableItems[1].setGrayed(btnProcess.getSelection());
 				btnInstructions.setEnabled(!btnProcess.getSelection());
@@ -370,7 +387,7 @@ public class Window
 			}
 		});
 		
-		btnAdvanced.addSelectionListener(new SelectionAdapter() {
+		btnFiles.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				CTabItem tbtmAdvanced = new CTabItem(tabFolder, SWT.CLOSE);
@@ -398,10 +415,18 @@ public class Window
 		mntmNetwork.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
             	CTabItem tbtmNetwork = new CTabItem(tabFolder, SWT.CLOSE);
+            	try
+            	{
+            		processId = Integer.parseInt(tableItems[3].getText(1));
+            	} catch(NumberFormatException e1)
+            	{
+            		processId = 0;
+            	}
+            	
             	tbtmNetwork.setText("Network");
             	try
 				{
-					NetworkComposite networkComposite = new NetworkComposite(tabFolder, SWT.NULL);
+					NetworkComposite networkComposite = new NetworkComposite(tabFolder, SWT.NULL, processId);
 					tbtmNetwork.setControl(networkComposite);
 					tabFolder.setSelection(tbtmNetwork);
 				} catch (PcapNativeException e1)

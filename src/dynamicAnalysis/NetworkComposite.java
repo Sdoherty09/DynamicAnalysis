@@ -15,6 +15,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +48,10 @@ public class NetworkComposite extends Composite
 	private HashMap<String, String> devices;
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	private boolean addressSelected = false;
+	private ActiveConnection[] activeConnections;
+	private StyledText packetInfo;
+	private StyledText hexPayload;
+	private StyledText asciiPayload;
 	
 	/**
 	 * Create the composite.
@@ -54,7 +59,7 @@ public class NetworkComposite extends Composite
 	 * @param style
 	 * @throws PcapNativeException 
 	 */
-	public NetworkComposite(Composite parent, int style) throws PcapNativeException
+	public NetworkComposite(Composite parent, int style, long pid) throws PcapNativeException
 	{
 		super(parent, style);
 		setLayout(new FormLayout());
@@ -65,7 +70,7 @@ public class NetworkComposite extends Composite
 		fd_networkInterfaces.right = new FormAttachment(0, 211);
 		networkInterfaces.setLayoutData(fd_networkInterfaces);
 		
-		StyledText packetInfo = new StyledText(this, SWT.BORDER | SWT.WRAP);
+		packetInfo = new StyledText(this, SWT.BORDER | SWT.WRAP);
 		packetInfo.setEditable(false);
 		FormData fd_packetInfo = new FormData();
 		fd_packetInfo.left = new FormAttachment(networkInterfaces, 5);
@@ -102,7 +107,7 @@ public class NetworkComposite extends Composite
 		label.setLayoutData(fd_label);
 		formToolkit.adapt(label, true, true);
 		
-		StyledText hexPayload = new StyledText(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		hexPayload = new StyledText(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		hexPayload.setEditable(false);
 		FormData fd_hexPayload = new FormData();
 		fd_hexPayload.right = new FormAttachment(packetInfo, 0, SWT.RIGHT);
@@ -112,7 +117,7 @@ public class NetworkComposite extends Composite
 		formToolkit.adapt(hexPayload);
 		formToolkit.paintBordersFor(hexPayload);
 		
-		StyledText asciiPayload = new StyledText(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+		asciiPayload = new StyledText(this, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		asciiPayload.setEditable(false);
 		fd_hexPayload.left = new FormAttachment(asciiPayload, 0, SWT.LEFT);
 		FormData fd_asciiPayload = new FormData();
@@ -139,32 +144,103 @@ public class NetworkComposite extends Composite
 		lblAsciiPayload.setLayoutData(fd_lblAsciiPayload);
 		
 		Button btnFilterByProcess = new Button(this, SWT.CHECK);
+		btnFilterByProcess.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				clearAll();
+			}
+		});
 		btnFilterByProcess.setGrayed(true);
 		btnFilterByProcess.setText("Filter by process");
 		FormData fd_btnFilterByProcess = new FormData();
-		fd_btnFilterByProcess.top = new FormAttachment(0, 10);
+		fd_btnFilterByProcess.top = new FormAttachment(0, 11);
+		fd_btnFilterByProcess.bottom = new FormAttachment(packetInfo, -6);
 		fd_btnFilterByProcess.left = new FormAttachment(packetInfo, 0, SWT.LEFT);
 		btnFilterByProcess.setLayoutData(fd_btnFilterByProcess);
 		formToolkit.adapt(btnFilterByProcess, true, true);
 		
+		Label pidMatch = formToolkit.createLabel(this, "New Label", SWT.NONE);
+		pidMatch.setBackground(SWTResourceManager.getColor(240, 240, 240));
+		FormData fd_pidMatch = new FormData();
+		fd_pidMatch.bottom = new FormAttachment(networkInterfaces, -15);
+		fd_pidMatch.right = new FormAttachment(btnFilterByProcess, -6);
+		fd_pidMatch.left = new FormAttachment(0, 5);
+		fd_pidMatch.top = new FormAttachment(0, 11);
+		pidMatch.setLayoutData(fd_pidMatch);
+		
+		Button btnClear = formToolkit.createButton(this, "Clear", SWT.NONE);
+		btnClear.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				clearAll();
+			}
+		});
+		FormData fd_btnClear = new FormData();
+		fd_btnClear.bottom = new FormAttachment(packetInfo, -6);
+		fd_btnClear.right = new FormAttachment(100, -4);
+		fd_btnClear.top = new FormAttachment(0, 10);
+		btnClear.setLayoutData(fd_btnClear);
+		
+		String address = "";
+		System.out.println("pid: "+pid);
+		if(pid == 0)
+		{
+			pidMatch.setText("No process selected");
+		}
+		else
+		{
+			NetworkStats networkStats = new NetworkStats();
+			activeConnections = networkStats.getActiveConnections();
+			int count = 1;
+			boolean extraAddress = false;
+			for(int index = 0; index < activeConnections.length; index++)
+			{
+				if(activeConnections[index].getPid() == pid)
+				{
+					extraAddress = !address.equals("");
+					address = activeConnections[index].getLocalAddress();
+					pidMatch.setText("Process address: "+address);
+					if(extraAddress) pidMatch.setText(pidMatch.getText()+" (+"+count+++")");
+				}
+			}
+		}
+		
 		networkInterfaces.addListener(SWT.Selection, new Listener() {
 		      public void handleEvent(Event e) {
 		    	addresses.removeAll();
-		        String deviceName = (String) networkInterfaces.getData(networkInterfaces.getSelection()[0]);
-		        String[] addressesArr = packetTrace.getAddresses(deviceName);
-		        System.out.println("addresses length: "+addressesArr.length);
-		        for(int index = 0; index < addressesArr.length; index++)
-		        {
-		        	try
-		        	{
-		        		addresses.add(addressesArr[index]);
-		        	}
-		        	catch(IllegalArgumentException e1)
-		        	{
-		        		e1.printStackTrace();
-		        		continue;
-		        	}
-		        }
+		    	try
+		    	{
+		    		String deviceName = (String) networkInterfaces.getData(networkInterfaces.getSelection()[0]);
+			        String[] addressesArr = packetTrace.getAddresses(deviceName);
+			        System.out.println("addresses length: "+addressesArr.length);
+			        for(int index = 0; index < addressesArr.length; index++)
+			        {
+			        	try
+			        	{
+			        		if(pid != 0 && btnFilterByProcess.getSelection())
+			        		{
+			        			for(int j = 0; j < activeConnections.length; j++)
+			        			{
+			        				if(activeConnections[j].getPid()==pid && activeConnections[j].getLocalAddress() == addressesArr[index])
+			        				{
+			        					addresses.add(addressesArr[index]);
+			        				}
+			        			}
+			        		}
+			        		else
+			        		{
+			        			addresses.add(addressesArr[index]);
+			        		}
+		        		
+			        	}
+			        	catch(IllegalArgumentException e1)
+			        	{
+			        		e1.printStackTrace();
+			        		continue;
+			        	}
+			        }
+		    	}
+		        catch(ArrayIndexOutOfBoundsException e1) {}
 		      }
 		    });
 		addresses.addListener(SWT.Selection, new Listener() {
@@ -214,13 +290,21 @@ public class NetworkComposite extends Composite
                         	}
                         	if(addressSelected)
                         	{
-                        	  ArrayList<IpPacket> packetList = packetTrace.getPackets(addresses.getSelection()[0]);
-	          		    	  for(IpPacket packet : packetList)
-	          		    	  {
-	          		    		  String packetDescription = packet.getHeader().getProtocol().name()+" - "+packet.getPayload().getRawData().length+" bytes {"+packet.hashCode()+"}";
-	          		    		  packets.add(packetDescription);
-	          		    		  packets.setData(packetDescription, packet);
-	          		    	  }
+	                    	  try
+	                    	  {
+	                    		  ArrayList<IpPacket> packetList = packetTrace.getPackets(addresses.getSelection()[0], 0);
+	                        	  if(packetList == null)
+	                        	  {
+	                        		  errorAlert("Something went wrong when fetching packets.");
+	                        	  }
+		          		    	  for(IpPacket packet : packetList)
+		          		    	  {
+		          		    		  String packetDescription = packet.getHeader().getProtocol().name()+" - "+packet.getPayload().getRawData().length+" bytes {"+packet.hashCode()+"}";
+		          		    		  packets.add(packetDescription);
+		          		    		  packets.setData(packetDescription, packet);
+		          		    	  }
+	                    	  }
+                        	  catch(ArrayIndexOutOfBoundsException e) {}
                         	}
                         }
                     });           	         	
@@ -234,6 +318,25 @@ public class NetworkComposite extends Composite
             }
         });
         updateThread.start();
+	}
+	
+	private void errorAlert(String message)
+	{
+		MessageBox messageBox = new MessageBox(this.getShell(), SWT.ERROR);				        
+        messageBox.setText("Error");
+        messageBox.setMessage(message);
+        messageBox.open();
+	}
+	
+	private void clearAll()
+	{
+		networkInterfaces.deselectAll();
+		addresses.removeAll();
+		addresses.deselectAll();
+		packets.removeAll();
+		packets.deselectAll();
+		packetInfo.setText("");
+		hexPayload.setText("");
 	}
 	
 	@Override

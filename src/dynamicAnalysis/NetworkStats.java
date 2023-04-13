@@ -24,7 +24,7 @@ public class NetworkStats
 				String foreignAddress = stats.substring(0, stats.indexOf(' '));
 				stats = spaceBreak(stats);
 				String state = stats.substring(0, stats.indexOf(' '));
-				System.out.println(state);
+				System.out.println(localAddress);
 				long pid = 0;
 				try
 				{
@@ -42,7 +42,7 @@ public class NetworkStats
 			}
 			catch(StringIndexOutOfBoundsException e)
 			{
-				e.printStackTrace();
+				//e.printStackTrace();
 				break;
 			}
 		}

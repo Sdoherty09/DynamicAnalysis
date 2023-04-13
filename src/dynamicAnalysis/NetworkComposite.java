@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.FormText;
+import org.eclipse.swt.widgets.Button;
 
 public class NetworkComposite extends Composite
 {
@@ -136,6 +137,15 @@ public class NetworkComposite extends Composite
 		fd_lblAsciiPayload.top = new FormAttachment(hexPayload, 6);
 		fd_lblAsciiPayload.right = new FormAttachment(asciiPayload, -6);
 		lblAsciiPayload.setLayoutData(fd_lblAsciiPayload);
+		
+		Button btnFilterByProcess = new Button(this, SWT.CHECK);
+		btnFilterByProcess.setGrayed(true);
+		btnFilterByProcess.setText("Filter by process");
+		FormData fd_btnFilterByProcess = new FormData();
+		fd_btnFilterByProcess.top = new FormAttachment(0, 10);
+		fd_btnFilterByProcess.left = new FormAttachment(packetInfo, 0, SWT.LEFT);
+		btnFilterByProcess.setLayoutData(fd_btnFilterByProcess);
+		formToolkit.adapt(btnFilterByProcess, true, true);
 		
 		networkInterfaces.addListener(SWT.Selection, new Listener() {
 		      public void handleEvent(Event e) {

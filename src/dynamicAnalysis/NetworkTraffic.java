@@ -20,6 +20,8 @@ import org.pcap4j.packet.IpV4Packet;
 public class NetworkTraffic {
 
 	public static void main(String[] args) {
+		NetworkStats netStats = new NetworkStats();
+		System.out.println(netStats.getActiveConnections()[0]);
 		try {
             // Get a list of all available network interfaces
             List<PcapNetworkInterface> devices = Pcaps.findAllDevs();
@@ -52,7 +54,7 @@ public class NetworkTraffic {
                             	    {
                             	    	System.out.print((char)data[index]+"");
                             	    }*/
-                            	    System.out.println(ipPacket.getHeader().getProtocol().name()+" - "+ipPacket.getPayload().getRawData().length+" bytes {"+ipPacket.hashCode()+"}");
+                            	    //System.out.println(ipPacket.getHeader().getProtocol().name()+" - "+ipPacket.getPayload().getRawData().length+" bytes {"+ipPacket.hashCode()+"}");
                             	    String dstAddr = ipPacket.getHeader().getDstAddr().getHostAddress();
                             	    int protocol = ipPacket.getHeader().getProtocol().value();
                             	}
@@ -73,5 +75,6 @@ public class NetworkTraffic {
 	}
 
 }
+// netstat -ano
 // netstat -ano -p tcp - gets local address and port
 // Destination port always 49389 (unknown)

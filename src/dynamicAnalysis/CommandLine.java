@@ -77,6 +77,11 @@ public class CommandLine
 		return run("tasklist /fo csv", true);
 	}
 	
+	public String getNetstat()
+	{
+		return run("netstat -ano", true);
+	}
+	
 	@Override
 	public String toString()
 	{

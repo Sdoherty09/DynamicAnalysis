@@ -1,11 +1,22 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.util.ArrayList;
 
+/**
+ * The Class NetworkStats.
+ */
 public class NetworkStats
 {
+	
+	/** The active connections. */
 	private ActiveConnection[] activeConnections;
 
+	/**
+	 * Instantiates a new network stats.
+	 */
 	public NetworkStats()
 	{
 		CommandLine commandLine = new CommandLine();
@@ -54,6 +65,12 @@ public class NetworkStats
 		setActiveConnections(activeConnections);
 	}
 	
+	/**
+	 * Space break.
+	 *
+	 * @param stats the stats
+	 * @return the string
+	 */
 	private String spaceBreak(String stats)
 	{
 		int index=stats.indexOf(' ')+1;
@@ -61,11 +78,21 @@ public class NetworkStats
 		return stats.substring(index);
 	}
 
+	/**
+	 * Gets the active connections.
+	 *
+	 * @return the active connections
+	 */
 	public ActiveConnection[] getActiveConnections()
 	{
 		return activeConnections;
 	}
 
+	/**
+	 * Sets the active connections.
+	 *
+	 * @param activeConnections the new active connections
+	 */
 	public void setActiveConnections(ActiveConnection[] activeConnections)
 	{
 		this.activeConnections = activeConnections;

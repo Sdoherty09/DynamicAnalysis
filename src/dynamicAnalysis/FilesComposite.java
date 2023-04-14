@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
@@ -11,16 +14,26 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 
+/**
+ * Composite to display the files used by the process
+ */
 public class FilesComposite extends Composite
 {
+	
+	/** The GUI table displaying DLL files. */
 	private Table dllsTable;
+	
+	/** The GUI table displaying the files used by the process. */
 	private Table filesTable;
+	
+	/** The process ID of the process. */
 	private int processId;
 
 	/**
 	 * Create the composite.
-	 * @param parent
-	 * @param style
+	 *
+	 * @param parent the parent that contains this composite
+	 * @param style the SWT style
 	 */
 	public FilesComposite(Composite parent, int style)
 	{
@@ -60,16 +73,29 @@ public class FilesComposite extends Composite
 
 	
 	
+	/**
+	 * Gets the process id.
+	 *
+	 * @return the process id
+	 */
 	public int getProcessId()
 	{
 		return processId;
 	}
 
+	/**
+	 * Sets the process id.
+	 *
+	 * @param processId the new process id
+	 */
 	public void setProcessId(int processId)
 	{
 		this.processId = processId;
 	}
 
+	/**
+	 * Check subclass.
+	 */
 	@Override
 	protected void checkSubclass()
 	{

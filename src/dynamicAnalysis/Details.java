@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
@@ -11,19 +14,36 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+/**
+ * The Class Details.
+ */
 public class Details extends Composite
 {
+	
+	/** The table. */
 	private Table table;
+	
+	/** The table items. */
 	private TableItem tableItems[] = new TableItem[4];
+	
+	/** The selection. */
 	private boolean selection;
+	
+	/** The btn instructions. */
 	private Button btnInstructions = new Button(this, SWT.NONE);
+	
+	/** The btn memory. */
 	private Button btnMemory = new Button(this, SWT.NONE);
+	
+	/** The btn advanced. */
 	private Button btnAdvanced = new Button(this, SWT.NONE);
 	
 	/**
 	 * Create the composite.
-	 * @param parent
-	 * @param style
+	 *
+	 * @param parent the parent
+	 * @param style the style
+	 * @param selection the selection
 	 */
 	public Details(Composite parent, int style, boolean selection)
 	{
@@ -95,6 +115,9 @@ public class Details extends Composite
 
 	}
 	
+	/**
+	 * Clear data.
+	 */
 	public void clearData()
 	{
 		tableItems[0].setText(1, "");
@@ -108,16 +131,29 @@ public class Details extends Composite
 		btnInstructions.setEnabled(!isSelection());
 	}
 	
+	/**
+	 * Checks if is selection.
+	 *
+	 * @return true, if is selection
+	 */
 	public boolean isSelection()
 	{
 		return selection;
 	}
 
+	/**
+	 * Sets the selection.
+	 *
+	 * @param selection the new selection
+	 */
 	public void setSelection(boolean selection)
 	{
 		this.selection = selection;
 	}
 
+	/**
+	 * Check subclass.
+	 */
 	@Override
 	protected void checkSubclass()
 	{

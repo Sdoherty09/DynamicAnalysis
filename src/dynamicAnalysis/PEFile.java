@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.io.File;
@@ -10,56 +13,127 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.TableItem;
 
+/**
+ * The Class PEFile.
+ */
 public class PEFile {
+	
+	/** The file. */
 	private File file;
+	
+	/** The offset. */
 	private int offset;
+	
+	/** The version. */
 	private Version version;
+	
+	/** The instructions. */
 	private byte[] instructions;
+	
+	/** The pointer. */
 	private int pointer;
+	
+	/** The bytes. */
 	private byte[] bytes = null;
+	
+	/** The bytes arr. */
 	private byte[][] bytesArr;
+	
+	/** The threads. */
 	private Thread[] threads;
+	
+	/** The thread index. */
 	private int threadIndex;
+	
+	/** The semaphore. */
 	private Semaphore semaphore = new Semaphore(1);
+	
+	/** The num of threads. */
 	private int numOfThreads = 8;
+	
+	/** The pointer to raw data. */
 	private int pointerToRawData;
+	
+	/** The updated bytes. */
 	private byte[] updatedBytes;
 	
+	/**
+	 * Instantiates a new PE file.
+	 *
+	 * @param file the file
+	 */
 	public PEFile(File file)
 	{
 		setFile(file);
 	}
 
+	/**
+	 * Gets the file.
+	 *
+	 * @return the file
+	 */
 	public File getFile()
 	{
 		return file;
 	}
 
+	/**
+	 * Sets the file.
+	 *
+	 * @param file the new file
+	 */
 	public void setFile(File file)
 	{
 		this.file = file;
 	}
 	
+	/**
+	 * Gets the offset.
+	 *
+	 * @return the offset
+	 */
 	public int getOffset()
 	{
 		return offset;
 	}
 
+	/**
+	 * Gets the version.
+	 *
+	 * @return the version
+	 */
 	public Version getVersion()
 	{
 		return version;
 	}
 
+	/**
+	 * Gets the bytes arr.
+	 *
+	 * @return the bytes arr
+	 */
 	public byte[][] getBytesArr()
 	{
 		return bytesArr;
 	}
 
+	/**
+	 * Sets the bytes arr.
+	 *
+	 * @param bytesArr the new bytes arr
+	 */
 	public void setBytesArr(byte[][] bytesArr)
 	{
 		this.bytesArr = bytesArr;
 	}
 
+	/**
+	 * Search.
+	 *
+	 * @param toSearch the to search
+	 * @param search the search
+	 * @return the int
+	 */
 	public int search(byte[] toSearch, byte[] search)
 	{
 		numOfThreads = 8;
@@ -113,6 +187,11 @@ public class PEFile {
 		return 0; //first found index of search array
 	}
 	
+	/**
+	 * Gets the instructions.
+	 *
+	 * @return the instructions
+	 */
 	public byte[] getInstructions()
 	{
 		int bytesIndex = offset;
@@ -152,36 +231,70 @@ public class PEFile {
 		return updatedBytes;
 	}*/
 	
+	/**
+	 * Gets the pointer.
+	 *
+	 * @return the pointer
+	 */
 	public int getPointer()
 	{
 		return pointer;
 	}
 
+	/**
+	 * Sets the pointer.
+	 *
+	 * @param pointer the new pointer
+	 */
 	private void setPointer(int pointer)
 	{
 		this.pointer = pointer;
 	}
 	
+	/**
+	 * Gets the threads.
+	 *
+	 * @return the threads
+	 */
 	public Thread[] getThreads()
 	{
 		return threads;
 	}
 
+	/**
+	 * Sets the threads.
+	 *
+	 * @param threads the new threads
+	 */
 	public void setThreads(Thread[] threads)
 	{
 		this.threads = threads;
 	}
 	
+	/**
+	 * Gets the bytes.
+	 *
+	 * @return the bytes
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public byte[] getBytes() throws IOException
 	{
 		return Files.readAllBytes(Paths.get(file.toString()));
 	}
 
+	/**
+	 * Sets the bytes.
+	 *
+	 * @param bytes the new bytes
+	 */
 	public void setBytes(byte[] bytes)
 	{
 		this.bytes = bytes;
 	}
 
+	/**
+	 * Read file.
+	 */
 	public void readFile()
 	{
 		
@@ -261,6 +374,11 @@ public class PEFile {
         //rawDataOffset, rawDataSize
 	}
 	
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString()
 	{

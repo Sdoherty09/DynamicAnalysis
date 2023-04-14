@@ -1,9 +1,22 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 import java.io.*;
 
+/**
+ * The Class ReadWrite.
+ */
 public class ReadWrite
 {
- 	public static void write(String word, String name) //Method for clearing a text file and writing a line.
+ 	
+	 /**
+	  * Write.
+	  *
+	  * @param word the word
+	  * @param name the name
+	  */
+	 public static void write(String word, String name) //Method for clearing a text file and writing a line.
  	{
  		PrintWriter delete=null;
  		try
@@ -24,7 +37,13 @@ public class ReadWrite
  		}
  	}
  	
- 	public static void writeLine(String word, String name) //Method for adding a line to a text file.
+ 	/**
+	  * Write line.
+	  *
+	  * @param word the word
+	  * @param name the name
+	  */
+	 public static void writeLine(String word, String name) //Method for adding a line to a text file.
  	{
  		try
 	 		{
@@ -38,11 +57,23 @@ public class ReadWrite
 	        }
  	}
  	
- 	public static void delete(String name) //Method for clearing a text file.
+ 	/**
+	  * Delete.
+	  *
+	  * @param name the name
+	  */
+	 public static void delete(String name) //Method for clearing a text file.
  	{
  		write("", name);
  	}
- 	public static int getLength(String name) //Returns how many lines are in the text file.
+ 	
+	 /**
+	  * Gets the length.
+	  *
+	  * @param name the name
+	  * @return the length
+	  */
+	 public static int getLength(String name) //Returns how many lines are in the text file.
  	{
  		
  	//	writeLine("", name);
@@ -73,7 +104,15 @@ public class ReadWrite
 	        }
 	    return count;
  	}
- 	public static String getLine(int number, String name) //Method for returning a line from a text file.
+ 	
+	 /**
+	  * Gets the line.
+	  *
+	  * @param number the number
+	  * @param name the name
+	  * @return the line
+	  */
+	 public static String getLine(int number, String name) //Method for returning a line from a text file.
  	{
  		String word="";
  		BufferedReader checkLine=null;
@@ -103,7 +142,14 @@ public class ReadWrite
 	    return word;
  	}
  	
- 	public static int indexOf(String word, String name) //Returns the index that the word is at.
+ 	/**
+	  * Index of.
+	  *
+	  * @param word the word
+	  * @param name the name
+	  * @return the int
+	  */
+	 public static int indexOf(String word, String name) //Returns the index that the word is at.
  	{
  		int index=-1;
  		String temp;
@@ -135,7 +181,14 @@ public class ReadWrite
 	    return index;
  	}
  	
- 	public static void replace(String oldWord, String newWord, String name) //Replaces the old word with the new word in a text file.
+ 	/**
+	  * Replace.
+	  *
+	  * @param oldWord the old word
+	  * @param newWord the new word
+	  * @param name the name
+	  */
+	 public static void replace(String oldWord, String newWord, String name) //Replaces the old word with the new word in a text file.
  	{
  		delete("temp.txt");
  		String temp="";
@@ -178,7 +231,15 @@ public class ReadWrite
 	        	e.printStackTrace();
 	        }
  	}
- 	public static void replace(int index, String newWord, String name) //Replaces the word at specified index with the new word.
+ 	
+	 /**
+	  * Replace.
+	  *
+	  * @param index the index
+	  * @param newWord the new word
+	  * @param name the name
+	  */
+	 public static void replace(int index, String newWord, String name) //Replaces the word at specified index with the new word.
  	{
  		delete("temp.txt");
  		int increment=-1;
@@ -224,7 +285,14 @@ public class ReadWrite
 	        	e.printStackTrace();
 	        }
  	}
- 	public static boolean isReady(String name) //Check if text file is ready to be written.
+ 	
+	 /**
+	  * Checks if is ready.
+	  *
+	  * @param name the name
+	  * @return true, if is ready
+	  */
+	 public static boolean isReady(String name) //Check if text file is ready to be written.
  	{
  		boolean check=true;
  		BufferedReader checkLine;
@@ -240,7 +308,14 @@ public class ReadWrite
  		}
  		return check;
  	}
- 	public static void deleteLine(int index,String name) //Deletes the line at a specified index.
+ 	
+	 /**
+	  * Delete line.
+	  *
+	  * @param index the index
+	  * @param name the name
+	  */
+	 public static void deleteLine(int index,String name) //Deletes the line at a specified index.
  	{
  		delete("temp.txt");
  		int increment=-1;
@@ -283,7 +358,14 @@ public class ReadWrite
 	        }
  		
  	}
- 	public static String toString(String name)
+ 	
+	 /**
+	  * To string.
+	  *
+	  * @param name the name
+	  * @return the string
+	  */
+	 public static String toString(String name)
  	{
  		BufferedReader checkLine;
  		String total="";

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
@@ -15,20 +18,39 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 
+/**
+ * The Class SelectFile.
+ */
 public class SelectFile
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The text. */
 	private Text text;
+	
+	/** The file path. */
 	private String filePath;
+	
+	/** The x. */
 	private int x;
+	
+	/** The y. */
 	private int y;
+	
+	/** The pid mode. */
 	private boolean pidMode;
+	
+	/** The pid. */
 	private int pid;
 	
 	/**
 	 * Launch the application.
-	 * @param args
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param pidMode the pid mode
 	 */
 	public SelectFile(int x, int y, boolean pidMode)
 	{
@@ -216,56 +238,109 @@ public class SelectFile
 
 	}
 	
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public int getX()
 	{
 		return x;
 	}
 
+	/**
+	 * Sets the x.
+	 *
+	 * @param x the new x
+	 */
 	public void setX(int x)
 	{
 		this.x = x;
 	}
 
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public int getY()
 	{
 		return y;
 	}
 
+	/**
+	 * Sets the y.
+	 *
+	 * @param y the new y
+	 */
 	public void setY(int y)
 	{
 		this.y = y;
 	}
 	
+	/**
+	 * Checks if is pid mode.
+	 *
+	 * @return true, if is pid mode
+	 */
 	public boolean isPidMode()
 	{
 		return pidMode;
 	}
 
+	/**
+	 * Sets the pid mode.
+	 *
+	 * @param pidMode the new pid mode
+	 */
 	public void setPidMode(boolean pidMode)
 	{
 		this.pidMode = pidMode;
 	}
 
+	/**
+	 * Gets the text.
+	 *
+	 * @return the text
+	 */
 	public String getText()
 	{
 		return filePath;
 	}
 
+	/**
+	 * Gets the pid.
+	 *
+	 * @return the pid
+	 */
 	public int getPid()
 	{
 		return pid;
 	}
 
+	/**
+	 * Sets the pid.
+	 *
+	 * @param pid the new pid
+	 */
 	public void setPid(int pid)
 	{
 		this.pid = pid;
 	}
 	
+	/**
+	 * Checks if is disposed.
+	 *
+	 * @return true, if is disposed
+	 */
 	public boolean isDisposed()
 	{
 		return shell.isDisposed();
 	}
 	
+	/**
+	 * Focus.
+	 */
 	public void focus()
 	{
 		shell.forceFocus();

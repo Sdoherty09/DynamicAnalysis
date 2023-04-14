@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
@@ -39,25 +42,52 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.swt.widgets.Button;
 
+/**
+ * The Class NetworkComposite.
+ */
 public class NetworkComposite extends Composite
 {
+	
+	/** The packet trace. */
 	private PacketTrace packetTrace;
+	
+	/** The network interfaces. */
 	private List networkInterfaces;
+	
+	/** The addresses. */
 	private List addresses;
+	
+	/** The packets. */
 	private List packets;
+	
+	/** The devices. */
 	private HashMap<String, String> devices;
+	
+	/** The form toolkit. */
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
+	
+	/** The address selected. */
 	private boolean addressSelected = false;
+	
+	/** The active connections. */
 	private ActiveConnection[] activeConnections;
+	
+	/** The packet info. */
 	private StyledText packetInfo;
+	
+	/** The hex payload. */
 	private StyledText hexPayload;
+	
+	/** The ascii payload. */
 	private StyledText asciiPayload;
 	
 	/**
 	 * Create the composite.
-	 * @param parent
-	 * @param style
-	 * @throws PcapNativeException 
+	 *
+	 * @param parent the parent
+	 * @param style the style
+	 * @param pid the pid
+	 * @throws PcapNativeException the pcap native exception
 	 */
 	public NetworkComposite(Composite parent, int style, long pid) throws PcapNativeException
 	{
@@ -269,6 +299,9 @@ public class NetworkComposite extends Composite
 		updateNetwork();
 	}
 	
+	/**
+	 * Update network.
+	 */
 	private synchronized void updateNetwork()
 	{
 		Thread updateThread = new Thread(() -> { // Set up thread for each network interface
@@ -320,6 +353,11 @@ public class NetworkComposite extends Composite
         updateThread.start();
 	}
 	
+	/**
+	 * Error alert.
+	 *
+	 * @param message the message
+	 */
 	private void errorAlert(String message)
 	{
 		MessageBox messageBox = new MessageBox(this.getShell(), SWT.ERROR);				        
@@ -328,6 +366,9 @@ public class NetworkComposite extends Composite
         messageBox.open();
 	}
 	
+	/**
+	 * Clear all.
+	 */
 	private void clearAll()
 	{
 		networkInterfaces.deselectAll();
@@ -339,6 +380,9 @@ public class NetworkComposite extends Composite
 		hexPayload.setText("");
 	}
 	
+	/**
+	 * Check subclass.
+	 */
 	@Override
 	protected void checkSubclass()
 	{

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -20,24 +23,58 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ProgressBar;
 
+/**
+ * The Class MemoryWindow.
+ */
 public class MemoryWindow
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The process id. */
 	private int processId;
+	
+	/** The text. */
 	private Text text;
+	
+	/** The txt length. */
 	private Label txtLength;
+	
+	/** The bytes. */
 	private byte[] bytes;
+	
+	/** The x. */
 	private int x;
+	
+	/** The y. */
 	private int y;
+	
+	/** The ascii table. */
 	private Table asciiTable;
+	
+	/** The btn new button. */
 	private Button btnNewButton;
+	
+	/** The search text. */
 	private Text searchText;
+	
+	/** The table store. */
 	private TableItem[] tableStore = null;
+	
+	/** The table items. */
 	private TableItem[] tableItems;
+	
+	/** The btn update. */
 	private Button btnUpdate;
+	
+	/** The gd ascii table. */
 	private GridData gd_asciiTable;
+	
+	/** The progress bar. */
 	private ProgressBar progressBar;
+	
+	/** The ascii sections. */
 	private String[] asciiSections;
 	
 	/*
@@ -47,6 +84,13 @@ public class MemoryWindow
 		memoryWindow.open();
 	}*/
 	
+	/**
+	 * Instantiates a new memory window.
+	 *
+	 * @param processId the process id
+	 * @param x the x
+	 * @param y the y
+	 */
 	public MemoryWindow(int processId, int x, int y)
 	{
 		try
@@ -61,37 +105,70 @@ public class MemoryWindow
 	}
 
 	
+	/**
+	 * Gets the process id.
+	 *
+	 * @return the process id
+	 */
 	public int getProcessId()
 	{
 		return processId;
 	}
 
+	/**
+	 * Sets the process id.
+	 *
+	 * @param processId the new process id
+	 */
 	public void setProcessId(int processId)
 	{
 		this.processId = processId;
 	}
 	
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public int getX()
 	{
 		return x;
 	}
 
+	/**
+	 * Sets the x.
+	 *
+	 * @param x the new x
+	 */
 	public void setX(int x)
 	{
 		this.x = x;
 	}
 
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public int getY()
 	{
 		return y;
 	}
 
 
+	/**
+	 * Sets the y.
+	 *
+	 * @param y the new y
+	 */
 	public void setY(int y)
 	{
 		this.y = y;
 	}
 
+	/**
+	 * Open.
+	 */
 	public void open()
 	{
 		Display display = Display.getDefault();
@@ -107,6 +184,11 @@ public class MemoryWindow
 		}
 	}
 
+	/**
+	 * Read memory.
+	 *
+	 * @return the byte[]
+	 */
 	private byte[] readMemory()
 	{
 		VirtualMemory virtualMemory = new VirtualMemory(getProcessId());
@@ -115,18 +197,34 @@ public class MemoryWindow
 	
 	
 	
+	/**
+	 * Gets the bytes.
+	 *
+	 * @return the bytes
+	 */
 	public byte[] getBytes()
 	{
 		return bytes;
 	}
 
 
+	/**
+	 * Sets the bytes.
+	 *
+	 * @param bytes the new bytes
+	 */
 	public void setBytes(byte[] bytes)
 	{
 		this.bytes = bytes;
 	}
 
 
+	/**
+	 * Update memory.
+	 *
+	 * @param text the text
+	 * @return the string
+	 */
 	private String updateMemory(Text text)
 	{
 		long start = System.currentTimeMillis();
@@ -157,6 +255,11 @@ public class MemoryWindow
 		return output;
 	}
 	
+	/**
+	 * Find ascii sections.
+	 *
+	 * @return the string[]
+	 */
 	private String[] findAsciiSections()
 	{
 		long startTime = System.currentTimeMillis();
@@ -187,11 +290,24 @@ public class MemoryWindow
 		return asciiSections.toArray(new String[0]);
 	}
 	
+	/**
+	 * Checks if is ascii.
+	 *
+	 * @param character the character
+	 * @return true, if is ascii
+	 */
 	private boolean isAscii(char character)
 	{
 		return character>=32&&character<=126;
 	}
 	
+	/**
+	 * Search.
+	 *
+	 * @param entries the entries
+	 * @param toSearch the to search
+	 * @return the string[]
+	 */
 	private String[] search(String[] entries, String toSearch)
 	{
 		ArrayList<String> filtered = new ArrayList<String>();
@@ -224,6 +340,9 @@ public class MemoryWindow
 		return filteredArray;
 	}
 	
+	/**
+	 * Search event.
+	 */
 	private void searchEvent()
 	{
 		if(searchText.getText()=="")
@@ -257,6 +376,9 @@ public class MemoryWindow
 		}
 	}
 	
+	/**
+	 * Creates the base contents.
+	 */
 	protected void createBaseContents()
 	{
 		shell = new Shell();
@@ -326,6 +448,9 @@ public class MemoryWindow
             }});
 	}*/
 	
+	/**
+	 * Creates the contents.
+	 */
 	protected synchronized void createContents()
 	{
 		progressBar.setMaximum(100);

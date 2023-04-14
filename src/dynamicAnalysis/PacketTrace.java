@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.util.ArrayList;
@@ -21,14 +24,35 @@ import com.google.common.collect.Multimap;
 
 import scala.collection.mutable.MultiMap;
 
+/**
+ * The Class PacketTrace.
+ */
 public class PacketTrace
 {
+	
+	/** The devices. */
 	private List<PcapNetworkInterface> devices;
+	
+	/** The packets. */
 	private ArrayList<Multimap<String, IpPacket>> packets = new ArrayList<Multimap<String, IpPacket>>(); // Maps multiple packets to single address
+	
+	/** The address map. */
 	private Multimap<String, String> addressMap = ArrayListMultimap.create(); // Maps multiple addresses to single network interface
+	
+	/** The interface map. */
 	private HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>(); // Maps network interface to incrementing index
+	
+	/** The id map. */
 	private HashMap<String, String> idMap = new HashMap<String, String>(); // Maps network's unique ID to readable description
+	
+	/** The listener thread. */
 	private Thread listenerThread;
+	
+	/**
+	 * Instantiates a new packet trace.
+	 *
+	 * @throws PcapNativeException the pcap native exception
+	 */
 	public PacketTrace() throws PcapNativeException
 	{
 		devices = Pcaps.findAllDevs();
@@ -68,6 +92,11 @@ public class PacketTrace
 		}
 	}
 	
+	/**
+	 * Gets the devices.
+	 *
+	 * @return the devices
+	 */
 	public HashMap<String, String> getDevices()
 	{
 		HashMap<String, String> activeDevices = new HashMap<String, String>();
@@ -81,16 +110,34 @@ public class PacketTrace
 		return activeDevices;
 	}
 	
+	/**
+	 * Gets the addresses.
+	 *
+	 * @param deviceName the device name
+	 * @return the addresses
+	 */
 	public String[] getAddresses(String deviceName)
 	{
 		return addressMap.get(deviceName).toArray(new String[addressMap.size()]);
 	}
 	
+	/**
+	 * Gets the packets.
+	 *
+	 * @return the packets
+	 */
 	public ArrayList<Multimap<String, IpPacket>> getPackets()
 	{
 		return packets;
 	}
 	
+	/**
+	 * Gets the packets.
+	 *
+	 * @param address the address
+	 * @param attempts the attempts
+	 * @return the packets
+	 */
 	public ArrayList<IpPacket> getPackets(String address, int attempts)
 	{
 		ArrayList<IpPacket> packetList = new ArrayList<IpPacket>();

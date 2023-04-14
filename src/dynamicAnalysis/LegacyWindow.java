@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
@@ -27,15 +30,34 @@ import org.eclipse.swt.events.SelectionEvent;
 
 import javax.sound.sampled.*;
 
+/**
+ * The Class LegacyWindow.
+ */
 public class LegacyWindow {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The code. */
 	private Table code;
+	
+	/** The details. */
 	private Table details;
+	
+	/** The dll imports. */
 	private Table dllImports;
+	
+	/** The file path. */
 	private String filePath;
+	
+	/** The table items. */
 	static TableItem tableItems[] = new TableItem[4];
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		try {
 			LegacyWindow window = new LegacyWindow();
@@ -45,6 +67,10 @@ public class LegacyWindow {
 		}
 		
 	}
+	
+	/**
+	 * Open.
+	 */
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
@@ -57,14 +83,30 @@ public class LegacyWindow {
 		}
 	}
 
+	/** The sample rate. */
 	public static float SAMPLE_RATE = 8000f;
 	
+	/**
+	 * Tone.
+	 *
+	 * @param hz the hz
+	 * @param msecs the msecs
+	 * @throws LineUnavailableException the line unavailable exception
+	 */
 	public void tone(int hz, int msecs) throws LineUnavailableException 
 	  {
 	     tone(hz, msecs, 1.0);
 	  }
 
-	  public static void tone(int hz, int msecs, double vol)
+	  /**
+  	 * Tone.
+  	 *
+  	 * @param hz the hz
+  	 * @param msecs the msecs
+  	 * @param vol the vol
+  	 * @throws LineUnavailableException the line unavailable exception
+  	 */
+  	public static void tone(int hz, int msecs, double vol)
 	      throws LineUnavailableException 
 	  {
 	    byte[] buf = new byte[1];

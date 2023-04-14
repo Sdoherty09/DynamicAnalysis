@@ -1,19 +1,44 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * The Class ProcessManager.
+ */
 public class ProcessManager
 {
+	
+	/** The file. */
 	private File file;
+	
+	/** The process. */
 	private Process process;
+	
+	/** The command line. */
 	private CommandLine commandLine;
+	
+	/** The name. */
 	private String name;
+	
+	/** The dlls. */
 	private String[] dlls;
+	
+	/** The dll files. */
 	private DllFile[] dllFiles;
+	
+	/** The files. */
 	private String[] files;
 	
+	/**
+	 * Instantiates a new process manager.
+	 *
+	 * @param file the file
+	 */
 	public ProcessManager(File file)
 	{
 		setFile(file);
@@ -23,6 +48,11 @@ public class ProcessManager
 		setDLLs();
 	}
 
+	/**
+	 * Instantiates a new process manager.
+	 *
+	 * @param pid the pid
+	 */
 	public ProcessManager(int pid)
 	{
 		commandLine = new CommandLine(pid);
@@ -31,16 +61,31 @@ public class ProcessManager
 		setFiles();
 	}
 	
+	/**
+	 * Gets the file.
+	 *
+	 * @return the file
+	 */
 	public File getFile()
 	{
 		return file;
 	}
 
+	/**
+	 * Sets the file.
+	 *
+	 * @param file the new file
+	 */
 	public void setFile(File file)
 	{
 		this.file = file;
 	}
 	
+	/**
+	 * Creates the process.
+	 *
+	 * @return the process
+	 */
 	public Process createProcess()
 	{
 		ProcessBuilder builder = new ProcessBuilder(getFile().getAbsolutePath());
@@ -58,15 +103,29 @@ public class ProcessManager
 		return process;
 	}
 	
+	/**
+	 * Gets the pid.
+	 *
+	 * @return the pid
+	 */
 	public long getPid()
 	{
 		return process.pid();
 	}
 	
+	/**
+	 * Gets the pid as string.
+	 *
+	 * @return the pid as string
+	 */
 	public String getPidAsString()
 	{
 		return Long.toString(process.pid());
 	}
+	
+	/**
+	 * Sets the name.
+	 */
 	private void setName()
 	{
 		String name = commandLine.runName();
@@ -80,6 +139,10 @@ public class ProcessManager
 			this.name = "Error";
 		}
 	}
+	
+	/**
+	 * Sets the DL ls.
+	 */
 	private void setDLLs()
 	{
 		String dllString = commandLine.runDLLs();
@@ -116,25 +179,50 @@ public class ProcessManager
 		}
 		this.dlls = DLLs;
 	}
+	
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
+	 */
 	public String getName()
 	{
 		return this.name;
 	}
+	
+	/**
+	 * Gets the DL ls.
+	 *
+	 * @return the DL ls
+	 */
 	public String[] getDLLs()
 	{
 		return this.dlls;
 	}
 
+	/**
+	 * Gets the dll files.
+	 *
+	 * @return the dll files
+	 */
 	public DllFile[] getDllFiles()
 	{
 		return dllFiles;
 	}
 	
+	/**
+	 * Gets the files.
+	 *
+	 * @return the files
+	 */
 	public String[] getFiles()
 	{
 		return files;
 	}
 
+	/**
+	 * Sets the files.
+	 */
 	private void setFiles()
 	{
 		String filesOutput = commandLine.runFiles();
@@ -170,16 +258,31 @@ public class ProcessManager
 		this.files = filesArr;
 	}
 	
+	/**
+	 * Gets the process.
+	 *
+	 * @return the process
+	 */
 	public Process getProcess()
 	{
 		return process;
 	}
 
+	/**
+	 * Sets the process.
+	 *
+	 * @param process the new process
+	 */
 	public void setProcess(Process process)
 	{
 		this.process = process;
 	}
 
+	/**
+	 * Destroy process.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean destroyProcess()
 	{
 		Process process = getProcess();
@@ -189,6 +292,11 @@ public class ProcessManager
 		return true;
 	}
 	
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString()
 	{

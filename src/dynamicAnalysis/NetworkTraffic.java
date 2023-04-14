@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.io.EOFException;
@@ -17,8 +20,16 @@ import org.pcap4j.packet.namednumber.UdpPort;
 import org.pcap4j.packet.IpV4Packet;
 
 
+/**
+ * The Class NetworkTraffic.
+ */
 public class NetworkTraffic {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		NetworkStats netStats = new NetworkStats();
 		System.out.println(netStats.getActiveConnections()[0]);

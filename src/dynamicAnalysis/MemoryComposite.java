@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
@@ -33,31 +36,72 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
 
+/**
+ * The Class MemoryComposite.
+ */
 public class MemoryComposite extends Composite
 {
+	
+	/** The memory field. */
 	private Text memoryField;
+	
+	/** The process id. */
 	private int processId;
+	
+	/** The txt length. */
 	private Label txtLength;
+	
+	/** The bytes. */
 	private byte[] bytes;
+	
+	/** The x. */
 	private int x;
+	
+	/** The y. */
 	private int y;
+	
+	/** The ascii table. */
 	private Table asciiTable;
+	
+	/** The btn new button. */
 	private Button btnNewButton;
+	
+	/** The search text. */
 	private Text searchText;
+	
+	/** The table store. */
 	private TableItem[] tableStore = null;
+	
+	/** The table items. */
 	private TableItem[] tableItems;
+	
+	/** The btn update. */
 	private Button btnUpdate;
+	
+	/** The gd ascii table. */
 	private GridData gd_asciiTable;
+	
+	/** The progress bar. */
 	private ProgressBar progressBar;
+	
+	/** The ascii sections. */
 	private String[] asciiSections;
+	
+	/** The red. */
 	private Color red;
+	
+	/** The memory. */
 	private String memory;
+	
+	/** The memory count. */
 	private final int memoryCount = 10000;
 	
 	/**
 	 * Create the composite.
-	 * @param parent
-	 * @param style
+	 *
+	 * @param parent the parent
+	 * @param style the style
+	 * @param green the green
 	 */
 	public MemoryComposite(Composite parent, int style, Color green)
 	{
@@ -166,15 +210,31 @@ public class MemoryComposite extends Composite
 		});
 	}
 
+	/**
+	 * Gets the process id.
+	 *
+	 * @return the process id
+	 */
 	public int getProcessId()
 	{
 		return processId;
 	}
 
+	/**
+	 * Sets the process id.
+	 *
+	 * @param processId the new process id
+	 */
 	public void setProcessId(int processId)
 	{
 		this.processId = processId;
 	}
+	
+	/**
+	 * Read memory.
+	 *
+	 * @return the byte[]
+	 */
 	private byte[] readMemory()
 	{
 		VirtualMemory virtualMemory = new VirtualMemory(getProcessId());
@@ -182,24 +242,49 @@ public class MemoryComposite extends Composite
 		return getBytes();
 	}
 	
+	/**
+	 * Gets the bytes.
+	 *
+	 * @return the bytes
+	 */
 	public byte[] getBytes()
 	{
 		return bytes;
 	}
 
+	/**
+	 * Sets the bytes.
+	 *
+	 * @param bytes the new bytes
+	 */
 	public void setBytes(byte[] bytes)
 	{
 		this.bytes = bytes;
 	}
 	
+	/**
+	 * Gets the red.
+	 *
+	 * @return the red
+	 */
 	public Color getRed() {
 		return red;
 	}
 
+	/**
+	 * Sets the red.
+	 *
+	 * @param red the new red
+	 */
 	public void setRed(Color red) {
 		this.red = red;
 	}
 
+	/**
+	 * Update memory.
+	 *
+	 * @return the string
+	 */
 	private String updateMemory()
 	{
 		long start = System.currentTimeMillis();
@@ -231,6 +316,11 @@ public class MemoryComposite extends Composite
 		return output;
 	}
 	
+	/**
+	 * Find ascii sections.
+	 *
+	 * @return the string[]
+	 */
 	private String[] findAsciiSections()
 	{
 		long startTime = System.currentTimeMillis();
@@ -260,11 +350,24 @@ public class MemoryComposite extends Composite
 		return asciiSections.toArray(new String[0]);
 	}
 	
+	/**
+	 * Checks if is ascii.
+	 *
+	 * @param character the character
+	 * @return true, if is ascii
+	 */
 	private boolean isAscii(char character)
 	{
 		return character>=32&&character<=126;
 	}
 	
+	/**
+	 * Search.
+	 *
+	 * @param entries the entries
+	 * @param toSearch the to search
+	 * @return the string[]
+	 */
 	private String[] search(String[] entries, String toSearch)
 	{
 		ArrayList<String> filtered = new ArrayList<String>();
@@ -297,6 +400,9 @@ public class MemoryComposite extends Composite
 		return filteredArray;
 	}
 	
+	/**
+	 * Search event.
+	 */
 	private void searchEvent()
 	{
 		if(searchText.getText()=="")
@@ -324,6 +430,14 @@ public class MemoryComposite extends Composite
 		}
 	}
 	
+	/**
+	 * Populate memory.
+	 *
+	 * @param text the text
+	 * @param memoryIndex the memory index
+	 * @param tableText the table text
+	 * @return the string
+	 */
 	private String populateMemory(Text text, int memoryIndex, String tableText)
 	{
 		byte[] fullMemory = getBytes();
@@ -348,6 +462,9 @@ public class MemoryComposite extends Composite
 		return memory;
 	}
 	
+	/**
+	 * Check subclass.
+	 */
 	@Override
 	protected void checkSubclass()
 	{

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
@@ -40,21 +43,40 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 
+/**
+ * The Class Window.
+ */
 public class Window
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The text. */
 	private Label text;
+	
+	/** The table. */
 	private Table table;
+	
+	/** The file path. */
 	private String filePath;
+	
+	/** The select file. */
 	private SelectFile selectFile;
+	
+	/** The process id. */
 	public static int processId;
+	
+	/** The display. */
 	private Display display;
+	
+	/** The process. */
 	private ProcessManager process;
 	
 	/**
 	 * Launch the application.
-	 * @param args
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args)
 	{
@@ -89,6 +111,11 @@ public class Window
 		
 	}
 	
+	/**
+	 * Error alert.
+	 *
+	 * @param message the message
+	 */
 	private void errorAlert(String message)
 	{
 		MessageBox messageBox = new MessageBox(shell, SWT.ERROR);				        

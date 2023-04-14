@@ -16,16 +16,25 @@ import java.util.ArrayList;
 import java.util.List;
   
 // Class 1
+/**
+ * The Class CapstoneTest.
+ */
 // Helper class extending ProxySelector class
 public class CapstoneTest extends ProxySelector {
   
     // According to API we need to return List<Proxy>
     // even if we return only one element, so
   
+    /** The no proxy. */
     // Creating List class object of Proxy type
     private final List<Proxy> noProxy = new ArrayList<>();
+    
+    /** The proxies. */
     private final List<Proxy> proxies = new ArrayList<>();
   
+    /**
+     * Private data proxy.
+     */
     // Constructor of this class
     public void  PrivateDataProxy()
     {
@@ -50,6 +59,12 @@ public class CapstoneTest extends ProxySelector {
     }
   
     // Method 1 of this class
+    /**
+     * Select.
+     *
+     * @param uri the uri
+     * @return the list
+     */
     //@Override
     public List<Proxy> select(URI uri)
     {
@@ -65,6 +80,13 @@ public class CapstoneTest extends ProxySelector {
     }
   
     // Method 2 of this class
+    /**
+     * Connect failed.
+     *
+     * @param arg0 the arg 0
+     * @param arg1 the arg 1
+     * @param arg2 the arg 2
+     */
     // @Override
     public void connectFailed(URI arg0, SocketAddress arg1,
                               IOException arg2)

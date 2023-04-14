@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import java.util.ArrayList;
@@ -24,18 +27,40 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+/**
+ * The Class SelectProcess.
+ */
 public class SelectProcess
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The table. */
 	private Table table;
+	
+	/** The names. */
 	private String[] names;
+	
+	/** The pids. */
 	private int[] pids;
+	
+	/** The memory. */
 	private String[] memory;
+	
+	/** The pid. */
 	private int pid;
+	
+	/** The x. */
 	private int x;
+	
+	/** The y. */
 	private int y;
+	
+	/** The text. */
 	private Text text;
+	
+	/** The table items. */
 	private TableItem[] tableItems;
 	
 	/*
@@ -47,7 +72,12 @@ public class SelectProcess
 	
 	/**
 	 * Launch the application.
-	 * @param args
+	 *
+	 * @param names the names
+	 * @param pids the pids
+	 * @param memory the memory
+	 * @param x the x
+	 * @param y the y
 	 */
 	
 	public SelectProcess(String[] names, int[] pids, String[] memory, int x, int y)
@@ -78,66 +108,133 @@ public class SelectProcess
 		}
 	}
 	
+	/**
+	 * Gets the names.
+	 *
+	 * @return the names
+	 */
 	public String[] getNames()
 	{
 		return names;
 	}
 
+	/**
+	 * Sets the names.
+	 *
+	 * @param names the new names
+	 */
 	public void setNames(String[] names)
 	{
 		this.names = names;
 	}
 
+	/**
+	 * Gets the pids.
+	 *
+	 * @return the pids
+	 */
 	public int[] getPids()
 	{
 		return pids;
 	}
 
+	/**
+	 * Sets the pids.
+	 *
+	 * @param pids the new pids
+	 */
 	public void setPids(int[] pids)
 	{
 		this.pids = pids;
 	}
 	
+	/**
+	 * Gets the pid.
+	 *
+	 * @return the pid
+	 */
 	public int getPid()
 	{
 		return pid;
 	}
 
+	/**
+	 * Sets the pid.
+	 *
+	 * @param pid the new pid
+	 */
 	private void setPid(int pid)
 	{
 		this.pid = pid;
 	}
 	
+	/**
+	 * Gets the memory.
+	 *
+	 * @return the memory
+	 */
 	public String[] getMemory()
 	{
 		return memory;
 	}
 
+	/**
+	 * Sets the memory.
+	 *
+	 * @param memory the new memory
+	 */
 	public void setMemory(String[] memory)
 	{
 		this.memory = memory;
 	}
 
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
 	public int getX()
 	{
 		return x;
 	}
 
+	/**
+	 * Sets the x.
+	 *
+	 * @param x the new x
+	 */
 	public void setX(int x)
 	{
 		this.x = x;
 	}
 
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
 	public int getY()
 	{
 		return y;
 	}
 
+	/**
+	 * Sets the y.
+	 *
+	 * @param y the new y
+	 */
 	public void setY(int y)
 	{
 		this.y = y;
 	}
 
+	/**
+	 * Search.
+	 *
+	 * @param names the names
+	 * @param toSearch the to search
+	 * @return the int[]
+	 */
 	private int[] search(String[] names, String toSearch)
 	{
 		ArrayList<Integer> arrayList = new ArrayList<Integer>();
@@ -151,6 +248,11 @@ public class SelectProcess
 		return arrayList.stream().mapToInt(i -> i).toArray();
 	}
 	
+	/**
+	 * Full populate.
+	 *
+	 * @param table the table
+	 */
 	private void fullPopulate(Table table)
 	{
 		table.setItemCount(0);
@@ -172,6 +274,9 @@ public class SelectProcess
 		}
 	}
 	
+	/**
+	 * Search event.
+	 */
 	private void searchEvent()
 	{
 		if(text.getText()=="")

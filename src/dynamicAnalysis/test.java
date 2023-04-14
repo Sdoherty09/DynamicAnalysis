@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.SWT;
@@ -12,17 +15,28 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+/**
+ * The Class test.
+ */
 public class test
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The process id. */
 	private int processId;
+	
+	/** The text. */
 	private Text text;
+	
+	/** The txt length. */
 	private Text txtLength;
 
 	/**
 	 * Launch the application.
-	 * @param args
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args)
 	{

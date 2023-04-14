@@ -1,7 +1,37 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
+/**
+ * The Enum Mnem.
+ */
 public enum Mnem {
-	JNE, JMP, JL, JBE, JE, JAE, JB, JA, JLE;
+	
+	/** The jne. */
+	JNE, 
+ /** The jmp. */
+ JMP, 
+ /** The jl. */
+ JL, 
+ /** The jbe. */
+ JBE, 
+ /** The je. */
+ JE, 
+ /** The jae. */
+ JAE, 
+ /** The jb. */
+ JB, 
+ /** The ja. */
+ JA, 
+ /** The jle. */
+ JLE;
+	
+	/**
+	 * Gets the byte.
+	 *
+	 * @return the byte
+	 */
 	public byte getByte()
 	{
 		switch(this)

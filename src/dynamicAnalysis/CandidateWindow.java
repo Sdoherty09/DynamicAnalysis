@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Display;
@@ -26,16 +29,25 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 
+/**
+ * The Class CandidateWindow.
+ */
 public class CandidateWindow
 {
 
+	/** The shell. */
 	protected Shell shell;
+	
+	/** The text. */
 	private Label text;
+	
+	/** The file path. */
 	private String filePath;
 	
 	/**
 	 * Launch the application.
-	 * @param args
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args)
 	{

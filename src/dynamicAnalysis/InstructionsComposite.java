@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
@@ -29,22 +32,45 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.widgets.Text;
 
+/**
+ * Composite to display the x86 instructions of a PE file
+ */
 public class InstructionsComposite extends Composite
 {
-	private Table table;
+	
+	/** The table displaying the x86 instruction set. */
+	private Table tableInstructions;
+	
+	/** The Capstone array containing x86 instructions. */
 	private Capstone.CsInsn[] allInsn;
+	
+	/** The opcodes of the instructions. */
 	private Text textOpcode;
+	
+	/** The virtual address space of the instructions. */
 	private TableColumn tblclmnAddress;
+	
+	/** The mnemonics of the instructions. */
 	private TableColumn tblclmnMnemonic;
+	
+	/** The table column to display the opcodes. */
 	private TableColumn tblclmnOpcode;
+	
+	/** The updated instruction set when replacing instructions. */
 	private byte[] updatedInstructions;
+	
+	/** The parent. */
 	private Composite parent;
+	
+	/** The table items. */
 	private TableItem[] tableItems = null;
 	
 	/**
 	 * Create the composite.
-	 * @param parent
-	 * @param style
+	 *
+	 * @param parent the parent that contains the composite
+	 * @param style the SWT style
+	 * @param file the file that contains the x86 instructions
 	 */
 	public InstructionsComposite(Composite parent, int style, File file)
 	{
@@ -57,28 +83,28 @@ public class InstructionsComposite extends Composite
 		allInsn = codeExtract.getAllInsn();
 		setAllInsn(allInsn);
 		
-		table = new Table(this, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
-		FormData fd_table = new FormData();
-		fd_table.top = new FormAttachment(0, 10);
-		fd_table.left = new FormAttachment(0, 10);
-		fd_table.right = new FormAttachment(0, 353);
-		table.setLayoutData(fd_table);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		table.setItemCount(getAllInsn().length);
+		tableInstructions = new Table(this, SWT.BORDER | SWT.FULL_SELECTION | SWT.VIRTUAL);
+		FormData fd_tableInstructions = new FormData();
+		fd_tableInstructions.top = new FormAttachment(0, 10);
+		fd_tableInstructions.left = new FormAttachment(0, 10);
+		fd_tableInstructions.right = new FormAttachment(0, 353);
+		tableInstructions.setLayoutData(fd_tableInstructions);
+		tableInstructions.setHeaderVisible(true);
+		tableInstructions.setLinesVisible(true);
+		tableInstructions.setItemCount(getAllInsn().length);
 		
 		Text comboMnemonic = new Text(this, SWT.BORDER);
 		
-		table.addListener(SWT.Selection, new Listener() {
+		tableInstructions.addListener(SWT.Selection, new Listener() {
 		      public void handleEvent(Event e) {
-		    	Capstone.CsInsn instruction = getAllInsn()[table.getSelectionIndex()];
+		    	Capstone.CsInsn instruction = getAllInsn()[tableInstructions.getSelectionIndex()];
 		    	if(tableItems!=null) clearColors(tableItems);
 		    	tableItems = null;
 		    	if(instruction.groups.length == 2)
 		    	{
 		    		if(instruction.groups[0] == 7 && instruction.groups[1] == 1) //group for jump instructions, jmp works differently ?
 		    		{
-		    			long entryIndex = table.getSelectionIndex();
+		    			long entryIndex = tableInstructions.getSelectionIndex();
 		    			long operandIndex = instruction.bytes[1] + entryIndex;
 		    			boolean lowerOperand = instruction.bytes[1] < 0;
 		    			System.out.println("lower operand: "+lowerOperand);
@@ -89,12 +115,12 @@ public class InstructionsComposite extends Composite
 	    				System.out.println("instruction addr: "+Long.decode(instruction.opStr));
 	    				tableItems = new TableItem[Math.abs(instruction.bytes[1])];
 	    				int tableIndex = 0;
-	    				while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(table.getItem((int) entryIndex).getData())).address)
+	    				while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(tableInstructions.getItem((int) entryIndex).getData())).address)
 	    				{
 	    					System.out.println(entryIndex);
 	    					try
 	    					{
-	    						tableItems = setGray(table.getItem((int) entryIndex), tableItems, tableIndex);
+	    						tableItems = setGray(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
 		    					tableIndex++;
 	    					}
 	    					catch(ArrayIndexOutOfBoundsException e1)
@@ -105,10 +131,10 @@ public class InstructionsComposite extends Composite
 	    					if(lowerOperand) entryIndex--;
 	    					else entryIndex++;
 	    				}    				
-	    				tableItems = setGreen(table.getItem((int) entryIndex), tableItems, tableIndex);
+	    				tableItems = setGreen(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
 		    		}
 		    	}
-	    	  	TableItem item = table.getSelection()[0];
+	    	  	TableItem item = tableInstructions.getSelection()[0];
 				System.out.println(item.getText());
 				//comboMnemonic.setText(Integer.toString(instruction.bytes[0] & 0xff));
 				comboMnemonic.setText(Byte.toString(instruction.bytes[0]));
@@ -124,15 +150,15 @@ public class InstructionsComposite extends Composite
 		      }
 		});
 		
-		tblclmnAddress = new TableColumn(table, SWT.NONE);
+		tblclmnAddress = new TableColumn(tableInstructions, SWT.NONE);
 		tblclmnAddress.setWidth(100);
 		tblclmnAddress.setText("Address");
 		
-		tblclmnMnemonic = new TableColumn(table, SWT.NONE);
+		tblclmnMnemonic = new TableColumn(tableInstructions, SWT.NONE);
 		tblclmnMnemonic.setWidth(100);
 		tblclmnMnemonic.setText("Mnemonic");
 		
-		tblclmnOpcode = new TableColumn(table, SWT.NONE);
+		tblclmnOpcode = new TableColumn(tableInstructions, SWT.NONE);
 		tblclmnOpcode.setWidth(5000);	
 		tblclmnOpcode.setText("Opcode");
 		
@@ -149,9 +175,9 @@ public class InstructionsComposite extends Composite
 					e2.printStackTrace();
 				}
 				int bytesIndex = codeExtract.getPointer();
-				for(int index=0;index<table.getItemCount();index++)
+				for(int index=0;index<tableInstructions.getItemCount();index++)
 				{
-					Capstone.CsInsn instruction = (Capstone.CsInsn) table.getItem(index).getData();
+					Capstone.CsInsn instruction = (Capstone.CsInsn) tableInstructions.getItem(index).getData();
 					for(int j = 0; j < instruction.bytes.length; j++)
 					{
 						bytes[bytesIndex] = instruction.bytes[j];
@@ -176,8 +202,8 @@ public class InstructionsComposite extends Composite
 					}
 			}
 		});
-		fd_table.bottom = new FormAttachment(100, -41);
-		fd_table.right = new FormAttachment(btnSave, -20);
+		fd_tableInstructions.bottom = new FormAttachment(100, -41);
+		fd_tableInstructions.right = new FormAttachment(btnSave, -20);
 		FormData fd_btnSave = new FormData();
 		fd_btnSave.right = new FormAttachment(100, -10);
 		fd_btnSave.top = new FormAttachment(0, 10);
@@ -185,11 +211,11 @@ public class InstructionsComposite extends Composite
 		btnSave.setText("Save");
 
 		fillTable();
-		table.pack();
+		tableInstructions.pack();
 		
 		
 		FormData fd_comboMnemonic = new FormData();
-		fd_comboMnemonic.top = new FormAttachment(table, 6);
+		fd_comboMnemonic.top = new FormAttachment(tableInstructions, 6);
 		fd_comboMnemonic.left = new FormAttachment(0, 109);
 		fd_comboMnemonic.right = new FormAttachment(0, 207);
 		comboMnemonic.setLayoutData(fd_comboMnemonic);
@@ -197,7 +223,7 @@ public class InstructionsComposite extends Composite
 		textOpcode = new Text(this, SWT.BORDER);
 		FormData fd_textOpcode = new FormData();
 		fd_textOpcode.left = new FormAttachment(comboMnemonic, 6);
-		fd_textOpcode.top = new FormAttachment(table, 6);
+		fd_textOpcode.top = new FormAttachment(tableInstructions, 6);
 		textOpcode.setLayoutData(fd_textOpcode);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
@@ -236,25 +262,28 @@ public class InstructionsComposite extends Composite
 					}
 					updatedInstruction[instructionIndex]=Byte.parseByte(opcodeInstructions);
 				}
-				Capstone.CsInsn[] instruction = cs.disasm(updatedInstruction, ((Capstone.CsInsn)table.getSelection()[0].getData()).address);
-				table.getSelection()[0].setText(0, "0x"+Long.toHexString(instruction[0].address));
-			    table.getSelection()[0].setText(1, instruction[0].mnemonic);
-			    table.getSelection()[0].setText(2, instruction[0].opStr);
-			    table.getSelection()[0].setData(instruction[0]);
-			    System.out.println(((Capstone.CsInsn)table.getSelection()[0].getData()).opStr);
+				Capstone.CsInsn[] instruction = cs.disasm(updatedInstruction, ((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).address);
+				tableInstructions.getSelection()[0].setText(0, "0x"+Long.toHexString(instruction[0].address));
+			    tableInstructions.getSelection()[0].setText(1, instruction[0].mnemonic);
+			    tableInstructions.getSelection()[0].setText(2, instruction[0].opStr);
+			    tableInstructions.getSelection()[0].setData(instruction[0]);
+			    System.out.println(((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).opStr);
 			}
 		});
 		fd_textOpcode.right = new FormAttachment(100, -143);
 		FormData fd_btnNewButton = new FormData();
 		fd_btnNewButton.bottom = new FormAttachment(comboMnemonic, 0, SWT.BOTTOM);
-		fd_btnNewButton.top = new FormAttachment(table, 6);
-		fd_btnNewButton.right = new FormAttachment(table, 0, SWT.RIGHT);
+		fd_btnNewButton.top = new FormAttachment(tableInstructions, 6);
+		fd_btnNewButton.right = new FormAttachment(tableInstructions, 0, SWT.RIGHT);
 		fd_btnNewButton.left = new FormAttachment(textOpcode, 28);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.setText("Replace");
 		
 	}
 	
+	/**
+	 * Asynchronously populate the instruction table with x86 instructions, separated to increase performance.
+	 */
 	private void fillTable()
 	{
 		new Thread() {
@@ -269,10 +298,10 @@ public class InstructionsComposite extends Composite
                     	
                 		for(int index=0;index<allInsn.length;index++)
                 		{
-                			table.getItem(index).setText(0, "0x"+Long.toHexString(allInsn[index].address));
-                			table.getItem(index).setText(1, allInsn[index].mnemonic);
-                			table.getItem(index).setText(2, allInsn[index].opStr);
-                			table.getItem(index).setData(allInsn[index]);
+                			tableInstructions.getItem(index).setText(0, "0x"+Long.toHexString(allInsn[index].address));
+                			tableInstructions.getItem(index).setText(1, allInsn[index].mnemonic);
+                			tableInstructions.getItem(index).setText(2, allInsn[index].opStr);
+                			tableInstructions.getItem(index).setData(allInsn[index]);
                 		}
                     }
                  });
@@ -282,6 +311,15 @@ public class InstructionsComposite extends Composite
 		
 	}
 	
+	/**
+	 * Updates the color of table items for jump instructions.
+	 *
+	 * @param item the table item to update color
+	 * @param color the color to change to
+	 * @param items the full array of table items
+	 * @param index the index of table item to update color
+	 * @return the updated table item array
+	 */
 	private TableItem[] setColor(TableItem item, Color color, TableItem[] items, int index)
 	{
 		items[index] = item;
@@ -289,21 +327,48 @@ public class InstructionsComposite extends Composite
 		return items;
 	}
 	
+	/**
+	 * Sets the color.
+	 *
+	 * @param item the item
+	 * @param color the color
+	 */
 	private void setColor(TableItem item, Color color)
 	{
 		item.setBackground(color);
 	}
 	
+	/**
+	 * Sets table item to gray.
+	 *
+	 * @param item the item to update color of
+	 * @param items the full table item array
+	 * @param index the index of table item to update color
+	 * @return the updated table item array
+	 */
 	private TableItem[] setGray(TableItem item, TableItem[] items, int index)
 	{
 		return setColor(item, new Color(parent.getDisplay(), 200, 200, 200), items, index);
 	}
 	
+	/**
+	 * Sets table item to green.
+	 *
+	 * @param item the item to update color of
+	 * @param items the full table item array
+	 * @param index the index of table item to update color
+	 * @return the updated table item array
+	 */
 	private TableItem[] setGreen(TableItem item, TableItem[] items, int index)
 	{
 		return setColor(item, new Color(parent.getDisplay(), 0, 255, 0), items, index);
 	}
 	
+	/**
+	 * Set color of table items to default color.
+	 *
+	 * @param items the updated table item array
+	 */
 	private void clearColors(TableItem[] items)
 	{
 		for(int index = 0;index < items.length;index++)
@@ -320,6 +385,9 @@ public class InstructionsComposite extends Composite
 		}
 	}
 	
+	/**
+	 * Layout.
+	 */
 	@Override
 	public void layout()
 	{
@@ -327,16 +395,29 @@ public class InstructionsComposite extends Composite
 	}
 	
 	
+	/**
+	 * Gets the Capstone instruction array.
+	 *
+	 * @return the Capstone instruction array
+	 */
 	public Capstone.CsInsn[] getAllInsn()
 	{
 		return allInsn;
 	}
 
+	/**
+	 * Sets the Capstone instruction array.
+	 *
+	 * @param allInsn the Capstone instruction array
+	 */
 	public void setAllInsn(Capstone.CsInsn[] allInsn)
 	{
 		this.allInsn = allInsn;
 	}
 
+	/**
+	 * Check subclass.
+	 */
 	@Override
 	protected void checkSubclass()
 	{

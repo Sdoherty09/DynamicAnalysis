@@ -1,0 +1,639 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.5" xml:lang="en-US">
+  <compound refid="classdynamic_analysis_1_1_active_connection" kind="class"><name>dynamicAnalysis::ActiveConnection</name>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a463ed5abcdd9c9a3e6c5fb7a32dfb1dd" kind="variable"><name>protocol</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a0dc450fa3707ef798ac25e61a5444a5b" kind="variable"><name>localAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1ad524aba3191f049f816011aa11af0a51" kind="variable"><name>foreignAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1aeba35595b974d13c448acb7dc92a7913" kind="variable"><name>state</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a7138ad5a72cabe82f596d0a383a8357d" kind="variable"><name>pid</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1aaaa6cbe89831342dd68017249109ee0b" kind="function"><name>ActiveConnection</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a58fd4f2951f28d8a21a67ec488b332e9" kind="function"><name>getProtocol</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a7bc7c2d1be67d9bd7071b1af3c5fb85b" kind="function"><name>setProtocol</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a14ea1debac419ef768d9317f8043a70b" kind="function"><name>getLocalAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a273f3ae90bd00858209c90cc4294c126" kind="function"><name>setLocalAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1ad1084d4f7f79387b23c65b6e8f416a79" kind="function"><name>getForeignAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a25204cbc50db74631f39862a035459c6" kind="function"><name>setForeignAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a701eba027a9f2f2f9093fe7287ef72c3" kind="function"><name>getState</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a93ed6d0f8c3bc306568b66fbc8619d3e" kind="function"><name>setState</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1afa66332f9c4f5a397d593be185a45192" kind="function"><name>getPid</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a1f029311944001291ed083979016841e" kind="function"><name>setPid</name></member>
+    <member refid="classdynamic_analysis_1_1_active_connection_1a30e61a775024ef6ffc0bae6d710ebdc9" kind="function"><name>toString</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_candidate_window" kind="class"><name>dynamicAnalysis::CandidateWindow</name>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1ace9cc69fb6911d9a34c3f4e4d18c72d6" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1a2252b08d5b661c92b87d3aa21aa2a7a8" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1a7493ee2ea74b2d1ae92bfab152eaa59e" kind="variable"><name>filePath</name></member>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1ad08774abb3b6ef097d8df32dddf9d5af" kind="function"><name>main</name></member>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_candidate_window_1a9b6cfb7b311ec761cfd7dc25ac2dd4d7" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="class_capstone_test" kind="class"><name>CapstoneTest</name>
+    <member refid="class_capstone_test_1a5db53bcab1135e3d79803b08ba5639ed" kind="variable"><name>noProxy</name></member>
+    <member refid="class_capstone_test_1a7bc8bb45b2f5d7731133cda21a78530f" kind="variable"><name>proxies</name></member>
+    <member refid="class_capstone_test_1a652ceafdeac2b3a6d1c124d7dcb6b78a" kind="function"><name>PrivateDataProxy</name></member>
+    <member refid="class_capstone_test_1ae8972d9d61bbd4ab6b931f13311f4a6a" kind="function"><name>select</name></member>
+    <member refid="class_capstone_test_1ae510722a5e8a2fd1d9127741c15406ff" kind="function"><name>connectFailed</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_code_extract" kind="class"><name>dynamicAnalysis::CodeExtract</name>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a4a20823e7f3b0de2998afac5f094e282" kind="variable"><name>file</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a4bcfabd11b889c7bfb9781331196f3ad" kind="variable"><name>instructions</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a4e299b7e605db985aa2deae701117940" kind="variable"><name>code</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a1c40f44a9477122c6f1b163cb4066e29" kind="variable"><name>codeArr</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a4f35f4466338533c0fffbd9e61cea3a2" kind="variable"><name>peFile</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a5658bb9df9c71ce9ca4752dbd0346f54" kind="variable"><name>allInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a8ab18547415d4d044dab72bf246653c7" kind="function"><name>CodeExtract</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1adc88e9d5856813a58ac36ddd094c978f" kind="function"><name>loadInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1ac3333c4d734af2c584a7168b591fcbb8" kind="function"><name>getFile</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1ae78c883929ffa1253d0df44b3b2545a3" kind="function"><name>setFile</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a898e6101b6db136115ab84a16da2f7b0" kind="function"><name>getInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a438e989c5d1a4b3d0c2e4fba2aa3e623" kind="function"><name>getCode</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a90b34cbe7b480ec83ace0794c543581b" kind="function"><name>getCodeArr</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a398161f24bee568994ecb6226b8311c4" kind="function"><name>getPeFile</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1ae65330e994b7e73eb1d2d91761f0189f" kind="function"><name>setPeFile</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1ac892feadc2d03494d4ee3955e427c1a6" kind="function"><name>getPointer</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a8fc5db68245f79d929c33b95821a2c2a" kind="function"><name>getAllInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1ad4ebd323683a6054c64de18b31338ccf" kind="function"><name>setAllInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a63c91e2075f716468aba0b175edb01f2" kind="function"><name>getBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1aae55327b7ce6045ee4895ea7cbf99fa7" kind="function"><name>getVersion</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a25f567dead8d93765bff5314cf8927cd" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1aa8444959c68d7e4067a2833a1593fb98" kind="function"><name>loadPE</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1aca734f47c0a9babd0247bfaeccf41e21" kind="function"><name>loadCapstone</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a44075d4d1ebba6b545fb175beed2e58d" kind="function"><name>extractArr</name></member>
+    <member refid="classdynamic_analysis_1_1_code_extract_1a1ce4718112fca55686959addd590249f" kind="function"><name>setInstructions</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_command_line" kind="class"><name>dynamicAnalysis::CommandLine</name>
+    <member refid="classdynamic_analysis_1_1_command_line_1a7d22e9d7a6e10036ced60e19eb9a2365" kind="variable"><name>pid</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a82add1841b76e35da9685cb49fdea9ee" kind="function"><name>CommandLine</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a54a78106b7525309795adecc3321d127" kind="function"><name>CommandLine</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a10101256d2fed3b38660c0f3c8e32a39" kind="function"><name>getPid</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1ac0bad68fc056bd6db7cf45248a0c955b" kind="function"><name>setPid</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a030e96fe7adcd3f8cfbdce553d95bdcd" kind="function"><name>runName</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a0d8b220dd139b037b03ec575f8d02903" kind="function"><name>runDLLs</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a22a58fef9f251921e85d3bbbf0a1e169" kind="function"><name>runFiles</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1a471aba28b3804d10d4c4a2725b4cf9ff" kind="function"><name>getAll</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1af7960559de9981ae31dbd34d6ff3bf69" kind="function"><name>getNetstat</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1ab9795a602f2df7a4ecfc1e18459ab878" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_command_line_1affcf0bad0bc5a2c5d1ab0a46a7ff0c5f" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_data_directory" kind="class"><name>dynamicAnalysis::DataDirectory</name>
+    <member refid="classdynamic_analysis_1_1_data_directory_1af0ee35693b5a8f5c0787cbaa805840a9" kind="variable"><name>bytes</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1ac15e90501eed0c062cf8921cfb8e0af1" kind="variable"><name>virtualAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a947153eee7648938b5261e0c53f7a561" kind="variable"><name>size</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a816279a575b4a7d502be26360e45185d" kind="function"><name>DataDirectory</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a4600dd20b1f2c5c0e9c519f918b1d426" kind="function"><name>getBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a73de1436b3106341584196116e6f20f4" kind="function"><name>setBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a4260832a8d71bbf95451d7404ce57841" kind="function"><name>getVirtualAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a8a200ec01350ecb978159a48b52dd416" kind="function"><name>setVirtualAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a7428990d0cc50a6e03f8ccbbac451cff" kind="function"><name>getSize</name></member>
+    <member refid="classdynamic_analysis_1_1_data_directory_1a9c689ae680d3f4e49e086f14b3547b44" kind="function"><name>setSize</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_details" kind="class"><name>dynamicAnalysis::Details</name>
+    <member refid="classdynamic_analysis_1_1_details_1a83a8a51f14b3a5ec3879d5bba7a9e65c" kind="variable"><name>table</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a9551a1cf19a040d57c1a00d2ddb5aeb6" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a7babde93cedf0ea36d7fe006929b9306" kind="variable"><name>selection</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a49324f1031431c933e637ddf18c65592" kind="variable"><name>btnInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a72b12d0e7c29725a370e2c0719b22c05" kind="variable"><name>btnMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a8fa5f7aa32555bfe5777fa7548e464e1" kind="variable"><name>btnAdvanced</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a325e35c8076d65300cf5653f6403d494" kind="function"><name>Details</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a825aa1ce0584a80a4a594931ece463a5" kind="function"><name>clearData</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a6c7ddd11fd514f833f02a3842ae5ebf2" kind="function"><name>isSelection</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1a7609dd9c2b61819c60608619eb39d21b" kind="function"><name>setSelection</name></member>
+    <member refid="classdynamic_analysis_1_1_details_1ae0a9c59c92952053cad55b4ad564ca03" kind="function"><name>checkSubclass</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_dll_file" kind="class"><name>dynamicAnalysis::DllFile</name>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a0dbb187e829e304305078561d308f577" kind="variable"><name>path</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a7f734a9923016439f5c4695a7a54f597" kind="variable"><name>file</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a6c59cd80db4f535b25c7cfbdaadc5d1a" kind="function"><name>DllFile</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1aa843b64fd2becd010848ed1bb1f1f904" kind="function"><name>getPath</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a6e9f4602493b732c620599ee4d08a5cd" kind="function"><name>setPath</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a5d04e55600c1d862a65621fd7254cc61" kind="function"><name>getFile</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1a1c3b4db3977456b92eb28d20288f609b" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_dll_file_1ae82f4272cb58e1ea7a2069143802918e" kind="function"><name>createFile</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_execute_code" kind="class"><name>dynamicAnalysis::ExecuteCode</name>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a9c3cc246da6938dad2cf5d29097bcb59" kind="variable"><name>codes</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ab71e6cf72e24cda1c0e253a667fb6587" kind="variable"><name>code</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a6098a742eb958a593e6af6ede8e9e8b1" kind="variable"><name>isArr</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1af7d6bd61839f53786653f0e1d88d17a5" kind="variable"><name>file</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a9ab3c9d79ce73603016f41705751efec" kind="function"><name>executeInstruction</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ab2dbb503af5ff5e89c9b898edb5de764" kind="function"><name>readRegisters</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1aecea3840cd26b790eb7f1dfb906b3e7b" kind="function"><name>[static initializer]</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a556dd9aac5f2d8d39211a38036b7dd2e" kind="function"><name>ExecuteCode</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1aaf0db9583e30ef992f831bbbc3699b72" kind="function"><name>ExecuteCode</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ac69a8358fcbb9805c64033df3b1b615f" kind="function"><name>getFile</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ae010879463c73bb80e1b3aae13034232" kind="function"><name>setFile</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a5ce4c877e24bcc60d96394744bb1dae8" kind="function"><name>getCodes</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ac2c9f03f80a83c131f2e6069cb503b27" kind="function"><name>setCodes</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ac451e960c01254889b5079305bdbf8da" kind="function"><name>getCode</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1aee39a7125cfb774853ab5467b0194e81" kind="function"><name>setCode</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1ae945e45bdbffc661926c1081fef51866" kind="function"><name>test</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a18d400076cfd42de627e6e61b1f134b7" kind="function"><name>read</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1a0009e75418f649e89625a3fbf46e5e4f" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_execute_code_1aaa778de91a61876932f8dc3c435a40eb" kind="function"><name>getFile</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_files_composite" kind="class"><name>dynamicAnalysis::FilesComposite</name>
+    <member refid="classdynamic_analysis_1_1_files_composite_1a9f50cdff52bfe61898b53d2df2b9f82d" kind="variable"><name>dllsTable</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1a314d84749d4d167d1378729f33a1e675" kind="variable"><name>filesTable</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1a18263ae61b24849371f5ec7fee956612" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1ad3c8ffa1ebbc33c3afb1d2b4a1947071" kind="function"><name>FilesComposite</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1ac0472d0f5e26009a31de8e65cbbe2b69" kind="function"><name>getProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1a6943e80061d749c951a05c2c3d3ef691" kind="function"><name>setProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_files_composite_1af5132a8805817e3adc938b325842e112" kind="function"><name>checkSubclass</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_instructions_composite" kind="class"><name>dynamicAnalysis::InstructionsComposite</name>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ab4d5a38bb744220b233376e53b2f39df" kind="variable"><name>tableInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a50c4f66b97e8a111444325df9df1619e" kind="variable"><name>allInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ae3c6572f161c2f07142669ed19b627a8" kind="variable"><name>textOpcode</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ac8d57115a674937ebebae5e3b72b9f28" kind="variable"><name>tblclmnAddress</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a676ddf60ee7e9dd2a7e1cc294bfb3f9b" kind="variable"><name>tblclmnMnemonic</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ad3cc8198c2ae272e7943c6dee66146aa" kind="variable"><name>tblclmnOpcode</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1af5ff36baf0fe022bf59cb8873751ae83" kind="variable"><name>updatedInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a5483c7414b0b0b32a6fc4ac1f6c15f51" kind="variable"><name>parent</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a5b905a6e3296f39495bf668c675a88e0" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1afc597f3ab8021d8f0c00f562ee56b173" kind="function"><name>InstructionsComposite</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a26f40805bc5b93020489d2e81b1f40e5" kind="function"><name>layout</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a75def1cc888f21b33d2a6030b728fb39" kind="function"><name>getAllInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ab048f4ae785690350c6288fb118a07c1" kind="function"><name>setAllInsn</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ae798ee5522450921f211f892f692d811" kind="function"><name>fillTable</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a654f2b4d70df896ed4fbada09f18215e" kind="function"><name>setColor</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1aba798a726a456c902ba4d0cdfe25c8a4" kind="function"><name>setColor</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a59c5ee0093988290106e53de2638233e" kind="function"><name>setGray</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a6e1b5b0cfa6e64723adba9c29bb0dc4a" kind="function"><name>setGreen</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1ab04e481970db6b656944a04dfb31cb49" kind="function"><name>clearColors</name></member>
+    <member refid="classdynamic_analysis_1_1_instructions_composite_1a76739629e7accc6fdb87a227df91fcd5" kind="function"><name>checkSubclass</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_legacy_window" kind="class"><name>dynamicAnalysis::LegacyWindow</name>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1aa7a4fccecc9fd27b998fee97a541bc05" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a80b9db8c5c63536a50953d4940d436ae" kind="variable"><name>code</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a343f1a362fe446d3ebd799b786894581" kind="variable"><name>details</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a149cf17ad8ab22de3596bac41d970692" kind="variable"><name>dllImports</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a2f9a0ce84a8291a95321fdb11e547918" kind="variable"><name>filePath</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a49f2efdc2913b5fceb513991c956e51b" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a88894c7c90e4ee2c2b01beaa7769b82c" kind="variable"><name>SAMPLE_RATE</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1aff573665764650c8abacbf149316c599" kind="function"><name>main</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a05e30523dd5b2cbab69917581aae5eb5" kind="function"><name>tone</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a7a1e5badacdc951e0e1f086be5c27a9d" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1aed285406d096f5051a2219b76d418a02" kind="function"><name>tone</name></member>
+    <member refid="classdynamic_analysis_1_1_legacy_window_1a057e1a51dc287d41bc7921a390dd0de2" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_memory_composite" kind="class"><name>dynamicAnalysis::MemoryComposite</name>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1adf9b57280da89ab2510970ff3349fcd9" kind="variable"><name>memoryField</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ac176f6e56b0126799e46395216e333cd" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a82f280c9da0fc380fa3ec74e5cf2be32" kind="variable"><name>bytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a7e5ff4f4a98bd455b5ace493d00e7254" kind="variable"><name>asciiTable</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a593fa2a12f07c298f182f3a91f461593" kind="variable"><name>searchText</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1abaab45f64c67f1637f90c7f16a69ce24" kind="variable"><name>tableStore</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a03b6527ccf2def0e22d95066e74703c6" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a4c262afd5a53c0fbeeb96f0d297b5d56" kind="variable"><name>asciiSections</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a1fd3653d44f624bf0ad7a5b1bb1cad48" kind="variable"><name>red</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ae6491bfb05c93cfb823230c9ccff6335" kind="variable"><name>memory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a85a886d5df0ce93c0aeaa2c1cd586a7e" kind="variable"><name>memoryCount</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ab13f8ba3a366b71bd5d591299b2598da" kind="function"><name>MemoryComposite</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a4adf0f432bf19a51d2e0fc1e596ed61f" kind="function"><name>getProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a6b433938c031d316ef23ecd6d8f468b8" kind="function"><name>setProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1af0de4fd6490ed84449a858aced83231e" kind="function"><name>getBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a88b9c788e0ef538e83fd555b77d6379e" kind="function"><name>setBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1aaedde05e7afbba43bf9cd1c99423a1c0" kind="function"><name>getRed</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a9707e85ff27dff9557b5d664da3738f1" kind="function"><name>setRed</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ae62fc8d3d4ca660939fe2a062e35ad64" kind="function"><name>readMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a43eeca191dc952a3b1e3c4fc92e64d03" kind="function"><name>updateMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ab2ecf35d0b17e6c99d81da3f0b84a368" kind="function"><name>findAsciiSections</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a4da48ae2865e5816785bef6b951f0b04" kind="function"><name>isAscii</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1ab4ff4c2fdb418f4c748ba0fe4b8189fd" kind="function"><name>search</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a7f6c6453ff780c0ed2e0c506fb1dbfd8" kind="function"><name>searchEvent</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a91666fd40aabf39b4b7679f9fa06a3f5" kind="function"><name>populateMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_composite_1a97dfbf84dede30cdcd4d7ccefd00b437" kind="function"><name>checkSubclass</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_memory_window" kind="class"><name>dynamicAnalysis::MemoryWindow</name>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a02a8c9e48dcc4403904a3ca8bc4747c3" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a0f2d4bce6ef847277dad07aacd9f3bb3" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ad1d21b2dbc6bbe015d848d3483e74a88" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a76dbe698097086557863e88cc18c04c2" kind="variable"><name>txtLength</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a791f6f2d04afa396c12a075a7efa683c" kind="variable"><name>bytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1af5f40c81b1432a8775a3d7a742d16eb7" kind="variable"><name>x</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a07d51c6280318b226069f98825a0c6f8" kind="variable"><name>y</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1af07de1d32f91c68592c5f2d5dad3836a" kind="variable"><name>asciiTable</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a322573ccc93e0874d71fadb4c59a7733" kind="variable"><name>btnNewButton</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ac83a720307ba73ae5782e2e3cbfcc9c2" kind="variable"><name>searchText</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ace625c2696e2f6e98a616e79b4d79204" kind="variable"><name>tableStore</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a558fc53fe38eef760bc4678dea09a401" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a5057669be66479ca931ae7ca99184f29" kind="variable"><name>btnUpdate</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a4c2dcf52641d63cffb42dd004b77e60f" kind="variable"><name>gd_asciiTable</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ae66d52fc5be538531afd06e8986ce49c" kind="variable"><name>progressBar</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ab1e55ad2084fb9e31575c0986b78fceb" kind="variable"><name>asciiSections</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ad68e52f6ba0baff6a3b299ca5eb1048e" kind="function"><name>MemoryWindow</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a18ef7eccf4ab38d45fdf7cb1eeb3bcc3" kind="function"><name>getProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a0a5764d0a9e00aa9a1168fd43ae00ab1" kind="function"><name>setProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a484e8b16d280f7eb9b304ca4faf2b920" kind="function"><name>getX</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ae95a23476bdab881623a4daf51242230" kind="function"><name>setX</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a08794a5d5d4df8300990f0997634850e" kind="function"><name>getY</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a486640cf3cda690ef7c49b81abc05af5" kind="function"><name>setY</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a1acbcb728ae13ebe5812a4228f63a106" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a7ad93413f86b215e104ef1031e0fb934" kind="function"><name>getBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1ad2529c804cba6f51b5c5bbd0f5551676" kind="function"><name>setBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a374dc74ab1acd1b5cc69260584d2d43d" kind="function"><name>readMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1acb2f6da0727315a15495acaa724b9cfb" kind="function"><name>updateMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1af5336b0fd5c315d98e1c2254af22e4df" kind="function"><name>findAsciiSections</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1abef921a24da67905878d06dbcee0f9a7" kind="function"><name>isAscii</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1aa7f9d1e0a516be0c24cb3e7a7765987d" kind="function"><name>search</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1acf38f510408fe9228a1667529390a9f1" kind="function"><name>searchEvent</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a99cc4137c12ab120eb91fe7dc932650a" kind="function"><name>createBaseContents</name></member>
+    <member refid="classdynamic_analysis_1_1_memory_window_1a0d289bf84f7374cb8501292dc6efc394" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="enumdynamic_analysis_1_1_mnem" kind="enum"><name>dynamicAnalysis::Mnem</name>
+    <member refid="enumdynamic_analysis_1_1_mnem_1accfc0b363780274ee4162919f2591199" kind="variable"><name>JNE</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1ae2871c7553a4b0e0da2b9da03125902d" kind="variable"><name>JMP</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a4af452817150b5c07c245a24e41981fd" kind="variable"><name>JL</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a37f3b706cb3e0e1ea8a325c40c101c90" kind="variable"><name>JBE</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a2d24ecad352ef1f01abc41939d5600ba" kind="variable"><name>JE</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1ac03029670dfc3dd09bf59444e4194660" kind="variable"><name>JAE</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1ad8667d3eca3388e81e4f4175470e879b" kind="variable"><name>JB</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a117694353ebc8cffe274109ce7b8d1ec" kind="variable"><name>JA</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a22c5e2e70b76c25e76e5d762ec1f64af" kind="variable"><name>JLE</name></member>
+    <member refid="enumdynamic_analysis_1_1_mnem_1a8cb6a9ef4e5138742d0294c1b53c52a9" kind="function"><name>getByte</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_network_composite" kind="class"><name>dynamicAnalysis::NetworkComposite</name>
+    <member refid="classdynamic_analysis_1_1_network_composite_1ae29f643d236b0e4f3fe52b89b7d76186" kind="variable"><name>packetTrace</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a5dd34598c33abd882b5c1431a1daf77e" kind="variable"><name>networkInterfaces</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1abf1a68d60d8d11346e8c83bc835cfce1" kind="variable"><name>addresses</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a569e71dce2f201732fa33ee107c870e7" kind="variable"><name>packets</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a534497a96bed8accf07814ce10472951" kind="variable"><name>devices</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a7a1e2c2e8e29daafeaa4abc0053e3e83" kind="variable"><name>formToolkit</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a17181208c2c3f7532c1df0466500eda4" kind="variable"><name>addressSelected</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1acd9be0c7324eb4e804b99c8aafb1ef61" kind="variable"><name>activeConnections</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a33fd64ba53624be00222de709030758a" kind="variable"><name>packetInfo</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a9f55c9df6070b209556deaae0e20dfd3" kind="variable"><name>hexPayload</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a4822275bc8d6a3bcf160dfed44dd2612" kind="variable"><name>asciiPayload</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1ac6c66e6d02a59eeb271ca50518a8787a" kind="function"><name>NetworkComposite</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a93397d0b73dbf1011440549df770cbcc" kind="function"><name>updateNetwork</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1acfde5927015b4acbc7fb0d62a5a626fe" kind="function"><name>errorAlert</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a762c97b8d7f75aa35dab37fa91f83d09" kind="function"><name>clearAll</name></member>
+    <member refid="classdynamic_analysis_1_1_network_composite_1a1a80163120fa7161a5118dc5f017887f" kind="function"><name>checkSubclass</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_network_stats" kind="class"><name>dynamicAnalysis::NetworkStats</name>
+    <member refid="classdynamic_analysis_1_1_network_stats_1a9bdc4f2aac4035cd3ec7f0c1b50e257e" kind="variable"><name>activeConnections</name></member>
+    <member refid="classdynamic_analysis_1_1_network_stats_1ad121e97e2ff2b9063003a98715919a2c" kind="function"><name>NetworkStats</name></member>
+    <member refid="classdynamic_analysis_1_1_network_stats_1acdc779ac12c3516400380fc8d2d38839" kind="function"><name>getActiveConnections</name></member>
+    <member refid="classdynamic_analysis_1_1_network_stats_1a3f9f1fab7bcdcbf8ee53f40b611dafc3" kind="function"><name>setActiveConnections</name></member>
+    <member refid="classdynamic_analysis_1_1_network_stats_1a2cd18f83f26efb2897569a882c4a2719" kind="function"><name>spaceBreak</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_network_traffic" kind="class"><name>dynamicAnalysis::NetworkTraffic</name>
+    <member refid="classdynamic_analysis_1_1_network_traffic_1a1825aad84fb15e5be192fc2dc0ca4cb8" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_packet_trace" kind="class"><name>dynamicAnalysis::PacketTrace</name>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a2e7d500664626e5292c3fcdace3ba8d8" kind="variable"><name>devices</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1aeda0464342ca5d216b466a5f8948d5ac" kind="variable"><name>packets</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a3d98b08642a2a1200db979cccfc3e448" kind="variable"><name>addressMap</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1ae487f3915f9ccde6a2503c3fda0a5232" kind="variable"><name>interfaceMap</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a0cae8b41050fbeb1a6ed0e67581bf8b1" kind="variable"><name>idMap</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a62588adecfe8d2aea795f37e6a8b6482" kind="variable"><name>listenerThread</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1aba0fc8e08dc76873ae0399d84db37c18" kind="function"><name>PacketTrace</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a546db74809de18f0e2549e8d69311324" kind="function"><name>getDevices</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a91c966061903125b99e43b31e9fdc335" kind="function"><name>getAddresses</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1a4ff9c2f039ca73693de73e12a2e0bfe1" kind="function"><name>getPackets</name></member>
+    <member refid="classdynamic_analysis_1_1_packet_trace_1ad6404b6e82d72afe0ae4ce9764710cdb" kind="function"><name>getPackets</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_p_e_file" kind="class"><name>dynamicAnalysis::PEFile</name>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a7c83f844afeefa0601caf39436558367" kind="variable"><name>file</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a97b10405cf155cdc517035ddaf80d509" kind="variable"><name>offset</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1afb90ad573e06c8e1622aebd6ca67ad31" kind="variable"><name>version</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a64321bff07ae3a2ecb9edfee0ccd2641" kind="variable"><name>pointer</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1ae29aa035122a3ba6741377d03ce5e56a" kind="variable"><name>bytes</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a396d5af411e4f9a49a5729246df5e57c" kind="variable"><name>pointerToRawData</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a320d97c88297f890df1a47ccb522b8eb" kind="function"><name>PEFile</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a316afc77c68bdf743dd41d8780f8e596" kind="function"><name>getFile</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a0898dbb81277ff03c7589bfb20640d81" kind="function"><name>setFile</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1adda6179672a4bc2e8d674e552c38df5a" kind="function"><name>getOffset</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1ad23e2cd2f5dcaa1d49c3baad295ec9da" kind="function"><name>getVersion</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a41296eeadf65a3edd08865430239e49e" kind="function"><name>getInstructions</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1af6cd847b7b66f6a0c02ef0f6cfd40330" kind="function"><name>getPointer</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1af229ce1f228cb9cba6694f37f266566e" kind="function"><name>getBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a408d416040da9dec9e0395f0bfa68e64" kind="function"><name>setBytes</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1ae508a5979b6f9b4805543dc169a41a3d" kind="function"><name>readFile</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a125e94c21a42dce6026f078a000f709e" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_p_e_file_1a60d0507a3297d0f7d1bb60be42da5247" kind="function"><name>setPointer</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_process_manager" kind="class"><name>dynamicAnalysis::ProcessManager</name>
+    <member refid="classdynamic_analysis_1_1_process_manager_1aa522e7459c0c34a6964a5a0d06e20bcb" kind="variable"><name>file</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a9df7a4dfcffc7d9c64a9b5d5cbb83b57" kind="variable"><name>process</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a5127635230bfbd696ffa0cd3b4e3cc0b" kind="variable"><name>commandLine</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ab3cd1a24c0ceadcd7c7b8a932fcaf714" kind="variable"><name>name</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a02d134a28524d46550777ac8499b2bde" kind="variable"><name>dlls</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1aa31f0ee107a0ceb433e533c73c007b37" kind="variable"><name>dllFiles</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ab8f4ba372128bee216ccee77531e7f87" kind="variable"><name>files</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a244d49b0d0cd187568061222092631e1" kind="function"><name>ProcessManager</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ad7f85589b015e930624fd6e013827d65" kind="function"><name>ProcessManager</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a1e597cb291625a2ddb3729c5904231e8" kind="function"><name>getFile</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a48a3d70b52def0b76650e7b46cdf70f4" kind="function"><name>setFile</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a658231732aab941f37f1bae912919063" kind="function"><name>createProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a5cb34c03f319811b089f0cdd431a60ca" kind="function"><name>getPid</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a5180923f007286e35ca5bec48a9a4d89" kind="function"><name>getPidAsString</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a024351380da530a4cc953bc6bd939eec" kind="function"><name>getName</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a921c3a4a3d421101858a043a4805d54a" kind="function"><name>getDLLs</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a5d0f17c332da4127baa6ca5233211c0b" kind="function"><name>getDllFiles</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a794bc50a1490e81588fbf3d8fc03c26f" kind="function"><name>getFiles</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1afc8bc3a562f185680ff2046147ebb5cc" kind="function"><name>getProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ac1206065ec70b242e0059eac6a2ee3de" kind="function"><name>setProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a775de10d363c362fc6d0567b414a6f1a" kind="function"><name>destroyProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a41ca626bfc605c12b5133ac0cf366f89" kind="function"><name>toString</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1a961a5fe7bd335bbed6fda8f464a1ab7e" kind="function"><name>setName</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ad438a41b794c7f3edf7338915f73f630" kind="function"><name>setDLLs</name></member>
+    <member refid="classdynamic_analysis_1_1_process_manager_1ab429d0c127f7a58204641235ab783071" kind="function"><name>setFiles</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_read_write" kind="class"><name>dynamicAnalysis::ReadWrite</name>
+    <member refid="classdynamic_analysis_1_1_read_write_1a01123a9927e38d1b4d9f0b5f6c7ecbec" kind="function"><name>write</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1ac656ac717c6e8237ad0685b30ec9b862" kind="function"><name>writeLine</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1a497a435c15451bb5f715dd19d4c90544" kind="function"><name>delete</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1a30e7c441a11f59cdf7dbaf7b7ba933c7" kind="function"><name>getLength</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1a4825e9af5d67a32b58daf246583e4d44" kind="function"><name>getLine</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1a1f644c7deacc1917b62ca9def959cd54" kind="function"><name>indexOf</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1aa65342a787f2d47a7c3d77af30453bba" kind="function"><name>replace</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1acf2baf7df5d40f6710359d8e49a9c076" kind="function"><name>replace</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1ac31a5457c6fbb347f78b88993685594d" kind="function"><name>isReady</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1aa3363db9e7d5261836e73224da323c0d" kind="function"><name>deleteLine</name></member>
+    <member refid="classdynamic_analysis_1_1_read_write_1a47cc13f146f464533f9ea8f3500afeae" kind="function"><name>toString</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_select_file" kind="class"><name>dynamicAnalysis::SelectFile</name>
+    <member refid="classdynamic_analysis_1_1_select_file_1a01c9875051015fa43255a1675f288d8c" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a438bcbfeeebd28d8de60b8093efc1707" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a11da3915c26a1c9c86f30c980a0ad366" kind="variable"><name>filePath</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a2047ca234d8c2ae31ee8641251fbe4e3" kind="variable"><name>x</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1afe939271cde3eac1ba93b79cad638147" kind="variable"><name>y</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1afb9eb3823b1f6abcfab6a418ba2aca86" kind="variable"><name>pidMode</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a9ab8be38dd6f82280d21c549e890cbe0" kind="variable"><name>pid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1af88f88392caf0e451e9c9f01c106385a" kind="function"><name>SelectFile</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1af8fbc4cf99295562dde26f78695996ae" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a1853a295ed444998be3ed44c71a60767" kind="function"><name>getX</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a6016f0dac7904f99b69a28676c475b80" kind="function"><name>setX</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a911e7d681bf90faee427366e7f324c45" kind="function"><name>getY</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a5f96d2176a8e9e57ab13bf41ab4744a3" kind="function"><name>setY</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a50c98bfebe6d0ce59ada2bc7dbb8a12e" kind="function"><name>isPidMode</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a2fc812f377099369c9362296a5a24112" kind="function"><name>setPidMode</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a4003f96b49769e190c339bb430d19b84" kind="function"><name>getText</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a8e27211da7fba3fc8f79f46b68487ee2" kind="function"><name>getPid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1ac0a5c6dce45b15a33a661bd4f2c55e44" kind="function"><name>setPid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1afe296d96eabcd34a7dce966c267af931" kind="function"><name>isDisposed</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1a103a8398832154c42f7c53ebd5def8b0" kind="function"><name>focus</name></member>
+    <member refid="classdynamic_analysis_1_1_select_file_1afb531581b796ffa0273c23c1ef18c9bc" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_select_process" kind="class"><name>dynamicAnalysis::SelectProcess</name>
+    <member refid="classdynamic_analysis_1_1_select_process_1a40d71bf8bbdfed5549e18cf888e245a1" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a0a0c32d1c31a4ff4a6c07d96ca9d317d" kind="variable"><name>table</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1ae2d13aa53beecbc7f70a2f44f4e283b7" kind="variable"><name>names</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a61520eca8661b5e895e52f6a494cb714" kind="variable"><name>pids</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a36daa01726c6572704a1a09bc2ce1d90" kind="variable"><name>memory</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1ae85675c7b949ece25e96b41b892d5d79" kind="variable"><name>pid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aa797e7279123208581896973d265a745" kind="variable"><name>x</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1ae558f1ae9b2661905e64b889fcacbcac" kind="variable"><name>y</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a6ca8d4ddd2e7c54b3d89142e5b2055b1" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aeb5e189e67444977883d919c0690538f" kind="variable"><name>tableItems</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aee4da0a64536e2db5c284a125d601d97" kind="function"><name>SelectProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a6152170d08616f1b3ea428be90afc2e6" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a361812d68ffc24e6ba68d59fecfe3300" kind="function"><name>getNames</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a0ad13495847abdddfae0a5db22ff3536" kind="function"><name>setNames</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aa23fb682d24b90662b5a67426447cef7" kind="function"><name>getPids</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a9fb443b493b7a5d6230a2e5ad7e372e3" kind="function"><name>setPids</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1af02ac34fb69ae305022e1a26b447fff8" kind="function"><name>getPid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a9727704456a5ed9ed983e58e2464e585" kind="function"><name>getMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aa3b72f1aa06c8b63b9eadc8aa669de15" kind="function"><name>setMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aca183c7c213e8ef9a88d122065172fbe" kind="function"><name>getX</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a4befb2370c42f478bf898ba260d6b783" kind="function"><name>setX</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a5cb050db244c2fd58eca97a58abdbc80" kind="function"><name>getY</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a8078ad8d7a58cfcb6dbb37c23f670710" kind="function"><name>setY</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a5debac2a779780a5feaa76d1ae1a511e" kind="function"><name>setPid</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a1ae6d0d9c377ebbd46595c1224a2ede3" kind="function"><name>search</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1aee3b234b2636f0b6ccb380305991618a" kind="function"><name>fullPopulate</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1a005049cffc199ea552ab7a27cec7ab1f" kind="function"><name>searchEvent</name></member>
+    <member refid="classdynamic_analysis_1_1_select_process_1ac43dca2b8aa717cbf5c65aad52d2600d" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager" kind="class"><name>org::eclipse::wb::swt::SWTResourceManager</name>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1afd71c42d6ae14521ce81ab8bb81042ff" kind="variable"><name>m_colorMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1361269fb729876f24691c88f023b292" kind="variable"><name>m_imageMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af1e192f035fe5d70232cd33ca3810a4f" kind="variable"><name>MISSING_IMAGE_SIZE</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4afc391e22118550ae0a76f7fa168d18" kind="variable"><name>m_decoratedImageMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab59ada91478162a9affc7bd230005487" kind="variable"><name>m_fontMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8a49d99fd17a7c4fce84fe5beb13b01b" kind="variable"><name>m_fontToBoldFontMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af23f14e130154fba7d494c9276f7f4b1" kind="variable"><name>m_idToCursorMap</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af08860b87174c2dd3f095c776040bcf8" kind="variable"><name>TOP_LEFT</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a024b59862eb3bc6eec12dd2bec92c1e5" kind="variable"><name>TOP_RIGHT</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4f0d49da071dc4f1b575de93e27c074c" kind="variable"><name>BOTTOM_LEFT</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae0ed56ec45ea09895f7fba82814622d0" kind="variable"><name>BOTTOM_RIGHT</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a891f728f55d1d9a7bb4247674e0092d0" kind="variable"><name>LAST_CORNER_KEY</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a261745b44e6e7846bd9b98c6777600eb" kind="function"><name>getColor</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aff00c4c54fd3b52e1a283426162bcbeb" kind="function"><name>getColor</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab2f1aadf3dec4d4d37111193cb22071e" kind="function"><name>getColor</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aab5a68c84a6e2b80cd63013578bf6057" kind="function"><name>disposeColors</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a70b21c25bbe6f5d44e790612f3c9494e" kind="function"><name>getImage</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8b0695b71058d43c0bc3263a63640e11" kind="function"><name>getImage</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0d50f34419bd49f37f24b168fa486771" kind="function"><name>decorateImage</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a29903b99bec264ee2c58a85bd9611f19" kind="function"><name>decorateImage</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a10d60bcd9a8bbe25d9dbd0ef2c43b6b7" kind="function"><name>disposeImages</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0603188ae7ef4801932ec8090c31b51e" kind="function"><name>getFont</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a6a2520a2bd310c970e4118e6d8dc5bf3" kind="function"><name>getFont</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aef062a156595d89be832e57db9af330e" kind="function"><name>getBoldFont</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aaa6fb021a026244859bbf1702639c307" kind="function"><name>disposeFonts</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a53570bdd6ea06fca8ad835f12dced0bf" kind="function"><name>getCursor</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab676d0706260a2203684b0bbd734aef5" kind="function"><name>disposeCursors</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae2266672ae9c04dd76064692cda459b5" kind="function"><name>dispose</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aeda8d2db55efe0bc2b46fcc50f5e6bb0" kind="function"><name>getImage</name></member>
+    <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1ff45fd318d3ffda2bb99acbcf2153bc" kind="function"><name>getMissingImage</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1test" kind="class"><name>dynamicAnalysis::test</name>
+    <member refid="classdynamic_analysis_1_1test_1ad5b2d6fbfc13a50e2e94d56eec09d8db" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1test_1a28ee1e74ec3bdb90cb0170e5bc411704" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1test_1a8b824592928cb3e8eef754b6786732b3" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1test_1ae0a0b7b6286afeadacb0b8afb791fccf" kind="variable"><name>txtLength</name></member>
+    <member refid="classdynamic_analysis_1_1test_1ac4822893de624629437a56c3d19869c5" kind="function"><name>main</name></member>
+    <member refid="classdynamic_analysis_1_1test_1afa6ad250043cf708da45c2b20e1d7ad2" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1test_1a966ab8ee06bce0108aa89048d7722500" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="enumdynamic_analysis_1_1_version" kind="enum"><name>dynamicAnalysis::Version</name>
+    <member refid="enumdynamic_analysis_1_1_version_1a796be8c5ce18cca3e9639c62e0d4019f" kind="variable"><name>x32</name></member>
+    <member refid="enumdynamic_analysis_1_1_version_1a2f3f7fc83e3bc42021109127436b69a9" kind="variable"><name>x64</name></member>
+    <member refid="enumdynamic_analysis_1_1_version_1a93cb6ad58c2acd5b9e40773e72c6ab7e" kind="variable"><name>value</name></member>
+    <member refid="enumdynamic_analysis_1_1_version_1ad1998ef2531f946b8aa1e400607eeb9c" kind="function"><name>Version</name></member>
+    <member refid="enumdynamic_analysis_1_1_version_1a63a63461ea15127f856baa364d8e74d0" kind="function"><name>getValue</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_virtual_memory" kind="class"><name>dynamicAnalysis::VirtualMemory</name>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a1e0e0ac7976288c3345a0aa62f2d672b" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a9801d0dd7c7085c739b41f666de35eff" kind="function"><name>[static initializer]</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a6379ca421ea9ea9bcfb5f8d811d87cff" kind="function"><name>scanProcess</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a3719e8f9af36f631a6de589fee9bde5e" kind="function"><name>VirtualMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" kind="function"><name>getProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" kind="function"><name>setProcessId</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a110d99d62a6fc04965cd5c01250eb874" kind="function"><name>readMemory</name></member>
+    <member refid="classdynamic_analysis_1_1_virtual_memory_1a21bdad29dbd4ba74e7fcd7a193b8b9c9" kind="function"><name>getFile</name></member>
+  </compound>
+  <compound refid="classdynamic_analysis_1_1_window" kind="class"><name>dynamicAnalysis::Window</name>
+    <member refid="classdynamic_analysis_1_1_window_1a28309a4f7890844a821811295c6a08aa" kind="variable"><name>shell</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a0f20dcff13aaf5c4f4b3eb68dcd90588" kind="variable"><name>text</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a0d69a6b895d6530929b033983080a1cf" kind="variable"><name>table</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1aba79bd7d994775183a19ca6eb89e7d8e" kind="variable"><name>filePath</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a9329e320ab36e31d84a314c1bd4c3071" kind="variable"><name>selectFile</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a3fa395bed11496598105d2c2813d8a30" kind="variable"><name>display</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a353a219b6f12a961a5c60986adc0467a" kind="variable"><name>process</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1aaac1f2fb6cb29eff3c39ef2f40ce5731" kind="variable"><name>processId</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a50034aaf908c40b0ee2ac0f1f9449958" kind="function"><name>main</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a7c8e384950e6275af5a2e1b33d8c7c45" kind="function"><name>open</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1aa2e2a3f63a9caf60d7c10ab703b2343a" kind="function"><name>errorAlert</name></member>
+    <member refid="classdynamic_analysis_1_1_window_1a880ec9cf505a0721ee77dd45893b5a88" kind="function"><name>createContents</name></member>
+  </compound>
+  <compound refid="namespacedynamic_analysis" kind="namespace"><name>dynamicAnalysis</name>
+  </compound>
+  <compound refid="namespacejava_1_1io" kind="namespace"><name>java::io</name>
+  </compound>
+  <compound refid="namespacejava_1_1lang" kind="namespace"><name>java::lang</name>
+  </compound>
+  <compound refid="namespacejavax_1_1sound_1_1sampled" kind="namespace"><name>javax::sound::sampled</name>
+  </compound>
+  <compound refid="namespaceorg" kind="namespace"><name>org</name>
+  </compound>
+  <compound refid="namespaceorg_1_1eclipse" kind="namespace"><name>org::eclipse</name>
+  </compound>
+  <compound refid="namespaceorg_1_1eclipse_1_1wb" kind="namespace"><name>org::eclipse::wb</name>
+  </compound>
+  <compound refid="namespaceorg_1_1eclipse_1_1wb_1_1swt" kind="namespace"><name>org::eclipse::wb::swt</name>
+  </compound>
+  <compound refid="namespaceorg_1_1pcap4j_1_1core" kind="namespace"><name>org::pcap4j::core</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h" kind="file"><name>dynamicAnalysis_ExecuteCode.h</name>
+    <member refid="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1ab8c5ea2dc4ddd9cdfec947878b0d397b" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+    <member refid="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1aa585dffe77d8be1cb154f65f1d6149e6" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_read</name></member>
+  </compound>
+  <compound refid="src_2dynamic_analysis_2dynamic_analysis___execute_code_8h" kind="file"><name>dynamicAnalysis_ExecuteCode.h</name>
+    <member refid="src_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1ab8c5ea2dc4ddd9cdfec947878b0d397b" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+    <member refid="src_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1aa585dffe77d8be1cb154f65f1d6149e6" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_read</name></member>
+  </compound>
+  <compound refid="target_2classes_2dynamic_analysis_2dynamic_analysis___execute_code_8h" kind="file"><name>dynamicAnalysis_ExecuteCode.h</name>
+    <member refid="target_2classes_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1ab8c5ea2dc4ddd9cdfec947878b0d397b" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+    <member refid="target_2classes_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1aa585dffe77d8be1cb154f65f1d6149e6" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_read</name></member>
+  </compound>
+  <compound refid="bin_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h" kind="file"><name>dynamicAnalysis_VirtualMemory.h</name>
+    <member refid="bin_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h_1a8ee412192bf1ca49e04da38fba46a7fd" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="src_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h" kind="file"><name>dynamicAnalysis_VirtualMemory.h</name>
+    <member refid="src_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h_1a8ee412192bf1ca49e04da38fba46a7fd" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h" kind="file"><name>dynamicAnalysis_VirtualMemory.h</name>
+    <member refid="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h_1a8ee412192bf1ca49e04da38fba46a7fd" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="bin_2dynamic_analysis_2_execute_impl_8c" kind="file"><name>ExecuteImpl.c</name>
+    <member refid="bin_2dynamic_analysis_2_execute_impl_8c_1a69e191dd13aa72243d621c06640a4f84" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+  </compound>
+  <compound refid="src_2dynamic_analysis_2_execute_impl_8c" kind="file"><name>ExecuteImpl.c</name>
+    <member refid="src_2dynamic_analysis_2_execute_impl_8c_1a69e191dd13aa72243d621c06640a4f84" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+  </compound>
+  <compound refid="target_2classes_2dynamic_analysis_2_execute_impl_8c" kind="file"><name>ExecuteImpl.c</name>
+    <member refid="target_2classes_2dynamic_analysis_2_execute_impl_8c_1a69e191dd13aa72243d621c06640a4f84" kind="function"><name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name></member>
+  </compound>
+  <compound refid="bin_2dynamic_analysis_2_read_process_8cpp" kind="file"><name>ReadProcess.cpp</name>
+    <member refid="bin_2dynamic_analysis_2_read_process_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="bin_2dynamic_analysis_2_read_process_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="src_2dynamic_analysis_2_read_process_8cpp" kind="file"><name>ReadProcess.cpp</name>
+    <member refid="src_2dynamic_analysis_2_read_process_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="src_2dynamic_analysis_2_read_process_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="target_2classes_2dynamic_analysis_2_read_process_8cpp" kind="file"><name>ReadProcess.cpp</name>
+    <member refid="target_2classes_2dynamic_analysis_2_read_process_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="target_2classes_2dynamic_analysis_2_read_process_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="bin_2dynamic_analysis_2_virtual_memory_8cpp" kind="file"><name>VirtualMemory.cpp</name>
+    <member refid="bin_2dynamic_analysis_2_virtual_memory_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="bin_2dynamic_analysis_2_virtual_memory_8cpp_1ac02af7e86ed1a1efa1ad328cfe897456" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="src_2dynamic_analysis_2_virtual_memory_8cpp" kind="file"><name>VirtualMemory.cpp</name>
+    <member refid="src_2dynamic_analysis_2_virtual_memory_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="src_2dynamic_analysis_2_virtual_memory_8cpp_1ac02af7e86ed1a1efa1ad328cfe897456" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp" kind="file"><name>VirtualMemory.cpp</name>
+    <member refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" kind="function"><name>EnableDebugPriv</name></member>
+    <member refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp_1ac02af7e86ed1a1efa1ad328cfe897456" kind="function"><name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="_active_connection_8java" kind="file"><name>ActiveConnection.java</name>
+  </compound>
+  <compound refid="_candidate_window_8java" kind="file"><name>CandidateWindow.java</name>
+  </compound>
+  <compound refid="_capstone_test_8java" kind="file"><name>CapstoneTest.java</name>
+  </compound>
+  <compound refid="_code_extract_8java" kind="file"><name>CodeExtract.java</name>
+  </compound>
+  <compound refid="_command_line_8java" kind="file"><name>CommandLine.java</name>
+  </compound>
+  <compound refid="_data_directory_8java" kind="file"><name>DataDirectory.java</name>
+  </compound>
+  <compound refid="_details_8java" kind="file"><name>Details.java</name>
+  </compound>
+  <compound refid="_dll_file_8java" kind="file"><name>DllFile.java</name>
+  </compound>
+  <compound refid="_execute_code_8java" kind="file"><name>ExecuteCode.java</name>
+  </compound>
+  <compound refid="_files_composite_8java" kind="file"><name>FilesComposite.java</name>
+  </compound>
+  <compound refid="_instructions_composite_8java" kind="file"><name>InstructionsComposite.java</name>
+  </compound>
+  <compound refid="_legacy_window_8java" kind="file"><name>LegacyWindow.java</name>
+  </compound>
+  <compound refid="_memory_composite_8java" kind="file"><name>MemoryComposite.java</name>
+  </compound>
+  <compound refid="_memory_window_8java" kind="file"><name>MemoryWindow.java</name>
+  </compound>
+  <compound refid="_mnem_8java" kind="file"><name>Mnem.java</name>
+  </compound>
+  <compound refid="_network_composite_8java" kind="file"><name>NetworkComposite.java</name>
+  </compound>
+  <compound refid="_network_stats_8java" kind="file"><name>NetworkStats.java</name>
+  </compound>
+  <compound refid="_network_traffic_8java" kind="file"><name>NetworkTraffic.java</name>
+  </compound>
+  <compound refid="_packet_trace_8java" kind="file"><name>PacketTrace.java</name>
+  </compound>
+  <compound refid="_p_e_file_8java" kind="file"><name>PEFile.java</name>
+  </compound>
+  <compound refid="_process_manager_8java" kind="file"><name>ProcessManager.java</name>
+  </compound>
+  <compound refid="_read_write_8java" kind="file"><name>ReadWrite.java</name>
+  </compound>
+  <compound refid="_select_file_8java" kind="file"><name>SelectFile.java</name>
+  </compound>
+  <compound refid="_select_process_8java" kind="file"><name>SelectProcess.java</name>
+  </compound>
+  <compound refid="test_8java" kind="file"><name>test.java</name>
+  </compound>
+  <compound refid="_version_8java" kind="file"><name>Version.java</name>
+  </compound>
+  <compound refid="_virtual_memory_8java" kind="file"><name>VirtualMemory.java</name>
+  </compound>
+  <compound refid="_window_8java" kind="file"><name>Window.java</name>
+  </compound>
+  <compound refid="_s_w_t_resource_manager_8java" kind="file"><name>SWTResourceManager.java</name>
+  </compound>
+  <compound refid="md__r_e_a_d_m_e" kind="page"><name>md_README</name>
+  </compound>
+  <compound refid="dir_2ea30aa2956a8db99dd22aa5e597f384" kind="dir"><name>bin</name>
+  </compound>
+  <compound refid="dir_fae03dde528c6409b4b75786190e8bc7" kind="dir"><name>target/classes</name>
+  </compound>
+  <compound refid="dir_ee363f42438234b4ac153df3adfa2ace" kind="dir"><name>bin/dynamicAnalysis</name>
+  </compound>
+  <compound refid="dir_741cc1f4ed9f435fe923e2d464fa9e45" kind="dir"><name>src/dynamicAnalysis</name>
+  </compound>
+  <compound refid="dir_6dc8653e319ec72a501cdff360845da2" kind="dir"><name>target/classes/dynamicAnalysis</name>
+  </compound>
+  <compound refid="dir_9d20c298db9f95bfe4fffee6c9b464f0" kind="dir"><name>src/org/eclipse</name>
+  </compound>
+  <compound refid="dir_b8e0663afee48cb679b74bbd21bdf843" kind="dir"><name>src/org</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_0b46709557349a69e89d738c646d9952" kind="dir"><name>src/org/eclipse/wb/swt</name>
+  </compound>
+  <compound refid="dir_1bbcb9615bce09de8292fb64e7b04403" kind="dir"><name>target</name>
+  </compound>
+  <compound refid="dir_3dad74ec96ae400926bee59bc9464de8" kind="dir"><name>src/org/eclipse/wb</name>
+  </compound>
+</doxygenindex>

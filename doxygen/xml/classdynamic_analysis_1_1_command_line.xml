@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_command_line" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::CommandLine</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_command_line_1a7d22e9d7a6e10036ced60e19eb9a2365" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long dynamicAnalysis.CommandLine.pid</definition>
+        <argsstring></argsstring>
+        <name>pid</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.pid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process ID. May not be required for certain commands. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="17" column="14" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a82add1841b76e35da9685cb49fdea9ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.CommandLine.CommandLine</definition>
+        <argsstring>(long pid)</argsstring>
+        <name>CommandLine</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.CommandLine</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new command line.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the process ID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="24" column="8" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a54a78106b7525309795adecc3321d127" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.CommandLine.CommandLine</definition>
+        <argsstring>()</argsstring>
+        <name>CommandLine</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.CommandLine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new command line. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="32" column="8" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a10101256d2fed3b38660c0f3c8e32a39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long dynamicAnalysis.CommandLine.getPid</definition>
+        <argsstring>()</argsstring>
+        <name>getPid</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.getPid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the pid.</para>
+<para><simplesect kind="return"><para>the pid </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="42" column="13" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1ac0bad68fc056bd6db7cf45248a0c955b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CommandLine.setPid</definition>
+        <argsstring>(long pid)</argsstring>
+        <name>setPid</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.setPid</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new pid </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="52" column="13" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a030e96fe7adcd3f8cfbdce553d95bdcd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.runName</definition>
+        <argsstring>()</argsstring>
+        <name>runName</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.runName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses tasklist to get relevant process information from the process ID.</para>
+<para><simplesect kind="return"><para>the cmd result from running the command </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="99" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a0d8b220dd139b037b03ec575f8d02903" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.runDLLs</definition>
+        <argsstring>()</argsstring>
+        <name>runDLLs</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.runDLLs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lists DLLS used by the process. Credit to Mark Russinovich of Microsoft for the utility.</para>
+<para><simplesect kind="return"><para>the cmd result from running the command </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="109" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a22a58fef9f251921e85d3bbbf0a1e169" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.runFiles</definition>
+        <argsstring>()</argsstring>
+        <name>runFiles</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.runFiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run files.</para>
+<para><simplesect kind="return"><para>the cmd result from running the command </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="119" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="119" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1a471aba28b3804d10d4c4a2725b4cf9ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.getAll</definition>
+        <argsstring>()</argsstring>
+        <name>getAll</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.getAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all processes currently running.</para>
+<para><simplesect kind="return"><para>the cmd result from running the command </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="129" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1af7960559de9981ae31dbd34d6ff3bf69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.getNetstat</definition>
+        <argsstring>()</argsstring>
+        <name>getNetstat</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.getNetstat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the network information from all processes.</para>
+<para><simplesect kind="return"><para>the cmd result from running the command </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="139" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1ab9795a602f2df7a4ecfc1e18459ab878" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="150" column="15" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="150" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_command_line_1affcf0bad0bc5a2c5d1ab0a46a7ff0c5f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CommandLine.run</definition>
+        <argsstring>(String command, boolean cmdCheck)</argsstring>
+        <name>run</name>
+        <qualifiedname>dynamicAnalysis.CommandLine.run</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>cmdCheck</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parser for sending a command to the command line.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command to be sent to the command line </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cmdCheck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>determines whether a command is native to Windows or bundled with the program </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the command from the command line </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CommandLine.java" line="64" column="16" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="64" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_command_line" kindref="compound">CommandLine</ref>. Used to communicate with the command line whenever it is required. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/CommandLine.java" line="13" column="7" bodyfile="src/dynamicAnalysis/CommandLine.java" bodystart="14" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_command_line_1a82add1841b76e35da9685cb49fdea9ee" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>CommandLine</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a54a78106b7525309795adecc3321d127" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>CommandLine</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a471aba28b3804d10d4c4a2725b4cf9ff" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>getAll</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1af7960559de9981ae31dbd34d6ff3bf69" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>getNetstat</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a10101256d2fed3b38660c0f3c8e32a39" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>getPid</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a7d22e9d7a6e10036ced60e19eb9a2365" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>pid</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1affcf0bad0bc5a2c5d1ab0a46a7ff0c5f" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>run</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a0d8b220dd139b037b03ec575f8d02903" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>runDLLs</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a22a58fef9f251921e85d3bbbf0a1e169" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>runFiles</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1a030e96fe7adcd3f8cfbdce553d95bdcd" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>runName</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1ac0bad68fc056bd6db7cf45248a0c955b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>setPid</name></member>
+      <member refid="classdynamic_analysis_1_1_command_line_1ab9795a602f2df7a4ecfc1e18459ab878" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CommandLine</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

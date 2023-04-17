@@ -1,0 +1,335 @@
+\hypertarget{_legacy_window_8java_source}{}\doxysection{Legacy\+Window.\+java}
+\label{_legacy_window_8java_source}\index{src/dynamicAnalysis/LegacyWindow.java@{src/dynamicAnalysis/LegacyWindow.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00006}00006 \textcolor{keyword}{import} org.eclipse.swt.widgets.Display;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00007}00007 \textcolor{keyword}{import} org.eclipse.swt.widgets.Event;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00008}00008 \textcolor{keyword}{import} org.eclipse.swt.widgets.Shell;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00009}00009 \textcolor{keyword}{import} org.eclipse.swt.widgets.Menu;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00010}00010 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00011}00011 \textcolor{keyword}{import} org.eclipse.swt.widgets.MenuItem;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00012}00012 \textcolor{keyword}{import} org.eclipse.swt.widgets.Label;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00013}00013 \textcolor{keyword}{import} org.eclipse.swt.widgets.Listener;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00014}00014 \textcolor{keyword}{import} org.eclipse.wb.swt.SWTResourceManager;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00017}00017 \textcolor{keyword}{import} org.eclipse.swt.widgets.Table;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00018}00018 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableItem;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00020}00020 \textcolor{keyword}{import} java.awt.Dimension;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00021}00021 \textcolor{keyword}{import} java.awt.Toolkit;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00022}00022 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00024}00024 \textcolor{keyword}{import} org.eclipse.jface.viewers.TableViewer;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00025}00025 \textcolor{keyword}{import} org.eclipse.swt.layout.GridLayout;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00026}00026 \textcolor{keyword}{import} org.eclipse.swt.layout.GridData;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00027}00027 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableColumn;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00028}00028 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionAdapter;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00029}00029 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionEvent;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00031}00031 \textcolor{keyword}{import} javax.sound.sampled.*;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00036}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window}{00036}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window}{LegacyWindow}} \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00039}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{00039}}     \textcolor{keyword}{protected} Shell \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}};}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00040}00040     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00042}00042     \textcolor{keyword}{private} Table code;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00043}00043     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00045}00045     \textcolor{keyword}{private} Table details;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00048}00048     \textcolor{keyword}{private} Table dllImports;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00049}00049     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00051}00051     \textcolor{keyword}{private} String filePath;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00052}00052     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00054}00054     \textcolor{keyword}{static} TableItem tableItems[] = \textcolor{keyword}{new} TableItem[4];}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00055}00055     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00061}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aff573665764650c8abacbf149316c599}{00061}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aff573665764650c8abacbf149316c599}{main}}(String[] args) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00062}00062         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00063}00063             \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window}{LegacyWindow}} window = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window}{LegacyWindow}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00064}00064             window.\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a7a1e5badacdc951e0e1f086be5c27a9d}{open}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00065}00065         \} \textcolor{keywordflow}{catch} (Exception e) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00066}00066             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00067}00067         \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00068}00068         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00070}00070     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00074}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a7a1e5badacdc951e0e1f086be5c27a9d}{00074}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a7a1e5badacdc951e0e1f086be5c27a9d}{open}}() \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00075}00075         Display display = Display.getDefault();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00076}00076         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a057e1a51dc287d41bc7921a390dd0de2}{createContents}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00077}00077         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.open();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00078}00078         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.layout();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00079}00079         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.isDisposed()) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00080}00080             \textcolor{keywordflow}{if} (!display.readAndDispatch()) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00081}00081                 display.sleep();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00082}00082             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00083}00083         \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00087}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a88894c7c90e4ee2c2b01beaa7769b82c}{00087}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a88894c7c90e4ee2c2b01beaa7769b82c}{SAMPLE\_RATE}} = 8000f;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00088}00088     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00096}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aed285406d096f5051a2219b76d418a02}{00096}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aed285406d096f5051a2219b76d418a02}{tone}}(\textcolor{keywordtype}{int} hz, \textcolor{keywordtype}{int} msecs) \textcolor{keywordflow}{throws} LineUnavailableException }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00097}00097       \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00098}00098          \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aed285406d096f5051a2219b76d418a02}{tone}}(hz, msecs, 1.0);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00099}00099       \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00109}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a05e30523dd5b2cbab69917581aae5eb5}{00109}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a05e30523dd5b2cbab69917581aae5eb5}{tone}}(\textcolor{keywordtype}{int} hz, \textcolor{keywordtype}{int} msecs, \textcolor{keywordtype}{double} vol)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00110}00110           \textcolor{keywordflow}{throws} LineUnavailableException }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00111}00111       \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00112}00112         \textcolor{keywordtype}{byte}[] buf = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[1];}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00113}00113         AudioFormat af = }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00114}00114             \textcolor{keyword}{new} AudioFormat(}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00115}00115                 \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a88894c7c90e4ee2c2b01beaa7769b82c}{SAMPLE\_RATE}}, \textcolor{comment}{// sampleRate}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00116}00116                 8,           \textcolor{comment}{// sampleSizeInBits}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00117}00117                 1,           \textcolor{comment}{// channels}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00118}00118                 \textcolor{keyword}{true},        \textcolor{comment}{// signed}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00119}00119                 \textcolor{keyword}{false});      \textcolor{comment}{// bigEndian}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00120}00120         SourceDataLine sdl = AudioSystem.getSourceDataLine(af);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00121}00121         sdl.open(af);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00122}00122         sdl.start();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00123}00123         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < msecs*8; i++) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00124}00124           \textcolor{keywordtype}{double} angle = i / (\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a88894c7c90e4ee2c2b01beaa7769b82c}{SAMPLE\_RATE}} / hz) * 2.0 * Math.PI;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00125}00125           buf[0] = (\textcolor{keywordtype}{byte})(Math.sin(angle) * 127.0 * vol);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00126}00126           sdl.write(buf,0,1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00127}00127         \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00128}00128         sdl.drain();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00129}00129         sdl.stop();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00130}00130         sdl.close();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00131}00131       \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00132}00132     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00136}\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a057e1a51dc287d41bc7921a390dd0de2}{00136}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_a057e1a51dc287d41bc7921a390dd0de2}{createContents}}() \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00137}00137         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}} = \textcolor{keyword}{new} Shell();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00138}00138         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00139}00139         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setSize(881, 520);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00140}00140         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setText(\textcolor{stringliteral}{"{}Dynamic Malware Analysis"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00141}00141         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00142}00142         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00143}00143         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setLocation((dim.width/2)-\/400,(dim.height/2)-\/200);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00144}00144         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00145}00145         GridLayout gl\_shell = \textcolor{keyword}{new} GridLayout(9, \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00146}00146         gl\_shell.marginBottom = 15;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00147}00147         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setLayout(gl\_shell);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00148}00148         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00149}00149         Menu menu = \textcolor{keyword}{new} Menu(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.BAR);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00150}00150         \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.setMenuBar(menu);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00151}00151         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00152}00152         MenuItem mntmFile\_1 = \textcolor{keyword}{new} MenuItem(menu, SWT.CASCADE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00153}00153         mntmFile\_1.setText(\textcolor{stringliteral}{"{}File"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00154}00154         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00155}00155         Menu menu\_1 = \textcolor{keyword}{new} Menu(mntmFile\_1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00156}00156         mntmFile\_1.setMenu(menu\_1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00157}00157         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00158}00158         MenuItem mntmEdit = \textcolor{keyword}{new} MenuItem(menu, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00159}00159         mntmEdit.setText(\textcolor{stringliteral}{"{}Edit"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00160}00160         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00161}00161         MenuItem mntmView = \textcolor{keyword}{new} MenuItem(menu, SWT.CASCADE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00162}00162         mntmView.setText(\textcolor{stringliteral}{"{}View"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00163}00163         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00164}00164         Menu menu\_2 = \textcolor{keyword}{new} Menu(mntmView);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00165}00165         mntmView.setMenu(menu\_2);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00166}00166         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00167}00167         MenuItem mntmVirtualMemory = \textcolor{keyword}{new} MenuItem(menu\_2, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00168}00168         mntmVirtualMemory.setText(\textcolor{stringliteral}{"{}Virtual Memory"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00169}00169         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00170}00170         mntmVirtualMemory.addListener(SWT.Selection, \textcolor{keyword}{new} Listener() \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00171}00171             \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleEvent(Event e) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00172}00172                 System.out.println(tableItems[3].getText(1));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00173}00173                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00174}00174                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00175}00175                     \mbox{\hyperlink{classdynamic_analysis_1_1_memory_window}{MemoryWindow}} memoryWindow = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_memory_window}{MemoryWindow}}(Integer.parseInt(tableItems[3].getText(1)), \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.getLocation().x, \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.getLocation().y);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00176}00176                     memoryWindow.\mbox{\hyperlink{classdynamic_analysis_1_1_memory_window_a1acbcb728ae13ebe5812a4228f63a106}{open}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00177}00177                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00178}00178                 \textcolor{keywordflow}{catch}(NumberFormatException e1)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00179}00179                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00180}00180                     }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00181}00181                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00182}00182             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00183}00183         \});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00184}00184         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00185}00185         MenuItem mntmHelp = \textcolor{keyword}{new} MenuItem(menu, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00186}00186         mntmHelp.setText(\textcolor{stringliteral}{"{}Help"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00187}00187         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00188}00188         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00189}00189         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00190}00190         MenuItem mntmOpen = \textcolor{keyword}{new} MenuItem(menu\_1, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00191}00191         mntmOpen.setText(\textcolor{stringliteral}{"{}Open"{}});       }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00192}00192         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00193}00193         MenuItem mntmRun = \textcolor{keyword}{new} MenuItem(menu, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00194}00194         mntmRun.setText(\textcolor{stringliteral}{"{}Run"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00195}00195         mntmRun.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00196}00196             @Override}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00197}00197             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00198}00198                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00199}00199                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00200}00200                     \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}} process = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}}(\textcolor{keyword}{new} File(filePath));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00201}00201                     tableItems[2].setText(1, process.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a024351380da530a4cc953bc6bd939eec}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00202}00202                     tableItems[3].setText(1, process.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a5180923f007286e35ca5bec48a9a4d89}{getPidAsString}}());}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00203}00203                     String[] DLLs = process.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}{getDLLs}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00204}00204                     dllImports.clearAll();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00205}00205                     dllImports.setItemCount(0);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00206}00206                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index=0;index<DLLs.length;index++)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00207}00207                     \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00208}00208                         TableItem tableItem = \textcolor{keyword}{new} TableItem(dllImports, SWT.NULL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00209}00209                         tableItem.setText(DLLs[index]);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00210}00210                     \} }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00211}00211                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00212}00212                 \textcolor{keywordflow}{catch}(NullPointerException e1) }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00213}00213                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00214}00214                     System.out.println(\textcolor{stringliteral}{"{}No file selected"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00215}00215                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00216}00216             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00217}00217         \});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00218}00218         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00219}00219         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00220}00220         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00221}00221         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00222}00222         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00223}00223         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00224}00224         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00225}00225         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00226}00226         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00227}00227         Label lblCode = \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00228}00228         lblCode.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00229}00229         lblCode.setLayoutData(\textcolor{keyword}{new} GridData(SWT.CENTER, SWT.CENTER, \textcolor{keyword}{true}, \textcolor{keyword}{false}, 1, 1));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00230}00230         lblCode.setAlignment(SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00231}00231         lblCode.setFont(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a0603188ae7ef4801932ec8090c31b51e}{getFont}}(\textcolor{stringliteral}{"{}Segoe UI"{}}, 11, SWT.BOLD));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00232}00232         lblCode.setText(\textcolor{stringliteral}{"{}Code"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00233}00233         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00234}00234         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00235}00235         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00236}00236         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00237}00237         Label lblDetails = \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00238}00238         lblDetails.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00239}00239         GridData gd\_lblDetails = \textcolor{keyword}{new} GridData(SWT.CENTER, SWT.CENTER, \textcolor{keyword}{true}, \textcolor{keyword}{false}, 1, 1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00240}00240         gd\_lblDetails.widthHint = 82;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00241}00241         lblDetails.setLayoutData(gd\_lblDetails);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00242}00242         lblDetails.setText(\textcolor{stringliteral}{"{}Details"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00243}00243         lblDetails.setFont(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a0603188ae7ef4801932ec8090c31b51e}{getFont}}(\textcolor{stringliteral}{"{}Segoe UI"{}}, 11, SWT.BOLD));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00244}00244         lblDetails.setAlignment(SWT.CENTER);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00245}00245         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00246}00246         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00247}00247         Label lblDllImports = \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00248}00248         lblDllImports.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00249}00249         lblDllImports.setLayoutData(\textcolor{keyword}{new} GridData(SWT.CENTER, SWT.CENTER, \textcolor{keyword}{true}, \textcolor{keyword}{false}, 1, 1));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00250}00250         lblDllImports.setText(\textcolor{stringliteral}{"{}DLL Imports"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00251}00251         lblDllImports.setFont(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a0603188ae7ef4801932ec8090c31b51e}{getFont}}(\textcolor{stringliteral}{"{}Segoe UI"{}}, 11, SWT.BOLD));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00252}00252         lblDllImports.setAlignment(SWT.CENTER);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00253}00253         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00254}00254         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00255}00255         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00256}00256         TableViewer tableViewer = \textcolor{keyword}{new} TableViewer(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.BORDER | SWT.FULL\_SELECTION | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00257}00257         code = tableViewer.getTable();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00258}00258         code.setToolTipText(\textcolor{stringliteral}{"{}x86 instructions"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00259}00259         code.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00260}00260         code.setHeaderBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00261}00261         GridData gd\_code = \textcolor{keyword}{new} GridData(SWT.FILL, SWT.FILL, \textcolor{keyword}{true}, \textcolor{keyword}{true}, 1, 1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00262}00262         gd\_code.widthHint = 121;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00263}00263         gd\_code.heightHint = 313;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00264}00264         code.setLayoutData(gd\_code);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00265}00265         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00266}00266         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00267}00267         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00268}00268         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00269}00269         details = \textcolor{keyword}{new} Table(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.BORDER | SWT.FULL\_SELECTION);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00270}00270         details.setToolTipText(\textcolor{stringliteral}{"{}File information"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00271}00271         details.setHeaderBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00272}00272         details.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00273}00273         GridData gd\_details = \textcolor{keyword}{new} GridData(SWT.FILL, SWT.FILL, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 1, 1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00274}00274         gd\_details.widthHint = 316;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00275}00275         details.setLayoutData(gd\_details);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00276}00276         details.setHeaderVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00277}00277         details.pack();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00278}00278         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00279}00279         TableColumn labels = \textcolor{keyword}{new} TableColumn(details, SWT.CENTER);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00280}00280         labels.setWidth(160);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00281}00281         labels.setText(\textcolor{stringliteral}{"{}Labels"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00282}00282         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00283}00283         TableColumn values = \textcolor{keyword}{new} TableColumn(details, SWT.CENTER | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00284}00284         values.setWidth(170);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00285}00285         values.setText(\textcolor{stringliteral}{"{}Values"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00286}00286         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00287}00287         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00288}00288         dllImports = \textcolor{keyword}{new} Table(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.BORDER | SWT.FULL\_SELECTION | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00289}00289         dllImports.setToolTipText(\textcolor{stringliteral}{"{}DLL file paths"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00290}00290         dllImports.setHeaderBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00291}00291         dllImports.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(192, 192, 192));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00292}00292         GridData gd\_dllImports = \textcolor{keyword}{new} GridData(SWT.FILL, SWT.FILL, \textcolor{keyword}{true}, \textcolor{keyword}{false}, 1, 1);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00293}00293         gd\_dllImports.widthHint = 200;}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00294}00294         dllImports.setLayoutData(gd\_dllImports);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00295}00295         \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00296}00296         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00297}00297         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0;index<tableItems.length;index++)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00298}00298         \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00299}00299             tableItems[index] = \textcolor{keyword}{new} TableItem(details, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00300}00300         \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00301}00301         tableItems[0].setText(0, \textcolor{stringliteral}{"{}Directory"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00302}00302         tableItems[1].setText(0, \textcolor{stringliteral}{"{}Version"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00303}00303         tableItems[2].setText(0, \textcolor{stringliteral}{"{}Name"{}});       }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00304}00304         tableItems[3].setText(0, \textcolor{stringliteral}{"{}PID"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00305}00305         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00306}00306         }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00307}00307         mntmOpen.addListener(SWT.Selection, \textcolor{keyword}{new} Listener() \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00308}00308             \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleEvent(Event e) \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00309}00309                 \mbox{\hyperlink{classdynamic_analysis_1_1_select_file}{SelectFile}} selectFile = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_select_file}{SelectFile}}(\mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.getLocation().x, \mbox{\hyperlink{classdynamic_analysis_1_1_legacy_window_aa7a4fccecc9fd27b998fee97a541bc05}{shell}}.getLocation().y, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00310}00310                 code.clearAll();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00311}00311                 \textcolor{keywordflow}{if}(!selectFile.\mbox{\hyperlink{classdynamic_analysis_1_1_select_file_a50c98bfebe6d0ce59ada2bc7dbb8a12e}{isPidMode}}())}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00312}00312                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00313}00313                     filePath = selectFile.\mbox{\hyperlink{classdynamic_analysis_1_1_select_file_a4003f96b49769e190c339bb430d19b84}{getText}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00314}00314                     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00315}00315                     \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00316}00316                         tableItems[0].setText(1, filePath);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00317}00317                         \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00318}00318                         \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00319}00319                             \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{CodeExtract}} codeExtract = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{CodeExtract}}(\textcolor{keyword}{new} File(filePath));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00320}00320                             String[] codeArr = codeExtract.\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}{getCodeArr}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00321}00321                            \textcolor{comment}{// byte[] resources = codeExtract.getResources();}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00322}00322                             \textcolor{keywordflow}{if}(codeExtract.\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}{getPeFile}}().\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{getVersion}}() == \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}}.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a796be8c5ce18cca3e9639c62e0d4019f}{x32}})}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00323}00323                             \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00324}00324                                 tableItems[1].setText(1, \textcolor{stringliteral}{"{}32-\/bit"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00325}00325                             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00326}00326                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00327}00327                             \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00328}00328                                 tableItems[1].setText(1, \textcolor{stringliteral}{"{}64-\/bit"{}});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00329}00329                             \}               }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00330}00330                             code.setItemCount(0);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00331}00331                             dllImports.clearAll();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00332}00332                             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index=0;index<codeArr.length;index++)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00333}00333                             \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00334}00334                                 TableItem tableItem = \textcolor{keyword}{new} TableItem(code, SWT.NULL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00335}00335                                 tableItem.setText(codeArr[index]);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00336}00336                             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00337}00337                             tableItems[0].setGrayed(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00338}00338                             tableItems[1].setGrayed(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00339}00339                         \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00340}00340                         \textcolor{keywordflow}{catch} (NullPointerException e1) \{\}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00341}00341                     \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00342}00342                     \textcolor{keywordflow}{catch} (IllegalArgumentException e1) \{\}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00343}00343                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00344}00344                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00345}00345                 \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00346}00346                     \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}} process = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}}(selectFile.\mbox{\hyperlink{classdynamic_analysis_1_1_select_file_a8e27211da7fba3fc8f79f46b68487ee2}{getPid}}());}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00347}00347                     tableItems[2].setText(1, process.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a024351380da530a4cc953bc6bd939eec}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00348}00348                     tableItems[3].setText(1, Integer.toString(selectFile.\mbox{\hyperlink{classdynamic_analysis_1_1_select_file_a8e27211da7fba3fc8f79f46b68487ee2}{getPid}}()));}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00349}00349                     String[] DLLs = process.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}{getDLLs}}();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00350}00350                     dllImports.clearAll();}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00351}00351                     dllImports.setItemCount(0);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00352}00352                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index=0;index<DLLs.length;index++)}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00353}00353                     \{}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00354}00354                         TableItem tableItem = \textcolor{keyword}{new} TableItem(dllImports, SWT.NULL);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00355}00355                         tableItem.setText(DLLs[index]);}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00356}00356                     \} }
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00357}00357                     tableItems[0].setGrayed(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00358}00358                     tableItems[1].setGrayed(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00359}00359                 \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00360}00360                \textcolor{comment}{/* \}}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00361}00361 \textcolor{comment}{            \}).start();*/}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00362}00362             \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00363}00363         \});}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00364}00364     \}}
+\DoxyCodeLine{\Hypertarget{_legacy_window_8java_source_l00365}00365 \}}
+
+\end{DoxyCode}

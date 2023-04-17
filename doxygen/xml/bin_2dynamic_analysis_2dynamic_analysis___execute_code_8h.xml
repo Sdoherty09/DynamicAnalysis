@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h" kind="file" language="C++">
+    <compoundname>dynamicAnalysis_ExecuteCode.h</compoundname>
+    <includes local="no">jni.h</includes>
+    <includedby refid="bin_2dynamic_analysis_2_execute_impl_8c" local="yes">bin/dynamicAnalysis/ExecuteImpl.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h</label>
+        <link refid="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jni.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bin/dynamicAnalysis/ExecuteImpl.c</label>
+        <link refid="bin_2dynamic_analysis_2_execute_impl_8c_source"/>
+      </node>
+      <node id="1">
+        <label>bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h</label>
+        <link refid="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1ab8c5ea2dc4ddd9cdfec947878b0d397b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>JNIEXPORT void JNICALL</type>
+        <definition>JNIEXPORT void JNICALL Java_dynamicAnalysis_ExecuteCode_executeInstruction</definition>
+        <argsstring>(JNIEnv *, jobject, jbyte)</argsstring>
+        <name>Java_dynamicAnalysis_ExecuteCode_executeInstruction</name>
+        <param>
+          <type>JNIEnv *</type>
+        </param>
+        <param>
+          <type>jobject</type>
+        </param>
+        <param>
+          <type>jbyte</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h" line="15" column="24" bodyfile="bin/dynamicAnalysis/ExecuteImpl.c" bodystart="7" bodyend="10" declfile="bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h" declline="15" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="bin_2dynamic_analysis_2dynamic_analysis___execute_code_8h_1aa585dffe77d8be1cb154f65f1d6149e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>JNIEXPORT jbyteArray JNICALL</type>
+        <definition>JNIEXPORT jbyteArray JNICALL Java_dynamicAnalysis_ExecuteCode_read</definition>
+        <argsstring>(JNIEnv *, jobject)</argsstring>
+        <name>Java_dynamicAnalysis_ExecuteCode_read</name>
+        <param>
+          <type>JNIEnv *</type>
+        </param>
+        <param>
+          <type>jobject</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h" line="22" column="30" declfile="bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h" declline="22" declcolumn="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>DO<sp/>NOT<sp/>EDIT<sp/>THIS<sp/>FILE<sp/>-<sp/>it<sp/>is<sp/>machine<sp/>generated<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jni.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Header<sp/>for<sp/>class<sp/>dynamicAnalysis_ExecuteCode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_Included_dynamicAnalysis_ExecuteCode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_Included_dynamicAnalysis_ExecuteCode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>Class:<sp/><sp/><sp/><sp/><sp/>dynamicAnalysis_ExecuteCode</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>Method:<sp/><sp/><sp/><sp/>executeInstruction</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>Signature:<sp/>(B)V</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">JNIEXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>JNICALL<sp/>Java_dynamicAnalysis_ExecuteCode_executeInstruction</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>(JNIEnv<sp/>*,<sp/>jobject,<sp/>jbyte);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>Class:<sp/><sp/><sp/><sp/><sp/>dynamicAnalysis_ExecuteCode</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Method:<sp/><sp/><sp/><sp/>read</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>Signature:<sp/>(V)[B</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">JNIEXPORT<sp/>jbyteArray<sp/>JNICALL<sp/>Java_dynamicAnalysis_ExecuteCode_read</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>(JNIEnv<sp/>*,<sp/>jobject);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="bin/dynamicAnalysis/dynamicAnalysis_ExecuteCode.h"/>
+  </compounddef>
+</doxygen>

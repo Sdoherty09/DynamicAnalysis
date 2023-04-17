@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_instructions_composite" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::InstructionsComposite</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Composite</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1ab4d5a38bb744220b233376e53b2f39df" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.InstructionsComposite.tableInstructions</definition>
+        <argsstring></argsstring>
+        <name>tableInstructions</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.tableInstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table displaying the x86 instruction set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="42" column="15" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1a50c4f66b97e8a111444325df9df1619e" prot="private" static="no" mutable="no">
+        <type>Capstone.CsInsn[]</type>
+        <definition>Capstone.CsInsn [] dynamicAnalysis.InstructionsComposite.allInsn</definition>
+        <argsstring></argsstring>
+        <name>allInsn</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.allInsn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Capstone array containing x86 instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="45" column="24" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1ae3c6572f161c2f07142669ed19b627a8" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.InstructionsComposite.textOpcode</definition>
+        <argsstring></argsstring>
+        <name>textOpcode</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.textOpcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The opcodes of the instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="48" column="14" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1ac8d57115a674937ebebae5e3b72b9f28" prot="private" static="no" mutable="no">
+        <type>TableColumn</type>
+        <definition>TableColumn dynamicAnalysis.InstructionsComposite.tblclmnAddress</definition>
+        <argsstring></argsstring>
+        <name>tblclmnAddress</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.tblclmnAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The virtual address space of the instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="51" column="21" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1a676ddf60ee7e9dd2a7e1cc294bfb3f9b" prot="private" static="no" mutable="no">
+        <type>TableColumn</type>
+        <definition>TableColumn dynamicAnalysis.InstructionsComposite.tblclmnMnemonic</definition>
+        <argsstring></argsstring>
+        <name>tblclmnMnemonic</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.tblclmnMnemonic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mnemonics of the instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="54" column="21" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1ad3cc8198c2ae272e7943c6dee66146aa" prot="private" static="no" mutable="no">
+        <type>TableColumn</type>
+        <definition>TableColumn dynamicAnalysis.InstructionsComposite.tblclmnOpcode</definition>
+        <argsstring></argsstring>
+        <name>tblclmnOpcode</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.tblclmnOpcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table column to display the opcodes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="57" column="21" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1af5ff36baf0fe022bf59cb8873751ae83" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.InstructionsComposite.updatedInstructions</definition>
+        <argsstring></argsstring>
+        <name>updatedInstructions</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.updatedInstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The updated instruction set when replacing instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="60" column="14" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1a5483c7414b0b0b32a6fc4ac1f6c15f51" prot="private" static="no" mutable="no">
+        <type>Composite</type>
+        <definition>Composite dynamicAnalysis.InstructionsComposite.parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The main window that acts as the composite parent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="63" column="19" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_instructions_composite_1a5b905a6e3296f39495bf668c675a88e0" prot="private" static="no" mutable="no">
+        <type>TableItem[]</type>
+        <definition>TableItem [] dynamicAnalysis.InstructionsComposite.tableItems</definition>
+        <argsstring></argsstring>
+        <name>tableItems</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.tableItems</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The values used by the GUI array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="66" column="19" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1afc597f3ab8021d8f0c00f562ee56b173" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.InstructionsComposite.InstructionsComposite</definition>
+        <argsstring>(Composite parent, int style, File file)</argsstring>
+        <name>InstructionsComposite</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.InstructionsComposite</qualifiedname>
+        <param>
+          <type>Composite</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>style</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the instructions composite.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parent that contains the composite </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>style</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the SWT style </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file that contains the x86 instructions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="75" column="8" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="75" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a26f40805bc5b93020489d2e81b1f40e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.layout</definition>
+        <argsstring>()</argsstring>
+        <name>layout</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Layout. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="392" column="13" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="392" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a75def1cc888f21b33d2a6030b728fb39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Capstone.CsInsn[]</type>
+        <definition>Capstone.CsInsn[] dynamicAnalysis.InstructionsComposite.getAllInsn</definition>
+        <argsstring>()</argsstring>
+        <name>getAllInsn</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.getAllInsn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the Capstone instruction array.</para>
+<para><simplesect kind="return"><para>the Capstone instruction array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="403" column="23" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="403" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1ab048f4ae785690350c6288fb118a07c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.setAllInsn</definition>
+        <argsstring>(Capstone.CsInsn[] allInsn)</argsstring>
+        <name>setAllInsn</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.setAllInsn</qualifiedname>
+        <param>
+          <type>Capstone.CsInsn[]</type>
+          <declname>allInsn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the Capstone instruction array.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allInsn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Capstone instruction array </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="413" column="13" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="413" bodyend="416"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1ae798ee5522450921f211f892f692d811" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.fillTable</definition>
+        <argsstring>()</argsstring>
+        <name>fillTable</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.fillTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Asynchronously populate the instruction table with x86 instructions, separated to increase performance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="287" column="14" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="287" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a654f2b4d70df896ed4fbada09f18215e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TableItem[]</type>
+        <definition>TableItem[] dynamicAnalysis.InstructionsComposite.setColor</definition>
+        <argsstring>(TableItem item, Color color, TableItem[] items, int index)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.setColor</qualifiedname>
+        <param>
+          <type>TableItem</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type>TableItem[]</type>
+          <declname>items</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates the color of table items for jump instructions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the table item to update color </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the color to change to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the full array of table items </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of table item to update color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the updated table item array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="323" column="19" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="323" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1aba798a726a456c902ba4d0cdfe25c8a4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.setColor</definition>
+        <argsstring>(TableItem item, Color color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.setColor</qualifiedname>
+        <param>
+          <type>TableItem</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the item </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="336" column="14" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="336" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a59c5ee0093988290106e53de2638233e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TableItem[]</type>
+        <definition>TableItem[] dynamicAnalysis.InstructionsComposite.setGray</definition>
+        <argsstring>(TableItem item, TableItem[] items, int index)</argsstring>
+        <name>setGray</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.setGray</qualifiedname>
+        <param>
+          <type>TableItem</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>TableItem[]</type>
+          <declname>items</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets table item to gray.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the item to update color of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the full table item array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of table item to update color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the updated table item array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="349" column="19" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="349" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a6e1b5b0cfa6e64723adba9c29bb0dc4a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TableItem[]</type>
+        <definition>TableItem[] dynamicAnalysis.InstructionsComposite.setGreen</definition>
+        <argsstring>(TableItem item, TableItem[] items, int index)</argsstring>
+        <name>setGreen</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.setGreen</qualifiedname>
+        <param>
+          <type>TableItem</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>TableItem[]</type>
+          <declname>items</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets table item to green.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the item to update color of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the full table item array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of table item to update color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the updated table item array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="362" column="19" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="362" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1ab04e481970db6b656944a04dfb31cb49" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.clearColors</definition>
+        <argsstring>(TableItem[] items)</argsstring>
+        <name>clearColors</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.clearColors</qualifiedname>
+        <param>
+          <type>TableItem[]</type>
+          <declname>items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set color of table items to default color.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the updated table item array </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="372" column="14" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="372" bodyend="386"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_instructions_composite_1a76739629e7accc6fdb87a227df91fcd5" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.InstructionsComposite.checkSubclass</definition>
+        <argsstring>()</argsstring>
+        <name>checkSubclass</name>
+        <qualifiedname>dynamicAnalysis.InstructionsComposite.checkSubclass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check subclass. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/InstructionsComposite.java" line="422" column="16" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="422" bodyend="425"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Composite to display the x86 instructions of a PE file </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dynamicAnalysis.InstructionsComposite</label>
+        <link refid="classdynamic_analysis_1_1_instructions_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.InstructionsComposite</label>
+        <link refid="classdynamic_analysis_1_1_instructions_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/InstructionsComposite.java" line="38" column="7" bodyfile="src/dynamicAnalysis/InstructionsComposite.java" bodystart="39" bodyend="426"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a50c4f66b97e8a111444325df9df1619e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>allInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a76739629e7accc6fdb87a227df91fcd5" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>checkSubclass</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ab04e481970db6b656944a04dfb31cb49" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>clearColors</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ae798ee5522450921f211f892f692d811" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>fillTable</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a75def1cc888f21b33d2a6030b728fb39" prot="public" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>getAllInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1afc597f3ab8021d8f0c00f562ee56b173" prot="public" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>InstructionsComposite</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a26f40805bc5b93020489d2e81b1f40e5" prot="public" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>layout</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a5483c7414b0b0b32a6fc4ac1f6c15f51" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>parent</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ab048f4ae785690350c6288fb118a07c1" prot="public" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>setAllInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a654f2b4d70df896ed4fbada09f18215e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>setColor</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1aba798a726a456c902ba4d0cdfe25c8a4" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>setColor</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a59c5ee0093988290106e53de2638233e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>setGray</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a6e1b5b0cfa6e64723adba9c29bb0dc4a" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>setGreen</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ab4d5a38bb744220b233376e53b2f39df" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>tableInstructions</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a5b905a6e3296f39495bf668c675a88e0" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>tableItems</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ac8d57115a674937ebebae5e3b72b9f28" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>tblclmnAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1a676ddf60ee7e9dd2a7e1cc294bfb3f9b" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>tblclmnMnemonic</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ad3cc8198c2ae272e7943c6dee66146aa" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>tblclmnOpcode</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1ae3c6572f161c2f07142669ed19b627a8" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>textOpcode</name></member>
+      <member refid="classdynamic_analysis_1_1_instructions_composite_1af5ff36baf0fe022bf59cb8873751ae83" prot="private" virt="non-virtual"><scope>dynamicAnalysis::InstructionsComposite</scope><name>updatedInstructions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

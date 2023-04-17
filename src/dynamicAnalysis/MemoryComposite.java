@@ -5,36 +5,23 @@ package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Listener;
-
 import java.util.ArrayList;
 
-import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.TextLayout;
-import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.custom.StyleRange;
-import org.eclipse.swt.custom.StyledText;
 
 /**
  * The composite to display the virtual memory in the GUI
@@ -269,7 +256,6 @@ public class MemoryComposite extends Composite
 		long start = System.currentTimeMillis();
 		byte[] chars = readMemory();
 		String output = "";
-		String update = "";
 		int sizeIndex = 0;
 		int index = 0;
 		while(sizeIndex!=memoryCount)
@@ -302,7 +288,6 @@ public class MemoryComposite extends Composite
 	 */
 	private String[] findAsciiSections()
 	{
-		long startTime = System.currentTimeMillis();
 		int startIndex = 0;
 		boolean start = true;
 		ArrayList<String> asciiSections = new ArrayList<String>();

@@ -1,0 +1,216 @@
+\hypertarget{classdynamic_analysis_1_1_p_e_file}{}\doxysection{dynamic\+Analysis.\+PEFile Class Reference}
+\label{classdynamic_analysis_1_1_p_e_file}\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a320d97c88297f890df1a47ccb522b8eb}{PEFile}} (File file)
+\item 
+File \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a316afc77c68bdf743dd41d8780f8e596}{get\+File}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}{set\+File}} (File file)
+\item 
+int \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_adda6179672a4bc2e8d674e552c38df5a}{get\+Offset}} ()
+\item 
+\mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{get\+Version}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}{get\+Instructions}} ()
+\item 
+int \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}{get\+Pointer}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}{get\+Bytes}} ()  throws IOException  
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a408d416040da9dec9e0395f0bfa68e64}{set\+Bytes}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}{read\+File}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a125e94c21a42dce6026f078a000f709e}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Class \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}}. Retrieves and stores information on a Portable Executable relating to the file format 
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00019}{19}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a320d97c88297f890df1a47ccb522b8eb}\label{classdynamic_analysis_1_1_p_e_file_a320d97c88297f890df1a47ccb522b8eb}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!PEFile@{PEFile}}
+\index{PEFile@{PEFile}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{PEFile()}{PEFile()}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+PEFile.\+PEFile (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Instantiates a new PE file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the PE file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00044}{44}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}\label{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getBytes@{getBytes}}
+\index{getBytes@{getBytes}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getBytes()}{getBytes()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+PEFile.\+get\+Bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws IOException}
+
+Gets all bytes contained in the PE file.
+
+\begin{DoxyReturn}{Returns}
+the bytes contained in the PE file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & Signals that the file cannot be read or is not found \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00142}{142}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a316afc77c68bdf743dd41d8780f8e596}\label{classdynamic_analysis_1_1_p_e_file_a316afc77c68bdf743dd41d8780f8e596}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getFile@{getFile}}
+\index{getFile@{getFile}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getFile()}{getFile()}}
+{\footnotesize\ttfamily File dynamic\+Analysis.\+PEFile.\+get\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the PE file.
+
+\begin{DoxyReturn}{Returns}
+the PE file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00054}{54}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}\label{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getInstructions@{getInstructions}}
+\index{getInstructions@{getInstructions}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getInstructions()}{getInstructions()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+PEFile.\+get\+Instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the raw x86 instruction bytes.
+
+\begin{DoxyReturn}{Returns}
+the raw x86 instruction bytes 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00094}{94}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_adda6179672a4bc2e8d674e552c38df5a}\label{classdynamic_analysis_1_1_p_e_file_adda6179672a4bc2e8d674e552c38df5a}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getOffset@{getOffset}}
+\index{getOffset@{getOffset}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getOffset()}{getOffset()}}
+{\footnotesize\ttfamily int dynamic\+Analysis.\+PEFile.\+get\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the offset.
+
+\begin{DoxyReturn}{Returns}
+the offset 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00074}{74}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}\label{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getPointer@{getPointer}}
+\index{getPointer@{getPointer}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getPointer()}{getPointer()}}
+{\footnotesize\ttfamily int dynamic\+Analysis.\+PEFile.\+get\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the pointer.
+
+\begin{DoxyReturn}{Returns}
+the pointer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00121}{121}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}\label{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!getVersion@{getVersion}}
+\index{getVersion@{getVersion}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{getVersion()}{getVersion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} dynamic\+Analysis.\+PEFile.\+get\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the PE file\textquotesingle{}s version.
+
+\begin{DoxyReturn}{Returns}
+the version 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00084}{84}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}\label{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!readFile@{readFile}}
+\index{readFile@{readFile}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+PEFile.\+read\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Read the PE file, populating fields that are stored 
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00160}{160}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a408d416040da9dec9e0395f0bfa68e64}\label{classdynamic_analysis_1_1_p_e_file_a408d416040da9dec9e0395f0bfa68e64}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!setBytes@{setBytes}}
+\index{setBytes@{setBytes}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{setBytes()}{setBytes()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+PEFile.\+set\+Bytes (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes }\end{DoxyParamCaption})}
+
+Sets the bytes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & the new bytes \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00152}{152}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}\label{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!setFile@{setFile}}
+\index{setFile@{setFile}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{setFile()}{setFile()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+PEFile.\+set\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Sets the PE file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the new PE file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00064}{64}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_p_e_file_a125e94c21a42dce6026f078a000f709e}\label{classdynamic_analysis_1_1_p_e_file_a125e94c21a42dce6026f078a000f709e}} 
+\index{dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}!toString@{toString}}
+\index{toString@{toString}!dynamicAnalysis.PEFile@{dynamicAnalysis.PEFile}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+PEFile.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string.
+
+\begin{DoxyReturn}{Returns}
+the string containing information on the PE file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_p_e_file_8java_source_l00199}{199}} of file \mbox{\hyperlink{_p_e_file_8java_source}{PEFile.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/PEFile.\+java\end{DoxyCompactItemize}

@@ -3,31 +3,29 @@
  */
 package dynamicAnalysis;
 
-import java.io.File;
-
 /**
- * The Class VirtualMemory.
+ * Top level loader to call VirtualMemory.cpp through Java Native Interface. Retrieves the virtual memory from a given process ID.
  */
 public class VirtualMemory
 {
 	
-	/** The process id. */
+	/** The process id to read the virtual memory from. */
 	private int processId;
 
 	static {System.load(getFile("memory.dll"));}
 	
 	/**
-	 * Scan process.
+	 * Scan the virtual memory of a process through JNI.
 	 *
-	 * @param processId the process id
-	 * @return the byte[]
+	 * @param processId the process id to retrieve the virtual memory from
+	 * @return the byte array containing the virtual memory space
 	 */
 	private native byte[] scanProcess(int processId);
 	
 	/**
-	 * Instantiates a new virtual memory.
+	 * Instantiates a new virtual memory with the process ID.
 	 *
-	 * @param processId the process id
+	 * @param processId the process ID to retrieve the virtual memory space from
 	 */
 	public VirtualMemory(int processId)
 	{
@@ -35,9 +33,9 @@ public class VirtualMemory
 	}
 
 	/**
-	 * Gets the process id.
+	 * Gets the unique identifier from the selected process.
 	 *
-	 * @return the process id
+	 * @return the unique identifier of the process
 	 */
 	public int getProcessId()
 	{
@@ -45,9 +43,9 @@ public class VirtualMemory
 	}
 
 	/**
-	 * Sets the process id.
+	 * Sets the unique identifier for the process.
 	 *
-	 * @param processId the new process id
+	 * @param processId the new unique identifier for the selected process.
 	 */
 	public void setProcessId(int processId)
 	{
@@ -55,10 +53,10 @@ public class VirtualMemory
 	}
 	
 	/**
-	 * Gets the file.
+	 * Gets the full path of the file.
 	 *
 	 * @param fileName the file name
-	 * @return the file
+	 * @return the file path
 	 */
 	private static String getFile(String fileName)
 	{
@@ -68,9 +66,9 @@ public class VirtualMemory
 	}
 	
 	/**
-	 * Read memory.
+	 * Calls the C++ function to read the virtual memory space, given a process ID.
 	 *
-	 * @return the byte[]
+	 * @return the full virtual memory space of the process
 	 */
 	public byte[] readMemory()
 	{

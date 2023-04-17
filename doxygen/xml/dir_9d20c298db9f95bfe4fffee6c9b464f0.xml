@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_9d20c298db9f95bfe4fffee6c9b464f0" kind="dir">
+    <compoundname>src/org/eclipse</compoundname>
+    <innerdir refid="dir_3dad74ec96ae400926bee59bc9464de8">src/org/eclipse/wb</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/org/eclipse/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_1bbcb9615bce09de8292fb64e7b04403" kind="dir">
+    <compoundname>target</compoundname>
+    <innerdir refid="dir_fae03dde528c6409b4b75786190e8bc7">target/classes</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="target/"/>
+  </compounddef>
+</doxygen>

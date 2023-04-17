@@ -1,0 +1,84 @@
+\hypertarget{_network_stats_8java_source}{}\doxysection{Network\+Stats.\+java}
+\label{_network_stats_8java_source}\index{src/dynamicAnalysis/NetworkStats.java@{src/dynamicAnalysis/NetworkStats.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00006}00006 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00011}\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats}{00011}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats}{NetworkStats}}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00013}00013     }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00015}00015     \textcolor{keyword}{private} \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[] activeConnections;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00020}\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_ad121e97e2ff2b9063003a98715919a2c}{00020}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_ad121e97e2ff2b9063003a98715919a2c}{NetworkStats}}()}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00021}00021     \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00022}00022         \mbox{\hyperlink{classdynamic_analysis_1_1_command_line}{CommandLine}} commandLine = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_command_line}{CommandLine}}();}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00023}00023         String stats = commandLine.\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_af7960559de9981ae31dbd34d6ff3bf69}{getNetstat}}();}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00024}00024         System.out.println(stats);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00025}00025         stats=stats.substring(stats.indexOf(\textcolor{stringliteral}{"{}PID"{}})+6);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00026}00026         ArrayList<ActiveConnection> activeConnectionsList = \textcolor{keyword}{new} ArrayList<ActiveConnection>();}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00027}00027         \textcolor{keywordflow}{while}(!stats.equals(\textcolor{stringliteral}{"{}"{}}))}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00028}00028         \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00029}00029             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00030}00030             \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00031}00031                 String protocol=stats.substring(0, 3);      }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00032}00032                 stats = spaceBreak(stats);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00033}00033                 String localAddress = stats.substring(0, stats.indexOf(\textcolor{charliteral}{' '}));}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00034}00034                 stats = spaceBreak(stats);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00035}00035                 String foreignAddress = stats.substring(0, stats.indexOf(\textcolor{charliteral}{' '}));}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00036}00036                 stats = spaceBreak(stats);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00037}00037                 String state = stats.substring(0, stats.indexOf(\textcolor{charliteral}{' '}));}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00038}00038                 System.out.println(localAddress);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00039}00039                 \textcolor{keywordtype}{long} pid = 0;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00040}00040                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00041}00041                 \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00042}00042                     pid = Long.parseLong(state.substring(0, state.length()-\/1));}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00043}00043                 \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00044}00044                 \textcolor{keywordflow}{catch}(NumberFormatException e)}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00045}00045                 \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00046}00046                     stats = spaceBreak(stats);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00047}00047                     pid = Long.parseLong(stats.substring(0, stats.indexOf(\textcolor{charliteral}{'\(\backslash\)n'})));}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00048}00048                 \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00049}00049                 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00050}00050                 \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}} activeConnection = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}(protocol, localAddress, foreignAddress, state, pid);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00051}00051                 activeConnectionsList.add(activeConnection);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00052}00052                 stats = stats.substring(stats.indexOf(\textcolor{charliteral}{'\(\backslash\)n'})+3);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00053}00053             \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00054}00054             \textcolor{keywordflow}{catch}(StringIndexOutOfBoundsException e)}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00055}00055             \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00056}00056                 \textcolor{comment}{//e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00057}00057                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00058}00058             \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00059}00059         \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00060}00060         \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[] activeConnections = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[activeConnectionsList.size()];}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00061}00061         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0;index<activeConnections.length;index++)}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00062}00062         \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00063}00063             activeConnections[index]=activeConnectionsList.get(index);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00065}00065         \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_a3f9f1fab7bcdcbf8ee53f40b611dafc3}{setActiveConnections}}(activeConnections);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00067}00067     }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00074}00074     \textcolor{keyword}{private} String spaceBreak(String stats)}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00075}00075     \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00076}00076         \textcolor{keywordtype}{int} index=stats.indexOf(\textcolor{charliteral}{' '})+1;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00077}00077         \textcolor{keywordflow}{while}(stats.charAt(index)==\textcolor{charliteral}{' '}) index++;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00078}00078         \textcolor{keywordflow}{return} stats.substring(index);}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00079}00079     \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00086}\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_acdc779ac12c3516400380fc8d2d38839}{00086}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[] \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_acdc779ac12c3516400380fc8d2d38839}{getActiveConnections}}()}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00087}00087     \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00088}00088         \textcolor{keywordflow}{return} activeConnections;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00096}\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_a3f9f1fab7bcdcbf8ee53f40b611dafc3}{00096}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_a3f9f1fab7bcdcbf8ee53f40b611dafc3}{setActiveConnections}}(\mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[] activeConnections)}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00097}00097     \{}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00098}00098         this.activeConnections = activeConnections;}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00100}00100     }
+\DoxyCodeLine{\Hypertarget{_network_stats_8java_source_l00101}00101 \}}
+
+\end{DoxyCode}

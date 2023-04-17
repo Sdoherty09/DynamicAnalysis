@@ -8,9 +8,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -19,38 +16,38 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
 
 /**
- * The Class SelectFile.
+ * The Class SelectFile. Displays a window to choose a file from. Can also select a process.
  */
 public class SelectFile
 {
 
-	/** The shell. */
+	/** The SWT shell for the window. */
 	protected Shell shell;
 	
-	/** The text. */
+	/** The text field for a file or process ID. */
 	private Text text;
 	
 	/** The file path. */
 	private String filePath;
 	
-	/** The x. */
+	/** The X value to position the window horizontally. */
 	private int x;
 	
-	/** The y. */
+	/** The Y value to position the window vertically. */
 	private int y;
 	
-	/** The pid mode. */
+	/** Determines whether the window was opened to read a file or a process. */
 	private boolean pidMode;
 	
-	/** The pid. */
+	/** The unique process identifier. */
 	private int pid;
 	
 	/**
-	 * Launch the application.
+	 * Launch the file selection window.
 	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param pidMode the pid mode
+	 * @param x the X value to position at
+	 * @param y the Y value to position at
+	 * @param pidMode whether to read a file or a process
 	 */
 	public SelectFile(int x, int y, boolean pidMode)
 	{
@@ -91,9 +88,10 @@ public class SelectFile
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
 		shell.setSize(400, 180);
+		
 		if(!isPidMode()) shell.setText("Choose a file");
 		else shell.setText("Choose a Process");
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		shell.setLocation(getX()+200,getY()+90);
 		
 		text = new Text(shell, SWT.BORDER);
@@ -239,9 +237,9 @@ public class SelectFile
 	}
 	
 	/**
-	 * Gets the x.
+	 * Gets the X value.
 	 *
-	 * @return the x
+	 * @return the X value
 	 */
 	public int getX()
 	{
@@ -249,9 +247,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Sets the x.
+	 * Sets the X value.
 	 *
-	 * @param x the new x
+	 * @param x the new X value
 	 */
 	public void setX(int x)
 	{
@@ -259,9 +257,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Gets the y.
+	 * Gets the Y value.
 	 *
-	 * @return the y
+	 * @return the Y value
 	 */
 	public int getY()
 	{
@@ -269,9 +267,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Sets the y.
+	 * Sets the Y value.
 	 *
-	 * @param y the new y
+	 * @param y the new Y value
 	 */
 	public void setY(int y)
 	{
@@ -279,9 +277,9 @@ public class SelectFile
 	}
 	
 	/**
-	 * Checks if is pid mode.
+	 * Checks if the window should read a process or a file.
 	 *
-	 * @return true, if is pid mode
+	 * @return true, if is in pid mode
 	 */
 	public boolean isPidMode()
 	{
@@ -299,9 +297,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Gets the text.
+	 * Gets the file path.
 	 *
-	 * @return the text
+	 * @return the file path
 	 */
 	public String getText()
 	{
@@ -309,9 +307,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Gets the pid.
+	 * Gets the PID.
 	 *
-	 * @return the pid
+	 * @return the PID
 	 */
 	public int getPid()
 	{
@@ -319,9 +317,9 @@ public class SelectFile
 	}
 
 	/**
-	 * Sets the pid.
+	 * Sets the PID.
 	 *
-	 * @param pid the new pid
+	 * @param pid the new PID
 	 */
 	public void setPid(int pid)
 	{
@@ -329,9 +327,9 @@ public class SelectFile
 	}
 	
 	/**
-	 * Checks if is disposed.
+	 * Checks if the window is disposed.
 	 *
-	 * @return true, if is disposed
+	 * @return true, if window is disposed
 	 */
 	public boolean isDisposed()
 	{
@@ -339,7 +337,7 @@ public class SelectFile
 	}
 	
 	/**
-	 * Focus.
+	 * Force focus on the file selection window.
 	 */
 	public void focus()
 	{

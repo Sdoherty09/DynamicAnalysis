@@ -1,0 +1,122 @@
+\hypertarget{classdynamic_analysis_1_1_packet_trace}{}\doxysection{dynamic\+Analysis.\+Packet\+Trace Class Reference}
+\label{classdynamic_analysis_1_1_packet_trace}\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_aba0fc8e08dc76873ae0399d84db37c18}{Packet\+Trace}} ()  throws Pcap\+Native\+Exception  
+\item 
+Hash\+Map$<$ String, String $>$ \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}{get\+Devices}} ()
+\item 
+String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}{get\+Addresses}} (String device\+Name)
+\item 
+Array\+List$<$ Multimap$<$ String, Ip\+Packet $>$ $>$ \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}{get\+Packets}} ()
+\item 
+Array\+List$<$ Ip\+Packet $>$ \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_ad6404b6e82d72afe0ae4ce9764710cdb}{get\+Packets}} (String address, int attempts)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Class \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace}{Packet\+Trace}}. Uses several maps to tie packets to addresses, and addresses to network interfaces. 
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00030}{30}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_packet_trace_aba0fc8e08dc76873ae0399d84db37c18}\label{classdynamic_analysis_1_1_packet_trace_aba0fc8e08dc76873ae0399d84db37c18}} 
+\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}!PacketTrace@{PacketTrace}}
+\index{PacketTrace@{PacketTrace}!dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsubsection{\texorpdfstring{PacketTrace()}{PacketTrace()}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+Packet\+Trace.\+Packet\+Trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Pcap\+Native\+Exception}
+
+Instantiates a new packet trace class.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Pcap\+Native\+Exception} & the Pcap native exception \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00056}{56}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}\label{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}} 
+\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}!getAddresses@{getAddresses}}
+\index{getAddresses@{getAddresses}!dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsubsection{\texorpdfstring{getAddresses()}{getAddresses()}}
+{\footnotesize\ttfamily String\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Packet\+Trace.\+get\+Addresses (\begin{DoxyParamCaption}\item[{String}]{device\+Name }\end{DoxyParamCaption})}
+
+Gets the string array containing all addresses from a network device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Name} & the name of the network device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the addresses from the device 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00119}{119}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}\label{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}} 
+\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}!getDevices@{getDevices}}
+\index{getDevices@{getDevices}!dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsubsection{\texorpdfstring{getDevices()}{getDevices()}}
+{\footnotesize\ttfamily Hash\+Map$<$ String, String $>$ dynamic\+Analysis.\+Packet\+Trace.\+get\+Devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the hashmap of active devices. Will only contain devices that have packet activity.
+
+\begin{DoxyReturn}{Returns}
+the devices 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00100}{100}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}\label{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}} 
+\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}!getPackets@{getPackets}}
+\index{getPackets@{getPackets}!dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsubsection{\texorpdfstring{getPackets()}{getPackets()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Array\+List$<$ Multimap$<$ String, Ip\+Packet $>$ $>$ dynamic\+Analysis.\+Packet\+Trace.\+get\+Packets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all packets from all addresses.
+
+\begin{DoxyReturn}{Returns}
+the full list of packets 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00129}{129}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_packet_trace_ad6404b6e82d72afe0ae4ce9764710cdb}\label{classdynamic_analysis_1_1_packet_trace_ad6404b6e82d72afe0ae4ce9764710cdb}} 
+\index{dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}!getPackets@{getPackets}}
+\index{getPackets@{getPackets}!dynamicAnalysis.PacketTrace@{dynamicAnalysis.PacketTrace}}
+\doxysubsubsection{\texorpdfstring{getPackets()}{getPackets()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Array\+List$<$ Ip\+Packet $>$ dynamic\+Analysis.\+Packet\+Trace.\+get\+Packets (\begin{DoxyParamCaption}\item[{String}]{address,  }\item[{int}]{attempts }\end{DoxyParamCaption})}
+
+Gets the packets from a specific address. Has a timeout counter of 10 as it will be recursively called if there is a problem with concurrency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & the address to retrieve packets from \\
+\hline
+{\em attempts} & the incrementing number of attempts to be recursively incremented \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the packets from the chosen address 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_packet_trace_8java_source_l00141}{141}} of file \mbox{\hyperlink{_packet_trace_8java_source}{Packet\+Trace.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/Packet\+Trace.\+java\end{DoxyCompactItemize}

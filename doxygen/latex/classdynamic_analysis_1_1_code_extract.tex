@@ -1,0 +1,291 @@
+\hypertarget{classdynamic_analysis_1_1_code_extract}{}\doxysection{dynamic\+Analysis.\+Code\+Extract Class Reference}
+\label{classdynamic_analysis_1_1_code_extract}\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8ab18547415d4d044dab72bf246653c7}{Code\+Extract}} (File file)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_adc88e9d5856813a58ac36ddd094c978f}{load\+Instructions}} ()
+\item 
+File \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}{get\+File}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}{set\+File}} (File file)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}{get\+Instructions}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a438e989c5d1a4b3d0c2e4fba2aa3e623}{get\+Code}} ()
+\item 
+String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}{get\+Code\+Arr}} ()
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}{get\+Pe\+File}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae65330e994b7e73eb1d2d91761f0189f}{set\+Pe\+File}} (\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} pe\+File)
+\item 
+int \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac892feadc2d03494d4ee3955e427c1a6}{get\+Pointer}} ()
+\item 
+Capstone.\+Cs\+Insn\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8fc5db68245f79d929c33b95821a2c2a}{get\+All\+Insn}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}{set\+All\+Insn}} (Capstone.\+Cs\+Insn\mbox{[}$\,$\mbox{]} all\+Insn)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a63c91e2075f716468aba0b175edb01f2}{get\+Bytes}} ()  throws IOException  
+\item 
+\mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_aae55327b7ce6045ee4895ea7cbf99fa7}{get\+Version}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a25f567dead8d93765bff5314cf8927cd}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Top level extraction of code from a PE file. Uses Capstone to translate a byte stream to x86 instructions. 
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00015}{15}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a8ab18547415d4d044dab72bf246653c7}\label{classdynamic_analysis_1_1_code_extract_a8ab18547415d4d044dab72bf246653c7}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!CodeExtract@{CodeExtract}}
+\index{CodeExtract@{CodeExtract}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{CodeExtract()}{CodeExtract()}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+Code\+Extract.\+Code\+Extract (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Instantiates the \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{Code\+Extract}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the file to extract the x86 instructions from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00040}{40}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a8fc5db68245f79d929c33b95821a2c2a}\label{classdynamic_analysis_1_1_code_extract_a8fc5db68245f79d929c33b95821a2c2a}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getAllInsn@{getAllInsn}}
+\index{getAllInsn@{getAllInsn}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getAllInsn()}{getAllInsn()}}
+{\footnotesize\ttfamily Capstone.\+Cs\+Insn\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Code\+Extract.\+get\+All\+Insn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the Capstone instruction set.
+
+\begin{DoxyReturn}{Returns}
+the Capstone instruction set 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00221}{221}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a63c91e2075f716468aba0b175edb01f2}\label{classdynamic_analysis_1_1_code_extract_a63c91e2075f716468aba0b175edb01f2}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getBytes@{getBytes}}
+\index{getBytes@{getBytes}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getBytes()}{getBytes()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Code\+Extract.\+get\+Bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws IOException}
+
+Gets the raw instruction bytes.
+
+\begin{DoxyReturn}{Returns}
+the raw instruction bytes 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & Signals that an I/O exception has occurred. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00242}{242}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a438e989c5d1a4b3d0c2e4fba2aa3e623}\label{classdynamic_analysis_1_1_code_extract_a438e989c5d1a4b3d0c2e4fba2aa3e623}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getCode@{getCode}}
+\index{getCode@{getCode}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+Code\+Extract.\+get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the code.
+
+\begin{DoxyReturn}{Returns}
+the code 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00173}{173}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}\label{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getCodeArr@{getCodeArr}}
+\index{getCodeArr@{getCodeArr}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getCodeArr()}{getCodeArr()}}
+{\footnotesize\ttfamily String\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Code\+Extract.\+get\+Code\+Arr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the code arr.
+
+\begin{DoxyReturn}{Returns}
+the code arr 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00182}{182}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}\label{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getFile@{getFile}}
+\index{getFile@{getFile}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getFile()}{getFile()}}
+{\footnotesize\ttfamily File dynamic\+Analysis.\+Code\+Extract.\+get\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the file.
+
+\begin{DoxyReturn}{Returns}
+the file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00137}{137}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}\label{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getInstructions@{getInstructions}}
+\index{getInstructions@{getInstructions}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getInstructions()}{getInstructions()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Code\+Extract.\+get\+Instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the instructions.
+
+\begin{DoxyReturn}{Returns}
+the instructions 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00164}{164}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}\label{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getPeFile@{getPeFile}}
+\index{getPeFile@{getPeFile}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getPeFile()}{getPeFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} dynamic\+Analysis.\+Code\+Extract.\+get\+Pe\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the pe file.
+
+\begin{DoxyReturn}{Returns}
+the pe file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00191}{191}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_ac892feadc2d03494d4ee3955e427c1a6}\label{classdynamic_analysis_1_1_code_extract_ac892feadc2d03494d4ee3955e427c1a6}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getPointer@{getPointer}}
+\index{getPointer@{getPointer}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getPointer()}{getPointer()}}
+{\footnotesize\ttfamily int dynamic\+Analysis.\+Code\+Extract.\+get\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the pointer.
+
+\begin{DoxyReturn}{Returns}
+the pointer 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00211}{211}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_aae55327b7ce6045ee4895ea7cbf99fa7}\label{classdynamic_analysis_1_1_code_extract_aae55327b7ce6045ee4895ea7cbf99fa7}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!getVersion@{getVersion}}
+\index{getVersion@{getVersion}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{getVersion()}{getVersion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} dynamic\+Analysis.\+Code\+Extract.\+get\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the PE version, either 32 bit or 64 bit.
+
+\begin{DoxyReturn}{Returns}
+the PE version 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00252}{252}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_adc88e9d5856813a58ac36ddd094c978f}\label{classdynamic_analysis_1_1_code_extract_adc88e9d5856813a58ac36ddd094c978f}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!loadInstructions@{loadInstructions}}
+\index{loadInstructions@{loadInstructions}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{loadInstructions()}{loadInstructions()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Code\+Extract.\+load\+Instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Load x86 instructions.
+
+\begin{DoxyReturn}{Returns}
+byte array containing raw instruction bytes 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00062}{62}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}\label{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!setAllInsn@{setAllInsn}}
+\index{setAllInsn@{setAllInsn}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{setAllInsn()}{setAllInsn()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Code\+Extract.\+set\+All\+Insn (\begin{DoxyParamCaption}\item[{Capstone.\+Cs\+Insn\mbox{[}$\,$\mbox{]}}]{all\+Insn }\end{DoxyParamCaption})}
+
+Sets the Capstone instruction set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em all\+Insn} & the new Capstone instruction set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00231}{231}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}\label{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!setFile@{setFile}}
+\index{setFile@{setFile}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{setFile()}{setFile()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Code\+Extract.\+set\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Sets the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the new file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00146}{146}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_ae65330e994b7e73eb1d2d91761f0189f}\label{classdynamic_analysis_1_1_code_extract_ae65330e994b7e73eb1d2d91761f0189f}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!setPeFile@{setPeFile}}
+\index{setPeFile@{setPeFile}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{setPeFile()}{setPeFile()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Code\+Extract.\+set\+Pe\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}}}]{pe\+File }\end{DoxyParamCaption})}
+
+Sets the pe file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pe\+File} & the new pe file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00201}{201}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_code_extract_a25f567dead8d93765bff5314cf8927cd}\label{classdynamic_analysis_1_1_code_extract_a25f567dead8d93765bff5314cf8927cd}} 
+\index{dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}!toString@{toString}}
+\index{toString@{toString}!dynamicAnalysis.CodeExtract@{dynamicAnalysis.CodeExtract}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+Code\+Extract.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string.
+
+\begin{DoxyReturn}{Returns}
+the string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_code_extract_8java_source_l00263}{263}} of file \mbox{\hyperlink{_code_extract_8java_source}{Code\+Extract.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/Code\+Extract.\+java\end{DoxyCompactItemize}

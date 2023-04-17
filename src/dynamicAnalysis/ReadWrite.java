@@ -5,24 +5,24 @@ package dynamicAnalysis;
 import java.io.*;
 
 /**
- * The Class ReadWrite.
+ * Helper class for reading and writing to a text file.
  */
 public class ReadWrite
 {
  	
 	 /**
-	  * Write.
+	  * Write to a file. Clears existing lines in the file.
 	  *
-	  * @param word the word
-	  * @param name the name
+	  * @param word the string to be written to the text file
+	  * @param file the text file to write to
 	  */
-	 public static void write(String word, String name) //Method for clearing a text file and writing a line.
+	 public static void write(String word, String file) //Method for clearing a text file and writing a line.
  	{
  		PrintWriter delete=null;
  		try
 	 		{
- 				delete = new PrintWriter(name);
-		        FileWriter writer = new FileWriter(name);
+ 				delete = new PrintWriter(file);
+		        FileWriter writer = new FileWriter(file);
 		        delete.print("");
 		        writer.write(word);
 		        writer.close();
@@ -38,16 +38,16 @@ public class ReadWrite
  	}
  	
  	/**
-	  * Write line.
+	  * Write to a file. Keeps existing lines in the file.
 	  *
-	  * @param word the word
-	  * @param name the name
+	  * @param word the string to be written to the text file
+	  * @param file the text file to write to
 	  */
-	 public static void writeLine(String word, String name) //Method for adding a line to a text file.
+	 public static void writeLine(String word, String file) //Method for adding a line to a text file.
  	{
  		try
 	 		{
-		        FileWriter writer = new FileWriter(name, true);
+		        FileWriter writer = new FileWriter(file, true);
 		        writer.write(word+"\n");
 		        writer.close();
 	        }
@@ -60,30 +60,28 @@ public class ReadWrite
  	/**
 	  * Delete.
 	  *
-	  * @param name the name
+	  * @param file the text file to write to
 	  */
-	 public static void delete(String name) //Method for clearing a text file.
+	 public static void delete(String file) //Method for clearing a text file.
  	{
- 		write("", name);
+ 		write("", file);
  	}
  	
 	 /**
 	  * Gets the length.
 	  *
-	  * @param name the name
-	  * @return the length
+	  * @param file the text file to write to
+	  * @return the number of lines in the file
 	  */
-	 public static int getLength(String name) //Returns how many lines are in the text file.
+	 public static int getLength(String file) //Returns how many lines are in the text file.
  	{
- 		
- 	//	writeLine("", name);
  		int count=1;
  		@SuppressWarnings("unused")
 		String dummy;
  		BufferedReader checkLine=null;
  		try
  		{
- 		FileReader reader = new FileReader(name);
+ 		FileReader reader = new FileReader(file);
 		checkLine=new BufferedReader(reader);
  		while (true)
 			 	{
@@ -106,13 +104,13 @@ public class ReadWrite
  	}
  	
 	 /**
-	  * Gets the line.
+	  * Gets the line at the specified index.
 	  *
-	  * @param number the number
-	  * @param name the name
-	  * @return the line
+	  * @param number the index to retrieve
+	  * @param file the file
+	  * @return the line at the specified index
 	  */
-	 public static String getLine(int number, String name) //Method for returning a line from a text file.
+	 public static String getLine(int number, String file) //Method for returning a line from a text file.
  	{
  		String word="";
  		BufferedReader checkLine=null;
@@ -121,7 +119,7 @@ public class ReadWrite
 	 		{
  			try
  			{
- 				reader = new FileReader(name);
+ 				reader = new FileReader(file);
  			}
 		 		catch (FileNotFoundException e)
  			{
@@ -143,20 +141,20 @@ public class ReadWrite
  	}
  	
  	/**
-	  * Index of.
+	  * First index that the specified string is found at. Returns -1 if it is not found.
 	  *
-	  * @param word the word
-	  * @param name the name
-	  * @return the int
+	  * @param word the string to be searched in the text file
+	  * @param file the text file to be searched
+	  * @return the index that the string is located in the text file, -1 if it is not found
 	  */
-	 public static int indexOf(String word, String name) //Returns the index that the word is at.
+	 public static int indexOf(String word, String file) //Returns the index that the word is at.
  	{
  		int index=-1;
  		String temp;
  		BufferedReader checkLine=null;
  		try
 	 		{
-		 		FileReader reader = new FileReader(name);
+		 		FileReader reader = new FileReader(file);
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
@@ -182,20 +180,20 @@ public class ReadWrite
  	}
  	
  	/**
-	  * Replace.
+	  * Replace the first occurence of a line with another.
 	  *
-	  * @param oldWord the old word
-	  * @param newWord the new word
-	  * @param name the name
+	  * @param oldWord the line to be replaces
+	  * @param newWord the new line to replace the first occurence of oldWord
+	  * @param file the text file
 	  */
-	 public static void replace(String oldWord, String newWord, String name) //Replaces the old word with the new word in a text file.
+	 public static void replace(String oldWord, String newWord, String file) //Replaces the old word with the new word in a text file.
  	{
  		delete("temp.txt");
  		String temp="";
  		BufferedReader checkLine;
  		try
 	 		{
-		 		FileReader reader = new FileReader(name);
+		 		FileReader reader = new FileReader(file);
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
@@ -213,12 +211,12 @@ public class ReadWrite
 			 			break;
 			 		}
 			 	}
-			 	delete(name);
+			 	delete(file);
 			 	reader = new FileReader("temp.txt");
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
-			 		writeLine(checkLine.readLine().toString(), name);
+			 		writeLine(checkLine.readLine().toString(), file);
 			 		if (!(checkLine.ready()))
 			 		{
 			 			break;
@@ -233,13 +231,13 @@ public class ReadWrite
  	}
  	
 	 /**
-	  * Replace.
+	  * Replace the line at the specified index with a new line.
 	  *
-	  * @param index the index
-	  * @param newWord the new word
-	  * @param name the name
+	  * @param index the index to be replaces
+	  * @param newWord the new word to replace at the index
+	  * @param file the text file
 	  */
-	 public static void replace(int index, String newWord, String name) //Replaces the word at specified index with the new word.
+	 public static void replace(int index, String newWord, String file) //Replaces the word at specified index with the new word.
  	{
  		delete("temp.txt");
  		int increment=-1;
@@ -248,7 +246,7 @@ public class ReadWrite
  		try
 	 		{
 	 			
-		 		FileReader reader = new FileReader(name);
+		 		FileReader reader = new FileReader(file);
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
@@ -267,12 +265,12 @@ public class ReadWrite
 			 			break;
 			 		}
 			 	}
-			 	delete(name);
+			 	delete(file);
 			 	reader = new FileReader("temp.txt");
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
-			 		writeLine(checkLine.readLine().toString(), name);
+			 		writeLine(checkLine.readLine().toString(), file);
 			 		if (!(checkLine.ready()))
 			 		{
 			 			break;
@@ -287,18 +285,18 @@ public class ReadWrite
  	}
  	
 	 /**
-	  * Checks if is ready.
+	  * Checks if the text file is ready to be written and read from.
 	  *
-	  * @param name the name
-	  * @return true, if is ready
+	  * @param file the text file
+	  * @return true, if is ready to be read and wrote to
 	  */
-	 public static boolean isReady(String name) //Check if text file is ready to be written.
+	 public static boolean isReady(String file) //Check if text file is ready to be written.
  	{
  		boolean check=true;
  		BufferedReader checkLine;
  		try
  		{
- 			FileReader reader = new FileReader(name);
+ 			FileReader reader = new FileReader(file);
  			checkLine=new BufferedReader(reader);
  			check=checkLine.ready();
  		}
@@ -310,12 +308,12 @@ public class ReadWrite
  	}
  	
 	 /**
-	  * Delete line.
+	  * Delete line at the specified index.
 	  *
-	  * @param index the index
-	  * @param name the name
+	  * @param index the index to delete the line at
+	  * @param file the text file
 	  */
-	 public static void deleteLine(int index,String name) //Deletes the line at a specified index.
+	 public static void deleteLine(int index, String file) //Deletes the line at a specified index.
  	{
  		delete("temp.txt");
  		int increment=-1;
@@ -324,7 +322,7 @@ public class ReadWrite
  		try
 	 		{
 	 			
-		 		FileReader reader = new FileReader(name);
+		 		FileReader reader = new FileReader(file);
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
@@ -339,12 +337,12 @@ public class ReadWrite
 			 			break;
 			 		}
 			 	}
-			 	delete(name);
+			 	delete(file);
 			 	reader = new FileReader("temp.txt");
 		 		checkLine=new BufferedReader(reader);
 		 		while (true)
 			 	{
-			 		writeLine(checkLine.readLine().toString(), name);
+			 		writeLine(checkLine.readLine().toString(), file);
 			 		if (!(checkLine.ready()))
 			 		{
 			 			break;
@@ -360,18 +358,18 @@ public class ReadWrite
  	}
  	
 	 /**
-	  * To string.
+	  * Reads the entire text file and returns as a string
 	  *
-	  * @param name the name
-	  * @return the string
+	  * @param file the text file
+	  * @return the entire contents of the text file
 	  */
-	 public static String toString(String name)
+	 public static String toString(String file)
  	{
  		BufferedReader checkLine;
  		String total="";
  		try
  		{
- 		FileReader reader = new FileReader(name);
+ 		FileReader reader = new FileReader(file);
  		checkLine=new BufferedReader(reader);
  		while (true)
 	 	{

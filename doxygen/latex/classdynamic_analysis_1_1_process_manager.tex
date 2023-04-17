@@ -1,0 +1,286 @@
+\hypertarget{classdynamic_analysis_1_1_process_manager}{}\doxysection{dynamic\+Analysis.\+Process\+Manager Class Reference}
+\label{classdynamic_analysis_1_1_process_manager}\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a244d49b0d0cd187568061222092631e1}{Process\+Manager}} (File file)
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_ad7f85589b015e930624fd6e013827d65}{Process\+Manager}} (int pid)
+\item 
+File \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a1e597cb291625a2ddb3729c5904231e8}{get\+File}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a48a3d70b52def0b76650e7b46cdf70f4}{set\+File}} (File file)
+\item 
+Process \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a658231732aab941f37f1bae912919063}{create\+Process}} ()
+\item 
+long \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a5cb34c03f319811b089f0cdd431a60ca}{get\+Pid}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a5180923f007286e35ca5bec48a9a4d89}{get\+Pid\+As\+String}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a024351380da530a4cc953bc6bd939eec}{get\+Name}} ()
+\item 
+String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}{get\+DLLs}} ()
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file}{Dll\+File}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a5d0f17c332da4127baa6ca5233211c0b}{get\+Dll\+Files}} ()
+\item 
+String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a794bc50a1490e81588fbf3d8fc03c26f}{get\+Files}} ()
+\item 
+Process \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_afc8bc3a562f185680ff2046147ebb5cc}{get\+Process}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_ac1206065ec70b242e0059eac6a2ee3de}{set\+Process}} (Process process)
+\item 
+boolean \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a775de10d363c362fc6d0567b414a6f1a}{destroy\+Process}} ()
+\item 
+String \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a41ca626bfc605c12b5133ac0cf366f89}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Class \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{Process\+Manager}}. Manages the created and accessed processes. 
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00013}{13}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a244d49b0d0cd187568061222092631e1}\label{classdynamic_analysis_1_1_process_manager_a244d49b0d0cd187568061222092631e1}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!ProcessManager@{ProcessManager}}
+\index{ProcessManager@{ProcessManager}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{ProcessManager()}{ProcessManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+Process\+Manager.\+Process\+Manager (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Instantiates a new manager for processes when using a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the file to be accessed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00042}{42}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_ad7f85589b015e930624fd6e013827d65}\label{classdynamic_analysis_1_1_process_manager_ad7f85589b015e930624fd6e013827d65}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!ProcessManager@{ProcessManager}}
+\index{ProcessManager@{ProcessManager}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{ProcessManager()}{ProcessManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+Process\+Manager.\+Process\+Manager (\begin{DoxyParamCaption}\item[{int}]{pid }\end{DoxyParamCaption})}
+
+Instantiates a new manager for processes when using an already running process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid} & the unique identifier for the process \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00056}{56}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a658231732aab941f37f1bae912919063}\label{classdynamic_analysis_1_1_process_manager_a658231732aab941f37f1bae912919063}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!createProcess@{createProcess}}
+\index{createProcess@{createProcess}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{createProcess()}{createProcess()}}
+{\footnotesize\ttfamily Process dynamic\+Analysis.\+Process\+Manager.\+create\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new process.
+
+\begin{DoxyReturn}{Returns}
+the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00089}{89}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a775de10d363c362fc6d0567b414a6f1a}\label{classdynamic_analysis_1_1_process_manager_a775de10d363c362fc6d0567b414a6f1a}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!destroyProcess@{destroyProcess}}
+\index{destroyProcess@{destroyProcess}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{destroyProcess()}{destroyProcess()}}
+{\footnotesize\ttfamily boolean dynamic\+Analysis.\+Process\+Manager.\+destroy\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Forcibly destroy process.
+
+\begin{DoxyReturn}{Returns}
+true, if successfully destroyed 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00285}{285}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a5d0f17c332da4127baa6ca5233211c0b}\label{classdynamic_analysis_1_1_process_manager_a5d0f17c332da4127baa6ca5233211c0b}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getDllFiles@{getDllFiles}}
+\index{getDllFiles@{getDllFiles}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getDllFiles()}{getDllFiles()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file}{Dll\+File}}\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Process\+Manager.\+get\+Dll\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the DLL files in use by the process.
+
+\begin{DoxyReturn}{Returns}
+the DLL files in use by the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00208}{208}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}\label{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getDLLs@{getDLLs}}
+\index{getDLLs@{getDLLs}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getDLLs()}{getDLLs()}}
+{\footnotesize\ttfamily String\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Process\+Manager.\+get\+DLLs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the string array representation of DLLs in use by the process.
+
+\begin{DoxyReturn}{Returns}
+the string array representation of DLLs in use by the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00198}{198}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a1e597cb291625a2ddb3729c5904231e8}\label{classdynamic_analysis_1_1_process_manager_a1e597cb291625a2ddb3729c5904231e8}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getFile@{getFile}}
+\index{getFile@{getFile}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getFile()}{getFile()}}
+{\footnotesize\ttfamily File dynamic\+Analysis.\+Process\+Manager.\+get\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the file being accessed.
+
+\begin{DoxyReturn}{Returns}
+the file being accessed. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00069}{69}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a794bc50a1490e81588fbf3d8fc03c26f}\label{classdynamic_analysis_1_1_process_manager_a794bc50a1490e81588fbf3d8fc03c26f}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getFiles@{getFiles}}
+\index{getFiles@{getFiles}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getFiles()}{getFiles()}}
+{\footnotesize\ttfamily String\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Process\+Manager.\+get\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the files in use by the process.
+
+\begin{DoxyReturn}{Returns}
+the files in use by the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00218}{218}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a024351380da530a4cc953bc6bd939eec}\label{classdynamic_analysis_1_1_process_manager_a024351380da530a4cc953bc6bd939eec}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getName@{getName}}
+\index{getName@{getName}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+Process\+Manager.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the name of the process.
+
+\begin{DoxyReturn}{Returns}
+the name of the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00188}{188}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a5cb34c03f319811b089f0cdd431a60ca}\label{classdynamic_analysis_1_1_process_manager_a5cb34c03f319811b089f0cdd431a60ca}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getPid@{getPid}}
+\index{getPid@{getPid}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getPid()}{getPid()}}
+{\footnotesize\ttfamily long dynamic\+Analysis.\+Process\+Manager.\+get\+Pid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the unique identifier of the process in use.
+
+\begin{DoxyReturn}{Returns}
+the unique identifier of the process in use 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00111}{111}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a5180923f007286e35ca5bec48a9a4d89}\label{classdynamic_analysis_1_1_process_manager_a5180923f007286e35ca5bec48a9a4d89}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getPidAsString@{getPidAsString}}
+\index{getPidAsString@{getPidAsString}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getPidAsString()}{getPidAsString()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+Process\+Manager.\+get\+Pid\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the unique identifier of the process in use as a string.
+
+\begin{DoxyReturn}{Returns}
+the unique identifier of the process in use as a string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00121}{121}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_afc8bc3a562f185680ff2046147ebb5cc}\label{classdynamic_analysis_1_1_process_manager_afc8bc3a562f185680ff2046147ebb5cc}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!getProcess@{getProcess}}
+\index{getProcess@{getProcess}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{getProcess()}{getProcess()}}
+{\footnotesize\ttfamily Process dynamic\+Analysis.\+Process\+Manager.\+get\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the process.
+
+\begin{DoxyReturn}{Returns}
+the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00265}{265}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a48a3d70b52def0b76650e7b46cdf70f4}\label{classdynamic_analysis_1_1_process_manager_a48a3d70b52def0b76650e7b46cdf70f4}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!setFile@{setFile}}
+\index{setFile@{setFile}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{setFile()}{setFile()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Process\+Manager.\+set\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+Sets the file being accessed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the new file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00079}{79}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_ac1206065ec70b242e0059eac6a2ee3de}\label{classdynamic_analysis_1_1_process_manager_ac1206065ec70b242e0059eac6a2ee3de}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!setProcess@{setProcess}}
+\index{setProcess@{setProcess}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{setProcess()}{setProcess()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Process\+Manager.\+set\+Process (\begin{DoxyParamCaption}\item[{Process}]{process }\end{DoxyParamCaption})}
+
+Sets the process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & the new process \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00275}{275}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_process_manager_a41ca626bfc605c12b5133ac0cf366f89}\label{classdynamic_analysis_1_1_process_manager_a41ca626bfc605c12b5133ac0cf366f89}} 
+\index{dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}!toString@{toString}}
+\index{toString@{toString}!dynamicAnalysis.ProcessManager@{dynamicAnalysis.ProcessManager}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String dynamic\+Analysis.\+Process\+Manager.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+To string.
+
+\begin{DoxyReturn}{Returns}
+the string containing values pertaining to the process manager 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_process_manager_8java_source_l00300}{300}} of file \mbox{\hyperlink{_process_manager_8java_source}{Process\+Manager.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/Process\+Manager.\+java\end{DoxyCompactItemize}

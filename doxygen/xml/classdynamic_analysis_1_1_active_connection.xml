@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_active_connection" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::ActiveConnection</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_active_connection_1a463ed5abcdd9c9a3e6c5fb7a32dfb1dd" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.protocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Establishes whether a packet is TCP or UDP. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="10" column="16" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_active_connection_1a0dc450fa3707ef798ac25e61a5444a5b" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.localAddress</definition>
+        <argsstring></argsstring>
+        <name>localAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.localAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The address that sent the packet. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="13" column="16" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_active_connection_1ad524aba3191f049f816011aa11af0a51" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.foreignAddress</definition>
+        <argsstring></argsstring>
+        <name>foreignAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.foreignAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The foreign address of the packet. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="16" column="16" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_active_connection_1aeba35595b974d13c448acb7dc92a7913" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The state that the packet is in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="19" column="16" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_active_connection_1a7138ad5a72cabe82f596d0a383a8357d" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long dynamicAnalysis.ActiveConnection.pid</definition>
+        <argsstring></argsstring>
+        <name>pid</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.pid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The associated process ID of the backet. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="22" column="14" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1aaaa6cbe89831342dd68017249109ee0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.ActiveConnection.ActiveConnection</definition>
+        <argsstring>(String protocol, String localAddress, String foreignAddress, String state, long pid)</argsstring>
+        <name>ActiveConnection</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.ActiveConnection</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>protocol</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>localAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>foreignAddress</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new active connection.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the protocol of the packet </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>localAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the local address of the packet </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>foreignAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the foreign address of the packet </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the state of the packet </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pid that the packet was sent from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="33" column="8" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="33" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a58fd4f2951f28d8a21a67ec488b332e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.getProtocol</definition>
+        <argsstring>()</argsstring>
+        <name>getProtocol</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.getProtocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the protocol.</para>
+<para><simplesect kind="return"><para>the protocol </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="47" column="15" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a7bc7c2d1be67d9bd7071b1af3c5fb85b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ActiveConnection.setProtocol</definition>
+        <argsstring>(String protocol)</argsstring>
+        <name>setProtocol</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.setProtocol</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>protocol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the protocol.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new protocol </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="57" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a14ea1debac419ef768d9317f8043a70b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.getLocalAddress</definition>
+        <argsstring>()</argsstring>
+        <name>getLocalAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.getLocalAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the local address.</para>
+<para><simplesect kind="return"><para>the local address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="67" column="15" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a273f3ae90bd00858209c90cc4294c126" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ActiveConnection.setLocalAddress</definition>
+        <argsstring>(String localAddress)</argsstring>
+        <name>setLocalAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.setLocalAddress</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>localAddress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the local address.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new local address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="77" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1ad1084d4f7f79387b23c65b6e8f416a79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.getForeignAddress</definition>
+        <argsstring>()</argsstring>
+        <name>getForeignAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.getForeignAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the foreign address.</para>
+<para><simplesect kind="return"><para>the foreign address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="87" column="15" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a25204cbc50db74631f39862a035459c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ActiveConnection.setForeignAddress</definition>
+        <argsstring>(String foreignAddress)</argsstring>
+        <name>setForeignAddress</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.setForeignAddress</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>foreignAddress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the foreign address.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>foreignAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new foreign address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="97" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a701eba027a9f2f2f9093fe7287ef72c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.getState</definition>
+        <argsstring>()</argsstring>
+        <name>getState</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.getState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the state.</para>
+<para><simplesect kind="return"><para>the state </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="107" column="15" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a93ed6d0f8c3bc306568b66fbc8619d3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ActiveConnection.setState</definition>
+        <argsstring>(String state)</argsstring>
+        <name>setState</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.setState</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the state.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="117" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1afa66332f9c4f5a397d593be185a45192" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long dynamicAnalysis.ActiveConnection.getPid</definition>
+        <argsstring>()</argsstring>
+        <name>getPid</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.getPid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the pid.</para>
+<para><simplesect kind="return"><para>the pid </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="127" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a1f029311944001291ed083979016841e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ActiveConnection.setPid</definition>
+        <argsstring>(long pid)</argsstring>
+        <name>setPid</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.setPid</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new pid </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="137" column="13" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_active_connection_1a30e61a775024ef6ffc0bae6d710ebdc9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ActiveConnection.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.ActiveConnection.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the full information of the packet </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ActiveConnection.java" line="148" column="15" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="148" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Information relating to the sent packet. Contains information that can be used to determine what the packet contains. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/ActiveConnection.java" line="6" column="7" bodyfile="src/dynamicAnalysis/ActiveConnection.java" bodystart="7" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_active_connection_1aaaa6cbe89831342dd68017249109ee0b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>ActiveConnection</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1ad524aba3191f049f816011aa11af0a51" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>foreignAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1ad1084d4f7f79387b23c65b6e8f416a79" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>getForeignAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a14ea1debac419ef768d9317f8043a70b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>getLocalAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1afa66332f9c4f5a397d593be185a45192" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>getPid</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a58fd4f2951f28d8a21a67ec488b332e9" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>getProtocol</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a701eba027a9f2f2f9093fe7287ef72c3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>getState</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a0dc450fa3707ef798ac25e61a5444a5b" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>localAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a7138ad5a72cabe82f596d0a383a8357d" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>pid</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a463ed5abcdd9c9a3e6c5fb7a32dfb1dd" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>protocol</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a25204cbc50db74631f39862a035459c6" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>setForeignAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a273f3ae90bd00858209c90cc4294c126" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>setLocalAddress</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a1f029311944001291ed083979016841e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>setPid</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a7bc7c2d1be67d9bd7071b1af3c5fb85b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>setProtocol</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a93ed6d0f8c3bc306568b66fbc8619d3e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>setState</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1aeba35595b974d13c448acb7dc92a7913" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>state</name></member>
+      <member refid="classdynamic_analysis_1_1_active_connection_1a30e61a775024ef6ffc0bae6d710ebdc9" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ActiveConnection</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

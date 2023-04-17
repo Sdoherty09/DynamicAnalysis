@@ -8,36 +8,36 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * The Class ProcessManager.
+ * The Class ProcessManager. Manages the created and accessed processes.
  */
 public class ProcessManager
 {
 	
-	/** The file. */
+	/** The file that is accessed. */
 	private File file;
 	
 	/** The process. */
 	private Process process;
 	
-	/** The command line. */
+	/** The command line utility to send commands to. */
 	private CommandLine commandLine;
 	
-	/** The name. */
+	/** The name of the process. */
 	private String name;
 	
-	/** The dlls. */
+	/** The string array representation of DLLs accessed by the process. */
 	private String[] dlls;
 	
-	/** The dll files. */
+	/** The list of DLLs accessed by the process. */
 	private DllFile[] dllFiles;
 	
-	/** The files. */
+	/** The list of files accessed by the process. */
 	private String[] files;
 	
 	/**
-	 * Instantiates a new process manager.
+	 * Instantiates a new manager for processes when using a file.
 	 *
-	 * @param file the file
+	 * @param file the file to be accessed
 	 */
 	public ProcessManager(File file)
 	{
@@ -49,9 +49,9 @@ public class ProcessManager
 	}
 
 	/**
-	 * Instantiates a new process manager.
+	 * Instantiates a new manager for processes when using an already running process.
 	 *
-	 * @param pid the pid
+	 * @param pid the unique identifier for the process
 	 */
 	public ProcessManager(int pid)
 	{
@@ -62,9 +62,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the file.
+	 * Gets the file being accessed.
 	 *
-	 * @return the file
+	 * @return the file being accessed.
 	 */
 	public File getFile()
 	{
@@ -72,7 +72,7 @@ public class ProcessManager
 	}
 
 	/**
-	 * Sets the file.
+	 * Sets the file being accessed.
 	 *
 	 * @param file the new file
 	 */
@@ -82,7 +82,7 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Creates the process.
+	 * Creates a new process.
 	 *
 	 * @return the process
 	 */
@@ -104,9 +104,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the pid.
+	 * Gets the unique identifier of the process in use.
 	 *
-	 * @return the pid
+	 * @return the unique identifier of the process in use
 	 */
 	public long getPid()
 	{
@@ -114,9 +114,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the pid as string.
+	 * Gets the unique identifier of the process in use as a string.
 	 *
-	 * @return the pid as string
+	 * @return the unique identifier of the process in use as a string
 	 */
 	public String getPidAsString()
 	{
@@ -124,7 +124,7 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Sets the name.
+	 * Sets the name of the process. Retrieved from the command line.
 	 */
 	private void setName()
 	{
@@ -141,7 +141,7 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Sets the DL ls.
+	 * Sets the DLLs used by the process. Retrieved from the command line.
 	 */
 	private void setDLLs()
 	{
@@ -181,9 +181,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the name.
+	 * Gets the name of the process.
 	 *
-	 * @return the name
+	 * @return the name of the process
 	 */
 	public String getName()
 	{
@@ -191,9 +191,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the DL ls.
+	 * Gets the string array representation of DLLs in use by the process.
 	 *
-	 * @return the DL ls
+	 * @return the string array representation of DLLs in use by the process
 	 */
 	public String[] getDLLs()
 	{
@@ -201,9 +201,9 @@ public class ProcessManager
 	}
 
 	/**
-	 * Gets the dll files.
+	 * Gets the DLL files in use by the process.
 	 *
-	 * @return the dll files
+	 * @return the DLL files in use by the process
 	 */
 	public DllFile[] getDllFiles()
 	{
@@ -211,9 +211,9 @@ public class ProcessManager
 	}
 	
 	/**
-	 * Gets the files.
+	 * Gets the files in use by the process.
 	 *
-	 * @return the files
+	 * @return the files in use by the process
 	 */
 	public String[] getFiles()
 	{
@@ -221,12 +221,11 @@ public class ProcessManager
 	}
 
 	/**
-	 * Sets the files.
+	 * Sets the files in use by the process. Retrieved from the command line.
 	 */
 	private void setFiles()
 	{
 		String filesOutput = commandLine.runFiles();
-		System.out.println("output: "+filesOutput);
 		int count=0;
 		int index = filesOutput.indexOf("File,");
 		while (index != -1)
@@ -243,6 +242,7 @@ public class ProcessManager
 			try
 			{
 				file=filesOutput.substring(filesOutput.indexOf("File,",index)+6, filesOutput.indexOf(10, index+1));
+				System.out.println("file: "+file);
 			}
 			catch(StringIndexOutOfBoundsException e)
 			{
@@ -251,9 +251,7 @@ public class ProcessManager
 			filesArr[filesIndex]=file;
 			filesIndex++;
 			index=filesOutput.indexOf(10, index+1);
-			System.out.println("index: "+index);
 			count--;
-			System.out.println(count);
 		}
 		this.files = filesArr;
 	}
@@ -279,9 +277,9 @@ public class ProcessManager
 	}
 
 	/**
-	 * Destroy process.
+	 * Forcibly destroy process.
 	 *
-	 * @return true, if successful
+	 * @return true, if successfully destroyed
 	 */
 	public boolean destroyProcess()
 	{
@@ -295,7 +293,7 @@ public class ProcessManager
 	/**
 	 * To string.
 	 *
-	 * @return the string
+	 * @return the string containing values pertaining to the process manager
 	 */
 	@Override
 	public String toString()

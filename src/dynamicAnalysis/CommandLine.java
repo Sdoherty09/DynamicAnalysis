@@ -112,7 +112,7 @@ public class CommandLine
 	}
 	
 	/**
-	 * Run files.
+	 * Run files. Credit to Mark Russinovich of Microsoft for the utility.
 	 *
 	 * @return the cmd result from running the command
 	 */

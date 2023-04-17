@@ -3,25 +3,15 @@
  */
 package dynamicAnalysis;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.net.InetAddress;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 import org.pcap4j.core.*;
-import org.pcap4j.core.BpfProgram.BpfCompileMode;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.Packet;
-import org.pcap4j.packet.TcpPacket;
-import org.pcap4j.packet.namednumber.IpNumber;
-import org.pcap4j.packet.namednumber.TcpPort;
-import org.pcap4j.packet.namednumber.UdpPort;
-import org.pcap4j.packet.IpV4Packet;
 
 
 /**
- * The Class NetworkTraffic.
+ * The class used for testing purposes relating to network traffic. Unused, included for demonstration purposes only.
  */
 public class NetworkTraffic {
 

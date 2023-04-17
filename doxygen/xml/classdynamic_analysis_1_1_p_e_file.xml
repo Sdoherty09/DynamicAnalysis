@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_p_e_file" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::PEFile</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1a7c83f844afeefa0601caf39436558367" prot="private" static="no" mutable="no">
+        <type>File</type>
+        <definition>File dynamicAnalysis.PEFile.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>dynamicAnalysis.PEFile.file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The PE file to be accessed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="22" column="14" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1a97b10405cf155cdc517035ddaf80d509" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.PEFile.offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>dynamicAnalysis.PEFile.offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The offset used to fetch bytes from the file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="25" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1afb90ad573e06c8e1622aebd6ca67ad31" prot="private" static="no" mutable="no">
+        <type><ref refid="enumdynamic_analysis_1_1_version" kindref="compound">Version</ref></type>
+        <definition>Version dynamicAnalysis.PEFile.version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>dynamicAnalysis.PEFile.version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The version enum, either x32 or x64. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="28" column="17" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1a64321bff07ae3a2ecb9edfee0ccd2641" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.PEFile.pointer</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <qualifiedname>dynamicAnalysis.PEFile.pointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The pointer to where to begin reading the raw data from the file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="31" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1ae29aa035122a3ba6741377d03ce5e56a" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.PEFile.bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>dynamicAnalysis.PEFile.bytes</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The raw byte array of the entire file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="34" column="14" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_p_e_file_1a396d5af411e4f9a49a5729246df5e57c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.PEFile.pointerToRawData</definition>
+        <argsstring></argsstring>
+        <name>pointerToRawData</name>
+        <qualifiedname>dynamicAnalysis.PEFile.pointerToRawData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The pointer to raw data. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="37" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a320d97c88297f890df1a47ccb522b8eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.PEFile.PEFile</definition>
+        <argsstring>(File file)</argsstring>
+        <name>PEFile</name>
+        <qualifiedname>dynamicAnalysis.PEFile.PEFile</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new PE file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the PE file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="44" column="8" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a316afc77c68bdf743dd41d8780f8e596" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File dynamicAnalysis.PEFile.getFile</definition>
+        <argsstring>()</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the PE file.</para>
+<para><simplesect kind="return"><para>the PE file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="54" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a0898dbb81277ff03c7589bfb20640d81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.PEFile.setFile</definition>
+        <argsstring>(File file)</argsstring>
+        <name>setFile</name>
+        <qualifiedname>dynamicAnalysis.PEFile.setFile</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the PE file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new PE file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="64" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1adda6179672a4bc2e8d674e552c38df5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.PEFile.getOffset</definition>
+        <argsstring>()</argsstring>
+        <name>getOffset</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the offset.</para>
+<para><simplesect kind="return"><para>the offset </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="74" column="12" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1ad23e2cd2f5dcaa1d49c3baad295ec9da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumdynamic_analysis_1_1_version" kindref="compound">Version</ref></type>
+        <definition>Version dynamicAnalysis.PEFile.getVersion</definition>
+        <argsstring>()</argsstring>
+        <name>getVersion</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the PE file&apos;s version.</para>
+<para><simplesect kind="return"><para>the version </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="84" column="16" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a41296eeadf65a3edd08865430239e49e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.PEFile.getInstructions</definition>
+        <argsstring>()</argsstring>
+        <name>getInstructions</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getInstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the raw x86 instruction bytes.</para>
+<para><simplesect kind="return"><para>the raw x86 instruction bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="94" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="94" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1af6cd847b7b66f6a0c02ef0f6cfd40330" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.PEFile.getPointer</definition>
+        <argsstring>()</argsstring>
+        <name>getPointer</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getPointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the pointer.</para>
+<para><simplesect kind="return"><para>the pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="121" column="12" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1af229ce1f228cb9cba6694f37f266566e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.PEFile.getBytes</definition>
+        <argsstring>()</argsstring>
+        <name>getBytes</name>
+        <qualifiedname>dynamicAnalysis.PEFile.getBytes</qualifiedname>
+        <exceptions> throws IOException 	</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all bytes contained in the PE file.</para>
+<para><simplesect kind="return"><para>the bytes contained in the PE file. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signals that the file cannot be read or is not found </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="142" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a408d416040da9dec9e0395f0bfa68e64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.PEFile.setBytes</definition>
+        <argsstring>(byte[] bytes)</argsstring>
+        <name>setBytes</name>
+        <qualifiedname>dynamicAnalysis.PEFile.setBytes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the bytes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new bytes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="152" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1ae508a5979b6f9b4805543dc169a41a3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.PEFile.readFile</definition>
+        <argsstring>()</argsstring>
+        <name>readFile</name>
+        <qualifiedname>dynamicAnalysis.PEFile.readFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read the PE file, populating fields that are stored </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="160" column="13" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="160" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a125e94c21a42dce6026f078a000f709e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.PEFile.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.PEFile.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the string containing information on the PE file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="199" column="15" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="199" bodyend="202"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_p_e_file_1a60d0507a3297d0f7d1bb60be42da5247" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.PEFile.setPointer</definition>
+        <argsstring>(int pointer)</argsstring>
+        <name>setPointer</name>
+        <qualifiedname>dynamicAnalysis.PEFile.setPointer</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new pointer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PEFile.java" line="131" column="14" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="131" bodyend="134"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_p_e_file" kindref="compound">PEFile</ref>. Retrieves and stores information on a Portable Executable relating to the file format </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/PEFile.java" line="19" column="7" bodyfile="src/dynamicAnalysis/PEFile.java" bodystart="19" bodyend="204"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1ae29aa035122a3ba6741377d03ce5e56a" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>bytes</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a7c83f844afeefa0601caf39436558367" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>file</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1af229ce1f228cb9cba6694f37f266566e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a316afc77c68bdf743dd41d8780f8e596" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a41296eeadf65a3edd08865430239e49e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getInstructions</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1adda6179672a4bc2e8d674e552c38df5a" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getOffset</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1af6cd847b7b66f6a0c02ef0f6cfd40330" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getPointer</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1ad23e2cd2f5dcaa1d49c3baad295ec9da" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>getVersion</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a97b10405cf155cdc517035ddaf80d509" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>offset</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a320d97c88297f890df1a47ccb522b8eb" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>PEFile</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a64321bff07ae3a2ecb9edfee0ccd2641" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>pointer</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a396d5af411e4f9a49a5729246df5e57c" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>pointerToRawData</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1ae508a5979b6f9b4805543dc169a41a3d" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>readFile</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a408d416040da9dec9e0395f0bfa68e64" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>setBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a0898dbb81277ff03c7589bfb20640d81" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>setFile</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a60d0507a3297d0f7d1bb60be42da5247" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>setPointer</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1a125e94c21a42dce6026f078a000f709e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>toString</name></member>
+      <member refid="classdynamic_analysis_1_1_p_e_file_1afb90ad573e06c8e1622aebd6ca67ad31" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PEFile</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

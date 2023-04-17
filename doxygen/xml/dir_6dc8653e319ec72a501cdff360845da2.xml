@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_6dc8653e319ec72a501cdff360845da2" kind="dir">
+    <compoundname>target/classes/dynamicAnalysis</compoundname>
+    <innerfile refid="target_2classes_2dynamic_analysis_2dynamic_analysis___execute_code_8h">dynamicAnalysis_ExecuteCode.h</innerfile>
+    <innerfile refid="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h">dynamicAnalysis_VirtualMemory.h</innerfile>
+    <innerfile refid="target_2classes_2dynamic_analysis_2_execute_impl_8c">ExecuteImpl.c</innerfile>
+    <innerfile refid="target_2classes_2dynamic_analysis_2_read_process_8cpp">ReadProcess.cpp</innerfile>
+    <innerfile refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp">VirtualMemory.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="target/classes/dynamicAnalysis/"/>
+  </compounddef>
+</doxygen>

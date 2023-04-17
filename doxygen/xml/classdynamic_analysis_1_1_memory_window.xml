@@ -1,0 +1,753 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_memory_window" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::MemoryWindow</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a02a8c9e48dcc4403904a3ca8bc4747c3" prot="protected" static="no" mutable="no">
+        <type>Shell</type>
+        <definition>Shell dynamicAnalysis.MemoryWindow.shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.shell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The shell. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="33" column="17" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a0f2d4bce6ef847277dad07aacd9f3bb3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.processId</definition>
+        <argsstring></argsstring>
+        <name>processId</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.processId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process id. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="36" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1ad1d21b2dbc6bbe015d848d3483e74a88" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.MemoryWindow.text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The text. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="39" column="14" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a76dbe698097086557863e88cc18c04c2" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label dynamicAnalysis.MemoryWindow.txtLength</definition>
+        <argsstring></argsstring>
+        <name>txtLength</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.txtLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The txt length. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="42" column="15" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a791f6f2d04afa396c12a075a7efa683c" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.MemoryWindow.bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bytes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="45" column="14" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1af5f40c81b1432a8775a3d7a742d16eb7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The x. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="48" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a07d51c6280318b226069f98825a0c6f8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The y. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="51" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1af07de1d32f91c68592c5f2d5dad3836a" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.MemoryWindow.asciiTable</definition>
+        <argsstring></argsstring>
+        <name>asciiTable</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.asciiTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ascii table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="54" column="15" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a322573ccc93e0874d71fadb4c59a7733" prot="private" static="no" mutable="no">
+        <type>Button</type>
+        <definition>Button dynamicAnalysis.MemoryWindow.btnNewButton</definition>
+        <argsstring></argsstring>
+        <name>btnNewButton</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.btnNewButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The btn new button. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="57" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1ac83a720307ba73ae5782e2e3cbfcc9c2" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.MemoryWindow.searchText</definition>
+        <argsstring></argsstring>
+        <name>searchText</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.searchText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The search text. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="60" column="14" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1ace625c2696e2f6e98a616e79b4d79204" prot="private" static="no" mutable="no">
+        <type>TableItem[]</type>
+        <definition>TableItem [] dynamicAnalysis.MemoryWindow.tableStore</definition>
+        <argsstring></argsstring>
+        <name>tableStore</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.tableStore</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table store. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="63" column="19" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a558fc53fe38eef760bc4678dea09a401" prot="private" static="no" mutable="no">
+        <type>TableItem[]</type>
+        <definition>TableItem [] dynamicAnalysis.MemoryWindow.tableItems</definition>
+        <argsstring></argsstring>
+        <name>tableItems</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.tableItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="66" column="19" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a5057669be66479ca931ae7ca99184f29" prot="private" static="no" mutable="no">
+        <type>Button</type>
+        <definition>Button dynamicAnalysis.MemoryWindow.btnUpdate</definition>
+        <argsstring></argsstring>
+        <name>btnUpdate</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.btnUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The btn update. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="69" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1a4c2dcf52641d63cffb42dd004b77e60f" prot="private" static="no" mutable="no">
+        <type>GridData</type>
+        <definition>GridData dynamicAnalysis.MemoryWindow.gd_asciiTable</definition>
+        <argsstring></argsstring>
+        <name>gd_asciiTable</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.gd_asciiTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The gd ascii table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="72" column="18" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1ae66d52fc5be538531afd06e8986ce49c" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar dynamicAnalysis.MemoryWindow.progressBar</definition>
+        <argsstring></argsstring>
+        <name>progressBar</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.progressBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The progress bar. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="75" column="21" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_window_1ab1e55ad2084fb9e31575c0986b78fceb" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] dynamicAnalysis.MemoryWindow.asciiSections</definition>
+        <argsstring></argsstring>
+        <name>asciiSections</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.asciiSections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ascii sections. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="78" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1ad68e52f6ba0baff6a3b299ca5eb1048e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.MemoryWindow.MemoryWindow</definition>
+        <argsstring>(int processId, int x, int y)</argsstring>
+        <name>MemoryWindow</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.MemoryWindow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new memory window.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the process id </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the x </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the y </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="94" column="8" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="94" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a18ef7eccf4ab38d45fdf7cb1eeb3bcc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.getProcessId</definition>
+        <argsstring>()</argsstring>
+        <name>getProcessId</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.getProcessId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the process id.</para>
+<para><simplesect kind="return"><para>the process id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="113" column="12" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a0a5764d0a9e00aa9a1168fd43ae00ab1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.setProcessId</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>setProcessId</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.setProcessId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the process id.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new process id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="123" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a484e8b16d280f7eb9b304ca4faf2b920" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.getX</definition>
+        <argsstring>()</argsstring>
+        <name>getX</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.getX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the x.</para>
+<para><simplesect kind="return"><para>the x </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="133" column="12" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1ae95a23476bdab881623a4daf51242230" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.setX</definition>
+        <argsstring>(int x)</argsstring>
+        <name>setX</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.setX</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the x.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new x </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="143" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a08794a5d5d4df8300990f0997634850e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryWindow.getY</definition>
+        <argsstring>()</argsstring>
+        <name>getY</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.getY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the y.</para>
+<para><simplesect kind="return"><para>the y </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="153" column="12" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a486640cf3cda690ef7c49b81abc05af5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.setY</definition>
+        <argsstring>(int y)</argsstring>
+        <name>setY</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.setY</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the y.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new y </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="164" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a1acbcb728ae13ebe5812a4228f63a106" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.open</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="172" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="172" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a7ad93413f86b215e104ef1031e0fb934" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.MemoryWindow.getBytes</definition>
+        <argsstring>()</argsstring>
+        <name>getBytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.getBytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the bytes.</para>
+<para><simplesect kind="return"><para>the bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="205" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="205" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1ad2529c804cba6f51b5c5bbd0f5551676" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.setBytes</definition>
+        <argsstring>(byte[] bytes)</argsstring>
+        <name>setBytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.setBytes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the bytes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new bytes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="216" column="13" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="216" bodyend="219"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a374dc74ab1acd1b5cc69260584d2d43d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.MemoryWindow.readMemory</definition>
+        <argsstring>()</argsstring>
+        <name>readMemory</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.readMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read memory.</para>
+<para><simplesect kind="return"><para>the byte[] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="192" column="14" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="192" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1acb2f6da0727315a15495acaa724b9cfb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.MemoryWindow.updateMemory</definition>
+        <argsstring>(Text text)</argsstring>
+        <name>updateMemory</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.updateMemory</qualifiedname>
+        <param>
+          <type>Text</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update memory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the text </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="228" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="228" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1af5336b0fd5c315d98e1c2254af22e4df" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.MemoryWindow.findAsciiSections</definition>
+        <argsstring>()</argsstring>
+        <name>findAsciiSections</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.findAsciiSections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find ascii sections.</para>
+<para><simplesect kind="return"><para>the string[] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="263" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="263" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1abef921a24da67905878d06dbcee0f9a7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.MemoryWindow.isAscii</definition>
+        <argsstring>(char character)</argsstring>
+        <name>isAscii</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.isAscii</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if is ascii.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>character</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true, if is ascii </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="299" column="17" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="299" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1aa7f9d1e0a516be0c24cb3e7a7765987d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.MemoryWindow.search</definition>
+        <argsstring>(String[] entries, String toSearch)</argsstring>
+        <name>search</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.search</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>entries</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>toSearch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Search.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entries </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toSearch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the to search </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string[] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="311" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="311" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1acf38f510408fe9228a1667529390a9f1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.searchEvent</definition>
+        <argsstring>()</argsstring>
+        <name>searchEvent</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.searchEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Search event. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="346" column="14" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="346" bodyend="377"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a99cc4137c12ab120eb91fe7dc932650a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryWindow.createBaseContents</definition>
+        <argsstring>()</argsstring>
+        <name>createBaseContents</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.createBaseContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the base contents. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="382" column="16" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="382" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_window_1a0d289bf84f7374cb8501292dc6efc394" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void dynamicAnalysis.MemoryWindow.createContents</definition>
+        <argsstring>()</argsstring>
+        <name>createContents</name>
+        <qualifiedname>dynamicAnalysis.MemoryWindow.createContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the contents. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryWindow.java" line="454" column="29" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="454" bodyend="488"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_memory_window" kindref="compound">MemoryWindow</ref>. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.MemoryWindow</label>
+        <link refid="classdynamic_analysis_1_1_memory_window"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shell</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shell</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/MemoryWindow.java" line="29" column="7" bodyfile="src/dynamicAnalysis/MemoryWindow.java" bodystart="30" bodyend="490"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ab1e55ad2084fb9e31575c0986b78fceb" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>asciiSections</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1af07de1d32f91c68592c5f2d5dad3836a" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>asciiTable</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a322573ccc93e0874d71fadb4c59a7733" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>btnNewButton</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a5057669be66479ca931ae7ca99184f29" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>btnUpdate</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a791f6f2d04afa396c12a075a7efa683c" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>bytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a99cc4137c12ab120eb91fe7dc932650a" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>createBaseContents</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a0d289bf84f7374cb8501292dc6efc394" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>createContents</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1af5336b0fd5c315d98e1c2254af22e4df" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>findAsciiSections</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a4c2dcf52641d63cffb42dd004b77e60f" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>gd_asciiTable</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a7ad93413f86b215e104ef1031e0fb934" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>getBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a18ef7eccf4ab38d45fdf7cb1eeb3bcc3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>getProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a484e8b16d280f7eb9b304ca4faf2b920" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>getX</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a08794a5d5d4df8300990f0997634850e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>getY</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1abef921a24da67905878d06dbcee0f9a7" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>isAscii</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ad68e52f6ba0baff6a3b299ca5eb1048e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>MemoryWindow</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a1acbcb728ae13ebe5812a4228f63a106" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>open</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a0f2d4bce6ef847277dad07aacd9f3bb3" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>processId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ae66d52fc5be538531afd06e8986ce49c" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>progressBar</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a374dc74ab1acd1b5cc69260584d2d43d" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>readMemory</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1aa7f9d1e0a516be0c24cb3e7a7765987d" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>search</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1acf38f510408fe9228a1667529390a9f1" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>searchEvent</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ac83a720307ba73ae5782e2e3cbfcc9c2" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>searchText</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ad2529c804cba6f51b5c5bbd0f5551676" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>setBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a0a5764d0a9e00aa9a1168fd43ae00ab1" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>setProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ae95a23476bdab881623a4daf51242230" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>setX</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a486640cf3cda690ef7c49b81abc05af5" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>setY</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a02a8c9e48dcc4403904a3ca8bc4747c3" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>shell</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a558fc53fe38eef760bc4678dea09a401" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>tableItems</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ace625c2696e2f6e98a616e79b4d79204" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>tableStore</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1ad1d21b2dbc6bbe015d848d3483e74a88" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>text</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a76dbe698097086557863e88cc18c04c2" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>txtLength</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1acb2f6da0727315a15495acaa724b9cfb" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>updateMemory</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1af5f40c81b1432a8775a3d7a742d16eb7" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>x</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_window_1a07d51c6280318b226069f98825a0c6f8" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryWindow</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

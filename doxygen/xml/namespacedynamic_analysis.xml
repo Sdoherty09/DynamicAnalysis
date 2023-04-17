@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="namespacedynamic_analysis" kind="namespace" language="Java">
+    <compoundname>dynamicAnalysis</compoundname>
+    <innerclass refid="classdynamic_analysis_1_1_active_connection" prot="public">dynamicAnalysis::ActiveConnection</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_candidate_window" prot="public">dynamicAnalysis::CandidateWindow</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_code_extract" prot="public">dynamicAnalysis::CodeExtract</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_command_line" prot="public">dynamicAnalysis::CommandLine</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_data_directory" prot="public">dynamicAnalysis::DataDirectory</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_details" prot="public">dynamicAnalysis::Details</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_dll_file" prot="public">dynamicAnalysis::DllFile</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_execute_code" prot="public">dynamicAnalysis::ExecuteCode</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_files_composite" prot="public">dynamicAnalysis::FilesComposite</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_instructions_composite" prot="public">dynamicAnalysis::InstructionsComposite</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_legacy_window" prot="public">dynamicAnalysis::LegacyWindow</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_memory_composite" prot="public">dynamicAnalysis::MemoryComposite</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_memory_window" prot="public">dynamicAnalysis::MemoryWindow</innerclass>
+    <innerclass refid="enumdynamic_analysis_1_1_mnem" prot="public">dynamicAnalysis::Mnem</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_network_composite" prot="public">dynamicAnalysis::NetworkComposite</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_network_stats" prot="public">dynamicAnalysis::NetworkStats</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_network_traffic" prot="public">dynamicAnalysis::NetworkTraffic</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_packet_trace" prot="public">dynamicAnalysis::PacketTrace</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_p_e_file" prot="public">dynamicAnalysis::PEFile</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_process_manager" prot="public">dynamicAnalysis::ProcessManager</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_read_write" prot="public">dynamicAnalysis::ReadWrite</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_select_file" prot="public">dynamicAnalysis::SelectFile</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_select_process" prot="public">dynamicAnalysis::SelectProcess</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1test" prot="public">dynamicAnalysis::test</innerclass>
+    <innerclass refid="enumdynamic_analysis_1_1_version" prot="public">dynamicAnalysis::Version</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_virtual_memory" prot="public">dynamicAnalysis::VirtualMemory</innerclass>
+    <innerclass refid="classdynamic_analysis_1_1_window" prot="public">dynamicAnalysis::Window</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/ActiveConnection.java" line="1" column="15"/>
+  </compounddef>
+</doxygen>

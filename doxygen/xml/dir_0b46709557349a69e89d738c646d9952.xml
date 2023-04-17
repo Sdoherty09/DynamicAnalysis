@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_0b46709557349a69e89d738c646d9952" kind="dir">
+    <compoundname>src/org/eclipse/wb/swt</compoundname>
+    <innerfile refid="_s_w_t_resource_manager_8java">SWTResourceManager.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/org/eclipse/wb/swt/"/>
+  </compounddef>
+</doxygen>

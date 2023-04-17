@@ -1,0 +1,142 @@
+\hypertarget{_p_e_file_8java_source}{}\doxysection{PEFile.\+java}
+\label{_p_e_file_8java_source}\index{src/dynamicAnalysis/PEFile.java@{src/dynamicAnalysis/PEFile.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00006}00006 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00007}00007 \textcolor{keyword}{import} java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00008}00008 \textcolor{keyword}{import} java.nio.file.Files;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00009}00009 \textcolor{keyword}{import} java.nio.file.Paths;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00010}00010 \textcolor{keyword}{import} java.util.concurrent.Semaphore;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00012}00012 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00013}00013 \textcolor{keyword}{import} org.eclipse.swt.widgets.Display;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00014}00014 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableItem;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00019}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{00019}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00020}00020     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00022}00022     \textcolor{keyword}{private} File file;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00023}00023     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00025}00025     \textcolor{keyword}{private} \textcolor{keywordtype}{int} offset;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00026}00026     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00028}00028     \textcolor{keyword}{private} \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} version;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00029}00029     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00031}00031     \textcolor{keyword}{private} \textcolor{keywordtype}{int} pointer;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00032}00032     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00034}00034     \textcolor{keyword}{private} \textcolor{keywordtype}{byte}[] bytes = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00035}00035     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00037}00037     \textcolor{keyword}{private} \textcolor{keywordtype}{int} pointerToRawData;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00044}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a320d97c88297f890df1a47ccb522b8eb}{00044}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a320d97c88297f890df1a47ccb522b8eb}{PEFile}}(File file)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00045}00045     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00046}00046         \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}{setFile}}(file);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00047}00047     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00054}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a316afc77c68bdf743dd41d8780f8e596}{00054}}     \textcolor{keyword}{public} File \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a316afc77c68bdf743dd41d8780f8e596}{getFile}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00055}00055     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00056}00056         \textcolor{keywordflow}{return} file;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00057}00057     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00064}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}{00064}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a0898dbb81277ff03c7589bfb20640d81}{setFile}}(File file)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00065}00065     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00066}00066         this.file = file;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00067}00067     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00068}00068     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00074}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_adda6179672a4bc2e8d674e552c38df5a}{00074}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_adda6179672a4bc2e8d674e552c38df5a}{getOffset}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00075}00075     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00076}00076         \textcolor{keywordflow}{return} offset;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00084}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{00084}}     \textcolor{keyword}{public} \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{getVersion}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00085}00085     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00086}00086         \textcolor{keywordflow}{return} version;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00088}00088     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00094}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}{00094}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}{getInstructions}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00095}00095     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00096}00096         \textcolor{keywordtype}{int} bytesIndex = offset;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00097}00097         \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00098}00098         \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00099}00099             \textcolor{keywordflow}{if}(bytes[bytesIndex]==0x2e \&\& bytes[bytesIndex+1] == 0x74 \&\& bytes[bytesIndex+2] == 0x65 \&\& bytes[bytesIndex+3] == 0x78 \&\& bytes[bytesIndex+4] == 0x74) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00100}00100             bytesIndex++;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00101}00101         \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00102}00102         bytesIndex+=16;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00103}00103         \textcolor{keywordtype}{int} sizeOfRawData = ((bytes[bytesIndex] \& 0xff) | (bytes[bytesIndex+1] \& 0xff) << 8 | (bytes[bytesIndex+2] \& 0xff) << 16 | (bytes[bytesIndex+3] \& 0xff) << 24);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00104}00104         bytesIndex+=4;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00105}00105         pointerToRawData = ((bytes[bytesIndex] \& 0xff) | (bytes[bytesIndex+1] \& 0xff) << 8 | (bytes[bytesIndex+2] \& 0xff) << 16 | (bytes[bytesIndex+3] \& 0xff) << 24);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00106}00106         setPointer(pointerToRawData);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00107}00107         \textcolor{keywordtype}{byte}[] instructions = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[sizeOfRawData];}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00108}00108         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = pointerToRawData;index < sizeOfRawData + pointerToRawData;index++)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00109}00109         \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00110}00110             instructions[index-\/pointerToRawData] = (byte)(bytes[index] \& 0xff);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00111}00111             \textcolor{keywordflow}{if}(index-\/pointerToRawData <100) System.out.print(instructions[index-\/pointerToRawData] + \textcolor{stringliteral}{"{} "{}});       }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00112}00112         \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00113}00113         \textcolor{keywordflow}{return} instructions;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00115}00115     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00121}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}{00121}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}{getPointer}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00122}00122     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00123}00123         \textcolor{keywordflow}{return} pointer;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00124}00124     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00131}00131     \textcolor{keyword}{private} \textcolor{keywordtype}{void} setPointer(\textcolor{keywordtype}{int} pointer)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00132}00132     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00133}00133         this.pointer = pointer;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00134}00134     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00135}00135     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00142}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}{00142}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}{getBytes}}() throws IOException}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00143}00143     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00144}00144         \textcolor{keywordflow}{return} Files.readAllBytes(Paths.get(file.toString()));}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00145}00145     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00152}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a408d416040da9dec9e0395f0bfa68e64}{00152}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a408d416040da9dec9e0395f0bfa68e64}{setBytes}}(\textcolor{keywordtype}{byte}[] bytes)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00153}00153     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00154}00154         this.bytes = bytes;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00155}00155     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00160}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}{00160}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}{readFile}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00161}00161     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00162}00162         }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00163}00163         \textcolor{keywordflow}{try} }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00164}00164         \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00165}00165             bytes = Files.readAllBytes(Paths.get(file.toString()));}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00166}00166             offset = (((bytes[0x3c] \& 0xff) | (bytes[0x3d] \& 0xff) << 8 | (bytes[0x3e] \& 0xff) << 16 | (bytes[0x3f] \& 0xff) << 24)) + 24;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00167}00167             \textcolor{keywordflow}{if}(bytes[offset+1]==0x01) version = \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}}.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a796be8c5ce18cca3e9639c62e0d4019f}{x32}};}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00168}00168             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (bytes[offset+1]==0x02) version = \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}}.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a2f3f7fc83e3bc42021109127436b69a9}{x64}};}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00169}00169             \textcolor{keywordflow}{else} System.out.println(\textcolor{stringliteral}{"{}ERROR finding version"{}});}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00170}00170             \textcolor{keywordtype}{int} rvaOffset;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00171}00171             \textcolor{keywordflow}{if}(version == \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}}.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a796be8c5ce18cca3e9639c62e0d4019f}{x32}}) rvaOffset = offset + 92;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00172}00172             \textcolor{keywordflow}{else} rvaOffset = offset + 108;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00173}00173             \textcolor{keywordtype}{int} numberOfRvaAndSizes = ((bytes[rvaOffset] \& 0xff) | (bytes[rvaOffset+1] \& 0xff) << 8 | (bytes[rvaOffset+2] \& 0xff) << 16 | (bytes[rvaOffset+3] \& 0xff) << 24);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00174}00174             \mbox{\hyperlink{classdynamic_analysis_1_1_data_directory}{DataDirectory}} dataDirectories[] = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_data_directory}{DataDirectory}}[numberOfRvaAndSizes];}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00175}00175             \textcolor{keywordtype}{int} directoryOffset;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00176}00176             \textcolor{keywordflow}{if}(version == \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}}.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a796be8c5ce18cca3e9639c62e0d4019f}{x32}}) directoryOffset = offset + 96;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00177}00177             \textcolor{keywordflow}{else} directoryOffset = offset + 112;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00178}00178             \textcolor{keywordtype}{int} virtualAddress;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00179}00179             \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00180}00180             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0; index < numberOfRvaAndSizes; index++)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00181}00181             \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00182}00182                 virtualAddress = ((bytes[directoryOffset] \& 0xff) | (bytes[directoryOffset+1] \& 0xff) << 8 | (bytes[directoryOffset+2] \& 0xff) << 16 | (bytes[directoryOffset+3] \& 0xff) << 24);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00183}00183                 size = ((bytes[directoryOffset+4] \& 0xff) | (bytes[directoryOffset+5] \& 0xff) << 8 | (bytes[directoryOffset+6] \& 0xff) << 16 | (bytes[directoryOffset+7] \& 0xff) << 24);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00184}00184                 dataDirectories[index] = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_data_directory}{DataDirectory}}(bytes, virtualAddress, size);}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00185}00185             \}       }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00186}00186         \} }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00187}00187         \textcolor{keywordflow}{catch} (IOException | NullPointerException e)}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00188}00188         \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00189}00189             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00190}00190         \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00191}00191     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00192}00192     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00198}00198     @Override}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00199}\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a125e94c21a42dce6026f078a000f709e}{00199}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a125e94c21a42dce6026f078a000f709e}{toString}}()}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00200}00200     \{}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00201}00201         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PEFile [file="{}} + file + \textcolor{stringliteral}{"{}, offset="{}} + offset + \textcolor{stringliteral}{"{}, version="{}} + version + \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00202}00202     \}}
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00203}00203     }
+\DoxyCodeLine{\Hypertarget{_p_e_file_8java_source_l00204}00204 \}}
+
+\end{DoxyCode}

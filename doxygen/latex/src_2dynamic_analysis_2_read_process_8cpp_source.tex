@@ -1,0 +1,59 @@
+\hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source}{}\doxysection{Read\+Process.\+cpp}
+\label{src_2dynamic_analysis_2_read_process_8cpp_source}\index{src/dynamicAnalysis/ReadProcess.cpp@{src/dynamicAnalysis/ReadProcess.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <memoryapi.h>}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00005}00005 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00007}00007 \textcolor{keywordtype}{void} EnableDebugPriv()}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00008}00008 \{}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00009}00009     HANDLE hToken;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00010}00010     LUID luid;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00011}00011     TOKEN\_PRIVILEGES tkp;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00013}00013     OpenProcessToken(GetCurrentProcess(), TOKEN\_ADJUST\_PRIVILEGES | TOKEN\_QUERY, \&hToken);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00015}00015     LookupPrivilegeValue(NULL, SE\_DEBUG\_NAME, \&luid);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00017}00017     tkp.PrivilegeCount = 1;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00018}00018     tkp.Privileges[0].Luid = luid;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00019}00019     tkp.Privileges[0].Attributes = SE\_PRIVILEGE\_ENABLED;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00021}00021     AdjustTokenPrivileges(hToken, \textcolor{keyword}{false}, \&tkp, \textcolor{keyword}{sizeof}(tkp), NULL, NULL);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00023}00023     CloseHandle(hToken);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00026}00026 \textcolor{keywordtype}{int} main()}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00028}00028     EnableDebugPriv();}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00029}00029     MEMORY\_BASIC\_INFORMATION mbi; \textcolor{comment}{//mbi used as register for assigning in query}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00030}00030     HANDLE hProcess = OpenProcess(PROCESS\_ALL\_ACCESS, FALSE, 16824); \textcolor{comment}{//process using pid}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00031}00031     DWORD oldprotect; \textcolor{comment}{//given the value of old protect}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00032}00032     BYTE* buffer; \textcolor{comment}{//string for buffer}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00033}00033     \textcolor{keywordtype}{int} addr; \textcolor{comment}{//need to find what this gets assigned to}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00034}00034     VirtualQueryEx(hProcess, NULL, (PMEMORY\_BASIC\_INFORMATION)\&mbi, \textcolor{keyword}{sizeof}(mbi)); \textcolor{comment}{//early assign of mbi, equals 28 (size)}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00035}00035     addr = (int)mbi.BaseAddress; \textcolor{comment}{//BaseAddress gives 0, shouldnt be correct}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00036}00036     \textcolor{keywordtype}{int} check = VirtualProtectEx(hProcess, 0, mbi.RegionSize, PAGE\_EXECUTE\_READWRITE, \&oldprotect);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00037}00037     \textcolor{keywordtype}{int} temp;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00038}00038     SIZE\_T size;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00039}00039     \textcolor{keywordflow}{while} (temp = VirtualQueryEx(hProcess, (LPCVOID)addr, (PMEMORY\_BASIC\_INFORMATION)\&mbi, mbi.RegionSize)) \textcolor{comment}{//will not work for 64 bit programs (Invalid access to memory location.)}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00040}00040     \{}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00041}00041         \textcolor{keywordtype}{int} check = VirtualProtectEx(hProcess, (LPVOID)addr, mbi.RegionSize, PAGE\_EXECUTE\_READWRITE, \&oldprotect); \textcolor{comment}{//issue here, error 487: ERROR\_INVALID\_ADDRESS, address incrementing seems valid. 100\% relation to whether memory gets read}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00042}00042         \textcolor{keywordflow}{if} (check != 0)}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00043}00043         \{}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00044}00044             buffer = \textcolor{keyword}{new} BYTE[mbi.RegionSize];}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00045}00045             ReadProcessMemory(hProcess, (LPVOID)addr, buffer, mbi.RegionSize, \&size); \textcolor{comment}{//not filling entire buffer}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00046}00046             VirtualProtectEx(hProcess, (LPVOID)addr, mbi.RegionSize, oldprotect, \&oldprotect);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00047}00047             cout << buffer;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00048}00048         \}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00049}00049         addr += mbi.RegionSize;}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00050}00050     \}}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00051}00051     CloseHandle(hProcess);}
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{src_2dynamic_analysis_2_read_process_8cpp_source_l00053}00053 \}}
+
+\end{DoxyCode}

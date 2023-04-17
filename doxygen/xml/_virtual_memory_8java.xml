@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_virtual_memory_8java" kind="file" language="Java">
+    <compoundname>VirtualMemory.java</compoundname>
+    <innerclass refid="classdynamic_analysis_1_1_virtual_memory" prot="public">dynamicAnalysis::VirtualMemory</innerclass>
+    <innernamespace refid="namespacedynamic_analysis">dynamicAnalysis</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">dynamicAnalysis;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classdynamic_analysis_1_1_virtual_memory" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdynamic_analysis_1_1_virtual_memory" kindref="compound">VirtualMemory</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processId;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>{System.load(getFile(</highlight><highlight class="stringliteral">&quot;memory.dll&quot;</highlight><highlight class="normal">));}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>native<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>scanProcess(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processId);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="classdynamic_analysis_1_1_virtual_memory_1a3719e8f9af36f631a6de589fee9bde5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory_1a3719e8f9af36f631a6de589fee9bde5e" kindref="member">VirtualMemory</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processId)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" kindref="member">setProcessId</ref>(processId);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" kindref="member">getProcessId</ref>()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>processId;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" kindref="member">setProcessId</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>processId)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.processId<sp/>=<sp/>processId;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/>getFile(String<sp/>fileName)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*File<sp/>file<sp/>=<sp/>new<sp/>File(&quot;.\\&quot;+fileName);</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>file.getAbsolutePath();*/</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//JAR<sp/>release</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>System.getProperty(</highlight><highlight class="stringliteral">&quot;user.dir&quot;</highlight><highlight class="normal">)+</highlight><highlight class="stringliteral">&quot;\\src\\dynamicAnalysis\\&quot;</highlight><highlight class="normal">+fileName;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75" refid="classdynamic_analysis_1_1_virtual_memory_1a110d99d62a6fc04965cd5c01250eb874" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/><ref refid="classdynamic_analysis_1_1_virtual_memory_1a110d99d62a6fc04965cd5c01250eb874" kindref="member">readMemory</ref>()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory" kindref="compound">VirtualMemory</ref><sp/>virtualMemory<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdynamic_analysis_1_1_virtual_memory" kindref="compound">VirtualMemory</ref>(<ref refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" kindref="member">getProcessId</ref>());</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>virtualMemory.scanProcess(<ref refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" kindref="member">getProcessId</ref>());</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//javac<sp/>-h<sp/>.<sp/>VirtualMemory.java</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//g++<sp/>-I<sp/>I:/jre/jre6/include<sp/>-I<sp/>I:/jre/jre6/include/win32<sp/>-shared<sp/>-o<sp/>memory.dll<sp/>VirtualMemory.cpp</highlight></codeline>
+    </programlisting>
+    <location file="src/dynamicAnalysis/VirtualMemory.java"/>
+  </compounddef>
+</doxygen>

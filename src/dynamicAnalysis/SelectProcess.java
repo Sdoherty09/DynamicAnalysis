@@ -6,8 +6,6 @@ package dynamicAnalysis;
 import java.util.ArrayList;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -15,7 +13,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
@@ -28,56 +25,49 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
- * The Class SelectProcess.
+ * The window to choose a currently running process to hook into. Displays a list of all running processes
  */
 public class SelectProcess
 {
 
-	/** The shell. */
+	/** The shell for the process selection window. */
 	protected Shell shell;
 	
-	/** The table. */
+	/** The table to display the currently running processes. */
 	private Table table;
 	
-	/** The names. */
+	/** The names of the processes. */
 	private String[] names;
 	
-	/** The pids. */
+	/** The unique identifiers of the processes. */
 	private int[] pids;
 	
-	/** The memory. */
+	/** The memory that the processes are using. */
 	private String[] memory;
 	
-	/** The pid. */
+	/** The unique identifier to be selected by the user. */
 	private int pid;
 	
-	/** The x. */
+	/** The X value to position the window horizontally. */
 	private int x;
 	
-	/** The y. */
+	/** The Y value to position the window vertically. */
 	private int y;
 	
-	/** The text. */
+	/** The text field to search for a process. */
 	private Text text;
 	
-	/** The table items. */
+	/** The table items that populate the GUI table. */
 	private TableItem[] tableItems;
 	
-	/*
-	public static void main(String[] args)
-	{
-		SelectProcess selectProcess = new SelectProcess();
-		selectProcess.open();
-	}*/
-	
 	/**
-	 * Launch the application.
+	 * Launch the file selection window.
 	 *
-	 * @param names the names
-	 * @param pids the pids
-	 * @param memory the memory
-	 * @param x the x
-	 * @param y the y
+	 * @param names the names of the processes
+	 * @param pids the PIDs of the processes
+	 * @param memory the memory that the processes use
+	 * @param x the X value for positioning
+	 * @param y the Y value for positioning
 	 */
 	
 	public SelectProcess(String[] names, int[] pids, String[] memory, int x, int y)
@@ -109,9 +99,9 @@ public class SelectProcess
 	}
 	
 	/**
-	 * Gets the names.
+	 * Gets the names of the processes.
 	 *
-	 * @return the names
+	 * @return the names of the processes
 	 */
 	public String[] getNames()
 	{
@@ -119,9 +109,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the names.
+	 * Sets the names of the processes.
 	 *
-	 * @param names the new names
+	 * @param names the new names of the processes
 	 */
 	public void setNames(String[] names)
 	{
@@ -129,9 +119,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Gets the pids.
+	 * Gets the unique identifiers of the processes.
 	 *
-	 * @return the pids
+	 * @return the unique identifiers of the processes
 	 */
 	public int[] getPids()
 	{
@@ -139,9 +129,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the pids.
+	 * Sets the unique identifiers of the processes.
 	 *
-	 * @param pids the new pids
+	 * @param pids the new unique identifiers of the processes
 	 */
 	public void setPids(int[] pids)
 	{
@@ -149,9 +139,9 @@ public class SelectProcess
 	}
 	
 	/**
-	 * Gets the pid.
+	 * Gets the unique identifier of a process.
 	 *
-	 * @return the pid
+	 * @return the unique identifier of a process
 	 */
 	public int getPid()
 	{
@@ -159,9 +149,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the pid.
+	 * Sets the unique identifier of a process.
 	 *
-	 * @param pid the new pid
+	 * @param pid the new unique identifier of a process
 	 */
 	private void setPid(int pid)
 	{
@@ -169,9 +159,9 @@ public class SelectProcess
 	}
 	
 	/**
-	 * Gets the memory.
+	 * Gets the memory used by the processes.
 	 *
-	 * @return the memory
+	 * @return the memory used by the processes
 	 */
 	public String[] getMemory()
 	{
@@ -179,9 +169,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the memory.
+	 * Sets the memory used by the processes.
 	 *
-	 * @param memory the new memory
+	 * @param memory the new memory used by the processes
 	 */
 	public void setMemory(String[] memory)
 	{
@@ -189,9 +179,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Gets the x.
+	 * Gets the X value.
 	 *
-	 * @return the x
+	 * @return the X value
 	 */
 	public int getX()
 	{
@@ -199,9 +189,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the x.
+	 * Sets the X value.
 	 *
-	 * @param x the new x
+	 * @param x the new X value
 	 */
 	public void setX(int x)
 	{
@@ -209,9 +199,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Gets the y.
+	 * Gets the Y value.
 	 *
-	 * @return the y
+	 * @return the Y value
 	 */
 	public int getY()
 	{
@@ -219,9 +209,9 @@ public class SelectProcess
 	}
 
 	/**
-	 * Sets the y.
+	 * Sets the Y value.
 	 *
-	 * @param y the new y
+	 * @param y the new Y value
 	 */
 	public void setY(int y)
 	{
@@ -229,11 +219,11 @@ public class SelectProcess
 	}
 
 	/**
-	 * Search.
+	 * Search through the running processes. Filters any processes that do not match
 	 *
-	 * @param names the names
-	 * @param toSearch the to search
-	 * @return the int[]
+	 * @param names the names of the processes
+	 * @param toSearch the value to search for
+	 * @return an index array of values that match
 	 */
 	private int[] search(String[] names, String toSearch)
 	{
@@ -249,9 +239,9 @@ public class SelectProcess
 	}
 	
 	/**
-	 * Full populate.
+	 * Fully populate the process list after a search is cleared.
 	 *
-	 * @param table the table
+	 * @param table the GUI table to populate
 	 */
 	private void fullPopulate(Table table)
 	{
@@ -275,7 +265,7 @@ public class SelectProcess
 	}
 	
 	/**
-	 * Search event.
+	 * Called when a search request is given by the GUI.
 	 */
 	private void searchEvent()
 	{

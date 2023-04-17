@@ -1,0 +1,99 @@
+\hypertarget{_execute_code_8java_source}{}\doxysection{Execute\+Code.\+java}
+\label{_execute_code_8java_source}\index{src/dynamicAnalysis/ExecuteCode.java@{src/dynamicAnalysis/ExecuteCode.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00006}00006 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00007}00007 \textcolor{keyword}{import} java.util.Arrays;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00012}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code}{00012}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code}{ExecuteCode}} \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00013}00013     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00015}00015     \textcolor{keyword}{private} \textcolor{keywordtype}{byte}[] codes;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00016}00016     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00018}00018     \textcolor{keyword}{private} \textcolor{keywordtype}{byte} code;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00021}00021     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} isArr;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00022}00022     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00024}00024     \textcolor{keyword}{private} File file;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00025}00025     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00031}00031     \textcolor{keyword}{private} native \textcolor{keywordtype}{void} executeInstruction(\textcolor{keywordtype}{byte} code);}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00032}00032     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00038}00038     \textcolor{keyword}{private} native \textcolor{keywordtype}{int}[] readRegisters();}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00039}00039     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00040}00040     \textcolor{keyword}{static} \{System.load(\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac69a8358fcbb9805c64033df3b1b615f}{getFile}}(\textcolor{stringliteral}{"{}execute.dll"{}}));\}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00048}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a556dd9aac5f2d8d39211a38036b7dd2e}{00048}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a556dd9aac5f2d8d39211a38036b7dd2e}{ExecuteCode}}(\textcolor{keywordtype}{byte}[] codes, File file) \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00049}00049         \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac2c9f03f80a83c131f2e6069cb503b27}{setCodes}}(codes);}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00050}00050         \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae010879463c73bb80e1b3aae13034232}{setFile}}(file);}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00051}00051         isArr=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00052}00052     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00053}00053     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00060}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_aaf0db9583e30ef992f831bbbc3699b72}{00060}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_aaf0db9583e30ef992f831bbbc3699b72}{ExecuteCode}}(\textcolor{keywordtype}{byte} code, File file) \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00061}00061         \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_aee39a7125cfb774853ab5467b0194e81}{setCode}}(code);}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00062}00062         \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae010879463c73bb80e1b3aae13034232}{setFile}}(file);}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00063}00063         isArr=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00064}00064     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00065}00065     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00071}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac69a8358fcbb9805c64033df3b1b615f}{00071}}     \textcolor{keyword}{public} File \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac69a8358fcbb9805c64033df3b1b615f}{getFile}}()}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00072}00072     \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00073}00073         \textcolor{keywordflow}{return} file;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00075}00075     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00081}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae010879463c73bb80e1b3aae13034232}{00081}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae010879463c73bb80e1b3aae13034232}{setFile}}(File file)}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00082}00082     \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00083}00083         this.file = file;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00084}00084     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00085}00085     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00091}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a5ce4c877e24bcc60d96394744bb1dae8}{00091}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a5ce4c877e24bcc60d96394744bb1dae8}{getCodes}}() \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00092}00092         \textcolor{keywordflow}{return} codes;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00094}00094     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00100}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac2c9f03f80a83c131f2e6069cb503b27}{00100}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac2c9f03f80a83c131f2e6069cb503b27}{setCodes}}(\textcolor{keywordtype}{byte}[] codes) \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00101}00101         this.codes = codes;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00102}00102     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00103}00103     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00109}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac451e960c01254889b5079305bdbf8da}{00109}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac451e960c01254889b5079305bdbf8da}{getCode}}() \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00110}00110         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00111}00111     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00112}00112     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00118}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_aee39a7125cfb774853ab5467b0194e81}{00118}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_aee39a7125cfb774853ab5467b0194e81}{setCode}}(\textcolor{keywordtype}{byte} code) \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00119}00119         this.code = code;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00120}00120     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00121}00121     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00128}00128     \textcolor{keyword}{private} \textcolor{keyword}{static} String \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac69a8358fcbb9805c64033df3b1b615f}{getFile}}(String fileName)}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00129}00129     \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00130}00130         \textcolor{keywordflow}{return} System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}})+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)src\(\backslash\)\(\backslash\)dynamicAnalysis\(\backslash\)\(\backslash\)"{}}+fileName;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00132}00132     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00138}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae945e45bdbffc661926c1081fef51866}{00138}}     \textcolor{keyword}{public} native String \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ae945e45bdbffc661926c1081fef51866}{test}}();}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00139}00139     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00140}00140     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00141}00141     \textcolor{comment}{/*public ProcessManager execute()}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00142}00142 \textcolor{comment}{    \{}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00143}00143 \textcolor{comment}{        ExecuteCode executeCode = new ExecuteCode(getCode(), getFile());}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00144}00144 \textcolor{comment}{        executeCode.executeInstruction(getCode());}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00145}00145 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00151}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a18d400076cfd42de627e6e61b1f134b7}{00151}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int}[] \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a18d400076cfd42de627e6e61b1f134b7}{read}}()}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00152}00152     \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00153}00153         \textcolor{keywordtype}{int}[] registers = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[4];}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00154}00154         \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code}{ExecuteCode}} executeCode = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code}{ExecuteCode}}(\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac451e960c01254889b5079305bdbf8da}{getCode}}(), \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_ac69a8358fcbb9805c64033df3b1b615f}{getFile}}());}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00155}00155         registers = executeCode.readRegisters();}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00156}00156         \textcolor{keywordflow}{return} registers;}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00158}00158     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00164}00164     @Override}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00165}\mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a0009e75418f649e89625a3fbf46e5e4f}{00165}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_execute_code_a0009e75418f649e89625a3fbf46e5e4f}{toString}}()}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00166}00166     \{}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00167}00167         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ExecuteCode [codes="{}} + Arrays.toString(codes) + \textcolor{stringliteral}{"{}, code="{}} + code + \textcolor{stringliteral}{"{}, isArr="{}} + isArr + \textcolor{stringliteral}{"{}, file="{}} + file}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00168}00168                 + \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00169}00169     \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00170}00170     }
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00171}00171 \}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00172}00172  \textcolor{comment}{//gcc ExecuteImpl.c -\/I I:/jre/jre6/include -\/I I:/jre/jre6/include/win32}}
+\DoxyCodeLine{\Hypertarget{_execute_code_8java_source_l00173}00173 \textcolor{comment}{//x86\_64-\/w64-\/mingw32-\/gcc -\/I I:/jre/jre6/include -\/I I:/jre/jre6/include/win32 -\/shared -\/o execute.dll ExecuteImpl.c}}
+
+\end{DoxyCode}

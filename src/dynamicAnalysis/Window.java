@@ -6,8 +6,6 @@ package dynamicAnalysis;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Text;
 import org.pcap4j.core.PcapNativeException;
 
 import java.awt.Dimension;
@@ -17,60 +15,52 @@ import java.io.File;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.TabFolder;
-import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 
 /**
- * The Class Window.
+ * The main window that is loaded when the program is first run. Contains most functionality.
  */
 public class Window
 {
 
-	/** The shell. */
-	protected Shell shell;
+	/** The window's SWT shell. */
+	protected Shell shlMaldive;
 	
-	/** The text. */
+	/** The text field for either a file path or a process ID. */
 	private Label text;
 	
-	/** The table. */
+	/** The table to display information about a process. */
 	private Table table;
 	
 	/** The file path. */
 	private String filePath;
 	
-	/** The select file. */
+	/** The select file window. */
 	private SelectFile selectFile;
 	
 	/** The process id. */
 	public static int processId;
 	
-	/** The display. */
+	/** The SWT display. */
 	private Display display;
 	
-	/** The process. */
+	/** The process manager for processes. */
 	private ProcessManager process;
 	
 	/**
@@ -99,9 +89,9 @@ public class Window
 	{
 		display = Display.getDefault();
 		createContents();
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed())
+		shlMaldive.open();
+		shlMaldive.layout();
+		while (!shlMaldive.isDisposed())
 		{
 			if (!display.readAndDispatch())
 			{
@@ -118,7 +108,7 @@ public class Window
 	 */
 	private void errorAlert(String message)
 	{
-		MessageBox messageBox = new MessageBox(shell, SWT.ERROR);				        
+		MessageBox messageBox = new MessageBox(shlMaldive, SWT.ERROR);				        
         messageBox.setText("Error");
         messageBox.setMessage(message);
         messageBox.open();
@@ -129,20 +119,21 @@ public class Window
 	 */
 	protected void createContents()
 	{
-		shell = new Shell();
-		shell.setSize(491, 573);
-		shell.setText("Dynamic Malware Analyzer");
-		shell.setLayout(new FormLayout());
-		shell.setMinimumSize(491, 573);
+		shlMaldive = new Shell();
+		shlMaldive.setImage(new Image(display, System.getProperty("user.dir")+"\\lib\\Maldive.png"));
+		shlMaldive.setSize(491, 573);
+		shlMaldive.setText("Maldive");
+		shlMaldive.setLayout(new FormLayout());
+		shlMaldive.setMinimumSize(491, 573);
 		
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		shell.setLocation((dim.width/2)-200,(dim.height/2)-250);
+		shlMaldive.setLocation((dim.width/2)-200,(dim.height/2)-250);
 		
-		Button btnProcess = new Button(shell, SWT.CHECK);
+		Button btnProcess = new Button(shlMaldive, SWT.CHECK);
 		
-		text = new Label(shell, SWT.BORDER);
+		text = new Label(shlMaldive, SWT.BORDER);
 		
-		Button btnLaunch = new Button(shell, SWT.NONE);
+		Button btnLaunch = new Button(shlMaldive, SWT.NONE);
 		
 		TableItem tableItems[] = new TableItem[4];
 		
@@ -151,14 +142,14 @@ public class Window
 		text.setLayoutData(fd_text);
 		
 		
-		Button btnInstructions = new Button(shell, SWT.NONE);
+		Button btnInstructions = new Button(shlMaldive, SWT.NONE);
 		btnInstructions.setEnabled(false);
 		
 		FormData fd_btnInstructions = new FormData();
 		btnInstructions.setLayoutData(fd_btnInstructions);
 		btnInstructions.setText("x86 Instructions");
 		
-		Button btnMemory = new Button(shell, SWT.NONE);
+		Button btnMemory = new Button(shlMaldive, SWT.NONE);
 		fd_btnInstructions.bottom = new FormAttachment(btnMemory, -6);
 		btnMemory.setEnabled(false);
 		
@@ -168,7 +159,7 @@ public class Window
 		
 		btnMemory.setLayoutData(fd_btnMemory);
 		
-		Button btnFiles = new Button(shell, SWT.NONE);
+		Button btnFiles = new Button(shlMaldive, SWT.NONE);
 		fd_btnMemory.bottom = new FormAttachment(btnFiles, -6);
 		btnFiles.setEnabled(false);
 		btnFiles.setText("Files");
@@ -177,7 +168,7 @@ public class Window
 		fd_btnFiles.top = new FormAttachment(0, 152);
 		
 		btnFiles.setLayoutData(fd_btnFiles);		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION | SWT.NO_SCROLL);
+		table = new Table(shlMaldive, SWT.BORDER | SWT.FULL_SELECTION | SWT.NO_SCROLL);
 		fd_btnFiles.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnMemory.right = new FormAttachment(table, 101, SWT.RIGHT);
 		fd_btnInstructions.right = new FormAttachment(table, 101, SWT.RIGHT);
@@ -193,12 +184,12 @@ public class Window
 		table.setHeaderVisible(false);
 		table.setLinesVisible(true);
 		
-		Button btnSelect = new Button(shell, SWT.NONE);
+		Button btnSelect = new Button(shlMaldive, SWT.NONE);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				System.out.println("selection: "+btnProcess.getSelection());
-				selectFile = new SelectFile(shell.getLocation().x, shell.getLocation().y, btnProcess.getSelection());
+				selectFile = new SelectFile(shlMaldive.getLocation().x, shlMaldive.getLocation().y, btnProcess.getSelection());
 				filePath = selectFile.getText();	
 				if(!selectFile.isPidMode())
 				{
@@ -233,7 +224,7 @@ public class Window
 		fd_btnSelect.left = new FormAttachment(text, 5, SWT.RIGHT);
 		btnSelect.setLayoutData(fd_btnSelect);
 		
-		Label lblFilePath = new Label(shell, SWT.NONE);
+		Label lblFilePath = new Label(shlMaldive, SWT.NONE);
 		fd_text.right = new FormAttachment(table, 0, SWT.RIGHT);
 		fd_text.left = new FormAttachment(lblFilePath, 13);
 		lblFilePath.setAlignment(SWT.RIGHT);
@@ -261,8 +252,8 @@ public class Window
 		tableItems[1].setText(0, "Version");
 		tableItems[2].setText(0, "Name");		
 		tableItems[3].setText(0, "PID");
-		Menu menu = new Menu(shell, SWT.BAR);
-		shell.setMenuBar(menu);
+		Menu menu = new Menu(shlMaldive, SWT.BAR);
+		shlMaldive.setMenuBar(menu);
 		
 		MenuItem mntmFile = new MenuItem(menu, SWT.CASCADE);
 		mntmFile.setText("File");
@@ -275,7 +266,7 @@ public class Window
 		
 		mntmOpen.addListener(SWT.Selection, new Listener() {
             public void handleEvent(Event e) {
-            	selectFile = new SelectFile(shell.getLocation().x, shell.getLocation().y, btnProcess.getSelection());
+            	selectFile = new SelectFile(shlMaldive.getLocation().x, shlMaldive.getLocation().y, btnProcess.getSelection());
             	filePath = selectFile.getText();
             	try
 				{
@@ -388,7 +379,7 @@ public class Window
 		btnLaunch.setText("Launch");
 		btnLaunch.setEnabled(false);
 		
-		CTabFolder tabFolder = new CTabFolder(shell, SWT.BORDER);
+		CTabFolder tabFolder = new CTabFolder(shlMaldive, SWT.BORDER);
 		FormData fd_tabFolder = new FormData();
 		fd_tabFolder.right = new FormAttachment(100, -45);
 		fd_tabFolder.top = new FormAttachment(table, 30);
@@ -418,7 +409,7 @@ public class Window
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				CTabItem tbtmAdvanced = new CTabItem(tabFolder, SWT.CLOSE);
-				tbtmAdvanced.setText("Advanced");
+				tbtmAdvanced.setText("Files");
         		processId = Integer.parseInt(tableItems[3].getText(1));
         		FilesComposite filesComposite = new FilesComposite(tabFolder, SWT.NULL);
         		filesComposite.layout();
@@ -464,7 +455,7 @@ public class Window
             }
 		});
 		
-		shell.addListener (SWT.Resize,  new Listener () {
+		shlMaldive.addListener (SWT.Resize,  new Listener () {
 		    public void handleEvent (Event e) {
 		    	Control[] composites = tabFolder.getChildren();
 		    	for(int index = 0; index < composites.length; index++)
@@ -476,5 +467,3 @@ public class Window
 		  });
 	}
 }
-
-//TODO: Implement import and export by automatic logging

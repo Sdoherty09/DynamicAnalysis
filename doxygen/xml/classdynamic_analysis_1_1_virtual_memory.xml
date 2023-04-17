@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_virtual_memory" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::VirtualMemory</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_virtual_memory_1a1e0e0ac7976288c3345a0aa62f2d672b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.VirtualMemory.processId</definition>
+        <argsstring></argsstring>
+        <name>processId</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.processId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process id to read the virtual memory from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="15" column="13" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a9801d0dd7c7085c739b41f666de35eff" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.VirtualMemory.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="15" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a6379ca421ea9ea9bcfb5f8d811d87cff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>native byte[]</type>
+        <definition>native byte[] dynamicAnalysis.VirtualMemory.scanProcess</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>scanProcess</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.scanProcess</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scan the virtual memory of a process through JNI.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the process id to retrieve the virtual memory from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the byte array containing the virtual memory space </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="25" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a3719e8f9af36f631a6de589fee9bde5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.VirtualMemory.VirtualMemory</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>VirtualMemory</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.VirtualMemory</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new virtual memory with the process ID.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the process ID to retrieve the virtual memory space from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="32" column="8" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.VirtualMemory.getProcessId</definition>
+        <argsstring>()</argsstring>
+        <name>getProcessId</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.getProcessId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the unique identifier from the selected process.</para>
+<para><simplesect kind="return"><para>the unique identifier of the process </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="42" column="12" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.VirtualMemory.setProcessId</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>setProcessId</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.setProcessId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the unique identifier for the process.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new unique identifier for the selected process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="52" column="13" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a110d99d62a6fc04965cd5c01250eb874" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.VirtualMemory.readMemory</definition>
+        <argsstring>()</argsstring>
+        <name>readMemory</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.readMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the C++ function to read the virtual memory space, given a process ID.</para>
+<para><simplesect kind="return"><para>the full virtual memory space of the process </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="75" column="13" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="75" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_virtual_memory_1a21bdad29dbd4ba74e7fcd7a193b8b9c9" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String dynamicAnalysis.VirtualMemory.getFile</definition>
+        <argsstring>(String fileName)</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.VirtualMemory.getFile</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the full path of the file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the file path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/VirtualMemory.java" line="63" column="23" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="63" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Top level loader to call VirtualMemory.cpp through Java Native Interface. Retrieves the virtual memory from a given process ID. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/VirtualMemory.java" line="11" column="7" bodyfile="src/dynamicAnalysis/VirtualMemory.java" bodystart="12" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a9801d0dd7c7085c739b41f666de35eff" prot="package" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>[static initializer]</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a21bdad29dbd4ba74e7fcd7a193b8b9c9" prot="private" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a738d63ceaa1edc01140a909cf0c3ed35" prot="public" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>getProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a1e0e0ac7976288c3345a0aa62f2d672b" prot="private" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>processId</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a110d99d62a6fc04965cd5c01250eb874" prot="public" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>readMemory</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a6379ca421ea9ea9bcfb5f8d811d87cff" prot="private" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>scanProcess</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1aca62e9d8b24b43a3cc9d4542482dcea3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>setProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_virtual_memory_1a3719e8f9af36f631a6de589fee9bde5e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::VirtualMemory</scope><name>VirtualMemory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

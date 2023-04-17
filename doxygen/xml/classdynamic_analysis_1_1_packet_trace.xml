@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_packet_trace" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::PacketTrace</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1a2e7d500664626e5292c3fcdace3ba8d8" prot="private" static="no" mutable="no">
+        <type>List&lt; PcapNetworkInterface &gt;</type>
+        <definition>List&lt;PcapNetworkInterface&gt; dynamicAnalysis.PacketTrace.devices</definition>
+        <argsstring></argsstring>
+        <name>devices</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.devices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of network devices available in the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="34" column="14" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1aeda0464342ca5d216b466a5f8948d5ac" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; Multimap&lt; String, IpPacket &gt; &gt;</type>
+        <definition>ArrayList&lt;Multimap&lt;String, IpPacket&gt; &gt; dynamicAnalysis.PacketTrace.packets</definition>
+        <argsstring></argsstring>
+        <name>packets</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.packets</qualifiedname>
+        <initializer>= new ArrayList&lt;Multimap&lt;String, IpPacket&gt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An array list that contains Google Guava multimaps which map multiple packets to a single address. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="37" column="19" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1a3d98b08642a2a1200db979cccfc3e448" prot="private" static="no" mutable="no">
+        <type>Multimap&lt; String, String &gt;</type>
+        <definition>Multimap&lt;String, String&gt; dynamicAnalysis.PacketTrace.addressMap</definition>
+        <argsstring></argsstring>
+        <name>addressMap</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.addressMap</qualifiedname>
+        <initializer>= ArrayListMultimap.create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Google Guava multimap that maps multiple addresses to single network interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="40" column="18" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1ae487f3915f9ccde6a2503c3fda0a5232" prot="private" static="no" mutable="no">
+        <type>HashMap&lt; String, Integer &gt;</type>
+        <definition>HashMap&lt;String, Integer&gt; dynamicAnalysis.PacketTrace.interfaceMap</definition>
+        <argsstring></argsstring>
+        <name>interfaceMap</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.interfaceMap</qualifiedname>
+        <initializer>= new HashMap&lt;String, Integer&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The interface hashmap that maps network interfaces to an incrementing index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="43" column="17" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1a0cae8b41050fbeb1a6ed0e67581bf8b1" prot="private" static="no" mutable="no">
+        <type>HashMap&lt; String, String &gt;</type>
+        <definition>HashMap&lt;String, String&gt; dynamicAnalysis.PacketTrace.idMap</definition>
+        <argsstring></argsstring>
+        <name>idMap</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.idMap</qualifiedname>
+        <initializer>= new HashMap&lt;String, String&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The id hashmap that maps network&apos;s unique ID to readable description. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="46" column="17" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_packet_trace_1a62588adecfe8d2aea795f37e6a8b6482" prot="private" static="no" mutable="no">
+        <type>Thread</type>
+        <definition>Thread dynamicAnalysis.PacketTrace.listenerThread</definition>
+        <argsstring></argsstring>
+        <name>listenerThread</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.listenerThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A separate thread to listen for updates to the network. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="49" column="16" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_packet_trace_1aba0fc8e08dc76873ae0399d84db37c18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.PacketTrace.PacketTrace</definition>
+        <argsstring>()</argsstring>
+        <name>PacketTrace</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.PacketTrace</qualifiedname>
+        <exceptions> throws PcapNativeException 	</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new packet trace class.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>PcapNativeException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Pcap native exception </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="56" column="8" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="56" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_packet_trace_1a546db74809de18f0e2549e8d69311324" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>HashMap&lt; String, String &gt;</type>
+        <definition>HashMap&lt; String, String &gt; dynamicAnalysis.PacketTrace.getDevices</definition>
+        <argsstring>()</argsstring>
+        <name>getDevices</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.getDevices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the hashmap of active devices. Will only contain devices that have packet activity.</para>
+<para><simplesect kind="return"><para>the devices </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="100" column="16" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="100" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_packet_trace_1a91c966061903125b99e43b31e9fdc335" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.PacketTrace.getAddresses</definition>
+        <argsstring>(String deviceName)</argsstring>
+        <name>getAddresses</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.getAddresses</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>deviceName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the string array containing all addresses from a network device.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deviceName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the network device </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the addresses from the device </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="119" column="15" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="119" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_packet_trace_1a4ff9c2f039ca73693de73e12a2e0bfe1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; Multimap&lt; String, IpPacket &gt; &gt;</type>
+        <definition>ArrayList&lt; Multimap&lt; String, IpPacket &gt; &gt; dynamicAnalysis.PacketTrace.getPackets</definition>
+        <argsstring>()</argsstring>
+        <name>getPackets</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.getPackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all packets from all addresses.</para>
+<para><simplesect kind="return"><para>the full list of packets </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="129" column="18" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_packet_trace_1ad6404b6e82d72afe0ae4ce9764710cdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; IpPacket &gt;</type>
+        <definition>ArrayList&lt; IpPacket &gt; dynamicAnalysis.PacketTrace.getPackets</definition>
+        <argsstring>(String address, int attempts)</argsstring>
+        <name>getPackets</name>
+        <qualifiedname>dynamicAnalysis.PacketTrace.getPackets</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>attempts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the packets from a specific address. Has a timeout counter of 10 as it will be recursively called if there is a problem with concurrency.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address to retrieve packets from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attempts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the incrementing number of attempts to be recursively incremented </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the packets from the chosen address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/PacketTrace.java" line="141" column="18" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="141" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_packet_trace" kindref="compound">PacketTrace</ref>. Uses several maps to tie packets to addresses, and addresses to network interfaces. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/PacketTrace.java" line="30" column="7" bodyfile="src/dynamicAnalysis/PacketTrace.java" bodystart="31" bodyend="165"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a3d98b08642a2a1200db979cccfc3e448" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>addressMap</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a2e7d500664626e5292c3fcdace3ba8d8" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>devices</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a91c966061903125b99e43b31e9fdc335" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>getAddresses</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a546db74809de18f0e2549e8d69311324" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>getDevices</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a4ff9c2f039ca73693de73e12a2e0bfe1" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>getPackets</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1ad6404b6e82d72afe0ae4ce9764710cdb" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>getPackets</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a0cae8b41050fbeb1a6ed0e67581bf8b1" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>idMap</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1ae487f3915f9ccde6a2503c3fda0a5232" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>interfaceMap</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1a62588adecfe8d2aea795f37e6a8b6482" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>listenerThread</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1aeda0464342ca5d216b466a5f8948d5ac" prot="private" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>packets</name></member>
+      <member refid="classdynamic_analysis_1_1_packet_trace_1aba0fc8e08dc76873ae0399d84db37c18" prot="public" virt="non-virtual"><scope>dynamicAnalysis::PacketTrace</scope><name>PacketTrace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

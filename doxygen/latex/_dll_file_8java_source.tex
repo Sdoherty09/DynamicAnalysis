@@ -1,0 +1,53 @@
+\hypertarget{_dll_file_8java_source}{}\doxysection{Dll\+File.\+java}
+\label{_dll_file_8java_source}\index{src/dynamicAnalysis/DllFile.java@{src/dynamicAnalysis/DllFile.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00006}00006 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00011}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file}{00011}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file}{DllFile}}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00013}00013     }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00015}00015     \textcolor{keyword}{private} String path;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00016}00016     }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00018}00018     \textcolor{keyword}{private} File file;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00025}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a6c59cd80db4f535b25c7cfbdaadc5d1a}{00025}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a6c59cd80db4f535b25c7cfbdaadc5d1a}{DllFile}}(String path)}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00026}00026     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00027}00027         \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a6e9f4602493b732c620599ee4d08a5cd}{setPath}}(path);}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00028}00028         file = createFile();}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00036}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_aa843b64fd2becd010848ed1bb1f1f904}{00036}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_aa843b64fd2becd010848ed1bb1f1f904}{getPath}}()}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00037}00037     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00038}00038         \textcolor{keywordflow}{return} path;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00046}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a6e9f4602493b732c620599ee4d08a5cd}{00046}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a6e9f4602493b732c620599ee4d08a5cd}{setPath}}(String path)}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00047}00047     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00048}00048         this.path = path;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00050}00050     }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00056}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a5d04e55600c1d862a65621fd7254cc61}{00056}}     \textcolor{keyword}{public} File \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a5d04e55600c1d862a65621fd7254cc61}{getFile}}()}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00057}00057     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00058}00058         \textcolor{keywordflow}{return} file;}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00066}00066     \textcolor{keyword}{private} File createFile()}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00067}00067     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00068}00068         \textcolor{keywordflow}{return} \textcolor{keyword}{new} File(\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_aa843b64fd2becd010848ed1bb1f1f904}{getPath}}());}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00076}00076     @Override}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00077}\mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a1c3b4db3977456b92eb28d20288f609b}{00077}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_dll_file_a1c3b4db3977456b92eb28d20288f609b}{toString}}()}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00078}00078     \{}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00079}00079         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DllFile [path="{}} + path + \textcolor{stringliteral}{"{}, file="{}} + file + \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00080}00080     \}}
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00081}00081     }
+\DoxyCodeLine{\Hypertarget{_dll_file_8java_source_l00082}00082 \}}
+
+\end{DoxyCode}

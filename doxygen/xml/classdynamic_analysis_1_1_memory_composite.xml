@@ -1,0 +1,645 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_memory_composite" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::MemoryComposite</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Composite</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1adf9b57280da89ab2510970ff3349fcd9" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.MemoryComposite.memoryField</definition>
+        <argsstring></argsstring>
+        <name>memoryField</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.memoryField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The GUI text field containing the raw memory space. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="46" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1ac176f6e56b0126799e46395216e333cd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryComposite.processId</definition>
+        <argsstring></argsstring>
+        <name>processId</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.processId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The unique identifier for the process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="49" column="13" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a82f280c9da0fc380fa3ec74e5cf2be32" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.MemoryComposite.bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The bytes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="52" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a7e5ff4f4a98bd455b5ace493d00e7254" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.MemoryComposite.asciiTable</definition>
+        <argsstring></argsstring>
+        <name>asciiTable</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.asciiTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The virtual table to display ASCII strings contained within the virtual memory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="55" column="15" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a593fa2a12f07c298f182f3a91f461593" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.MemoryComposite.searchText</definition>
+        <argsstring></argsstring>
+        <name>searchText</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.searchText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The text field to input search values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="58" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1abaab45f64c67f1637f90c7f16a69ce24" prot="private" static="no" mutable="no">
+        <type>TableItem[]</type>
+        <definition>TableItem [] dynamicAnalysis.MemoryComposite.tableStore</definition>
+        <argsstring></argsstring>
+        <name>tableStore</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.tableStore</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A temporary location to store the table when a search is performed. It is used while the contents are removed from the GUI. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="61" column="19" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a03b6527ccf2def0e22d95066e74703c6" prot="private" static="no" mutable="no">
+        <type>TableItem[]</type>
+        <definition>TableItem [] dynamicAnalysis.MemoryComposite.tableItems</definition>
+        <argsstring></argsstring>
+        <name>tableItems</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.tableItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="64" column="19" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a4c262afd5a53c0fbeeb96f0d297b5d56" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] dynamicAnalysis.MemoryComposite.asciiSections</definition>
+        <argsstring></argsstring>
+        <name>asciiSections</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.asciiSections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The array of ASCII sections found in the virtual memory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="67" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a1fd3653d44f624bf0ad7a5b1bb1cad48" prot="private" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color dynamicAnalysis.MemoryComposite.red</definition>
+        <argsstring></argsstring>
+        <name>red</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.red</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>SWT color for highlighting the table red. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="70" column="15" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1ae6491bfb05c93cfb823230c9ccff6335" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.MemoryComposite.memory</definition>
+        <argsstring></argsstring>
+        <name>memory</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.memory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The string value containing the virtual memory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="73" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_memory_composite_1a85a886d5df0ce93c0aeaa2c1cd586a7e" prot="private" static="no" mutable="no">
+        <type>final int</type>
+        <definition>final int dynamicAnalysis.MemoryComposite.memoryCount</definition>
+        <argsstring></argsstring>
+        <name>memoryCount</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.memoryCount</qualifiedname>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the amount of characters to display in the memory text field. Used to increase performance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="76" column="19" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1ab13f8ba3a366b71bd5d591299b2598da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.MemoryComposite.MemoryComposite</definition>
+        <argsstring>(Composite parent, int style, Color green)</argsstring>
+        <name>MemoryComposite</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.MemoryComposite</qualifiedname>
+        <param>
+          <type>Composite</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>style</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>green</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the memory composite.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the main window that acts as the parent </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>style</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the SWT style applied to the composite </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>green</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the SWT color green </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="85" column="8" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="85" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a4adf0f432bf19a51d2e0fc1e596ed61f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.MemoryComposite.getProcessId</definition>
+        <argsstring>()</argsstring>
+        <name>getProcessId</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.getProcessId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the process id.</para>
+<para><simplesect kind="return"><para>the process id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="197" column="12" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="197" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a6b433938c031d316ef23ecd6d8f468b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryComposite.setProcessId</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>setProcessId</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.setProcessId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the process id.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new process id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="207" column="13" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="207" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1af0de4fd6490ed84449a858aced83231e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.MemoryComposite.getBytes</definition>
+        <argsstring>()</argsstring>
+        <name>getBytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.getBytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the virtual memory space.</para>
+<para><simplesect kind="return"><para>the virtual memory space byte array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="229" column="13" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="229" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a88b9c788e0ef538e83fd555b77d6379e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryComposite.setBytes</definition>
+        <argsstring>(byte[] bytes)</argsstring>
+        <name>setBytes</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.setBytes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the virtual memory space.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new virtual memory space. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="239" column="13" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="239" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1aaedde05e7afbba43bf9cd1c99423a1c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Color</type>
+        <definition>Color dynamicAnalysis.MemoryComposite.getRed</definition>
+        <argsstring>()</argsstring>
+        <name>getRed</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.getRed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the SWT color red.</para>
+<para><simplesect kind="return"><para>the SWT color red </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="249" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="249" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a9707e85ff27dff9557b5d664da3738f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryComposite.setRed</definition>
+        <argsstring>(Color red)</argsstring>
+        <name>setRed</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.setRed</qualifiedname>
+        <param>
+          <type>Color</type>
+          <declname>red</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the SWT color red.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>red</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new SWT color red </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="258" column="13" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="258" bodyend="260"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1ae62fc8d3d4ca660939fe2a062e35ad64" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.MemoryComposite.readMemory</definition>
+        <argsstring>()</argsstring>
+        <name>readMemory</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.readMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the method to retrieve the virtual memory space of an application from its process ID.</para>
+<para><simplesect kind="return"><para>the byte array containing the entire virtual memory space </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="217" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="217" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a43eeca191dc952a3b1e3c4fc92e64d03" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.MemoryComposite.updateMemory</definition>
+        <argsstring>()</argsstring>
+        <name>updateMemory</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.updateMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve the memory text field with the current values stored within.</para>
+<para><simplesect kind="return"><para>the updated memory space </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="267" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="267" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1ab2ecf35d0b17e6c99d81da3f0b84a368" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.MemoryComposite.findAsciiSections</definition>
+        <argsstring>()</argsstring>
+        <name>findAsciiSections</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.findAsciiSections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Looks through the virtual memory space for sections containing ASCII values. The threshhold is at least 8 readable characters in a row. The complexity of this algorithm is O(N).</para>
+<para><simplesect kind="return"><para>the string array containing sections of readable data from the virtual memory space </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="303" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="303" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a4da48ae2865e5816785bef6b951f0b04" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.MemoryComposite.isAscii</definition>
+        <argsstring>(char character)</argsstring>
+        <name>isAscii</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.isAscii</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a character is ASCII.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>character</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true, if the given character is considered ASCII </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="338" column="17" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="338" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1ab4ff4c2fdb418f4c748ba0fe4b8189fd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.MemoryComposite.search</definition>
+        <argsstring>(String[] entries, String toSearch)</argsstring>
+        <name>search</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.search</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>entries</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>toSearch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The search algorithm that filters the readable data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ASCII string array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toSearch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to search for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the filtered ASCII string array that match the search </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="350" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="350" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a7f6c6453ff780c0ed2e0c506fb1dbfd8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryComposite.searchEvent</definition>
+        <argsstring>()</argsstring>
+        <name>searchEvent</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.searchEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When a search request is supplied by the GUI, this method gets called first. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="385" column="14" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="385" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a91666fd40aabf39b4b7679f9fa06a3f5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.MemoryComposite.populateMemory</definition>
+        <argsstring>(Text text, int memoryIndex, String tableText)</argsstring>
+        <name>populateMemory</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.populateMemory</qualifiedname>
+        <param>
+          <type>Text</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>memoryIndex</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>tableText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Populate the memory text space. Split from main process to increase performance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the GUI text field for the memory </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memoryIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the memory index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tableText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the table text </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the new memory </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="420" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="420" bodyend="442"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_memory_composite_1a97dfbf84dede30cdcd4d7ccefd00b437" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.MemoryComposite.checkSubclass</definition>
+        <argsstring>()</argsstring>
+        <name>checkSubclass</name>
+        <qualifiedname>dynamicAnalysis.MemoryComposite.checkSubclass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check subclass. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/MemoryComposite.java" line="448" column="16" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="448" bodyend="451"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The composite to display the virtual memory in the GUI </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dynamicAnalysis.MemoryComposite</label>
+        <link refid="classdynamic_analysis_1_1_memory_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.MemoryComposite</label>
+        <link refid="classdynamic_analysis_1_1_memory_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/MemoryComposite.java" line="42" column="7" bodyfile="src/dynamicAnalysis/MemoryComposite.java" bodystart="43" bodyend="452"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a4c262afd5a53c0fbeeb96f0d297b5d56" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>asciiSections</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a7e5ff4f4a98bd455b5ace493d00e7254" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>asciiTable</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a82f280c9da0fc380fa3ec74e5cf2be32" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>bytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a97dfbf84dede30cdcd4d7ccefd00b437" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>checkSubclass</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ab2ecf35d0b17e6c99d81da3f0b84a368" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>findAsciiSections</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1af0de4fd6490ed84449a858aced83231e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>getBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a4adf0f432bf19a51d2e0fc1e596ed61f" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>getProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1aaedde05e7afbba43bf9cd1c99423a1c0" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>getRed</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a4da48ae2865e5816785bef6b951f0b04" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>isAscii</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ae6491bfb05c93cfb823230c9ccff6335" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>memory</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ab13f8ba3a366b71bd5d591299b2598da" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>MemoryComposite</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a85a886d5df0ce93c0aeaa2c1cd586a7e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>memoryCount</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1adf9b57280da89ab2510970ff3349fcd9" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>memoryField</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a91666fd40aabf39b4b7679f9fa06a3f5" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>populateMemory</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ac176f6e56b0126799e46395216e333cd" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>processId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ae62fc8d3d4ca660939fe2a062e35ad64" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>readMemory</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a1fd3653d44f624bf0ad7a5b1bb1cad48" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>red</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1ab4ff4c2fdb418f4c748ba0fe4b8189fd" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>search</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a7f6c6453ff780c0ed2e0c506fb1dbfd8" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>searchEvent</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a593fa2a12f07c298f182f3a91f461593" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>searchText</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a88b9c788e0ef538e83fd555b77d6379e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>setBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a6b433938c031d316ef23ecd6d8f468b8" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>setProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a9707e85ff27dff9557b5d664da3738f1" prot="public" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>setRed</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a03b6527ccf2def0e22d95066e74703c6" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>tableItems</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1abaab45f64c67f1637f90c7f16a69ce24" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>tableStore</name></member>
+      <member refid="classdynamic_analysis_1_1_memory_composite_1a43eeca191dc952a3b1e3c4fc92e64d03" prot="private" virt="non-virtual"><scope>dynamicAnalysis::MemoryComposite</scope><name>updateMemory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

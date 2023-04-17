@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_network_stats" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::NetworkStats</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_network_stats_1a9bdc4f2aac4035cd3ec7f0c1b50e257e" prot="private" static="no" mutable="no">
+        <type><ref refid="classdynamic_analysis_1_1_active_connection" kindref="compound">ActiveConnection</ref>[]</type>
+        <definition>ActiveConnection [] dynamicAnalysis.NetworkStats.activeConnections</definition>
+        <argsstring></argsstring>
+        <name>activeConnections</name>
+        <qualifiedname>dynamicAnalysis.NetworkStats.activeConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the active connections. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/NetworkStats.java" line="15" column="26" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_network_stats_1ad121e97e2ff2b9063003a98715919a2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.NetworkStats.NetworkStats</definition>
+        <argsstring>()</argsstring>
+        <name>NetworkStats</name>
+        <qualifiedname>dynamicAnalysis.NetworkStats.NetworkStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new network stats method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/NetworkStats.java" line="20" column="8" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="20" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_network_stats_1acdc779ac12c3516400380fc8d2d38839" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdynamic_analysis_1_1_active_connection" kindref="compound">ActiveConnection</ref>[]</type>
+        <definition>ActiveConnection[] dynamicAnalysis.NetworkStats.getActiveConnections</definition>
+        <argsstring>()</argsstring>
+        <name>getActiveConnections</name>
+        <qualifiedname>dynamicAnalysis.NetworkStats.getActiveConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the active connections.</para>
+<para><simplesect kind="return"><para>the active connections </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/NetworkStats.java" line="86" column="25" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_network_stats_1a3f9f1fab7bcdcbf8ee53f40b611dafc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.NetworkStats.setActiveConnections</definition>
+        <argsstring>(ActiveConnection[] activeConnections)</argsstring>
+        <name>setActiveConnections</name>
+        <qualifiedname>dynamicAnalysis.NetworkStats.setActiveConnections</qualifiedname>
+        <param>
+          <type><ref refid="classdynamic_analysis_1_1_active_connection" kindref="compound">ActiveConnection</ref>[]</type>
+          <declname>activeConnections</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the active connections.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>activeConnections</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new active connections </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/NetworkStats.java" line="96" column="13" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_network_stats_1a2cd18f83f26efb2897569a882c4a2719" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.NetworkStats.spaceBreak</definition>
+        <argsstring>(String stats)</argsstring>
+        <name>spaceBreak</name>
+        <qualifiedname>dynamicAnalysis.NetworkStats.spaceBreak</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>stats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Aids in formatting the resulting network traffic by skipping all spaces between characters.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the remaining network statistics </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a substring without the leading spaces </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/NetworkStats.java" line="74" column="16" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="74" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Retrieves statistics from the network </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/NetworkStats.java" line="11" column="7" bodyfile="src/dynamicAnalysis/NetworkStats.java" bodystart="12" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_network_stats_1a9bdc4f2aac4035cd3ec7f0c1b50e257e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::NetworkStats</scope><name>activeConnections</name></member>
+      <member refid="classdynamic_analysis_1_1_network_stats_1acdc779ac12c3516400380fc8d2d38839" prot="public" virt="non-virtual"><scope>dynamicAnalysis::NetworkStats</scope><name>getActiveConnections</name></member>
+      <member refid="classdynamic_analysis_1_1_network_stats_1ad121e97e2ff2b9063003a98715919a2c" prot="public" virt="non-virtual"><scope>dynamicAnalysis::NetworkStats</scope><name>NetworkStats</name></member>
+      <member refid="classdynamic_analysis_1_1_network_stats_1a3f9f1fab7bcdcbf8ee53f40b611dafc3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::NetworkStats</scope><name>setActiveConnections</name></member>
+      <member refid="classdynamic_analysis_1_1_network_stats_1a2cd18f83f26efb2897569a882c4a2719" prot="private" virt="non-virtual"><scope>dynamicAnalysis::NetworkStats</scope><name>spaceBreak</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

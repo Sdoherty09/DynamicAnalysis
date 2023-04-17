@@ -1,0 +1,262 @@
+\hypertarget{classdynamic_analysis_1_1_read_write}{}\doxysection{dynamic\+Analysis.\+Read\+Write Class Reference}
+\label{classdynamic_analysis_1_1_read_write}\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a01123a9927e38d1b4d9f0b5f6c7ecbec}{write}} (String word, String file)
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_ac656ac717c6e8237ad0685b30ec9b862}{write\+Line}} (String word, String file)
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a497a435c15451bb5f715dd19d4c90544}{delete}} (String file)
+\item 
+static int \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a30e7c441a11f59cdf7dbaf7b7ba933c7}{get\+Length}} (String file)
+\item 
+static String \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a4825e9af5d67a32b58daf246583e4d44}{get\+Line}} (int number, String file)
+\item 
+static int \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a1f644c7deacc1917b62ca9def959cd54}{index\+Of}} (String word, String file)
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_aa65342a787f2d47a7c3d77af30453bba}{replace}} (String old\+Word, String new\+Word, String file)
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_acf2baf7df5d40f6710359d8e49a9c076}{replace}} (int index, String new\+Word, String file)
+\item 
+static boolean \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_ac31a5457c6fbb347f78b88993685594d}{is\+Ready}} (String file)
+\item 
+static void \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_aa3363db9e7d5261836e73224da323c0d}{delete\+Line}} (int index, String file)
+\item 
+static String \mbox{\hyperlink{classdynamic_analysis_1_1_read_write_a47cc13f146f464533f9ea8f3500afeae}{to\+String}} (String file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper class for reading and writing to a text file. 
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00010}{10}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a497a435c15451bb5f715dd19d4c90544}\label{classdynamic_analysis_1_1_read_write_a497a435c15451bb5f715dd19d4c90544}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!delete@{delete}}
+\index{delete@{delete}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+delete (\begin{DoxyParamCaption}\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the text file to write to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00065}{65}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_aa3363db9e7d5261836e73224da323c0d}\label{classdynamic_analysis_1_1_read_write_aa3363db9e7d5261836e73224da323c0d}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!deleteLine@{deleteLine}}
+\index{deleteLine@{deleteLine}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{deleteLine()}{deleteLine()}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+delete\+Line (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete line at the specified index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index to delete the line at \\
+\hline
+{\em file} & the text file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00316}{316}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a30e7c441a11f59cdf7dbaf7b7ba933c7}\label{classdynamic_analysis_1_1_read_write_a30e7c441a11f59cdf7dbaf7b7ba933c7}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!getLength@{getLength}}
+\index{getLength@{getLength}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily static int dynamic\+Analysis.\+Read\+Write.\+get\+Length (\begin{DoxyParamCaption}\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the length.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the text file to write to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of lines in the file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00076}{76}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a4825e9af5d67a32b58daf246583e4d44}\label{classdynamic_analysis_1_1_read_write_a4825e9af5d67a32b58daf246583e4d44}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!getLine@{getLine}}
+\index{getLine@{getLine}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily static String dynamic\+Analysis.\+Read\+Write.\+get\+Line (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the line at the specified index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & the index to retrieve \\
+\hline
+{\em file} & the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the line at the specified index 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00113}{113}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a1f644c7deacc1917b62ca9def959cd54}\label{classdynamic_analysis_1_1_read_write_a1f644c7deacc1917b62ca9def959cd54}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!indexOf@{indexOf}}
+\index{indexOf@{indexOf}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{indexOf()}{indexOf()}}
+{\footnotesize\ttfamily static int dynamic\+Analysis.\+Read\+Write.\+index\+Of (\begin{DoxyParamCaption}\item[{String}]{word,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+First index that the specified string is found at. Returns -\/1 if it is not found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & the string to be searched in the text file \\
+\hline
+{\em file} & the text file to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index that the string is located in the text file, -\/1 if it is not found 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00150}{150}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_ac31a5457c6fbb347f78b88993685594d}\label{classdynamic_analysis_1_1_read_write_ac31a5457c6fbb347f78b88993685594d}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!isReady@{isReady}}
+\index{isReady@{isReady}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{isReady()}{isReady()}}
+{\footnotesize\ttfamily static boolean dynamic\+Analysis.\+Read\+Write.\+is\+Ready (\begin{DoxyParamCaption}\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks if the text file is ready to be written and read from.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the text file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if is ready to be read and wrote to 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00293}{293}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_acf2baf7df5d40f6710359d8e49a9c076}\label{classdynamic_analysis_1_1_read_write_acf2baf7df5d40f6710359d8e49a9c076}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!replace@{replace}}
+\index{replace@{replace}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+replace (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{String}]{new\+Word,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Replace the line at the specified index with a new line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index to be replaces \\
+\hline
+{\em new\+Word} & the new word to replace at the index \\
+\hline
+{\em file} & the text file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00240}{240}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_aa65342a787f2d47a7c3d77af30453bba}\label{classdynamic_analysis_1_1_read_write_aa65342a787f2d47a7c3d77af30453bba}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!replace@{replace}}
+\index{replace@{replace}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+replace (\begin{DoxyParamCaption}\item[{String}]{old\+Word,  }\item[{String}]{new\+Word,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Replace the first occurence of a line with another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em old\+Word} & the line to be replaces \\
+\hline
+{\em new\+Word} & the new line to replace the first occurence of old\+Word \\
+\hline
+{\em file} & the text file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00189}{189}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a47cc13f146f464533f9ea8f3500afeae}\label{classdynamic_analysis_1_1_read_write_a47cc13f146f464533f9ea8f3500afeae}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!toString@{toString}}
+\index{toString@{toString}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily static String dynamic\+Analysis.\+Read\+Write.\+to\+String (\begin{DoxyParamCaption}\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads the entire text file and returns as a string
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the text file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the entire contents of the text file 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00366}{366}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_a01123a9927e38d1b4d9f0b5f6c7ecbec}\label{classdynamic_analysis_1_1_read_write_a01123a9927e38d1b4d9f0b5f6c7ecbec}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!write@{write}}
+\index{write@{write}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+write (\begin{DoxyParamCaption}\item[{String}]{word,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Write to a file. Clears existing lines in the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & the string to be written to the text file \\
+\hline
+{\em file} & the text file to write to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00019}{19}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_read_write_ac656ac717c6e8237ad0685b30ec9b862}\label{classdynamic_analysis_1_1_read_write_ac656ac717c6e8237ad0685b30ec9b862}} 
+\index{dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}!writeLine@{writeLine}}
+\index{writeLine@{writeLine}!dynamicAnalysis.ReadWrite@{dynamicAnalysis.ReadWrite}}
+\doxysubsubsection{\texorpdfstring{writeLine()}{writeLine()}}
+{\footnotesize\ttfamily static void dynamic\+Analysis.\+Read\+Write.\+write\+Line (\begin{DoxyParamCaption}\item[{String}]{word,  }\item[{String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Write to a file. Keeps existing lines in the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & the string to be written to the text file \\
+\hline
+{\em file} & the text file to write to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_read_write_8java_source_l00046}{46}} of file \mbox{\hyperlink{_read_write_8java_source}{Read\+Write.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/Read\+Write.\+java\end{DoxyCompactItemize}

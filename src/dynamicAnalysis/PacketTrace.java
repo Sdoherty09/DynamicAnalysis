@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.pcap4j.core.BpfProgram;
 import org.pcap4j.core.NotOpenException;
@@ -22,36 +21,34 @@ import org.pcap4j.packet.Packet;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
-import scala.collection.mutable.MultiMap;
-
 /**
- * The Class PacketTrace.
+ * The Class PacketTrace. Uses several maps to tie packets to addresses, and addresses to network interfaces.
  */
 public class PacketTrace
 {
 	
-	/** The devices. */
+	/** The list of network devices available in the device. */
 	private List<PcapNetworkInterface> devices;
 	
-	/** The packets. */
-	private ArrayList<Multimap<String, IpPacket>> packets = new ArrayList<Multimap<String, IpPacket>>(); // Maps multiple packets to single address
+	/** An array list that contains Google Guava multimaps which map multiple packets to a single address. */
+	private ArrayList<Multimap<String, IpPacket>> packets = new ArrayList<Multimap<String, IpPacket>>();
 	
-	/** The address map. */
-	private Multimap<String, String> addressMap = ArrayListMultimap.create(); // Maps multiple addresses to single network interface
+	/** The Google Guava multimap that maps multiple addresses to single network interface. */
+	private Multimap<String, String> addressMap = ArrayListMultimap.create();
 	
-	/** The interface map. */
-	private HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>(); // Maps network interface to incrementing index
+	/** The interface hashmap that maps network interfaces to an incrementing index. */
+	private HashMap<String, Integer> interfaceMap = new HashMap<String, Integer>();
 	
-	/** The id map. */
-	private HashMap<String, String> idMap = new HashMap<String, String>(); // Maps network's unique ID to readable description
+	/** The id hashmap that maps network's unique ID to readable description. */
+	private HashMap<String, String> idMap = new HashMap<String, String>();
 	
-	/** The listener thread. */
+	/** A separate thread to listen for updates to the network. */
 	private Thread listenerThread;
 	
 	/**
-	 * Instantiates a new packet trace.
+	 * Instantiates a new packet trace class.
 	 *
-	 * @throws PcapNativeException the pcap native exception
+	 * @throws PcapNativeException the Pcap native exception
 	 */
 	public PacketTrace() throws PcapNativeException
 	{
@@ -93,7 +90,7 @@ public class PacketTrace
 	}
 	
 	/**
-	 * Gets the devices.
+	 * Gets the hashmap of active devices. Will only contain devices that have packet activity.
 	 *
 	 * @return the devices
 	 */
@@ -111,10 +108,10 @@ public class PacketTrace
 	}
 	
 	/**
-	 * Gets the addresses.
+	 * Gets the string array containing all addresses from a network device.
 	 *
-	 * @param deviceName the device name
-	 * @return the addresses
+	 * @param deviceName the name of the network device
+	 * @return the addresses from the device
 	 */
 	public String[] getAddresses(String deviceName)
 	{
@@ -122,9 +119,9 @@ public class PacketTrace
 	}
 	
 	/**
-	 * Gets the packets.
+	 * Gets all packets from all addresses.
 	 *
-	 * @return the packets
+	 * @return the full list of packets
 	 */
 	public ArrayList<Multimap<String, IpPacket>> getPackets()
 	{
@@ -132,14 +129,15 @@ public class PacketTrace
 	}
 	
 	/**
-	 * Gets the packets.
+	 * Gets the packets from a specific address. Has a timeout counter of 10 as it will be recursively called if there is a problem with concurrency.
 	 *
-	 * @param address the address
-	 * @param attempts the attempts
-	 * @return the packets
+	 * @param address the address to retrieve packets from
+	 * @param attempts the incrementing number of attempts to be recursively incremented
+	 * @return the packets from the chosen address
 	 */
 	public ArrayList<IpPacket> getPackets(String address, int attempts)
 	{
+		final int TIMEOUTCOUNTER = 10;
 		ArrayList<IpPacket> packetList = new ArrayList<IpPacket>();
 		Collection<IpPacket> packetCollection;
 		for(int index = 0;index < packets.size();index++)
@@ -153,7 +151,7 @@ public class PacketTrace
 				}
 			} catch (ConcurrentModificationException e)
 			{
-				if(attempts > 10) return null;
+				if(attempts > TIMEOUTCOUNTER) return null;
 				else return getPackets(address, attempts+1);
 			}
 			

@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_window" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::Window</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a28309a4f7890844a821811295c6a08aa" prot="protected" static="no" mutable="no">
+        <type>Shell</type>
+        <definition>Shell dynamicAnalysis.Window.shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>dynamicAnalysis.Window.shell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The window&apos;s SWT shell. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="53" column="17" bodyfile="src/dynamicAnalysis/Window.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a0f20dcff13aaf5c4f4b3eb68dcd90588" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label dynamicAnalysis.Window.text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>dynamicAnalysis.Window.text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The text field for either a file path or a process ID. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="56" column="15" bodyfile="src/dynamicAnalysis/Window.java" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a0d69a6b895d6530929b033983080a1cf" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.Window.table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>dynamicAnalysis.Window.table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table to display information about a process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="59" column="15" bodyfile="src/dynamicAnalysis/Window.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1aba79bd7d994775183a19ca6eb89e7d8e" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.Window.filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>dynamicAnalysis.Window.filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="62" column="16" bodyfile="src/dynamicAnalysis/Window.java" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a9329e320ab36e31d84a314c1bd4c3071" prot="private" static="no" mutable="no">
+        <type><ref refid="classdynamic_analysis_1_1_select_file" kindref="compound">SelectFile</ref></type>
+        <definition>SelectFile dynamicAnalysis.Window.selectFile</definition>
+        <argsstring></argsstring>
+        <name>selectFile</name>
+        <qualifiedname>dynamicAnalysis.Window.selectFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The select file window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="65" column="20" bodyfile="src/dynamicAnalysis/Window.java" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a3fa395bed11496598105d2c2813d8a30" prot="private" static="no" mutable="no">
+        <type>Display</type>
+        <definition>Display dynamicAnalysis.Window.display</definition>
+        <argsstring></argsstring>
+        <name>display</name>
+        <qualifiedname>dynamicAnalysis.Window.display</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The SWT display. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="71" column="17" bodyfile="src/dynamicAnalysis/Window.java" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1a353a219b6f12a961a5c60986adc0467a" prot="private" static="no" mutable="no">
+        <type><ref refid="classdynamic_analysis_1_1_process_manager" kindref="compound">ProcessManager</ref></type>
+        <definition>ProcessManager dynamicAnalysis.Window.process</definition>
+        <argsstring></argsstring>
+        <name>process</name>
+        <qualifiedname>dynamicAnalysis.Window.process</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process manager for processes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="74" column="24" bodyfile="src/dynamicAnalysis/Window.java" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_window_1aaac1f2fb6cb29eff3c39ef2f40ce5731" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.Window.processId</definition>
+        <argsstring></argsstring>
+        <name>processId</name>
+        <qualifiedname>dynamicAnalysis.Window.processId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process id. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="68" column="19" bodyfile="src/dynamicAnalysis/Window.java" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_window_1a50034aaf908c40b0ee2ac0f1f9449958" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void dynamicAnalysis.Window.main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <qualifiedname>dynamicAnalysis.Window.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Launch the application.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="81" column="20" bodyfile="src/dynamicAnalysis/Window.java" bodystart="81" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_window_1a7c8e384950e6275af5a2e1b33d8c7c45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.Window.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <qualifiedname>dynamicAnalysis.Window.open</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="98" column="13" bodyfile="src/dynamicAnalysis/Window.java" bodystart="98" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_window_1aa2e2a3f63a9caf60d7c10ab703b2343a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.Window.errorAlert</definition>
+        <argsstring>(String message)</argsstring>
+        <name>errorAlert</name>
+        <qualifiedname>dynamicAnalysis.Window.errorAlert</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error alert.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="119" column="14" bodyfile="src/dynamicAnalysis/Window.java" bodystart="119" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_window_1a880ec9cf505a0721ee77dd45893b5a88" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.Window.createContents</definition>
+        <argsstring>()</argsstring>
+        <name>createContents</name>
+        <qualifiedname>dynamicAnalysis.Window.createContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create contents of the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/Window.java" line="130" column="16" bodyfile="src/dynamicAnalysis/Window.java" bodystart="130" bodyend="477"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The main window that is loaded when the program is first run. Contains most functionality. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.Window</label>
+        <link refid="classdynamic_analysis_1_1_window"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shell</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shell</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/Window.java" line="49" column="7" bodyfile="src/dynamicAnalysis/Window.java" bodystart="50" bodyend="478"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_window_1a880ec9cf505a0721ee77dd45893b5a88" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>createContents</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a3fa395bed11496598105d2c2813d8a30" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>display</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1aa2e2a3f63a9caf60d7c10ab703b2343a" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>errorAlert</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1aba79bd7d994775183a19ca6eb89e7d8e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>filePath</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a50034aaf908c40b0ee2ac0f1f9449958" prot="public" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>main</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a7c8e384950e6275af5a2e1b33d8c7c45" prot="public" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>open</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a353a219b6f12a961a5c60986adc0467a" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>process</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1aaac1f2fb6cb29eff3c39ef2f40ce5731" prot="public" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>processId</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a9329e320ab36e31d84a314c1bd4c3071" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>selectFile</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a28309a4f7890844a821811295c6a08aa" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>shell</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a0d69a6b895d6530929b033983080a1cf" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>table</name></member>
+      <member refid="classdynamic_analysis_1_1_window_1a0f20dcff13aaf5c4f4b3eb68dcd90588" prot="private" virt="non-virtual"><scope>dynamicAnalysis::Window</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

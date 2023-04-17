@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_execute_code" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::ExecuteCode</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_execute_code_1a9c3cc246da6938dad2cf5d29097bcb59" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.ExecuteCode.codes</definition>
+        <argsstring></argsstring>
+        <name>codes</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.codes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The registry byte values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="15" column="14" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_execute_code_1ab71e6cf72e24cda1c0e253a667fb6587" prot="private" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte dynamicAnalysis.ExecuteCode.code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The registry byte value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="18" column="14" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_execute_code_1a6098a742eb958a593e6af6ede8e9e8b1" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.ExecuteCode.isArr</definition>
+        <argsstring></argsstring>
+        <name>isArr</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.isArr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The check for if an array is supplied to a method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="21" column="17" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_execute_code_1af7d6bd61839f53786653f0e1d88d17a5" prot="private" static="no" mutable="no">
+        <type>File</type>
+        <definition>File dynamicAnalysis.ExecuteCode.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file to be accessed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="24" column="14" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1a9ab3c9d79ce73603016f41705751efec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>native void</type>
+        <definition>native void dynamicAnalysis.ExecuteCode.executeInstruction</definition>
+        <argsstring>(byte code)</argsstring>
+        <name>executeInstruction</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.executeInstruction</qualifiedname>
+        <param>
+          <type>byte</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>JNI implementation for executing the instructions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the registry byte </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="31" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ab2dbb503af5ff5e89c9b898edb5de764" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>native int[]</type>
+        <definition>native int[] dynamicAnalysis.ExecuteCode.readRegisters</definition>
+        <argsstring>()</argsstring>
+        <name>readRegisters</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.readRegisters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load the JNI method to read a file.</para>
+<para><simplesect kind="return"><para>registry integer array, containing four values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="38" column="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1aecea3840cd26b790eb7f1dfb906b3e7b" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.ExecuteCode.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="38" column="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1a556dd9aac5f2d8d39211a38036b7dd2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.ExecuteCode.ExecuteCode</definition>
+        <argsstring>(byte[] codes, File file)</argsstring>
+        <name>ExecuteCode</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.ExecuteCode</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>codes</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates the <ref refid="classdynamic_analysis_1_1_execute_code" kindref="compound">ExecuteCode</ref> method with an array</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte array of registry values </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to be accessed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="48" column="8" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="48" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1aaf0db9583e30ef992f831bbbc3699b72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.ExecuteCode.ExecuteCode</definition>
+        <argsstring>(byte code, File file)</argsstring>
+        <name>ExecuteCode</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.ExecuteCode</qualifiedname>
+        <param>
+          <type>byte</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates the <ref refid="classdynamic_analysis_1_1_execute_code" kindref="compound">ExecuteCode</ref> method with single instruction</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte containing a registry value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to be accessed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="60" column="8" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ac69a8358fcbb9805c64033df3b1b615f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File dynamicAnalysis.ExecuteCode.getFile</definition>
+        <argsstring>()</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.getFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the file.</para>
+<para><simplesect kind="return"><para>the file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="71" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ae010879463c73bb80e1b3aae13034232" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ExecuteCode.setFile</definition>
+        <argsstring>(File file)</argsstring>
+        <name>setFile</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.setFile</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="81" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1a5ce4c877e24bcc60d96394744bb1dae8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.ExecuteCode.getCodes</definition>
+        <argsstring>()</argsstring>
+        <name>getCodes</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.getCodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the registry codes.</para>
+<para><simplesect kind="return"><para>the registry codes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="91" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="91" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ac2c9f03f80a83c131f2e6069cb503b27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ExecuteCode.setCodes</definition>
+        <argsstring>(byte[] codes)</argsstring>
+        <name>setCodes</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.setCodes</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>codes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the registry codes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new registry codes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="100" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ac451e960c01254889b5079305bdbf8da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte dynamicAnalysis.ExecuteCode.getCode</definition>
+        <argsstring>()</argsstring>
+        <name>getCode</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.getCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets a single registry code.</para>
+<para><simplesect kind="return"><para>the registry code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="109" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1aee39a7125cfb774853ab5467b0194e81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.ExecuteCode.setCode</definition>
+        <argsstring>(byte code)</argsstring>
+        <name>setCode</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.setCode</qualifiedname>
+        <param>
+          <type>byte</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the registry code.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new registry code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="118" column="13" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="118" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1ae945e45bdbffc661926c1081fef51866" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>native String</type>
+        <definition>native String dynamicAnalysis.ExecuteCode.test</definition>
+        <argsstring>()</argsstring>
+        <name>test</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="138" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1a18d400076cfd42de627e6e61b1f134b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int[] dynamicAnalysis.ExecuteCode.read</definition>
+        <argsstring>()</argsstring>
+        <name>read</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.read</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read the current registry values.</para>
+<para><simplesect kind="return"><para>the array containing the four registry values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="151" column="12" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="151" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1a0009e75418f649e89625a3fbf46e5e4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.ExecuteCode.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the string describing values being used </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="165" column="15" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="165" bodyend="169"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_execute_code_1aaa778de91a61876932f8dc3c435a40eb" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String dynamicAnalysis.ExecuteCode.getFile</definition>
+        <argsstring>(String fileName)</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.ExecuteCode.getFile</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the file path that was accessed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the full file path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/ExecuteCode.java" line="128" column="23" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="128" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Unused implementation that would have allowed for registry view. Included for demonstration purposes only </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/ExecuteCode.java" line="12" column="7" bodyfile="src/dynamicAnalysis/ExecuteCode.java" bodystart="12" bodyend="171"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_execute_code_1aecea3840cd26b790eb7f1dfb906b3e7b" prot="package" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>[static initializer]</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ab71e6cf72e24cda1c0e253a667fb6587" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>code</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a9c3cc246da6938dad2cf5d29097bcb59" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>codes</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a556dd9aac5f2d8d39211a38036b7dd2e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>ExecuteCode</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1aaf0db9583e30ef992f831bbbc3699b72" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>ExecuteCode</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a9ab3c9d79ce73603016f41705751efec" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>executeInstruction</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1af7d6bd61839f53786653f0e1d88d17a5" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>file</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ac451e960c01254889b5079305bdbf8da" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>getCode</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a5ce4c877e24bcc60d96394744bb1dae8" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>getCodes</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ac69a8358fcbb9805c64033df3b1b615f" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1aaa778de91a61876932f8dc3c435a40eb" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a6098a742eb958a593e6af6ede8e9e8b1" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>isArr</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a18d400076cfd42de627e6e61b1f134b7" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>read</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ab2dbb503af5ff5e89c9b898edb5de764" prot="private" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>readRegisters</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1aee39a7125cfb774853ab5467b0194e81" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>setCode</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ac2c9f03f80a83c131f2e6069cb503b27" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>setCodes</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ae010879463c73bb80e1b3aae13034232" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>setFile</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1ae945e45bdbffc661926c1081fef51866" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>test</name></member>
+      <member refid="classdynamic_analysis_1_1_execute_code_1a0009e75418f649e89625a3fbf46e5e4f" prot="public" virt="non-virtual"><scope>dynamicAnalysis::ExecuteCode</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

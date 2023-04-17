@@ -8,7 +8,6 @@ import org.eclipse.swt.layout.GridLayout;
 
 import java.util.ArrayList;
 
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
@@ -230,7 +229,6 @@ public class MemoryWindow
 		long start = System.currentTimeMillis();
 		byte[] chars = readMemory();
 		String output = "";
-		String update = "";
 		int sizeIndex = 0;
 		int index = 0;
 		while(sizeIndex!=10000)

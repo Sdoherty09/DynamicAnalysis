@@ -1,0 +1,136 @@
+\hypertarget{_details_8java_source}{}\doxysection{Details.\+java}
+\label{_details_8java_source}\index{src/dynamicAnalysis/Details.java@{src/dynamicAnalysis/Details.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00006}00006 \textcolor{keyword}{import} org.eclipse.swt.widgets.Composite;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00007}00007 \textcolor{keyword}{import} org.eclipse.swt.widgets.Table;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00008}00008 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00009}00009 \textcolor{keyword}{import} org.eclipse.swt.widgets.Button;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00010}00010 \textcolor{keyword}{import} org.eclipse.swt.layout.FormLayout;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00011}00011 \textcolor{keyword}{import} org.eclipse.swt.layout.FormData;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00012}00012 \textcolor{keyword}{import} org.eclipse.swt.layout.FormAttachment;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00013}00013 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableItem;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00014}00014 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableColumn;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00015}00015 \textcolor{keyword}{import} org.eclipse.wb.swt.SWTResourceManager;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00020}\mbox{\hyperlink{classdynamic_analysis_1_1_details}{00020}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_details}{Details}} \textcolor{keyword}{extends} Composite}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00022}00022     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00024}00024     \textcolor{keyword}{private} Table table;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00025}00025     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00027}00027     \textcolor{keyword}{private} TableItem tableItems[] = \textcolor{keyword}{new} TableItem[4];}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00028}00028     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00030}00030     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} selection;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00031}00031     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00033}00033     \textcolor{keyword}{private} Button btnInstructions = \textcolor{keyword}{new} Button(\textcolor{keyword}{this}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00034}00034     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00036}00036     \textcolor{keyword}{private} Button btnMemory = \textcolor{keyword}{new} Button(\textcolor{keyword}{this}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00037}00037     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00039}00039     \textcolor{keyword}{private} Button btnAdvanced = \textcolor{keyword}{new} Button(\textcolor{keyword}{this}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00040}00040     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00048}\mbox{\hyperlink{classdynamic_analysis_1_1_details_a325e35c8076d65300cf5653f6403d494}{00048}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_details_a325e35c8076d65300cf5653f6403d494}{Details}}(Composite parent, \textcolor{keywordtype}{int} style, \textcolor{keywordtype}{boolean} selection)}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00049}00049     \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00050}00050         super(parent, style);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00051}00051         setLayout(\textcolor{keyword}{new} FormLayout());}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00052}00052         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00053}00053         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00054}00054         FormData fd\_btnInstructions = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00055}00055         fd\_btnInstructions.right = \textcolor{keyword}{new} FormAttachment(100, -\/27);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00056}00056         fd\_btnInstructions.bottom = \textcolor{keyword}{new} FormAttachment(table, 25, SWT.TOP);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00057}00057         fd\_btnInstructions.top = \textcolor{keyword}{new} FormAttachment(table, 0, SWT.TOP);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00058}00058         btnInstructions.setLayoutData(fd\_btnInstructions);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00059}00059         btnInstructions.setForeground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(SWT.COLOR\_WIDGET\_LIGHT\_SHADOW));}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00060}00060         btnInstructions.setText(\textcolor{stringliteral}{"{}x86 Instructions"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00061}00061         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00062}00062         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00063}00063         FormData fd\_btnMemory = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00064}00064         fd\_btnMemory.right = \textcolor{keyword}{new} FormAttachment(100, -\/27);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00065}00065         fd\_btnMemory.left = \textcolor{keyword}{new} FormAttachment(0, 191);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00066}00066         fd\_btnMemory.top = \textcolor{keyword}{new} FormAttachment(btnInstructions, 10);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00068}00068         btnMemory.setLayoutData(fd\_btnMemory);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00069}00069         btnMemory.setText(\textcolor{stringliteral}{"{}Virtual Memory"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00070}00070         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00071}00071         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00072}00072         FormData fd\_btnAdvanced = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00073}00073         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00074}00074         fd\_btnAdvanced.left = \textcolor{keyword}{new} FormAttachment(0, 191);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00075}00075         fd\_btnAdvanced.top = \textcolor{keyword}{new} FormAttachment(table, -\/25, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00076}00076         fd\_btnAdvanced.bottom = \textcolor{keyword}{new} FormAttachment(table, 0, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00077}00077         btnAdvanced.setLayoutData(fd\_btnAdvanced);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00078}00078         btnAdvanced.setText(\textcolor{stringliteral}{"{}Advanced"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00079}00079         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00080}00080         table = \textcolor{keyword}{new} Table(\textcolor{keyword}{this}, SWT.FULL\_SELECTION | SWT.NO\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00081}00081         fd\_btnAdvanced.bottom = \textcolor{keyword}{new} FormAttachment(table, 0, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00082}00082         fd\_btnAdvanced.top = \textcolor{keyword}{new} FormAttachment(btnMemory, 10, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00083}00083         FormData fd\_table = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00084}00084         fd\_table.left = \textcolor{keyword}{new} FormAttachment(btnInstructions, -\/191, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00085}00085         fd\_table.right = \textcolor{keyword}{new} FormAttachment(50, 20);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00086}00086         fd\_table.top = \textcolor{keyword}{new} FormAttachment(0);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00087}00087         fd\_table.bottom = \textcolor{keyword}{new} FormAttachment(100, -\/20);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00088}00088         table.setLayoutData(fd\_table);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00089}00089         table.setLinesVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00090}00090         table.setHeaderVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00091}00091         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00092}00092         fd\_btnAdvanced.top = \textcolor{keyword}{new} FormAttachment(table, -\/25, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00093}00093         fd\_btnAdvanced.right = \textcolor{keyword}{new} FormAttachment(btnInstructions, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00094}00094         fd\_btnMemory.right = \textcolor{keyword}{new} FormAttachment(btnInstructions, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00095}00095         fd\_btnInstructions.right = \textcolor{keyword}{new} FormAttachment(table, 100, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00096}00096         fd\_btnInstructions.left = \textcolor{keyword}{new} FormAttachment(table, 5, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00097}00097         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00098}00098         TableColumn labels = \textcolor{keyword}{new} TableColumn(table, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00099}00099         labels.setWidth(100);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00100}00100         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00101}00101         TableColumn values = \textcolor{keyword}{new} TableColumn(table, SWT.CENTER | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00102}00102         values.setWidth(150);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00104}00104         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00105}00105         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00106}00106         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0;index<tableItems.length;index++)}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00107}00107         \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00108}00108             tableItems[index] = \textcolor{keyword}{new} TableItem(table, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00109}00109         \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00110}00110         }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00111}00111         tableItems[0].setText(0, \textcolor{stringliteral}{"{}Directory"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00112}00112         tableItems[1].setText(0, \textcolor{stringliteral}{"{}Version"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00113}00113         tableItems[2].setText(0, \textcolor{stringliteral}{"{}Name"{}});       }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00114}00114         tableItems[3].setText(0, \textcolor{stringliteral}{"{}PID"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00116}00116     \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00117}00117     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00121}\mbox{\hyperlink{classdynamic_analysis_1_1_details_a825aa1ce0584a80a4a594931ece463a5}{00121}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_details_a825aa1ce0584a80a4a594931ece463a5}{clearData}}()}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00122}00122     \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00123}00123         tableItems[0].setText(1, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00124}00124         tableItems[1].setText(1, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00125}00125         tableItems[2].setText(1, \textcolor{stringliteral}{"{}"{}});       }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00126}00126         tableItems[3].setText(1, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00127}00127         btnMemory.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00128}00128         btnAdvanced.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00129}00129         tableItems[0].setGrayed(\mbox{\hyperlink{classdynamic_analysis_1_1_details_a6c7ddd11fd514f833f02a3842ae5ebf2}{isSelection}}());}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00130}00130         tableItems[1].setGrayed(\mbox{\hyperlink{classdynamic_analysis_1_1_details_a6c7ddd11fd514f833f02a3842ae5ebf2}{isSelection}}());}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00131}00131         btnInstructions.setEnabled(!\mbox{\hyperlink{classdynamic_analysis_1_1_details_a6c7ddd11fd514f833f02a3842ae5ebf2}{isSelection}}());}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00132}00132     \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00133}00133     }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00139}\mbox{\hyperlink{classdynamic_analysis_1_1_details_a6c7ddd11fd514f833f02a3842ae5ebf2}{00139}}     \textcolor{keyword}{public} \textcolor{keywordtype}{boolean} \mbox{\hyperlink{classdynamic_analysis_1_1_details_a6c7ddd11fd514f833f02a3842ae5ebf2}{isSelection}}()}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00140}00140     \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00141}00141         \textcolor{keywordflow}{return} selection;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00142}00142     \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00149}\mbox{\hyperlink{classdynamic_analysis_1_1_details_a7609dd9c2b61819c60608619eb39d21b}{00149}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_details_a7609dd9c2b61819c60608619eb39d21b}{setSelection}}(\textcolor{keywordtype}{boolean} selection)}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00150}00150     \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00151}00151         this.selection = selection;}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00152}00152     \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00157}00157     @Override}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00158}\mbox{\hyperlink{classdynamic_analysis_1_1_details_ae0a9c59c92952053cad55b4ad564ca03}{00158}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_details_ae0a9c59c92952053cad55b4ad564ca03}{checkSubclass}}()}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00159}00159     \{}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00160}00160         \textcolor{comment}{// Disable the check that prevents subclassing of SWT components}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00161}00161     \}}
+\DoxyCodeLine{\Hypertarget{_details_8java_source_l00162}00162 \}}
+
+\end{DoxyCode}

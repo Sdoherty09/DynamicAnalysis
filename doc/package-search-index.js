@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dynamicAnalysis"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dynamicAnalysis"},{"l":"org.eclipse.wb.swt"}]

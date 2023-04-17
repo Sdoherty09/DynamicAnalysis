@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="target_2classes_2dynamic_analysis_2_read_process_8cpp" kind="file" language="C++">
+    <compoundname>ReadProcess.cpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">windows.h</includes>
+    <includes local="no">memoryapi.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>target/classes/dynamicAnalysis/ReadProcess.cpp</label>
+        <link refid="target_2classes_2dynamic_analysis_2_read_process_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="4">
+        <label>memoryapi.h</label>
+      </node>
+      <node id="3">
+        <label>windows.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="target_2classes_2dynamic_analysis_2_read_process_8cpp_1afb1d22e4af881ab48b6d81bc66887dd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EnableDebugPriv</definition>
+        <argsstring>()</argsstring>
+        <name>EnableDebugPriv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="target/classes/dynamicAnalysis/ReadProcess.cpp" line="7" column="6" bodyfile="target/classes/dynamicAnalysis/ReadProcess.cpp" bodystart="7" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="target_2classes_2dynamic_analysis_2_read_process_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="target/classes/dynamicAnalysis/ReadProcess.cpp" line="26" column="5" bodyfile="target/classes/dynamicAnalysis/ReadProcess.cpp" bodystart="26" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memoryapi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EnableDebugPriv()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>HANDLE<sp/>hToken;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>LUID<sp/>luid;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>TOKEN_PRIVILEGES<sp/>tkp;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>OpenProcessToken(GetCurrentProcess(),<sp/>TOKEN_ADJUST_PRIVILEGES<sp/>|<sp/>TOKEN_QUERY,<sp/>&amp;hToken);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>LookupPrivilegeValue(NULL,<sp/>SE_DEBUG_NAME,<sp/>&amp;luid);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>tkp.PrivilegeCount<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>tkp.Privileges[0].Luid<sp/>=<sp/>luid;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>tkp.Privileges[0].Attributes<sp/>=<sp/>SE_PRIVILEGE_ENABLED;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>AdjustTokenPrivileges(hToken,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>&amp;tkp,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(tkp),<sp/>NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>CloseHandle(hToken);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableDebugPriv();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>MEMORY_BASIC_INFORMATION<sp/>mbi;<sp/></highlight><highlight class="comment">//mbi<sp/>used<sp/>as<sp/>register<sp/>for<sp/>assigning<sp/>in<sp/>query</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>HANDLE<sp/>hProcess<sp/>=<sp/>OpenProcess(PROCESS_ALL_ACCESS,<sp/>FALSE,<sp/>16824);<sp/></highlight><highlight class="comment">//process<sp/>using<sp/>pid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>oldprotect;<sp/></highlight><highlight class="comment">//given<sp/>the<sp/>value<sp/>of<sp/>old<sp/>protect</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE*<sp/>buffer;<sp/></highlight><highlight class="comment">//string<sp/>for<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr;<sp/></highlight><highlight class="comment">//need<sp/>to<sp/>find<sp/>what<sp/>this<sp/>gets<sp/>assigned<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>VirtualQueryEx(hProcess,<sp/>NULL,<sp/>(PMEMORY_BASIC_INFORMATION)&amp;mbi,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mbi));<sp/></highlight><highlight class="comment">//early<sp/>assign<sp/>of<sp/>mbi,<sp/>equals<sp/>28<sp/>(size)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>addr<sp/>=<sp/>(int)mbi.BaseAddress;<sp/></highlight><highlight class="comment">//BaseAddress<sp/>gives<sp/>0,<sp/>shouldnt<sp/>be<sp/>correct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>check<sp/>=<sp/>VirtualProtectEx(hProcess,<sp/>0,<sp/>mbi.RegionSize,<sp/>PAGE_EXECUTE_READWRITE,<sp/>&amp;oldprotect);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>SIZE_T<sp/>size;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(temp<sp/>=<sp/>VirtualQueryEx(hProcess,<sp/>(LPCVOID)addr,<sp/>(PMEMORY_BASIC_INFORMATION)&amp;mbi,<sp/>mbi.RegionSize))<sp/></highlight><highlight class="comment">//will<sp/>not<sp/>work<sp/>for<sp/>64<sp/>bit<sp/>programs<sp/>(Invalid<sp/>access<sp/>to<sp/>memory<sp/>location.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>check<sp/>=<sp/>VirtualProtectEx(hProcess,<sp/>(LPVOID)addr,<sp/>mbi.RegionSize,<sp/>PAGE_EXECUTE_READWRITE,<sp/>&amp;oldprotect);<sp/></highlight><highlight class="comment">//issue<sp/>here,<sp/>error<sp/>487:<sp/>ERROR_INVALID_ADDRESS,<sp/>address<sp/>incrementing<sp/>seems<sp/>valid.<sp/>100%<sp/>relation<sp/>to<sp/>whether<sp/>memory<sp/>gets<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(check<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>BYTE[mbi.RegionSize];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ReadProcessMemory(hProcess,<sp/>(LPVOID)addr,<sp/>buffer,<sp/>mbi.RegionSize,<sp/>&amp;size);<sp/></highlight><highlight class="comment">//not<sp/>filling<sp/>entire<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VirtualProtectEx(hProcess,<sp/>(LPVOID)addr,<sp/>mbi.RegionSize,<sp/>oldprotect,<sp/>&amp;oldprotect);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>buffer;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addr<sp/>+=<sp/>mbi.RegionSize;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>CloseHandle(hProcess);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="target/classes/dynamicAnalysis/ReadProcess.cpp"/>
+  </compounddef>
+</doxygen>

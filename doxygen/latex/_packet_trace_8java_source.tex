@@ -1,0 +1,134 @@
+\hypertarget{_packet_trace_8java_source}{}\doxysection{Packet\+Trace.\+java}
+\label{_packet_trace_8java_source}\index{src/dynamicAnalysis/PacketTrace.java@{src/dynamicAnalysis/PacketTrace.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00006}00006 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00007}00007 \textcolor{keyword}{import} java.util.Collection;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00008}00008 \textcolor{keyword}{import} java.util.ConcurrentModificationException;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00009}00009 \textcolor{keyword}{import} java.util.HashMap;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00010}00010 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00011}00011 \textcolor{keyword}{import} java.util.Map;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00013}00013 \textcolor{keyword}{import} org.pcap4j.core.BpfProgram;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00014}00014 \textcolor{keyword}{import} org.pcap4j.core.NotOpenException;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00015}00015 \textcolor{keyword}{import} org.pcap4j.core.PcapHandle;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00016}00016 \textcolor{keyword}{import} org.pcap4j.core.PcapNativeException;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00017}00017 \textcolor{keyword}{import} org.pcap4j.core.PcapNetworkInterface;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00018}00018 \textcolor{keyword}{import} org.pcap4j.core.Pcaps;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00019}00019 \textcolor{keyword}{import} org.pcap4j.packet.IpPacket;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00020}00020 \textcolor{keyword}{import} org.pcap4j.packet.Packet;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00022}00022 \textcolor{keyword}{import} com.google.common.collect.ArrayListMultimap;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00023}00023 \textcolor{keyword}{import} com.google.common.collect.Multimap;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00025}00025 \textcolor{keyword}{import} scala.collection.mutable.MultiMap;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00030}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace}{00030}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace}{PacketTrace}}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00031}00031 \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00032}00032     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00034}00034     \textcolor{keyword}{private} List<PcapNetworkInterface> devices;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00035}00035     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00037}00037     \textcolor{keyword}{private} ArrayList<Multimap<String, IpPacket>> packets = \textcolor{keyword}{new} ArrayList<Multimap<String, IpPacket>>();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00038}00038     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00040}00040     \textcolor{keyword}{private} Multimap<String, String> addressMap = ArrayListMultimap.create();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00043}00043     \textcolor{keyword}{private} HashMap<String, Integer> interfaceMap = \textcolor{keyword}{new} HashMap<String, Integer>();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00044}00044     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00046}00046     \textcolor{keyword}{private} HashMap<String, String> idMap = \textcolor{keyword}{new} HashMap<String, String>();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00047}00047     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00049}00049     \textcolor{keyword}{private} Thread listenerThread;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00050}00050     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00056}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_aba0fc8e08dc76873ae0399d84db37c18}{00056}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_aba0fc8e08dc76873ae0399d84db37c18}{PacketTrace}}() throws PcapNativeException}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00057}00057     \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00058}00058         devices = Pcaps.findAllDevs();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00059}00059         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0;index < devices.size();index++)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00060}00060         \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00061}00061             idMap.put(devices.get(index).getName(), devices.get(index).getDescription());}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00062}00062             interfaceMap.put(devices.get(index).getName(), index); \textcolor{comment}{// Separating from multithread to avoid synchronization issues}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00063}00063             packets.add(ArrayListMultimap.create());}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00065}00065         \textcolor{keywordflow}{for} (PcapNetworkInterface device : devices)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00066}00066         \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00067}00067             PcapHandle handle = device.openLive(65536, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00068}00068             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00069}00069                 handle.setFilter(\textcolor{stringliteral}{"{}ip"{}}, BpfProgram.BpfCompileMode.OPTIMIZE);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00070}00070             \} \textcolor{keywordflow}{catch} (NotOpenException e1) \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00071}00071                 e1.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00072}00072             \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00073}00073             listenerThread = \textcolor{keyword}{new} Thread(() -\/> \{ \textcolor{comment}{// Set up thread for each network interface}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00074}00074                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00075}00075                     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00076}00076                         Packet packet = handle.getNextPacket();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00077}00077                         \textcolor{keywordflow}{if}(packet!=\textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00078}00078                         \{                   }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00079}00079                             \textcolor{keywordflow}{if} (packet.contains(IpPacket.class)) \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00080}00080                                 IpPacket ipPacket = packet.get(IpPacket.class);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00081}00081                                 if(!addressMap.containsKey(ipPacket.getHeader().getSrcAddr().getHostAddress())) addressMap.put(device.getName(), ipPacket.getHeader().getSrcAddr().getHostAddress());}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00082}00082                                 packets.get(interfaceMap.get(device.getName())).put(ipPacket.getHeader().getSrcAddr().getHostAddress(), ipPacket); \textcolor{comment}{//needs address}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00083}00083                             \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00084}00084                         \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00085}00085                         }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00086}00086                     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00087}00087                 \} \textcolor{keywordflow}{catch} (NotOpenException e) \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00088}00088                     e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00089}00089                 \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00090}00090             \});}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00091}00091             listenerThread.start();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00092}00092         \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00094}00094     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00100}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}{00100}}     \textcolor{keyword}{public} HashMap<String, String> \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}{getDevices}}()}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00101}00101     \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00102}00102         HashMap<String, String> activeDevices = \textcolor{keyword}{new} HashMap<String, String>();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00103}00103         \textcolor{keywordflow}{for}(PcapNetworkInterface device : devices)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00104}00104         \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00105}00105             \textcolor{keywordflow}{if}(addressMap.containsKey(device.getName()))}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00106}00106             \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00107}00107                 activeDevices.put(device.getName(), device.getDescription());}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00108}00108             \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00109}00109         \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00110}00110         \textcolor{keywordflow}{return} activeDevices;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00111}00111     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00112}00112     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00119}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}{00119}}     \textcolor{keyword}{public} String[] \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}{getAddresses}}(String deviceName)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00120}00120     \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00121}00121         \textcolor{keywordflow}{return} addressMap.get(deviceName).toArray(\textcolor{keyword}{new} String[addressMap.size()]);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00123}00123     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00129}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}{00129}}     \textcolor{keyword}{public} ArrayList<Multimap<String, IpPacket>> \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}{getPackets}}()}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00130}00130     \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00131}00131         \textcolor{keywordflow}{return} packets;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00132}00132     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00133}00133     }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00141}\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_ad6404b6e82d72afe0ae4ce9764710cdb}{00141}}     \textcolor{keyword}{public} ArrayList<IpPacket> \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_ad6404b6e82d72afe0ae4ce9764710cdb}{getPackets}}(String address, \textcolor{keywordtype}{int} attempts)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00142}00142     \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00143}00143         \textcolor{keyword}{final} \textcolor{keywordtype}{int} TIMEOUTCOUNTER = 10;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00144}00144         ArrayList<IpPacket> packetList = \textcolor{keyword}{new} ArrayList<IpPacket>();}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00145}00145         Collection<IpPacket> packetCollection;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00146}00146         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0;index < packets.size();index++)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00147}00147         \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00148}00148             packetCollection = packets.get(index).get(address);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00149}00149             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00150}00150             \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00151}00151                 \textcolor{keywordflow}{for}(IpPacket packet : packetCollection)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00152}00152                 \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00153}00153                     packetList.add(packet);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00154}00154                 \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00155}00155             \} \textcolor{keywordflow}{catch} (ConcurrentModificationException e)}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00156}00156             \{}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00157}00157                 \textcolor{keywordflow}{if}(attempts > TIMEOUTCOUNTER) \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00158}00158                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}{getPackets}}(address, attempts+1);}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00159}00159             \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00160}00160             }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00161}00161         \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00162}00162         \textcolor{keywordflow}{return} packetList;}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00163}00163     \}}
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{_packet_trace_8java_source_l00165}00165 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h" kind="file" language="C++">
+    <compoundname>dynamicAnalysis_VirtualMemory.h</compoundname>
+    <includes local="no">jni.h</includes>
+    <includedby refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp" local="yes">target/classes/dynamicAnalysis/VirtualMemory.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>target/classes/dynamicAnalysis/dynamicAnalysis_VirtualMemory.h</label>
+        <link refid="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jni.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>target/classes/dynamicAnalysis/VirtualMemory.cpp</label>
+        <link refid="target_2classes_2dynamic_analysis_2_virtual_memory_8cpp_source"/>
+      </node>
+      <node id="1">
+        <label>target/classes/dynamicAnalysis/dynamicAnalysis_VirtualMemory.h</label>
+        <link refid="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="target_2classes_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h_1a8ee412192bf1ca49e04da38fba46a7fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>JNIEXPORT jbyteArray JNICALL</type>
+        <definition>JNIEXPORT jbyteArray JNICALL Java_dynamicAnalysis_VirtualMemory_scanProcess</definition>
+        <argsstring>(JNIEnv *, jobject, jint)</argsstring>
+        <name>Java_dynamicAnalysis_VirtualMemory_scanProcess</name>
+        <param>
+          <type>JNIEnv *</type>
+          <declname>env</declname>
+        </param>
+        <param>
+          <type>jobject</type>
+        </param>
+        <param>
+          <type>jint</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="target/classes/dynamicAnalysis/dynamicAnalysis_VirtualMemory.h" line="15" column="30" bodyfile="bin/dynamicAnalysis/VirtualMemory.cpp" bodystart="29" bodyend="80" declfile="target/classes/dynamicAnalysis/dynamicAnalysis_VirtualMemory.h" declline="15" declcolumn="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>DO<sp/>NOT<sp/>EDIT<sp/>THIS<sp/>FILE<sp/>-<sp/>it<sp/>is<sp/>machine<sp/>generated<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jni.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Header<sp/>for<sp/>class<sp/>dynamicAnalysis_VirtualMemory<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_Included_dynamicAnalysis_VirtualMemory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_Included_dynamicAnalysis_VirtualMemory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>Class:<sp/><sp/><sp/><sp/><sp/>dynamicAnalysis_VirtualMemory</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>Method:<sp/><sp/><sp/><sp/>scanProcess</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>Signature:<sp/>(I)[B</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">JNIEXPORT<sp/>jbyteArray<sp/>JNICALL<sp/>Java_dynamicAnalysis_VirtualMemory_scanProcess</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>(JNIEnv<sp/>*,<sp/>jobject,<sp/>jint);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="target/classes/dynamicAnalysis/dynamicAnalysis_VirtualMemory.h"/>
+  </compounddef>
+</doxygen>

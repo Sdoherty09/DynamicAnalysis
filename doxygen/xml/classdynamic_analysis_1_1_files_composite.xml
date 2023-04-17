@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_files_composite" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::FilesComposite</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Composite</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_files_composite_1a9f50cdff52bfe61898b53d2df2b9f82d" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.FilesComposite.dllsTable</definition>
+        <argsstring></argsstring>
+        <name>dllsTable</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.dllsTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The GUI table displaying DLL files. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="21" column="15" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_files_composite_1a314d84749d4d167d1378729f33a1e675" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.FilesComposite.filesTable</definition>
+        <argsstring></argsstring>
+        <name>filesTable</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.filesTable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The GUI table displaying the files used by the process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="24" column="15" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_files_composite_1a18263ae61b24849371f5ec7fee956612" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.FilesComposite.processId</definition>
+        <argsstring></argsstring>
+        <name>processId</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.processId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The process ID of the process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="27" column="13" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_files_composite_1ad3c8ffa1ebbc33c3afb1d2b4a1947071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.FilesComposite.FilesComposite</definition>
+        <argsstring>(Composite parent, int style)</argsstring>
+        <name>FilesComposite</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.FilesComposite</qualifiedname>
+        <param>
+          <type>Composite</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>style</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the composite.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parent that contains this composite </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>style</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the SWT style </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="35" column="8" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="35" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_files_composite_1ac0472d0f5e26009a31de8e65cbbe2b69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.FilesComposite.getProcessId</definition>
+        <argsstring>()</argsstring>
+        <name>getProcessId</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.getProcessId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the process id.</para>
+<para><simplesect kind="return"><para>the process id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="78" column="12" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_files_composite_1a6943e80061d749c951a05c2c3d3ef691" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.FilesComposite.setProcessId</definition>
+        <argsstring>(int processId)</argsstring>
+        <name>setProcessId</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.setProcessId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>processId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the process id.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new process id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="88" column="13" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="88" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_files_composite_1af5132a8805817e3adc938b325842e112" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.FilesComposite.checkSubclass</definition>
+        <argsstring>()</argsstring>
+        <name>checkSubclass</name>
+        <qualifiedname>dynamicAnalysis.FilesComposite.checkSubclass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check subclass. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/FilesComposite.java" line="97" column="16" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="97" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Composite to display the files used by the process </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dynamicAnalysis.FilesComposite</label>
+        <link refid="classdynamic_analysis_1_1_files_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.FilesComposite</label>
+        <link refid="classdynamic_analysis_1_1_files_composite"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Composite</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/FilesComposite.java" line="17" column="7" bodyfile="src/dynamicAnalysis/FilesComposite.java" bodystart="18" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_files_composite_1af5132a8805817e3adc938b325842e112" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>checkSubclass</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1a9f50cdff52bfe61898b53d2df2b9f82d" prot="private" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>dllsTable</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1ad3c8ffa1ebbc33c3afb1d2b4a1947071" prot="public" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>FilesComposite</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1a314d84749d4d167d1378729f33a1e675" prot="private" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>filesTable</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1ac0472d0f5e26009a31de8e65cbbe2b69" prot="public" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>getProcessId</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1a18263ae61b24849371f5ec7fee956612" prot="private" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>processId</name></member>
+      <member refid="classdynamic_analysis_1_1_files_composite_1a6943e80061d749c951a05c2c3d3ef691" prot="public" virt="non-virtual"><scope>dynamicAnalysis::FilesComposite</scope><name>setProcessId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+\hypertarget{classdynamic_analysis_1_1_virtual_memory}{}\doxysection{dynamic\+Analysis.\+Virtual\+Memory Class Reference}
+\label{classdynamic_analysis_1_1_virtual_memory}\index{dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_analysis_1_1_virtual_memory_a3719e8f9af36f631a6de589fee9bde5e}{Virtual\+Memory}} (int process\+Id)
+\item 
+int \mbox{\hyperlink{classdynamic_analysis_1_1_virtual_memory_a738d63ceaa1edc01140a909cf0c3ed35}{get\+Process\+Id}} ()
+\item 
+void \mbox{\hyperlink{classdynamic_analysis_1_1_virtual_memory_aca62e9d8b24b43a3cc9d4542482dcea3}{set\+Process\+Id}} (int process\+Id)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classdynamic_analysis_1_1_virtual_memory_a110d99d62a6fc04965cd5c01250eb874}{read\+Memory}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Top level loader to call Virtual\+Memory.\+cpp through Java Native Interface. Retrieves the virtual memory from a given process ID. 
+
+Definition at line \mbox{\hyperlink{_virtual_memory_8java_source_l00011}{11}} of file \mbox{\hyperlink{_virtual_memory_8java_source}{Virtual\+Memory.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_virtual_memory_a3719e8f9af36f631a6de589fee9bde5e}\label{classdynamic_analysis_1_1_virtual_memory_a3719e8f9af36f631a6de589fee9bde5e}} 
+\index{dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}!VirtualMemory@{VirtualMemory}}
+\index{VirtualMemory@{VirtualMemory}!dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}}
+\doxysubsubsection{\texorpdfstring{VirtualMemory()}{VirtualMemory()}}
+{\footnotesize\ttfamily dynamic\+Analysis.\+Virtual\+Memory.\+Virtual\+Memory (\begin{DoxyParamCaption}\item[{int}]{process\+Id }\end{DoxyParamCaption})}
+
+Instantiates a new virtual memory with the process ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process\+Id} & the process ID to retrieve the virtual memory space from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virtual_memory_8java_source_l00032}{32}} of file \mbox{\hyperlink{_virtual_memory_8java_source}{Virtual\+Memory.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_analysis_1_1_virtual_memory_a738d63ceaa1edc01140a909cf0c3ed35}\label{classdynamic_analysis_1_1_virtual_memory_a738d63ceaa1edc01140a909cf0c3ed35}} 
+\index{dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}!getProcessId@{getProcessId}}
+\index{getProcessId@{getProcessId}!dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}}
+\doxysubsubsection{\texorpdfstring{getProcessId()}{getProcessId()}}
+{\footnotesize\ttfamily int dynamic\+Analysis.\+Virtual\+Memory.\+get\+Process\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the unique identifier from the selected process.
+
+\begin{DoxyReturn}{Returns}
+the unique identifier of the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virtual_memory_8java_source_l00042}{42}} of file \mbox{\hyperlink{_virtual_memory_8java_source}{Virtual\+Memory.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_virtual_memory_a110d99d62a6fc04965cd5c01250eb874}\label{classdynamic_analysis_1_1_virtual_memory_a110d99d62a6fc04965cd5c01250eb874}} 
+\index{dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}!readMemory@{readMemory}}
+\index{readMemory@{readMemory}!dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}}
+\doxysubsubsection{\texorpdfstring{readMemory()}{readMemory()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} dynamic\+Analysis.\+Virtual\+Memory.\+read\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calls the C++ function to read the virtual memory space, given a process ID.
+
+\begin{DoxyReturn}{Returns}
+the full virtual memory space of the process 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_virtual_memory_8java_source_l00075}{75}} of file \mbox{\hyperlink{_virtual_memory_8java_source}{Virtual\+Memory.\+java}}.
+
+\mbox{\Hypertarget{classdynamic_analysis_1_1_virtual_memory_aca62e9d8b24b43a3cc9d4542482dcea3}\label{classdynamic_analysis_1_1_virtual_memory_aca62e9d8b24b43a3cc9d4542482dcea3}} 
+\index{dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}!setProcessId@{setProcessId}}
+\index{setProcessId@{setProcessId}!dynamicAnalysis.VirtualMemory@{dynamicAnalysis.VirtualMemory}}
+\doxysubsubsection{\texorpdfstring{setProcessId()}{setProcessId()}}
+{\footnotesize\ttfamily void dynamic\+Analysis.\+Virtual\+Memory.\+set\+Process\+Id (\begin{DoxyParamCaption}\item[{int}]{process\+Id }\end{DoxyParamCaption})}
+
+Sets the unique identifier for the process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process\+Id} & the new unique identifier for the selected process. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_virtual_memory_8java_source_l00052}{52}} of file \mbox{\hyperlink{_virtual_memory_8java_source}{Virtual\+Memory.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/dynamic\+Analysis/Virtual\+Memory.\+java\end{DoxyCompactItemize}

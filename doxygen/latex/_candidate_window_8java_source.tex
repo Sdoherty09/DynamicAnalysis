@@ -1,0 +1,254 @@
+\hypertarget{_candidate_window_8java_source}{}\doxysection{Candidate\+Window.\+java}
+\label{_candidate_window_8java_source}\index{src/dynamicAnalysis/CandidateWindow.java@{src/dynamicAnalysis/CandidateWindow.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00006}00006 \textcolor{keyword}{import} org.eclipse.swt.widgets.Display;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00007}00007 \textcolor{keyword}{import} org.eclipse.swt.widgets.Shell;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00008}00008 \textcolor{keyword}{import} org.eclipse.swt.layout.GridLayout;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00009}00009 \textcolor{keyword}{import} org.eclipse.swt.widgets.Text;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00011}00011 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00013}00013 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00014}00014 \textcolor{keyword}{import} org.eclipse.swt.widgets.Label;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00015}00015 \textcolor{keyword}{import} org.eclipse.swt.layout.GridData;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00016}00016 \textcolor{keyword}{import} org.eclipse.swt.widgets.Button;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00017}00017 \textcolor{keyword}{import} org.eclipse.swt.widgets.Table;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00018}00018 \textcolor{keyword}{import} org.eclipse.swt.widgets.Composite;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00019}00019 \textcolor{keyword}{import} org.eclipse.swt.layout.FormLayout;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00020}00020 \textcolor{keyword}{import} org.eclipse.swt.layout.FormData;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00021}00021 \textcolor{keyword}{import} org.eclipse.swt.layout.FormAttachment;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00022}00022 \textcolor{keyword}{import} org.eclipse.swt.events.ModifyEvent;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00023}00023 \textcolor{keyword}{import} org.eclipse.swt.events.ModifyListener;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00024}00024 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionAdapter;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00025}00025 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionEvent;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00026}00026 \textcolor{keyword}{import} org.eclipse.swt.custom.StyledText;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00027}00027 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableColumn;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00028}00028 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableItem;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00029}00029 \textcolor{keyword}{import} org.eclipse.swt.widgets.Menu;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00030}00030 \textcolor{keyword}{import} org.eclipse.swt.widgets.MenuItem;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00035}\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window}{00035}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window}{CandidateWindow}}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00036}00036 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00039}\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{00039}}     \textcolor{keyword}{protected} Shell \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}};}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00040}00040     }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00042}00042     \textcolor{keyword}{private} Label text;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00043}00043     }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00045}00045     \textcolor{keyword}{private} String filePath;}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00052}\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ad08774abb3b6ef097d8df32dddf9d5af}{00052}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ad08774abb3b6ef097d8df32dddf9d5af}{main}}(String[] args)}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00053}00053     \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00054}00054         \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00055}00055         \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00056}00056             \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window}{CandidateWindow}} window = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window}{CandidateWindow}}();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00057}00057             window.\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7}{open}}();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00058}00058         \} \textcolor{keywordflow}{catch} (Exception e)}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00059}00059         \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00060}00060             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00061}00061         \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00062}00062     \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00067}\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7}{00067}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7}{open}}()}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00068}00068     \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00069}00069         Display display = Display.getDefault();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00070}00070         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a9b6cfb7b311ec761cfd7dc25ac2dd4d7}{createContents}}();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00071}00071         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.open();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00072}00072         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.layout();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00073}00073         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.isDisposed())}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00074}00074         \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00075}00075             \textcolor{keywordflow}{if} (!display.readAndDispatch())}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00076}00076             \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00077}00077                 display.sleep();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00078}00078             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00079}00079         \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00080}00080     \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00085}\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a9b6cfb7b311ec761cfd7dc25ac2dd4d7}{00085}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_a9b6cfb7b311ec761cfd7dc25ac2dd4d7}{createContents}}()}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00086}00086     \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00087}00087         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}} = \textcolor{keyword}{new} Shell();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00088}00088         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.setSize(324, 249);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00089}00089         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.setText(\textcolor{stringliteral}{"{}SWT Application"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00090}00090         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.setLayout(\textcolor{keyword}{new} FormLayout());}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00091}00091         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00092}00092         Button btnProcess = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.CHECK);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00093}00093         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00094}00094         text = \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.BORDER);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00095}00095         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00096}00096         Button btnLaunch = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00097}00097         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00098}00098         FormData fd\_text = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00099}00099         fd\_text.bottom = \textcolor{keyword}{new} FormAttachment(0, 28);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00100}00100         text.setLayoutData(fd\_text);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00101}00101         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00102}00102         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00103}00103         Button btnInstructions = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00104}00104         btnInstructions.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00105}00105         btnInstructions.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00106}00106             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00107}00107             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00108}00108             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00109}00109         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00110}00110         FormData fd\_btnInstructions = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00111}00111         fd\_btnInstructions.left = \textcolor{keyword}{new} FormAttachment(text, 120, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00112}00112         fd\_btnInstructions.right = \textcolor{keyword}{new} FormAttachment(text, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00113}00113         btnInstructions.setLayoutData(fd\_btnInstructions);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00114}00114         btnInstructions.setText(\textcolor{stringliteral}{"{}x86 Instructions"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00115}00115         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00116}00116         Button btnMemory = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00117}00117         fd\_btnInstructions.top = \textcolor{keyword}{new} FormAttachment(0, 117);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00118}00118         btnMemory.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00119}00119         btnMemory.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00120}00120             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00121}00121             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00122}00122             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00123}00123         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00124}00124         btnMemory.setText(\textcolor{stringliteral}{"{}Virtual Memory"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00125}00125         FormData fd\_btnMemory = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00126}00126         fd\_btnMemory.bottom = \textcolor{keyword}{new} FormAttachment(btnInstructions, -\/6);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00127}00127         fd\_btnMemory.right = \textcolor{keyword}{new} FormAttachment(text, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00128}00128         fd\_btnMemory.left = \textcolor{keyword}{new} FormAttachment(0, 203);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00129}00129         btnMemory.setLayoutData(fd\_btnMemory);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00130}00130         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00131}00131         Button btnAdvanced = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00132}00132         fd\_btnInstructions.bottom = \textcolor{keyword}{new} FormAttachment(btnAdvanced, -\/6);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00133}00133         btnAdvanced.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00134}00134         btnAdvanced.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00135}00135             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00136}00136             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00137}00137             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00138}00138         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00139}00139         btnAdvanced.setText(\textcolor{stringliteral}{"{}Advanced"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00140}00140         FormData fd\_btnAdvanced = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00141}00141         fd\_btnAdvanced.right = \textcolor{keyword}{new} FormAttachment(0, 298);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00142}00142         fd\_btnAdvanced.top = \textcolor{keyword}{new} FormAttachment(0, 148);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00143}00143         fd\_btnAdvanced.left = \textcolor{keyword}{new} FormAttachment(0, 203);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00144}00144         btnAdvanced.setLayoutData(fd\_btnAdvanced);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00145}00145         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00146}00146         Button btnSelect = \textcolor{keyword}{new} Button(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00147}00147         btnSelect.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00148}00148             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00149}00149             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00150}00150                 System.out.println(\textcolor{stringliteral}{"{}selection: "{}}+btnProcess.getSelection());}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00151}00151                 \mbox{\hyperlink{classdynamic_analysis_1_1_select_file}{SelectFile}} selectFile = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_select_file}{SelectFile}}(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.getLocation().x, \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.getLocation().y, btnProcess.getSelection());}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00152}00152                 filePath = selectFile.\mbox{\hyperlink{classdynamic_analysis_1_1_select_file_a4003f96b49769e190c339bb430d19b84}{getText}}();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00153}00153                 btnLaunch.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00154}00154                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00155}00155                 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00156}00156                     text.setText(filePath);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00157}00157                 \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00158}00158                 \textcolor{keywordflow}{catch}(IllegalArgumentException e1) \{\}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00159}00159             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00160}00160         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00161}00161         btnSelect.setText(\textcolor{stringliteral}{"{}Select File"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00162}00162         FormData fd\_btnSelect = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00163}00163         fd\_btnSelect.top = \textcolor{keyword}{new} FormAttachment(text, 6);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00164}00164         fd\_btnSelect.right = \textcolor{keyword}{new} FormAttachment(btnMemory, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00165}00165         fd\_btnSelect.left = \textcolor{keyword}{new} FormAttachment(btnMemory, 0, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00166}00166         btnSelect.setLayoutData(fd\_btnSelect);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00167}00167         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00168}00168         Label lblFilePath = \textcolor{keyword}{new} Label(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00169}00169         fd\_text.top = \textcolor{keyword}{new} FormAttachment(lblFilePath, -\/1, SWT.TOP);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00170}00170         fd\_text.right = \textcolor{keyword}{new} FormAttachment(lblFilePath, 221, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00171}00171         fd\_text.left = \textcolor{keyword}{new} FormAttachment(lblFilePath, 6);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00172}00172         lblFilePath.setAlignment(SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00173}00173         FormData fd\_lblFilePath = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00174}00174         fd\_lblFilePath.top = \textcolor{keyword}{new} FormAttachment(0, 12);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00175}00175         fd\_lblFilePath.left = \textcolor{keyword}{new} FormAttachment(0, 10);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00176}00176         fd\_lblFilePath.right = \textcolor{keyword}{new} FormAttachment(0, 77);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00177}00177         lblFilePath.setLayoutData(fd\_lblFilePath);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00178}00178         lblFilePath.setText(\textcolor{stringliteral}{"{}File Path"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00179}00179 }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00180}00180         \textcolor{comment}{/*TableItem tableItems[] = new TableItem[4];}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00181}00181 \textcolor{comment}{        }}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00182}00182 \textcolor{comment}{        tableItems[0].setText(0, "{}Directory"{});}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00183}00183 \textcolor{comment}{        tableItems[1].setText(0, "{}Version"{});}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00184}00184 \textcolor{comment}{        tableItems[2].setText(0, "{}Name"{});       }}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00185}00185 \textcolor{comment}{        tableItems[3].setText(0, "{}PID"{});*/}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00186}00186         Menu menu = \textcolor{keyword}{new} Menu(\mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}, SWT.BAR);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00187}00187         \mbox{\hyperlink{classdynamic_analysis_1_1_candidate_window_ace9cc69fb6911d9a34c3f4e4d18c72d6}{shell}}.setMenuBar(menu);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00188}00188         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00189}00189         MenuItem mntmFile = \textcolor{keyword}{new} MenuItem(menu, SWT.CASCADE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00190}00190         mntmFile.setText(\textcolor{stringliteral}{"{}File"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00191}00191         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00192}00192         Menu menu\_1 = \textcolor{keyword}{new} Menu(mntmFile);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00193}00193         mntmFile.setMenu(menu\_1);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00194}00194         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00195}00195         MenuItem mntmOpen = \textcolor{keyword}{new} MenuItem(menu\_1, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00196}00196         mntmOpen.setText(\textcolor{stringliteral}{"{}Open"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00197}00197         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00198}00198         MenuItem mntmProcess = \textcolor{keyword}{new} MenuItem(menu, SWT.CASCADE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00199}00199         mntmProcess.setText(\textcolor{stringliteral}{"{}Process"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00200}00200         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00201}00201         Menu menu\_2 = \textcolor{keyword}{new} Menu(mntmProcess);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00202}00202         mntmProcess.setMenu(menu\_2);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00203}00203         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00204}00204         MenuItem mntmSelectProcess = \textcolor{keyword}{new} MenuItem(menu\_2, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00205}00205         mntmSelectProcess.setText(\textcolor{stringliteral}{"{}Select Process"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00206}00206         btnProcess.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00207}00207             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00208}00208             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00209}00209                 \textcolor{keywordflow}{if} (btnProcess.getSelection())}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00210}00210                 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00211}00211                     lblFilePath.setText(\textcolor{stringliteral}{"{}Process ID"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00212}00212                     btnSelect.setText(\textcolor{stringliteral}{"{}Select Process"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00213}00213                 \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00214}00214                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00215}00215                 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00216}00216                     lblFilePath.setText(\textcolor{stringliteral}{"{}File Path"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00217}00217                     btnSelect.setText(\textcolor{stringliteral}{"{}Select File"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00218}00218                 \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00219}00219             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00220}00220         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00221}00221         FormData fd\_btnProcess = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00222}00222         fd\_btnProcess.top = \textcolor{keyword}{new} FormAttachment(btnSelect, 4, SWT.TOP);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00223}00223         fd\_btnProcess.right = \textcolor{keyword}{new} FormAttachment(btnSelect, -\/53);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00224}00224         fd\_btnProcess.left = \textcolor{keyword}{new} FormAttachment(text, 0, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00225}00225         btnProcess.setLayoutData(fd\_btnProcess);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00226}00226         btnProcess.setText(\textcolor{stringliteral}{"{}Process"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00227}00227         btnLaunch.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00228}00228             @Override}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00229}00229             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00230}00230                 btnMemory.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00231}00231                 btnAdvanced.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00232}00232                 \textcolor{keywordflow}{if}(!btnProcess.getSelection())}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00233}00233                 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00234}00234                     btnInstructions.setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00235}00235                     String filePath = text.getText();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00236}00236                     \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}} process = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}}(\textcolor{keyword}{new} File(filePath));}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00237}00237                     \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{CodeExtract}} codeExtract = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{CodeExtract}}(\textcolor{keyword}{new} File(filePath));                }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00238}00238                     \textcolor{comment}{//tableItems[0].setText(1, filePath);}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00239}00239                     \textcolor{keywordflow}{if}(codeExtract.\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}{getPeFile}}().isX32())}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00240}00240                     \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00241}00241                         \textcolor{comment}{//tableItems[1].setText(1, "{}32-\/bit"{});}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00242}00242                     \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00243}00243                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00244}00244                     \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00245}00245                         \textcolor{comment}{//tableItems[1].setText(1, "{}64-\/bit"{});}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00246}00246                     \}  }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00247}00247                     \textcolor{comment}{//tableItems[2].setText(1, process.getName());}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00248}00248                     \textcolor{comment}{//tableItems[3].setText(1, process.getPidAsString());}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00249}00249                 \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00250}00250                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00251}00251                 \{}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00252}00252                     btnInstructions.setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00253}00253                 \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00254}00254             \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00255}00255         \});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00256}00256         FormData fd\_btnLaunch = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00257}00257         fd\_btnLaunch.right = \textcolor{keyword}{new} FormAttachment(100, -\/345);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00258}00258         fd\_btnLaunch.left = \textcolor{keyword}{new} FormAttachment(0, 135);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00259}00259         fd\_btnLaunch.top = \textcolor{keyword}{new} FormAttachment(0, 34);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00260}00260         fd\_btnLaunch.bottom = \textcolor{keyword}{new} FormAttachment(100, -\/245);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00261}00261         btnLaunch.setLayoutData(fd\_btnLaunch);}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00262}00262         btnLaunch.setText(\textcolor{stringliteral}{"{}Launch"{}});}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00263}00263         }
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00264}00264     \}}
+\DoxyCodeLine{\Hypertarget{_candidate_window_8java_source_l00265}00265 \}}
+
+\end{DoxyCode}

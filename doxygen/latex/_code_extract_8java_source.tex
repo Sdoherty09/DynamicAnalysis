@@ -1,0 +1,165 @@
+\hypertarget{_code_extract_8java_source}{}\doxysection{Code\+Extract.\+java}
+\label{_code_extract_8java_source}\index{src/dynamicAnalysis/CodeExtract.java@{src/dynamicAnalysis/CodeExtract.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00001}00001 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00003}00003 \textcolor{keyword}{import} java.io.File;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00004}00004 \textcolor{keyword}{import} java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00005}00005 \textcolor{keyword}{import} java.io.RandomAccessFile;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00006}00006 \textcolor{keyword}{import} java.nio.file.Files;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00007}00007 \textcolor{keyword}{import} java.nio.file.Paths;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00008}00008 \textcolor{keyword}{import} java.util.Arrays;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00009}00009 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00010}00010 \textcolor{keyword}{import} capstone.Capstone;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00015}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{00015}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract}{CodeExtract}} \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00016}00016     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00018}00018     \textcolor{keyword}{private} File file;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00021}00021     \textcolor{keyword}{private} \textcolor{keywordtype}{byte}[] instructions;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00022}00022     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00024}00024     \textcolor{keyword}{private} String code;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00025}00025     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00027}00027     \textcolor{keyword}{private} String[] codeArr;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00028}00028     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00030}00030     \textcolor{keyword}{private} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} peFile;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00031}00031     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00033}00033     \textcolor{keyword}{private} Capstone.CsInsn[] allInsn;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00034}00034     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00040}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8ab18547415d4d044dab72bf246653c7}{00040}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8ab18547415d4d044dab72bf246653c7}{CodeExtract}}(File file) \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00041}00041         \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}{setFile}}(file);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00042}00042         loadPE(\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}{getFile}}());}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00050}00050     \textcolor{keyword}{private} \textcolor{keywordtype}{void} loadPE(File file)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00051}00051     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00052}00052         peFile = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}}(file);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00053}00053         peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ae508a5979b6f9b4805543dc169a41a3d}{readFile}}();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00054}00054         }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00055}00055     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00062}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_adc88e9d5856813a58ac36ddd094c978f}{00062}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_adc88e9d5856813a58ac36ddd094c978f}{loadInstructions}}()}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00063}00063     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00064}00064         \textcolor{keywordtype}{long} start = System.currentTimeMillis();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00065}00065         \textcolor{keywordtype}{byte}[] bytes = peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_a41296eeadf65a3edd08865430239e49e}{getInstructions}}();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00066}00066         System.out.println(\textcolor{stringliteral}{"{}time for loadInstruction: "{}}+(System.currentTimeMillis()-\/start));}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00067}00067         setInstructions(bytes);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00068}00068         \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00069}00069         \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00070}00070             codeArr = extractArr(\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}{getInstructions}}());}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00071}00071         \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00072}00072         \textcolor{keywordflow}{catch}(RuntimeException e)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00073}00073         \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00074}00074             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00075}00075         \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00076}00076         \textcolor{keywordflow}{return} bytes;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00078}00078     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00085}00085     \textcolor{keyword}{private} Capstone.CsInsn[] loadCapstone(\textcolor{keywordtype}{byte}[] instructions)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00086}00086     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00087}00087         file = \textcolor{keyword}{new} File(file.getAbsolutePath());}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00088}00088         @SuppressWarnings(\textcolor{stringliteral}{"{}unused"{}})}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00089}00089         byte[] bytes = null;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00090}00090         try \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00091}00091             bytes = Files.readAllBytes(Paths.get(file.toString()));}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00092}00092         \} \textcolor{keywordflow}{catch} (IOException | NullPointerException e) \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00093}00093             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00094}00094         \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00095}00095         Capstone cs = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00096}00096         \textcolor{keywordflow}{if}(peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{getVersion}}() == Version.\mbox{\hyperlink{enumdynamic_analysis_1_1_version_a796be8c5ce18cca3e9639c62e0d4019f}{x32}})}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00097}00097         \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00098}00098             cs = \textcolor{keyword}{new} Capstone(Capstone.CS\_ARCH\_X86, Capstone.CS\_MODE\_32);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00099}00099             System.out.println(\textcolor{stringliteral}{"{}Running x32 exe"{}});}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00100}00100         \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00101}00101         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00102}00102         \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00103}00103             cs = \textcolor{keyword}{new} Capstone(Capstone.CS\_ARCH\_X86, Capstone.CS\_MODE\_64);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00104}00104             System.out.println(\textcolor{stringliteral}{"{}Running x64 exe"{}});}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00105}00105         \}       }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00106}00106         cs.setDetail(1);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00107}00107         \textcolor{keywordtype}{long} start = System.currentTimeMillis();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00108}00108         Capstone.CsInsn[] allInsn = cs.disasm(instructions, peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}{getPointer}}());}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00109}00109         System.out.println(\textcolor{stringliteral}{"{}dissasemble time: "{}}+(System.currentTimeMillis()-\/start));}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00110}00110         \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}{setAllInsn}}(allInsn);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00111}00111         \textcolor{keywordflow}{return} allInsn;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00112}00112     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00113}00113     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00120}00120     \textcolor{keyword}{private} String[] extractArr(\textcolor{keywordtype}{byte}[] instructions)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00121}00121     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00122}00122         Capstone.CsInsn[] allInsn = loadCapstone(instructions);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00123}00123         String[] code = \textcolor{keyword}{new} String[allInsn.length];}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00124}00124         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<allInsn.length; i++) }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00125}00125         \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00126}00126             code[i] = String.format(\textcolor{stringliteral}{"{}0x\%x: \%s \%s\(\backslash\)n"{}}, allInsn[i].address,}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00127}00127                   allInsn[i].mnemonic, allInsn[i].opStr);}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00128}00128         \} }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00129}00129        \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00130}00130     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00131}00131     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00137}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}{00137}}     \textcolor{keyword}{public} File \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac3333c4d734af2c584a7168b591fcbb8}{getFile}}() \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00138}00138         \textcolor{keywordflow}{return} file;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00139}00139     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00146}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}{00146}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae78c883929ffa1253d0df44b3b2545a3}{setFile}}(File file) \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00147}00147         this.file = file;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00148}00148     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00149}00149     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00155}00155     \textcolor{keyword}{private} \textcolor{keywordtype}{void} setInstructions(\textcolor{keywordtype}{byte}[] instructions) \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00156}00156         this.instructions = instructions;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00158}00158     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00164}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}{00164}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a898e6101b6db136115ab84a16da2f7b0}{getInstructions}}() \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00165}00165         \textcolor{keywordflow}{return} instructions;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00166}00166     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00167}00167     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00173}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a438e989c5d1a4b3d0c2e4fba2aa3e623}{00173}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a438e989c5d1a4b3d0c2e4fba2aa3e623}{getCode}}() \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00174}00174         \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00175}00175     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00176}00176     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00182}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}{00182}}     \textcolor{keyword}{public} String[] \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a90b34cbe7b480ec83ace0794c543581b}{getCodeArr}}() \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00183}00183         \textcolor{keywordflow}{return} codeArr;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00184}00184     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00185}00185     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00191}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}{00191}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a398161f24bee568994ecb6226b8311c4}{getPeFile}}()}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00192}00192     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00193}00193         \textcolor{keywordflow}{return} peFile;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00194}00194     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00201}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae65330e994b7e73eb1d2d91761f0189f}{00201}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ae65330e994b7e73eb1d2d91761f0189f}{setPeFile}}(\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file}{PEFile}} peFile)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00202}00202     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00203}00203         this.peFile = peFile;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00204}00204     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00205}00205     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00211}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac892feadc2d03494d4ee3955e427c1a6}{00211}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ac892feadc2d03494d4ee3955e427c1a6}{getPointer}}()}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00212}00212     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00213}00213         \textcolor{keywordflow}{return} peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af6cd847b7b66f6a0c02ef0f6cfd40330}{getPointer}}();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00214}00214     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00215}00215     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00221}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8fc5db68245f79d929c33b95821a2c2a}{00221}}     \textcolor{keyword}{public} Capstone.CsInsn[] \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a8fc5db68245f79d929c33b95821a2c2a}{getAllInsn}}()}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00222}00222     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00223}00223         \textcolor{keywordflow}{return} allInsn;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00224}00224     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00225}00225 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00231}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}{00231}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_ad4ebd323683a6054c64de18b31338ccf}{setAllInsn}}(Capstone.CsInsn[] allInsn)}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00232}00232     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00233}00233         this.allInsn = allInsn;}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00234}00234     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00235}00235 }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00242}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a63c91e2075f716468aba0b175edb01f2}{00242}}     \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a63c91e2075f716468aba0b175edb01f2}{getBytes}}() throws IOException}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00243}00243     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00244}00244         \textcolor{keywordflow}{return} peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_af229ce1f228cb9cba6694f37f266566e}{getBytes}}();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00245}00245     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00246}00246     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00252}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_aae55327b7ce6045ee4895ea7cbf99fa7}{00252}}     \textcolor{keyword}{public} \mbox{\hyperlink{enumdynamic_analysis_1_1_version}{Version}} \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_aae55327b7ce6045ee4895ea7cbf99fa7}{getVersion}}()}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00253}00253     \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00254}00254         \textcolor{keywordflow}{return} peFile.\mbox{\hyperlink{classdynamic_analysis_1_1_p_e_file_ad23e2cd2f5dcaa1d49c3baad295ec9da}{getVersion}}();}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00255}00255     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00256}00256     }
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00262}00262     @Override}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00263}\mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a25f567dead8d93765bff5314cf8927cd}{00263}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_code_extract_a25f567dead8d93765bff5314cf8927cd}{toString}}() \{}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00264}00264         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CodeExtract [file="{}} + file + \textcolor{stringliteral}{"{}, instructions="{}} + Arrays.toString(instructions) + \textcolor{stringliteral}{"{}, code="{}} + code + \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00265}00265     \}}
+\DoxyCodeLine{\Hypertarget{_code_extract_8java_source_l00266}00266 \}}
+
+\end{DoxyCode}

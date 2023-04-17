@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_741cc1f4ed9f435fe923e2d464fa9e45" kind="dir">
+    <compoundname>src/dynamicAnalysis</compoundname>
+    <innerfile refid="_active_connection_8java">ActiveConnection.java</innerfile>
+    <innerfile refid="_candidate_window_8java">CandidateWindow.java</innerfile>
+    <innerfile refid="_capstone_test_8java">CapstoneTest.java</innerfile>
+    <innerfile refid="_code_extract_8java">CodeExtract.java</innerfile>
+    <innerfile refid="_command_line_8java">CommandLine.java</innerfile>
+    <innerfile refid="_data_directory_8java">DataDirectory.java</innerfile>
+    <innerfile refid="_details_8java">Details.java</innerfile>
+    <innerfile refid="_dll_file_8java">DllFile.java</innerfile>
+    <innerfile refid="src_2dynamic_analysis_2dynamic_analysis___execute_code_8h">dynamicAnalysis_ExecuteCode.h</innerfile>
+    <innerfile refid="src_2dynamic_analysis_2dynamic_analysis___virtual_memory_8h">dynamicAnalysis_VirtualMemory.h</innerfile>
+    <innerfile refid="_execute_code_8java">ExecuteCode.java</innerfile>
+    <innerfile refid="src_2dynamic_analysis_2_execute_impl_8c">ExecuteImpl.c</innerfile>
+    <innerfile refid="_files_composite_8java">FilesComposite.java</innerfile>
+    <innerfile refid="_instructions_composite_8java">InstructionsComposite.java</innerfile>
+    <innerfile refid="_legacy_window_8java">LegacyWindow.java</innerfile>
+    <innerfile refid="_memory_composite_8java">MemoryComposite.java</innerfile>
+    <innerfile refid="_memory_window_8java">MemoryWindow.java</innerfile>
+    <innerfile refid="_mnem_8java">Mnem.java</innerfile>
+    <innerfile refid="_network_composite_8java">NetworkComposite.java</innerfile>
+    <innerfile refid="_network_stats_8java">NetworkStats.java</innerfile>
+    <innerfile refid="_network_traffic_8java">NetworkTraffic.java</innerfile>
+    <innerfile refid="_packet_trace_8java">PacketTrace.java</innerfile>
+    <innerfile refid="_p_e_file_8java">PEFile.java</innerfile>
+    <innerfile refid="_process_manager_8java">ProcessManager.java</innerfile>
+    <innerfile refid="src_2dynamic_analysis_2_read_process_8cpp">ReadProcess.cpp</innerfile>
+    <innerfile refid="_read_write_8java">ReadWrite.java</innerfile>
+    <innerfile refid="_select_file_8java">SelectFile.java</innerfile>
+    <innerfile refid="_select_process_8java">SelectProcess.java</innerfile>
+    <innerfile refid="test_8java">test.java</innerfile>
+    <innerfile refid="_version_8java">Version.java</innerfile>
+    <innerfile refid="src_2dynamic_analysis_2_virtual_memory_8cpp">VirtualMemory.cpp</innerfile>
+    <innerfile refid="_virtual_memory_8java">VirtualMemory.java</innerfile>
+    <innerfile refid="_window_8java">Window.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/"/>
+  </compounddef>
+</doxygen>

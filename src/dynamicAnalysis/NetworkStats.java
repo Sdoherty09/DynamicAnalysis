@@ -6,16 +6,16 @@ package dynamicAnalysis;
 import java.util.ArrayList;
 
 /**
- * The Class NetworkStats.
+ * Retrieves statistics from the network
  */
 public class NetworkStats
 {
 	
-	/** The active connections. */
+	/** Stores the active connections. */
 	private ActiveConnection[] activeConnections;
 
 	/**
-	 * Instantiates a new network stats.
+	 * Instantiates a new network stats method.
 	 */
 	public NetworkStats()
 	{
@@ -66,10 +66,10 @@ public class NetworkStats
 	}
 	
 	/**
-	 * Space break.
+	 * Aids in formatting the resulting network traffic by skipping all spaces between characters.
 	 *
-	 * @param stats the stats
-	 * @return the string
+	 * @param stats the remaining network statistics
+	 * @return a substring without the leading spaces
 	 */
 	private String spaceBreak(String stats)
 	{

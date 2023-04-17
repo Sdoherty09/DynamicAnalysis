@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_legacy_window" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::LegacyWindow</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1aa7a4fccecc9fd27b998fee97a541bc05" prot="protected" static="no" mutable="no">
+        <type>Shell</type>
+        <definition>Shell dynamicAnalysis.LegacyWindow.shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.shell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The shell. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="39" column="17" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a80b9db8c5c63536a50953d4940d436ae" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.LegacyWindow.code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="42" column="15" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a343f1a362fe446d3ebd799b786894581" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.LegacyWindow.details</definition>
+        <argsstring></argsstring>
+        <name>details</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The details. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="45" column="15" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a149cf17ad8ab22de3596bac41d970692" prot="private" static="no" mutable="no">
+        <type>Table</type>
+        <definition>Table dynamicAnalysis.LegacyWindow.dllImports</definition>
+        <argsstring></argsstring>
+        <name>dllImports</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.dllImports</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The dll imports. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="48" column="15" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a2f9a0ce84a8291a95321fdb11e547918" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.LegacyWindow.filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="51" column="16" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a49f2efdc2913b5fceb513991c956e51b" prot="package" static="yes" mutable="no">
+        <type>TableItem</type>
+        <definition>TableItem dynamicAnalysis.LegacyWindow.tableItems[]</definition>
+        <argsstring>[]</argsstring>
+        <name>tableItems</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.tableItems</qualifiedname>
+        <initializer>= new TableItem[4]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The table items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="54" column="18" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_legacy_window_1a88894c7c90e4ee2c2b01beaa7769b82c" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float dynamicAnalysis.LegacyWindow.SAMPLE_RATE</definition>
+        <argsstring></argsstring>
+        <name>SAMPLE_RATE</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.SAMPLE_RATE</qualifiedname>
+        <initializer>= 8000f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sample rate. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="87" column="21" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_legacy_window_1aff573665764650c8abacbf149316c599" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void dynamicAnalysis.LegacyWindow.main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The main method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="61" column="20" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="61" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_legacy_window_1a05e30523dd5b2cbab69917581aae5eb5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void dynamicAnalysis.LegacyWindow.tone</definition>
+        <argsstring>(int hz, int msecs, double vol)</argsstring>
+        <name>tone</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.tone</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>hz</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>msecs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vol</declname>
+        </param>
+        <exceptions> throws LineUnavailableException  	  </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tone.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hz </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the msecs </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vol </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LineUnavailableException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line unavailable exception </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="109" column="22" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="109" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_legacy_window_1a7a1e5badacdc951e0e1f086be5c27a9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.LegacyWindow.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.open</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="74" column="13" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_legacy_window_1aed285406d096f5051a2219b76d418a02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.LegacyWindow.tone</definition>
+        <argsstring>(int hz, int msecs)</argsstring>
+        <name>tone</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.tone</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>hz</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>msecs</declname>
+        </param>
+        <exceptions> throws LineUnavailableException  	  </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tone.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hz </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the msecs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LineUnavailableException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the line unavailable exception </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="96" column="13" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_legacy_window_1a057e1a51dc287d41bc7921a390dd0de2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.LegacyWindow.createContents</definition>
+        <argsstring>()</argsstring>
+        <name>createContents</name>
+        <qualifiedname>dynamicAnalysis.LegacyWindow.createContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create contents of the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/LegacyWindow.java" line="136" column="16" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="136" bodyend="364"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The initial window used by the program. Now unused, included for demonstration purposes only. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.LegacyWindow</label>
+        <link refid="classdynamic_analysis_1_1_legacy_window"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shell</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>tableItems</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shell</label>
+      </node>
+      <node id="3">
+        <label>TableItem</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/LegacyWindow.java" line="36" column="7" bodyfile="src/dynamicAnalysis/LegacyWindow.java" bodystart="36" bodyend="365"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a80b9db8c5c63536a50953d4940d436ae" prot="private" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>code</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a057e1a51dc287d41bc7921a390dd0de2" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>createContents</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a343f1a362fe446d3ebd799b786894581" prot="private" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>details</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a149cf17ad8ab22de3596bac41d970692" prot="private" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>dllImports</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a2f9a0ce84a8291a95321fdb11e547918" prot="private" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>filePath</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1aff573665764650c8abacbf149316c599" prot="public" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>main</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a7a1e5badacdc951e0e1f086be5c27a9d" prot="public" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>open</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a88894c7c90e4ee2c2b01beaa7769b82c" prot="public" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>SAMPLE_RATE</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1aa7a4fccecc9fd27b998fee97a541bc05" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>shell</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a49f2efdc2913b5fceb513991c956e51b" prot="package" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>tableItems</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1aed285406d096f5051a2219b76d418a02" prot="public" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>tone</name></member>
+      <member refid="classdynamic_analysis_1_1_legacy_window_1a05e30523dd5b2cbab69917581aae5eb5" prot="public" virt="non-virtual"><scope>dynamicAnalysis::LegacyWindow</scope><name>tone</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

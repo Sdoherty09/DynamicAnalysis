@@ -1,0 +1,862 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager" kind="class" language="Java" prot="public">
+    <compoundname>org::eclipse::wb::swt::SWTResourceManager</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1afd71c42d6ae14521ce81ab8bb81042ff" prot="private" static="yes" mutable="no">
+        <type>Map&lt; RGB, Color &gt;</type>
+        <definition>Map&lt;RGB, Color&gt; org.eclipse.wb.swt.SWTResourceManager.m_colorMap</definition>
+        <argsstring></argsstring>
+        <name>m_colorMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_colorMap</qualifiedname>
+        <initializer>= new HashMap&lt;RGB, Color&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="49" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1361269fb729876f24691c88f023b292" prot="private" static="yes" mutable="no">
+        <type>Map&lt; String, Image &gt;</type>
+        <definition>Map&lt;String, Image&gt; org.eclipse.wb.swt.SWTResourceManager.m_imageMap</definition>
+        <argsstring></argsstring>
+        <name>m_imageMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_imageMap</qualifiedname>
+        <initializer>= new HashMap&lt;String, Image&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps image paths to images. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="108" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af1e192f035fe5d70232cd33ca3810a4f" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.MISSING_IMAGE_SIZE</definition>
+        <argsstring></argsstring>
+        <name>MISSING_IMAGE_SIZE</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.MISSING_IMAGE_SIZE</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="171" column="26" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4afc391e22118550ae0a76f7fa168d18" prot="private" static="yes" mutable="no">
+        <type>Map&lt; Image, Map&lt; Image, Image &gt; &gt;[]</type>
+        <definition>Map&lt;Image, Map&lt;Image, Image&gt; &gt; [] org.eclipse.wb.swt.SWTResourceManager.m_decoratedImageMap</definition>
+        <argsstring></argsstring>
+        <name>m_decoratedImageMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_decoratedImageMap</qualifiedname>
+        <initializer>= new Map[<ref refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a891f728f55d1d9a7bb4247674e0092d0" kindref="member">LAST_CORNER_KEY</ref>]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps images to decorated images. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="209" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab59ada91478162a9affc7bd230005487" prot="private" static="yes" mutable="no">
+        <type>Map&lt; String, Font &gt;</type>
+        <definition>Map&lt;String, Font&gt; org.eclipse.wb.swt.SWTResourceManager.m_fontMap</definition>
+        <argsstring></argsstring>
+        <name>m_fontMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_fontMap</qualifiedname>
+        <initializer>= new HashMap&lt;String, Font&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps font names to fonts. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="305" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8a49d99fd17a7c4fce84fe5beb13b01b" prot="private" static="yes" mutable="no">
+        <type>Map&lt; Font, Font &gt;</type>
+        <definition>Map&lt;Font, Font&gt; org.eclipse.wb.swt.SWTResourceManager.m_fontToBoldFontMap</definition>
+        <argsstring></argsstring>
+        <name>m_fontToBoldFontMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_fontToBoldFontMap</qualifiedname>
+        <initializer>= new HashMap&lt;Font, Font&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps fonts to their bold versions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="309" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af23f14e130154fba7d494c9276f7f4b1" prot="private" static="yes" mutable="no">
+        <type>Map&lt; Integer, Cursor &gt;</type>
+        <definition>Map&lt;Integer, Cursor&gt; org.eclipse.wb.swt.SWTResourceManager.m_idToCursorMap</definition>
+        <argsstring></argsstring>
+        <name>m_idToCursorMap</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.m_idToCursorMap</qualifiedname>
+        <initializer>= new HashMap&lt;Integer, Cursor&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps IDs to cursors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="406" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af08860b87174c2dd3f095c776040bcf8" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.TOP_LEFT</definition>
+        <argsstring></argsstring>
+        <name>TOP_LEFT</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.TOP_LEFT</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Style constant for placing decorator image in top left corner of base image. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="188" column="25" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a024b59862eb3bc6eec12dd2bec92c1e5" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.TOP_RIGHT</definition>
+        <argsstring></argsstring>
+        <name>TOP_RIGHT</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.TOP_RIGHT</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Style constant for placing decorator image in top right corner of base image. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="192" column="25" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4f0d49da071dc4f1b575de93e27c074c" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.BOTTOM_LEFT</definition>
+        <argsstring></argsstring>
+        <name>BOTTOM_LEFT</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.BOTTOM_LEFT</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Style constant for placing decorator image in bottom left corner of base image. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="196" column="25" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae0ed56ec45ea09895f7fba82814622d0" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.BOTTOM_RIGHT</definition>
+        <argsstring></argsstring>
+        <name>BOTTOM_RIGHT</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.BOTTOM_RIGHT</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Style constant for placing decorator image in bottom right corner of base image. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="200" column="25" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a891f728f55d1d9a7bb4247674e0092d0" prot="protected" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.eclipse.wb.swt.SWTResourceManager.LAST_CORNER_KEY</definition>
+        <argsstring></argsstring>
+        <name>LAST_CORNER_KEY</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.LAST_CORNER_KEY</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="204" column="28" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a261745b44e6e7846bd9b98c6777600eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Color</type>
+        <definition>static Color org.eclipse.wb.swt.SWTResourceManager.getColor</definition>
+        <argsstring>(int systemColorID)</argsstring>
+        <name>getColor</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getColor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>systemColorID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the system <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> matching the specific ID.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>systemColorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID value for the color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the system <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> matching the specific ID </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="57" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aff00c4c54fd3b52e1a283426162bcbeb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Color</type>
+        <definition>static Color org.eclipse.wb.swt.SWTResourceManager.getColor</definition>
+        <argsstring>(int r, int g, int b)</argsstring>
+        <name>getColor</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getColor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> given its red, green and blue component values.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the red component of the color </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the green component of the color </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the blue component of the color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> matching the given red, green and blue component values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="72" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="72" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab2f1aadf3dec4d4d37111193cb22071e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Color</type>
+        <definition>static Color org.eclipse.wb.swt.SWTResourceManager.getColor</definition>
+        <argsstring>(RGB rgb)</argsstring>
+        <name>getColor</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getColor</qualifiedname>
+        <param>
+          <type>RGB</type>
+          <declname>rgb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> given its RGB value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rgb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">RGB</ref></computeroutput> value of the color </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput> matching the RGB value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="82" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="82" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aab5a68c84a6e2b80cd63013578bf6057" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.eclipse.wb.swt.SWTResourceManager.disposeColors</definition>
+        <argsstring>()</argsstring>
+        <name>disposeColors</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.disposeColors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose of all the cached <computeroutput><ref refid="" kindref="compound">Color</ref></computeroutput>&apos;s. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="94" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="94" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a70b21c25bbe6f5d44e790612f3c9494e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.getImage</definition>
+        <argsstring>(String path)</argsstring>
+        <name>getImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getImage</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> stored in the file at the specified path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path to the image file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> stored in the file at the specified path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="135" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="135" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8b0695b71058d43c0bc3263a63640e11" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.getImage</definition>
+        <argsstring>(Class&lt;?&gt; clazz, String path)</argsstring>
+        <name>getImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getImage</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> stored in the file at the specified path relative to the specified class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clazz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">Class</ref></computeroutput> relative to which to find the image </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path to the image file, if starts with <computeroutput>&apos;/&apos;</computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> stored in the file at the specified path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="157" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="157" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0d50f34419bd49f37f24b168fa486771" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.decorateImage</definition>
+        <argsstring>(Image baseImage, Image decorator)</argsstring>
+        <name>decorateImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.decorateImage</qualifiedname>
+        <param>
+          <type>Image</type>
+          <declname>baseImage</declname>
+        </param>
+        <param>
+          <type>Image</type>
+          <declname>decorator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> composed of a base image decorated by another image.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>baseImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the base <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> that should be decorated </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decorator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> to decorate the base image </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> The resulting decorated image </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="219" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="219" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a29903b99bec264ee2c58a85bd9611f19" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.decorateImage</definition>
+        <argsstring>(final Image baseImage, final Image decorator, final int corner)</argsstring>
+        <name>decorateImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.decorateImage</qualifiedname>
+        <param>
+          <type>final Image</type>
+          <declname>baseImage</declname>
+        </param>
+        <param>
+          <type>final Image</type>
+          <declname>decorator</declname>
+        </param>
+        <param>
+          <type>final int</type>
+          <declname>corner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> composed of a base image decorated by another image.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>baseImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the base <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> that should be decorated </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decorator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> to decorate the base image </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>corner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the corner to place decorator image </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the resulting decorated <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="233" column="21" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="233" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a10d60bcd9a8bbe25d9dbd0ef2c43b6b7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.eclipse.wb.swt.SWTResourceManager.disposeImages</definition>
+        <argsstring>()</argsstring>
+        <name>disposeImages</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.disposeImages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose all of the cached <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput>&apos;s. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="275" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="275" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0603188ae7ef4801932ec8090c31b51e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Font</type>
+        <definition>static Font org.eclipse.wb.swt.SWTResourceManager.getFont</definition>
+        <argsstring>(String name, int height, int style)</argsstring>
+        <name>getFont</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getFont</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>style</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> based on its name, height and style.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the height of the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>style</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the style of the font </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> The font matching the name, height and style </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="321" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="321" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a6a2520a2bd310c970e4118e6d8dc5bf3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Font</type>
+        <definition>static Font org.eclipse.wb.swt.SWTResourceManager.getFont</definition>
+        <argsstring>(String name, int size, int style, boolean strikeout, boolean underline)</argsstring>
+        <name>getFont</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getFont</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>style</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>strikeout</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>underline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> based on its name, height and style. Windows-specific strikeout and underline flags are also supported.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>style</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the style of the font </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strikeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the strikeout flag (warning: Windows only) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>underline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the underline flag (warning: Windows only) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> The font matching the name, height, style, strikeout and underline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="340" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="340" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aef062a156595d89be832e57db9af330e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Font</type>
+        <definition>static Font org.eclipse.wb.swt.SWTResourceManager.getBoldFont</definition>
+        <argsstring>(Font baseFont)</argsstring>
+        <name>getBoldFont</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getBoldFont</qualifiedname>
+        <param>
+          <type>Font</type>
+          <declname>baseFont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a bold version of the given <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>baseFont</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> for which a bold version is desired </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the bold version of the given <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="373" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="373" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aaa6fb021a026244859bbf1702639c307" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.eclipse.wb.swt.SWTResourceManager.disposeFonts</definition>
+        <argsstring>()</argsstring>
+        <name>disposeFonts</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.disposeFonts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose all of the cached <computeroutput><ref refid="" kindref="compound">Font</ref></computeroutput>&apos;s. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="386" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="386" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a53570bdd6ea06fca8ad835f12dced0bf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Cursor</type>
+        <definition>static Cursor org.eclipse.wb.swt.SWTResourceManager.getCursor</definition>
+        <argsstring>(int id)</argsstring>
+        <name>getCursor</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getCursor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the system cursor matching the specific ID.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int The ID value for the cursor </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Cursor The system cursor matching the specific ID </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="414" column="22" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="414" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab676d0706260a2203684b0bbd734aef5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.eclipse.wb.swt.SWTResourceManager.disposeCursors</definition>
+        <argsstring>()</argsstring>
+        <name>disposeCursors</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.disposeCursors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose all of the cached cursors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="426" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="426" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae2266672ae9c04dd76064692cda459b5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.eclipse.wb.swt.SWTResourceManager.dispose</definition>
+        <argsstring>()</argsstring>
+        <name>dispose</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispose of cached objects and their underlying OS resources. This should only be called when the cached objects are no longer needed (e.g. on application shutdown). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="441" column="20" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="441" bodyend="446"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aeda8d2db55efe0bc2b46fcc50f5e6bb0" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.getImage</definition>
+        <argsstring>(InputStream stream)</argsstring>
+        <name>getImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getImage</qualifiedname>
+        <param>
+          <type>InputStream</type>
+          <declname>stream</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> encoded by the specified <computeroutput><ref refid="" kindref="compound">InputStream</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="" kindref="compound">InputStream</ref></computeroutput> encoding the image data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> encoded by the specified input stream </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="116" column="24" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="116" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1ff45fd318d3ffda2bb99acbcf2153bc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Image</type>
+        <definition>static Image org.eclipse.wb.swt.SWTResourceManager.getMissingImage</definition>
+        <argsstring>()</argsstring>
+        <name>getMissingImage</name>
+        <qualifiedname>org.eclipse.wb.swt.SWTResourceManager.getMissingImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the small <computeroutput><ref refid="" kindref="compound">Image</ref></computeroutput> that can be used as placeholder for missing image. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="175" column="22" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="175" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Utility class for managing OS resources associated with SWT controls such as colors, fonts, images, etc. </para>
+<para>!!! IMPORTANT !!! Application code must explicitly invoke the <computeroutput><ref refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae2266672ae9c04dd76064692cda459b5" kindref="member">dispose()</ref></computeroutput> method to release the operating system resources managed by cached objects when those objects and OS resources are no longer needed (e.g. on application shutdown) </para>
+<para>This class may be freely distributed as part of any application or plugin. </para>
+<para><simplesect kind="author"><para>scheglov_ke </para>
+</simplesect>
+<simplesect kind="author"><para>Dan Rubel </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/org/eclipse/wb/swt/SWTResourceManager.java" line="43" column="7" bodyfile="src/org/eclipse/wb/swt/SWTResourceManager.java" bodystart="43" bodyend="447"/>
+    <listofallmembers>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4f0d49da071dc4f1b575de93e27c074c" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>BOTTOM_LEFT</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae0ed56ec45ea09895f7fba82814622d0" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>BOTTOM_RIGHT</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0d50f34419bd49f37f24b168fa486771" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>decorateImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a29903b99bec264ee2c58a85bd9611f19" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>decorateImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ae2266672ae9c04dd76064692cda459b5" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>dispose</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aab5a68c84a6e2b80cd63013578bf6057" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>disposeColors</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab676d0706260a2203684b0bbd734aef5" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>disposeCursors</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aaa6fb021a026244859bbf1702639c307" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>disposeFonts</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a10d60bcd9a8bbe25d9dbd0ef2c43b6b7" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>disposeImages</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aef062a156595d89be832e57db9af330e" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getBoldFont</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a261745b44e6e7846bd9b98c6777600eb" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getColor</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aff00c4c54fd3b52e1a283426162bcbeb" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getColor</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab2f1aadf3dec4d4d37111193cb22071e" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getColor</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a53570bdd6ea06fca8ad835f12dced0bf" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getCursor</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a0603188ae7ef4801932ec8090c31b51e" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getFont</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a6a2520a2bd310c970e4118e6d8dc5bf3" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getFont</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1aeda8d2db55efe0bc2b46fcc50f5e6bb0" prot="protected" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a70b21c25bbe6f5d44e790612f3c9494e" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8b0695b71058d43c0bc3263a63640e11" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1ff45fd318d3ffda2bb99acbcf2153bc" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>getMissingImage</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a891f728f55d1d9a7bb4247674e0092d0" prot="protected" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>LAST_CORNER_KEY</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1afd71c42d6ae14521ce81ab8bb81042ff" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_colorMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a4afc391e22118550ae0a76f7fa168d18" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_decoratedImageMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1ab59ada91478162a9affc7bd230005487" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_fontMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a8a49d99fd17a7c4fce84fe5beb13b01b" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_fontToBoldFontMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af23f14e130154fba7d494c9276f7f4b1" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_idToCursorMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a1361269fb729876f24691c88f023b292" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>m_imageMap</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af1e192f035fe5d70232cd33ca3810a4f" prot="private" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>MISSING_IMAGE_SIZE</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1af08860b87174c2dd3f095c776040bcf8" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>TOP_LEFT</name></member>
+      <member refid="classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_1a024b59862eb3bc6eec12dd2bec92c1e5" prot="public" virt="non-virtual"><scope>org::eclipse::wb::swt::SWTResourceManager</scope><name>TOP_RIGHT</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

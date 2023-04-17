@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_select_file" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::SelectFile</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1a01c9875051015fa43255a1675f288d8c" prot="protected" static="no" mutable="no">
+        <type>Shell</type>
+        <definition>Shell dynamicAnalysis.SelectFile.shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.shell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The SWT shell for the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="28" column="17" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1a438bcbfeeebd28d8de60b8093efc1707" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text dynamicAnalysis.SelectFile.text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The text field for a file or process ID. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="31" column="14" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1a11da3915c26a1c9c86f30c980a0ad366" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.SelectFile.filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="34" column="16" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1a2047ca234d8c2ae31ee8641251fbe4e3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The X value to position the window horizontally. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="37" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1afe939271cde3eac1ba93b79cad638147" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Y value to position the window vertically. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="40" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1afb9eb3823b1f6abcfab6a418ba2aca86" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.SelectFile.pidMode</definition>
+        <argsstring></argsstring>
+        <name>pidMode</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.pidMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines whether the window was opened to read a file or a process. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="43" column="17" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_select_file_1a9ab8be38dd6f82280d21c549e890cbe0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.pid</definition>
+        <argsstring></argsstring>
+        <name>pid</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.pid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The unique process identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="46" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1af88f88392caf0e451e9c9f01c106385a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.SelectFile.SelectFile</definition>
+        <argsstring>(int x, int y, boolean pidMode)</argsstring>
+        <name>SelectFile</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.SelectFile</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>pidMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Launch the file selection window.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the X value to position at </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Y value to position at </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pidMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>whether to read a file or a process </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="55" column="8" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1af8fbc4cf99295562dde26f78695996ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.open</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="66" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="66" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a1853a295ed444998be3ed44c71a60767" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.getX</definition>
+        <argsstring>()</argsstring>
+        <name>getX</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.getX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the X value.</para>
+<para><simplesect kind="return"><para>the X value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="247" column="12" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="247" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a6016f0dac7904f99b69a28676c475b80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.setX</definition>
+        <argsstring>(int x)</argsstring>
+        <name>setX</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.setX</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the X value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new X value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="257" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a911e7d681bf90faee427366e7f324c45" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.getY</definition>
+        <argsstring>()</argsstring>
+        <name>getY</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.getY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the Y value.</para>
+<para><simplesect kind="return"><para>the Y value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="267" column="12" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="267" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a5f96d2176a8e9e57ab13bf41ab4744a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.setY</definition>
+        <argsstring>(int y)</argsstring>
+        <name>setY</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.setY</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the Y value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new Y value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="277" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="277" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a50c98bfebe6d0ce59ada2bc7dbb8a12e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.SelectFile.isPidMode</definition>
+        <argsstring>()</argsstring>
+        <name>isPidMode</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.isPidMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the window should read a process or a file.</para>
+<para><simplesect kind="return"><para>true, if is in pid mode </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="287" column="16" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="287" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a2fc812f377099369c9362296a5a24112" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.setPidMode</definition>
+        <argsstring>(boolean pidMode)</argsstring>
+        <name>setPidMode</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.setPidMode</qualifiedname>
+        <param>
+          <type>boolean</type>
+          <declname>pidMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pid mode.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pidMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new pid mode </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="297" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a4003f96b49769e190c339bb430d19b84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.SelectFile.getText</definition>
+        <argsstring>()</argsstring>
+        <name>getText</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.getText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the file path.</para>
+<para><simplesect kind="return"><para>the file path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="307" column="15" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="307" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a8e27211da7fba3fc8f79f46b68487ee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.SelectFile.getPid</definition>
+        <argsstring>()</argsstring>
+        <name>getPid</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.getPid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the PID.</para>
+<para><simplesect kind="return"><para>the PID </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="317" column="12" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="317" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1ac0a5c6dce45b15a33a661bd4f2c55e44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.setPid</definition>
+        <argsstring>(int pid)</argsstring>
+        <name>setPid</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.setPid</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the PID.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new PID </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="327" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="327" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1afe296d96eabcd34a7dce966c267af931" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean dynamicAnalysis.SelectFile.isDisposed</definition>
+        <argsstring>()</argsstring>
+        <name>isDisposed</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.isDisposed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the window is disposed.</para>
+<para><simplesect kind="return"><para>true, if window is disposed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="337" column="16" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="337" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1a103a8398832154c42f7c53ebd5def8b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.focus</definition>
+        <argsstring>()</argsstring>
+        <name>focus</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Force focus on the file selection window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="345" column="13" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="345" bodyend="348"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_select_file_1afb531581b796ffa0273c23c1ef18c9bc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.SelectFile.createContents</definition>
+        <argsstring>()</argsstring>
+        <name>createContents</name>
+        <qualifiedname>dynamicAnalysis.SelectFile.createContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create contents of the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/SelectFile.java" line="88" column="16" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="88" bodyend="240"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_select_file" kindref="compound">SelectFile</ref>. Displays a window to choose a file from. Can also select a process. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.SelectFile</label>
+        <link refid="classdynamic_analysis_1_1_select_file"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shell</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shell</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/SelectFile.java" line="24" column="7" bodyfile="src/dynamicAnalysis/SelectFile.java" bodystart="25" bodyend="349"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_select_file_1afb531581b796ffa0273c23c1ef18c9bc" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>createContents</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a11da3915c26a1c9c86f30c980a0ad366" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>filePath</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a103a8398832154c42f7c53ebd5def8b0" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>focus</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a8e27211da7fba3fc8f79f46b68487ee2" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>getPid</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a4003f96b49769e190c339bb430d19b84" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>getText</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a1853a295ed444998be3ed44c71a60767" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>getX</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a911e7d681bf90faee427366e7f324c45" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>getY</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1afe296d96eabcd34a7dce966c267af931" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>isDisposed</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a50c98bfebe6d0ce59ada2bc7dbb8a12e" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>isPidMode</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1af8fbc4cf99295562dde26f78695996ae" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>open</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a9ab8be38dd6f82280d21c549e890cbe0" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>pid</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1afb9eb3823b1f6abcfab6a418ba2aca86" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>pidMode</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1af88f88392caf0e451e9c9f01c106385a" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>SelectFile</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1ac0a5c6dce45b15a33a661bd4f2c55e44" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>setPid</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a2fc812f377099369c9362296a5a24112" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>setPidMode</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a6016f0dac7904f99b69a28676c475b80" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>setX</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a5f96d2176a8e9e57ab13bf41ab4744a3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>setY</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a01c9875051015fa43255a1675f288d8c" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>shell</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a438bcbfeeebd28d8de60b8093efc1707" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>text</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1a2047ca234d8c2ae31ee8641251fbe4e3" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>x</name></member>
+      <member refid="classdynamic_analysis_1_1_select_file_1afe939271cde3eac1ba93b79cad638147" prot="private" virt="non-virtual"><scope>dynamicAnalysis::SelectFile</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

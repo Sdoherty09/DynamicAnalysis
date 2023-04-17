@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="class_capstone_test" kind="class" language="Java" prot="public">
+    <compoundname>CapstoneTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProxySelector</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_capstone_test_1a5db53bcab1135e3d79803b08ba5639ed" prot="private" static="no" mutable="no">
+        <type>final List&lt; Proxy &gt;</type>
+        <definition>final List&lt;Proxy&gt; CapstoneTest.noProxy</definition>
+        <argsstring></argsstring>
+        <name>noProxy</name>
+        <qualifiedname>CapstoneTest.noProxy</qualifiedname>
+        <initializer>= new ArrayList&lt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The no proxy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CapstoneTest.java" line="30" column="24" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_capstone_test_1a7bc8bb45b2f5d7731133cda21a78530f" prot="private" static="no" mutable="no">
+        <type>final List&lt; Proxy &gt;</type>
+        <definition>final List&lt;Proxy&gt; CapstoneTest.proxies</definition>
+        <argsstring></argsstring>
+        <name>proxies</name>
+        <qualifiedname>CapstoneTest.proxies</qualifiedname>
+        <initializer>= new ArrayList&lt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The proxies. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CapstoneTest.java" line="33" column="24" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_capstone_test_1a652ceafdeac2b3a6d1c124d7dcb6b78a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CapstoneTest.PrivateDataProxy</definition>
+        <argsstring>()</argsstring>
+        <name>PrivateDataProxy</name>
+        <qualifiedname>CapstoneTest.PrivateDataProxy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Private data proxy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CapstoneTest.java" line="39" column="18" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="39" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_capstone_test_1ae8972d9d61bbd4ab6b931f13311f4a6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; Proxy &gt;</type>
+        <definition>List&lt; Proxy &gt; CapstoneTest.select</definition>
+        <argsstring>(URI uri)</argsstring>
+        <name>select</name>
+        <qualifiedname>CapstoneTest.select</qualifiedname>
+        <param>
+          <type>URI</type>
+          <declname>uri</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uri</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the uri </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CapstoneTest.java" line="69" column="17" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="69" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_capstone_test_1ae510722a5e8a2fd1d9127741c15406ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CapstoneTest.connectFailed</definition>
+        <argsstring>(URI arg0, SocketAddress arg1, IOException arg2)</argsstring>
+        <name>connectFailed</name>
+        <qualifiedname>CapstoneTest.connectFailed</qualifiedname>
+        <param>
+          <type>URI</type>
+          <declname>arg0</declname>
+        </param>
+        <param>
+          <type>SocketAddress</type>
+          <declname>arg1</declname>
+        </param>
+        <param>
+          <type>IOException</type>
+          <declname>arg2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connect failed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arg0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arg 0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arg 1 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arg 2 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CapstoneTest.java" line="91" column="17" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="91" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="class_capstone_test" kindref="compound">CapstoneTest</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CapstoneTest</label>
+        <link refid="class_capstone_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProxySelector</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CapstoneTest</label>
+        <link refid="class_capstone_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProxySelector</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/CapstoneTest.java" line="23" column="7" bodyfile="src/dynamicAnalysis/CapstoneTest.java" bodystart="23" bodyend="96"/>
+    <listofallmembers>
+      <member refid="class_capstone_test_1ae510722a5e8a2fd1d9127741c15406ff" prot="public" virt="non-virtual"><scope>CapstoneTest</scope><name>connectFailed</name></member>
+      <member refid="class_capstone_test_1a5db53bcab1135e3d79803b08ba5639ed" prot="private" virt="non-virtual"><scope>CapstoneTest</scope><name>noProxy</name></member>
+      <member refid="class_capstone_test_1a652ceafdeac2b3a6d1c124d7dcb6b78a" prot="public" virt="non-virtual"><scope>CapstoneTest</scope><name>PrivateDataProxy</name></member>
+      <member refid="class_capstone_test_1a7bc8bb45b2f5d7731133cda21a78530f" prot="private" virt="non-virtual"><scope>CapstoneTest</scope><name>proxies</name></member>
+      <member refid="class_capstone_test_1ae8972d9d61bbd4ab6b931f13311f4a6a" prot="public" virt="non-virtual"><scope>CapstoneTest</scope><name>select</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

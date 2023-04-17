@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_candidate_window" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::CandidateWindow</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_candidate_window_1ace9cc69fb6911d9a34c3f4e4d18c72d6" prot="protected" static="no" mutable="no">
+        <type>Shell</type>
+        <definition>Shell dynamicAnalysis.CandidateWindow.shell</definition>
+        <argsstring></argsstring>
+        <name>shell</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.shell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The shell. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="39" column="17" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_candidate_window_1a2252b08d5b661c92b87d3aa21aa2a7a8" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label dynamicAnalysis.CandidateWindow.text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The text. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="42" column="15" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_candidate_window_1a7493ee2ea74b2d1ae92bfab152eaa59e" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CandidateWindow.filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The file path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="45" column="16" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_candidate_window_1ad08774abb3b6ef097d8df32dddf9d5af" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void dynamicAnalysis.CandidateWindow.main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Launch the application.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="52" column="20" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="52" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_candidate_window_1a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CandidateWindow.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.open</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Open the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="67" column="13" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="67" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_candidate_window_1a9b6cfb7b311ec761cfd7dc25ac2dd4d7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CandidateWindow.createContents</definition>
+        <argsstring>()</argsstring>
+        <name>createContents</name>
+        <qualifiedname>dynamicAnalysis.CandidateWindow.createContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create contents of the window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CandidateWindow.java" line="85" column="16" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="85" bodyend="264"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Class <ref refid="classdynamic_analysis_1_1_candidate_window" kindref="compound">CandidateWindow</ref>. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>dynamicAnalysis.CandidateWindow</label>
+        <link refid="classdynamic_analysis_1_1_candidate_window"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shell</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shell</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/dynamicAnalysis/CandidateWindow.java" line="35" column="7" bodyfile="src/dynamicAnalysis/CandidateWindow.java" bodystart="36" bodyend="265"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1a9b6cfb7b311ec761cfd7dc25ac2dd4d7" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>createContents</name></member>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1a7493ee2ea74b2d1ae92bfab152eaa59e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>filePath</name></member>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1ad08774abb3b6ef097d8df32dddf9d5af" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>main</name></member>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1a2ccc9bd11b8eb4e6bc1b52b3ce1c39e7" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>open</name></member>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1ace9cc69fb6911d9a34c3f4e4d18c72d6" prot="protected" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>shell</name></member>
+      <member refid="classdynamic_analysis_1_1_candidate_window_1a2252b08d5b661c92b87d3aa21aa2a7a8" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CandidateWindow</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

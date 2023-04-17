@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_dll_file" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::DllFile</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_dll_file_1a0dbb187e829e304305078561d308f577" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.DllFile.path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>dynamicAnalysis.DllFile.path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The path of the file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="15" column="16" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_dll_file_1a7f734a9923016439f5c4695a7a54f597" prot="private" static="no" mutable="no">
+        <type>File</type>
+        <definition>File dynamicAnalysis.DllFile.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>dynamicAnalysis.DllFile.file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The DLL file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="18" column="14" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1a6c59cd80db4f535b25c7cfbdaadc5d1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.DllFile.DllFile</definition>
+        <argsstring>(String path)</argsstring>
+        <name>DllFile</name>
+        <qualifiedname>dynamicAnalysis.DllFile.DllFile</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates a new dll file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the path of the DLL file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="25" column="8" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1aa843b64fd2becd010848ed1bb1f1f904" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.DllFile.getPath</definition>
+        <argsstring>()</argsstring>
+        <name>getPath</name>
+        <qualifiedname>dynamicAnalysis.DllFile.getPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the path of the DLL file.</para>
+<para><simplesect kind="return"><para>the path of the DLL file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="36" column="15" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1a6e9f4602493b732c620599ee4d08a5cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.DllFile.setPath</definition>
+        <argsstring>(String path)</argsstring>
+        <name>setPath</name>
+        <qualifiedname>dynamicAnalysis.DllFile.setPath</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="46" column="13" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1a5d04e55600c1d862a65621fd7254cc61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File dynamicAnalysis.DllFile.getFile</definition>
+        <argsstring>()</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.DllFile.getFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the file.</para>
+<para><simplesect kind="return"><para>the file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="56" column="13" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1a1c3b4db3977456b92eb28d20288f609b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.DllFile.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.DllFile.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="77" column="15" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="77" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_dll_file_1ae82f4272cb58e1ea7a2069143802918e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File dynamicAnalysis.DllFile.createFile</definition>
+        <argsstring>()</argsstring>
+        <name>createFile</name>
+        <qualifiedname>dynamicAnalysis.DllFile.createFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the file.</para>
+<para><simplesect kind="return"><para>the file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/DllFile.java" line="66" column="14" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="66" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Class used to identify DLL files. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/DllFile.java" line="11" column="7" bodyfile="src/dynamicAnalysis/DllFile.java" bodystart="12" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_dll_file_1ae82f4272cb58e1ea7a2069143802918e" prot="private" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>createFile</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a6c59cd80db4f535b25c7cfbdaadc5d1a" prot="public" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>DllFile</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a7f734a9923016439f5c4695a7a54f597" prot="private" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>file</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a5d04e55600c1d862a65621fd7254cc61" prot="public" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1aa843b64fd2becd010848ed1bb1f1f904" prot="public" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>getPath</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a0dbb187e829e304305078561d308f577" prot="private" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>path</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a6e9f4602493b732c620599ee4d08a5cd" prot="public" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>setPath</name></member>
+      <member refid="classdynamic_analysis_1_1_dll_file_1a1c3b4db3977456b92eb28d20288f609b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::DllFile</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

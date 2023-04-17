@@ -6,16 +6,11 @@ package dynamicAnalysis;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.ToolItem;
-import org.pcap4j.core.NotOpenException;
 import org.pcap4j.core.PcapNativeException;
 import org.pcap4j.packet.IpPacket;
-import org.pcap4j.packet.Packet;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
@@ -25,69 +20,61 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.swt.custom.StyledText;
-import org.eclipse.jface.text.TextViewer;
 import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.ui.forms.widgets.ExpandableComposite;
-import org.eclipse.ui.forms.widgets.ScrolledForm;
-import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.swt.widgets.Button;
 
 /**
- * The Class NetworkComposite.
+ * The composite to monitor network traffic
  */
 public class NetworkComposite extends Composite
 {
 	
-	/** The packet trace. */
+	/** The packet tracing method. */
 	private PacketTrace packetTrace;
 	
-	/** The network interfaces. */
+	/** The SWT list to store the device's network interfaces. */
 	private List networkInterfaces;
 	
-	/** The addresses. */
+	/** The SWT list that outlines the addresses belonging to a network interface. */
 	private List addresses;
 	
-	/** The packets. */
+	/** The packets that are output by a specific address. */
 	private List packets;
 	
-	/** The devices. */
+	/** A hashmap that maps addresses to a device. */
 	private HashMap<String, String> devices;
 	
-	/** The form toolkit. */
+	/** The form toolkit used by SWT. */
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	
-	/** The address selected. */
+	/** Checks if an address is selected in the SWT list. */
 	private boolean addressSelected = false;
 	
-	/** The active connections. */
+	/** An array of the ActiveConnection method. */
 	private ActiveConnection[] activeConnections;
 	
-	/** The packet info. */
+	/** Describes information of a selected packet. */
 	private StyledText packetInfo;
 	
-	/** The hex payload. */
+	/** The packet payload displayed in hexadecimal. */
 	private StyledText hexPayload;
 	
-	/** The ascii payload. */
+	/** The packet payload displayed in ASCII. */
 	private StyledText asciiPayload;
 	
 	/**
-	 * Create the composite.
+	 * Instantiates the network composite.
 	 *
-	 * @param parent the parent
-	 * @param style the style
-	 * @param pid the pid
-	 * @throws PcapNativeException the pcap native exception
+	 * @param parent the main window that acts as the parent
+	 * @param style the SWT style applied to the network composite
+	 * @param pid the unique process identifier
+	 * @throws PcapNativeException the pcap libraries' native exception
 	 */
 	public NetworkComposite(Composite parent, int style, long pid) throws PcapNativeException
 	{
@@ -182,6 +169,7 @@ public class NetworkComposite extends Composite
 		});
 		btnFilterByProcess.setGrayed(true);
 		btnFilterByProcess.setText("Filter by process");
+		btnFilterByProcess.setVisible(false);
 		FormData fd_btnFilterByProcess = new FormData();
 		fd_btnFilterByProcess.top = new FormAttachment(0, 11);
 		fd_btnFilterByProcess.bottom = new FormAttachment(packetInfo, -6);
@@ -189,7 +177,7 @@ public class NetworkComposite extends Composite
 		btnFilterByProcess.setLayoutData(fd_btnFilterByProcess);
 		formToolkit.adapt(btnFilterByProcess, true, true);
 		
-		Label pidMatch = formToolkit.createLabel(this, "New Label", SWT.NONE);
+		Label pidMatch = formToolkit.createLabel(this, "", SWT.NONE);
 		pidMatch.setBackground(SWTResourceManager.getColor(240, 240, 240));
 		FormData fd_pidMatch = new FormData();
 		fd_pidMatch.bottom = new FormAttachment(networkInterfaces, -15);
@@ -300,7 +288,7 @@ public class NetworkComposite extends Composite
 	}
 	
 	/**
-	 * Update network.
+	 * Update information relating to network traffic.
 	 */
 	private synchronized void updateNetwork()
 	{
@@ -354,9 +342,9 @@ public class NetworkComposite extends Composite
 	}
 	
 	/**
-	 * Error alert.
+	 * Displays an error message to the user.
 	 *
-	 * @param message the message
+	 * @param message the error message
 	 */
 	private void errorAlert(String message)
 	{
@@ -367,7 +355,7 @@ public class NetworkComposite extends Composite
 	}
 	
 	/**
-	 * Clear all.
+	 * Clears all user selections
 	 */
 	private void clearAll()
 	{

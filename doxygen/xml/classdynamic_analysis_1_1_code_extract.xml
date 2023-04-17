@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="classdynamic_analysis_1_1_code_extract" kind="class" language="Java" prot="public">
+    <compoundname>dynamicAnalysis::CodeExtract</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a4a20823e7f3b0de2998afac5f094e282" prot="private" static="no" mutable="no">
+        <type>File</type>
+        <definition>File dynamicAnalysis.CodeExtract.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The associated PE file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="18" column="14" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a4bcfabd11b889c7bfb9781331196f3ad" prot="private" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] dynamicAnalysis.CodeExtract.instructions</definition>
+        <argsstring></argsstring>
+        <name>instructions</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.instructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Byte stream of instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="21" column="14" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a4e299b7e605db985aa2deae701117940" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CodeExtract.code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>String representation of x86 instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="24" column="16" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a1c40f44a9477122c6f1b163cb4066e29" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] dynamicAnalysis.CodeExtract.codeArr</definition>
+        <argsstring></argsstring>
+        <name>codeArr</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.codeArr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Array of x86 instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="27" column="16" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a4f35f4466338533c0fffbd9e61cea3a2" prot="private" static="no" mutable="no">
+        <type><ref refid="classdynamic_analysis_1_1_p_e_file" kindref="compound">PEFile</ref></type>
+        <definition>PEFile dynamicAnalysis.CodeExtract.peFile</definition>
+        <argsstring></argsstring>
+        <name>peFile</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.peFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A conversion of the file to a PE file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="30" column="16" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdynamic_analysis_1_1_code_extract_1a5658bb9df9c71ce9ca4752dbd0346f54" prot="private" static="no" mutable="no">
+        <type>Capstone.CsInsn[]</type>
+        <definition>Capstone.CsInsn [] dynamicAnalysis.CodeExtract.allInsn</definition>
+        <argsstring></argsstring>
+        <name>allInsn</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.allInsn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Capstone array containing all instructions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="33" column="24" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a8ab18547415d4d044dab72bf246653c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>dynamicAnalysis.CodeExtract.CodeExtract</definition>
+        <argsstring>(File file)</argsstring>
+        <name>CodeExtract</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.CodeExtract</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instantiates the <ref refid="classdynamic_analysis_1_1_code_extract" kindref="compound">CodeExtract</ref> class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to extract the x86 instructions from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="40" column="8" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1adc88e9d5856813a58ac36ddd094c978f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.CodeExtract.loadInstructions</definition>
+        <argsstring>()</argsstring>
+        <name>loadInstructions</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.loadInstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load x86 instructions.</para>
+<para><simplesect kind="return"><para>byte array containing raw instruction bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="62" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="62" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1ac3333c4d734af2c584a7168b591fcbb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File dynamicAnalysis.CodeExtract.getFile</definition>
+        <argsstring>()</argsstring>
+        <name>getFile</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the file.</para>
+<para><simplesect kind="return"><para>the file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="137" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1ae78c883929ffa1253d0df44b3b2545a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CodeExtract.setFile</definition>
+        <argsstring>(File file)</argsstring>
+        <name>setFile</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.setFile</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="146" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a898e6101b6db136115ab84a16da2f7b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.CodeExtract.getInstructions</definition>
+        <argsstring>()</argsstring>
+        <name>getInstructions</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getInstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the instructions.</para>
+<para><simplesect kind="return"><para>the instructions </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="164" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a438e989c5d1a4b3d0c2e4fba2aa3e623" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CodeExtract.getCode</definition>
+        <argsstring>()</argsstring>
+        <name>getCode</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the code.</para>
+<para><simplesect kind="return"><para>the code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="173" column="15" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="173" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a90b34cbe7b480ec83ace0794c543581b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.CodeExtract.getCodeArr</definition>
+        <argsstring>()</argsstring>
+        <name>getCodeArr</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getCodeArr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the code arr.</para>
+<para><simplesect kind="return"><para>the code arr </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="182" column="15" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="182" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a398161f24bee568994ecb6226b8311c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdynamic_analysis_1_1_p_e_file" kindref="compound">PEFile</ref></type>
+        <definition>PEFile dynamicAnalysis.CodeExtract.getPeFile</definition>
+        <argsstring>()</argsstring>
+        <name>getPeFile</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getPeFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the pe file.</para>
+<para><simplesect kind="return"><para>the pe file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="191" column="15" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1ae65330e994b7e73eb1d2d91761f0189f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CodeExtract.setPeFile</definition>
+        <argsstring>(PEFile peFile)</argsstring>
+        <name>setPeFile</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.setPeFile</qualifiedname>
+        <param>
+          <type><ref refid="classdynamic_analysis_1_1_p_e_file" kindref="compound">PEFile</ref></type>
+          <declname>peFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the pe file.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>peFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new pe file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="201" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="201" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1ac892feadc2d03494d4ee3955e427c1a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dynamicAnalysis.CodeExtract.getPointer</definition>
+        <argsstring>()</argsstring>
+        <name>getPointer</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getPointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the pointer.</para>
+<para><simplesect kind="return"><para>the pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="211" column="12" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="211" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a8fc5db68245f79d929c33b95821a2c2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Capstone.CsInsn[]</type>
+        <definition>Capstone.CsInsn[] dynamicAnalysis.CodeExtract.getAllInsn</definition>
+        <argsstring>()</argsstring>
+        <name>getAllInsn</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getAllInsn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the Capstone instruction set.</para>
+<para><simplesect kind="return"><para>the Capstone instruction set </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="221" column="23" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1ad4ebd323683a6054c64de18b31338ccf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CodeExtract.setAllInsn</definition>
+        <argsstring>(Capstone.CsInsn[] allInsn)</argsstring>
+        <name>setAllInsn</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.setAllInsn</qualifiedname>
+        <param>
+          <type>Capstone.CsInsn[]</type>
+          <declname>allInsn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the Capstone instruction set.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allInsn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new Capstone instruction set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="231" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="231" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a63c91e2075f716468aba0b175edb01f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] dynamicAnalysis.CodeExtract.getBytes</definition>
+        <argsstring>()</argsstring>
+        <name>getBytes</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getBytes</qualifiedname>
+        <exceptions> throws IOException 	</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the raw instruction bytes.</para>
+<para><simplesect kind="return"><para>the raw instruction bytes </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IOException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signals that an I/O exception has occurred. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="242" column="13" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="242" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1aae55327b7ce6045ee4895ea7cbf99fa7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="enumdynamic_analysis_1_1_version" kindref="compound">Version</ref></type>
+        <definition>Version dynamicAnalysis.CodeExtract.getVersion</definition>
+        <argsstring>()</argsstring>
+        <name>getVersion</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.getVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the PE version, either 32 bit or 64 bit.</para>
+<para><simplesect kind="return"><para>the PE version </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="252" column="16" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a25f567dead8d93765bff5314cf8927cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String dynamicAnalysis.CodeExtract.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>To string.</para>
+<para><simplesect kind="return"><para>the string </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="263" column="15" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="263" bodyend="265"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1aa8444959c68d7e4067a2833a1593fb98" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CodeExtract.loadPE</definition>
+        <argsstring>(File file)</argsstring>
+        <name>loadPE</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.loadPE</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load PE.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to extract the x86 instructions from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="50" column="14" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1aca734f47c0a9babd0247bfaeccf41e21" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Capstone.CsInsn[]</type>
+        <definition>Capstone.CsInsn[] dynamicAnalysis.CodeExtract.loadCapstone</definition>
+        <argsstring>(byte[] instructions)</argsstring>
+        <name>loadCapstone</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.loadCapstone</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>instructions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load Capstone and convert instruction bytes to x86 instructions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instructions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the raw byte instructions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the x86 instructions </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="85" column="24" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="85" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a44075d4d1ebba6b545fb175beed2e58d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>String[] dynamicAnalysis.CodeExtract.extractArr</definition>
+        <argsstring>(byte[] instructions)</argsstring>
+        <name>extractArr</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.extractArr</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>instructions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Extract x86 instructions as a string array.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instructions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the raw byte instructions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the x86 instructions as a string array </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="120" column="16" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="120" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classdynamic_analysis_1_1_code_extract_1a1ce4718112fca55686959addd590249f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void dynamicAnalysis.CodeExtract.setInstructions</definition>
+        <argsstring>(byte[] instructions)</argsstring>
+        <name>setInstructions</name>
+        <qualifiedname>dynamicAnalysis.CodeExtract.setInstructions</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>instructions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the instructions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>instructions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new instructions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/dynamicAnalysis/CodeExtract.java" line="155" column="14" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="155" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Top level extraction of code from a PE file. Uses Capstone to translate a byte stream to x86 instructions. </para>
+    </detaileddescription>
+    <location file="src/dynamicAnalysis/CodeExtract.java" line="15" column="7" bodyfile="src/dynamicAnalysis/CodeExtract.java" bodystart="15" bodyend="266"/>
+    <listofallmembers>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a5658bb9df9c71ce9ca4752dbd0346f54" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>allInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a4e299b7e605db985aa2deae701117940" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>code</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a1c40f44a9477122c6f1b163cb4066e29" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>codeArr</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a8ab18547415d4d044dab72bf246653c7" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>CodeExtract</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a44075d4d1ebba6b545fb175beed2e58d" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>extractArr</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a4a20823e7f3b0de2998afac5f094e282" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>file</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a8fc5db68245f79d929c33b95821a2c2a" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getAllInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a63c91e2075f716468aba0b175edb01f2" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getBytes</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a438e989c5d1a4b3d0c2e4fba2aa3e623" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getCode</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a90b34cbe7b480ec83ace0794c543581b" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getCodeArr</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1ac3333c4d734af2c584a7168b591fcbb8" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getFile</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a898e6101b6db136115ab84a16da2f7b0" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getInstructions</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a398161f24bee568994ecb6226b8311c4" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getPeFile</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1ac892feadc2d03494d4ee3955e427c1a6" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getPointer</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1aae55327b7ce6045ee4895ea7cbf99fa7" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>getVersion</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a4bcfabd11b889c7bfb9781331196f3ad" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>instructions</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1aca734f47c0a9babd0247bfaeccf41e21" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>loadCapstone</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1adc88e9d5856813a58ac36ddd094c978f" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>loadInstructions</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1aa8444959c68d7e4067a2833a1593fb98" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>loadPE</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a4f35f4466338533c0fffbd9e61cea3a2" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>peFile</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1ad4ebd323683a6054c64de18b31338ccf" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>setAllInsn</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1ae78c883929ffa1253d0df44b3b2545a3" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>setFile</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a1ce4718112fca55686959addd590249f" prot="private" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>setInstructions</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1ae65330e994b7e73eb1d2d91761f0189f" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>setPeFile</name></member>
+      <member refid="classdynamic_analysis_1_1_code_extract_1a25f567dead8d93765bff5314cf8927cd" prot="public" virt="non-virtual"><scope>dynamicAnalysis::CodeExtract</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

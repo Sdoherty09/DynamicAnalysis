@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Dynamic<sp/>Malware<sp/>Analysis<sp/>Tool</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>South<sp/>East<sp/>Technological<sp/>University</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Name:<sp/>Shane<sp/>Doherty</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Student<sp/>Number:<sp/>C00249279</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Supervisor:<sp/>Joseph<sp/>Kehoe</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>work<sp/>©<sp/>2022<sp/>by<sp/>Shane<sp/>Doherty<sp/>is<sp/>licensed<sp/>under<sp/><sp/>Attribution-NonCommercial-ShareAlike<sp/>4.0<sp/>International.<sp/>To<sp/>view<sp/>a<sp/>copy<sp/>of<sp/>this<sp/>license,<sp/>visit<sp/>http://creativecommons.org/licenses/by-nc-sa/4.0/</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,365 @@
+\hypertarget{_network_composite_8java_source}{}\doxysection{Network\+Composite.\+java}
+\label{_network_composite_8java_source}\index{src/dynamicAnalysis/NetworkComposite.java@{src/dynamicAnalysis/NetworkComposite.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00006}00006 \textcolor{keyword}{import} org.eclipse.swt.widgets.Composite;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00007}00007 \textcolor{keyword}{import} org.eclipse.swt.widgets.Display;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00008}00008 \textcolor{keyword}{import} org.eclipse.swt.widgets.Event;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00009}00009 \textcolor{keyword}{import} org.eclipse.swt.widgets.ToolBar;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00010}00010 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00011}00011 \textcolor{keyword}{import} org.eclipse.swt.widgets.ToolItem;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00012}00012 \textcolor{keyword}{import} org.pcap4j.core.NotOpenException;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00013}00013 \textcolor{keyword}{import} org.pcap4j.core.PcapNativeException;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00014}00014 \textcolor{keyword}{import} org.pcap4j.packet.IpPacket;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00015}00015 \textcolor{keyword}{import} org.pcap4j.packet.Packet;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00016}00016 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionAdapter;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00017}00017 \textcolor{keyword}{import} org.eclipse.swt.events.SelectionEvent;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00018}00018 \textcolor{keyword}{import} org.eclipse.swt.widgets.Combo;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00019}00019 \textcolor{keyword}{import} org.eclipse.swt.widgets.List;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00020}00020 \textcolor{keyword}{import} org.eclipse.swt.widgets.Listener;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00021}00021 \textcolor{keyword}{import} org.eclipse.swt.widgets.MessageBox;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00023}00023 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00024}00024 \textcolor{keyword}{import} java.util.HashMap;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00025}00025 \textcolor{keyword}{import} java.util.Map.Entry;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00026}00026 \textcolor{keyword}{import} java.util.concurrent.TimeUnit;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00028}00028 \textcolor{keyword}{import} org.eclipse.jface.viewers.ListViewer;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00029}00029 \textcolor{keyword}{import} org.eclipse.swt.layout.FormLayout;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00030}00030 \textcolor{keyword}{import} org.eclipse.swt.layout.FormData;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00031}00031 \textcolor{keyword}{import} org.eclipse.swt.layout.FormAttachment;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00032}00032 \textcolor{keyword}{import} org.eclipse.swt.layout.GridLayout;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00033}00033 \textcolor{keyword}{import} org.eclipse.swt.layout.GridData;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00034}00034 \textcolor{keyword}{import} org.eclipse.swt.widgets.Label;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00035}00035 \textcolor{keyword}{import} org.eclipse.ui.forms.widgets.FormToolkit;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00036}00036 \textcolor{keyword}{import} org.eclipse.swt.custom.StyledText;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00037}00037 \textcolor{keyword}{import} org.eclipse.jface.text.TextViewer;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00038}00038 \textcolor{keyword}{import} org.eclipse.wb.swt.SWTResourceManager;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00039}00039 \textcolor{keyword}{import} org.eclipse.swt.widgets.Tree;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00040}00040 \textcolor{keyword}{import} org.eclipse.ui.forms.widgets.ExpandableComposite;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00041}00041 \textcolor{keyword}{import} org.eclipse.ui.forms.widgets.ScrolledForm;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00042}00042 \textcolor{keyword}{import} org.eclipse.ui.forms.widgets.FormText;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00043}00043 \textcolor{keyword}{import} org.eclipse.swt.widgets.Button;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00048}\mbox{\hyperlink{classdynamic_analysis_1_1_network_composite}{00048}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_network_composite}{NetworkComposite}} \textcolor{keyword}{extends} Composite}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00049}00049 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00050}00050     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00052}00052     \textcolor{keyword}{private} \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace}{PacketTrace}} packetTrace;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00053}00053     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00055}00055     \textcolor{keyword}{private} List networkInterfaces;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00058}00058     \textcolor{keyword}{private} List addresses;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00059}00059     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00061}00061     \textcolor{keyword}{private} List packets;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00062}00062     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00064}00064     \textcolor{keyword}{private} HashMap<String, String> devices;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00065}00065     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00067}00067     \textcolor{keyword}{private} \textcolor{keyword}{final} FormToolkit formToolkit = \textcolor{keyword}{new} FormToolkit(Display.getDefault());}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00068}00068     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00070}00070     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} addressSelected = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00071}00071     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00073}00073     \textcolor{keyword}{private} \mbox{\hyperlink{classdynamic_analysis_1_1_active_connection}{ActiveConnection}}[] activeConnections;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00074}00074     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00076}00076     \textcolor{keyword}{private} StyledText packetInfo;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00077}00077     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00079}00079     \textcolor{keyword}{private} StyledText hexPayload;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00080}00080     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00082}00082     \textcolor{keyword}{private} StyledText asciiPayload;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00083}00083     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00092}\mbox{\hyperlink{classdynamic_analysis_1_1_network_composite_ac6c66e6d02a59eeb271ca50518a8787a}{00092}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_network_composite_ac6c66e6d02a59eeb271ca50518a8787a}{NetworkComposite}}(Composite parent, \textcolor{keywordtype}{int} style, \textcolor{keywordtype}{long} pid) \textcolor{keywordflow}{throws} PcapNativeException}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00093}00093     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00094}00094         super(parent, style);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00095}00095         setLayout(\textcolor{keyword}{new} FormLayout());}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00096}00096         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00097}00097         networkInterfaces = \textcolor{keyword}{new} List(\textcolor{keyword}{this}, SWT.BORDER | SWT.H\_SCROLL | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00098}00098         FormData fd\_networkInterfaces = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00099}00099         fd\_networkInterfaces.top = \textcolor{keyword}{new} FormAttachment(0, 41);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00100}00100         fd\_networkInterfaces.right = \textcolor{keyword}{new} FormAttachment(0, 211);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00101}00101         networkInterfaces.setLayoutData(fd\_networkInterfaces);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00102}00102         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00103}00103         packetInfo = \textcolor{keyword}{new} StyledText(\textcolor{keyword}{this}, SWT.BORDER | SWT.WRAP);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00104}00104         packetInfo.setEditable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00105}00105         FormData fd\_packetInfo = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00106}00106         fd\_packetInfo.left = \textcolor{keyword}{new} FormAttachment(networkInterfaces, 5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00107}00107         fd\_packetInfo.right = \textcolor{keyword}{new} FormAttachment(100, -\/4);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00108}00108         fd\_packetInfo.bottom = \textcolor{keyword}{new} FormAttachment(100, -\/172);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00109}00109         fd\_packetInfo.top = \textcolor{keyword}{new} FormAttachment(0, 41);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00110}00110         packetInfo.setLayoutData(fd\_packetInfo);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00111}00111         packetInfo.setFont(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a0603188ae7ef4801932ec8090c31b51e}{getFont}}(\textcolor{stringliteral}{"{}Segoe UI"{}}, 8, SWT.NORMAL));}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00112}00112         formToolkit.adapt(packetInfo);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00113}00113         formToolkit.paintBordersFor(packetInfo);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00114}00114         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00115}00115         addresses = \textcolor{keyword}{new} List(\textcolor{keyword}{this}, SWT.BORDER | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00116}00116         fd\_networkInterfaces.left = \textcolor{keyword}{new} FormAttachment(addresses, 0, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00117}00117         fd\_networkInterfaces.bottom = \textcolor{keyword}{new} FormAttachment(addresses, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00118}00118         FormData fd\_addresses = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00119}00119         fd\_addresses.bottom = \textcolor{keyword}{new} FormAttachment(0, 203);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00120}00120         fd\_addresses.right = \textcolor{keyword}{new} FormAttachment(0, 211);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00121}00121         fd\_addresses.top = \textcolor{keyword}{new} FormAttachment(0, 126);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00122}00122         fd\_addresses.left = \textcolor{keyword}{new} FormAttachment(0, 5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00123}00123         addresses.setLayoutData(fd\_addresses);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00124}00124         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00125}00125         packets = \textcolor{keyword}{new} List(\textcolor{keyword}{this}, SWT.BORDER | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00126}00126         FormData fd\_packets = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00127}00127         fd\_packets.top = \textcolor{keyword}{new} FormAttachment(addresses, 5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00128}00128         fd\_packets.bottom = \textcolor{keyword}{new} FormAttachment(100, -\/5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00129}00129         fd\_packets.right = \textcolor{keyword}{new} FormAttachment(0, 211);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00130}00130         fd\_packets.left = \textcolor{keyword}{new} FormAttachment(0, 5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00131}00131         packets.setLayoutData(fd\_packets);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00132}00132         formToolkit.adapt(packets, \textcolor{keyword}{true}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00133}00133         Label label = \textcolor{keyword}{new} Label(\textcolor{keyword}{this}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00134}00134         FormData fd\_label = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00135}00135         fd\_label.top = \textcolor{keyword}{new} FormAttachment(0, 271);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00136}00136         fd\_label.left = \textcolor{keyword}{new} FormAttachment(0, 216);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00137}00137         label.setLayoutData(fd\_label);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00138}00138         formToolkit.adapt(label, \textcolor{keyword}{true}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00139}00139         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00140}00140         hexPayload = \textcolor{keyword}{new} StyledText(\textcolor{keyword}{this}, SWT.BORDER | SWT.WRAP | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00141}00141         hexPayload.setEditable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00142}00142         FormData fd\_hexPayload = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00143}00143         fd\_hexPayload.right = \textcolor{keyword}{new} FormAttachment(packetInfo, 0, SWT.RIGHT);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00144}00144         fd\_hexPayload.bottom = \textcolor{keyword}{new} FormAttachment(packetInfo, 85, SWT.BOTTOM);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00145}00145         fd\_hexPayload.top = \textcolor{keyword}{new} FormAttachment(packetInfo, 6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00146}00146         hexPayload.setLayoutData(fd\_hexPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00147}00147         formToolkit.adapt(hexPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00148}00148         formToolkit.paintBordersFor(hexPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00149}00149         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00150}00150         asciiPayload = \textcolor{keyword}{new} StyledText(\textcolor{keyword}{this}, SWT.BORDER | SWT.WRAP | SWT.V\_SCROLL);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00151}00151         asciiPayload.setEditable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00152}00152         fd\_hexPayload.left = \textcolor{keyword}{new} FormAttachment(asciiPayload, 0, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00153}00153         FormData fd\_asciiPayload = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00154}00154         fd\_asciiPayload.right = \textcolor{keyword}{new} FormAttachment(100, -\/4);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00155}00155         fd\_asciiPayload.top = \textcolor{keyword}{new} FormAttachment(hexPayload, 6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00156}00156         fd\_asciiPayload.bottom = \textcolor{keyword}{new} FormAttachment(100, -\/5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00157}00157         asciiPayload.setLayoutData(fd\_asciiPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00158}00158         formToolkit.adapt(asciiPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00159}00159         formToolkit.paintBordersFor(asciiPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00160}00160         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00161}00161         Label lblNewLabel = formToolkit.createLabel(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Hex Payload"{}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00162}00162         lblNewLabel.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(240, 240, 240));}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00163}00163         FormData fd\_lblNewLabel = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00164}00164         fd\_lblNewLabel.top = \textcolor{keyword}{new} FormAttachment(packetInfo, 6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00165}00165         fd\_lblNewLabel.right = \textcolor{keyword}{new} FormAttachment(hexPayload, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00166}00166         lblNewLabel.setLayoutData(fd\_lblNewLabel);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00167}00167         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00168}00168         Label lblAsciiPayload = formToolkit.createLabel(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ASCII Payload"{}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00169}00169         lblAsciiPayload.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(240, 240, 240));}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00170}00170         fd\_asciiPayload.left = \textcolor{keyword}{new} FormAttachment(0, 299);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00171}00171         FormData fd\_lblAsciiPayload = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00172}00172         fd\_lblAsciiPayload.top = \textcolor{keyword}{new} FormAttachment(hexPayload, 6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00173}00173         fd\_lblAsciiPayload.right = \textcolor{keyword}{new} FormAttachment(asciiPayload, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00174}00174         lblAsciiPayload.setLayoutData(fd\_lblAsciiPayload);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00175}00175         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00176}00176         Button btnFilterByProcess = \textcolor{keyword}{new} Button(\textcolor{keyword}{this}, SWT.CHECK);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00177}00177         btnFilterByProcess.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00178}00178             @Override}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00179}00179             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00180}00180                 clearAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00181}00181             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00182}00182         \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00183}00183         btnFilterByProcess.setGrayed(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00184}00184         btnFilterByProcess.setText(\textcolor{stringliteral}{"{}Filter by process"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00185}00185         FormData fd\_btnFilterByProcess = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00186}00186         fd\_btnFilterByProcess.top = \textcolor{keyword}{new} FormAttachment(0, 11);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00187}00187         fd\_btnFilterByProcess.bottom = \textcolor{keyword}{new} FormAttachment(packetInfo, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00188}00188         fd\_btnFilterByProcess.left = \textcolor{keyword}{new} FormAttachment(packetInfo, 0, SWT.LEFT);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00189}00189         btnFilterByProcess.setLayoutData(fd\_btnFilterByProcess);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00190}00190         formToolkit.adapt(btnFilterByProcess, \textcolor{keyword}{true}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00191}00191         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00192}00192         Label pidMatch = formToolkit.createLabel(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}New Label"{}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00193}00193         pidMatch.setBackground(\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager}{SWTResourceManager}}.\mbox{\hyperlink{classorg_1_1eclipse_1_1wb_1_1swt_1_1_s_w_t_resource_manager_a261745b44e6e7846bd9b98c6777600eb}{getColor}}(240, 240, 240));}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00194}00194         FormData fd\_pidMatch = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00195}00195         fd\_pidMatch.bottom = \textcolor{keyword}{new} FormAttachment(networkInterfaces, -\/15);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00196}00196         fd\_pidMatch.right = \textcolor{keyword}{new} FormAttachment(btnFilterByProcess, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00197}00197         fd\_pidMatch.left = \textcolor{keyword}{new} FormAttachment(0, 5);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00198}00198         fd\_pidMatch.top = \textcolor{keyword}{new} FormAttachment(0, 11);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00199}00199         pidMatch.setLayoutData(fd\_pidMatch);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00200}00200         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00201}00201         Button btnClear = formToolkit.createButton(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Clear"{}}, SWT.NONE);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00202}00202         btnClear.addSelectionListener(\textcolor{keyword}{new} SelectionAdapter() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00203}00203             @Override}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00204}00204             \textcolor{keyword}{public} \textcolor{keywordtype}{void} widgetSelected(SelectionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00205}00205                 clearAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00206}00206             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00207}00207         \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00208}00208         FormData fd\_btnClear = \textcolor{keyword}{new} FormData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00209}00209         fd\_btnClear.bottom = \textcolor{keyword}{new} FormAttachment(packetInfo, -\/6);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00210}00210         fd\_btnClear.right = \textcolor{keyword}{new} FormAttachment(100, -\/4);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00211}00211         fd\_btnClear.top = \textcolor{keyword}{new} FormAttachment(0, 10);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00212}00212         btnClear.setLayoutData(fd\_btnClear);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00213}00213         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00214}00214         String address = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00215}00215         System.out.println(\textcolor{stringliteral}{"{}pid: "{}}+pid);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00216}00216         \textcolor{keywordflow}{if}(pid == 0)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00217}00217         \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00218}00218             pidMatch.setText(\textcolor{stringliteral}{"{}No process selected"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00219}00219         \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00220}00220         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00221}00221         \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00222}00222             \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats}{NetworkStats}} networkStats = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_network_stats}{NetworkStats}}();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00223}00223             activeConnections = networkStats.\mbox{\hyperlink{classdynamic_analysis_1_1_network_stats_acdc779ac12c3516400380fc8d2d38839}{getActiveConnections}}();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00224}00224             \textcolor{keywordtype}{int} count = 1;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00225}00225             \textcolor{keywordtype}{boolean} extraAddress = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00226}00226             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0; index < activeConnections.length; index++)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00227}00227             \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00228}00228                 \textcolor{keywordflow}{if}(activeConnections[index].getPid() == pid)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00229}00229                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00230}00230                     extraAddress = !address.equals(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00231}00231                     address = activeConnections[index].\mbox{\hyperlink{classdynamic_analysis_1_1_active_connection_a14ea1debac419ef768d9317f8043a70b}{getLocalAddress}}();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00232}00232                     pidMatch.setText(\textcolor{stringliteral}{"{}Process address: "{}}+address);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00233}00233                     \textcolor{keywordflow}{if}(extraAddress) pidMatch.setText(pidMatch.getText()+\textcolor{stringliteral}{"{} (+"{}}+count+++\textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00234}00234                 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00235}00235             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00236}00236         \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00237}00237         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00238}00238         networkInterfaces.addListener(SWT.Selection, \textcolor{keyword}{new} Listener() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00239}00239               \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleEvent(Event e) \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00240}00240                 addresses.removeAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00241}00241                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00242}00242                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00243}00243                     String deviceName = (String) networkInterfaces.getData(networkInterfaces.getSelection()[0]);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00244}00244                     String[] addressesArr = packetTrace.\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a91c966061903125b99e43b31e9fdc335}{getAddresses}}(deviceName);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00245}00245                     System.out.println(\textcolor{stringliteral}{"{}addresses length: "{}}+addressesArr.length);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00246}00246                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0; index < addressesArr.length; index++)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00247}00247                     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00248}00248                         \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00249}00249                         \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00250}00250                             \textcolor{keywordflow}{if}(pid != 0 \&\& btnFilterByProcess.getSelection())}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00251}00251                             \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00252}00252                                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < activeConnections.length; j++)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00253}00253                                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00254}00254                                     \textcolor{keywordflow}{if}(activeConnections[j].getPid()==pid \&\& activeConnections[j].\mbox{\hyperlink{classdynamic_analysis_1_1_active_connection_a14ea1debac419ef768d9317f8043a70b}{getLocalAddress}}() == addressesArr[index])}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00255}00255                                     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00256}00256                                         addresses.add(addressesArr[index]);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00257}00257                                     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00258}00258                                 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00259}00259                             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00260}00260                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00261}00261                             \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00262}00262                                 addresses.add(addressesArr[index]);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00263}00263                             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00264}00264                         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00265}00265                         \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00266}00266                         \textcolor{keywordflow}{catch}(IllegalArgumentException e1)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00267}00267                         \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00268}00268                             e1.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00269}00269                             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00270}00270                         \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00271}00271                     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00272}00272                 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00273}00273                 \textcolor{keywordflow}{catch}(ArrayIndexOutOfBoundsException e1) \{\}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00274}00274               \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00275}00275             \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00276}00276         addresses.addListener(SWT.Selection, \textcolor{keyword}{new} Listener() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00277}00277               \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleEvent(Event e) \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00278}00278                   packets.removeAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00279}00279                   addressSelected = \textcolor{keyword}{true};             }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00280}00280               \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00281}00281             \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00282}00282         packets.addListener(SWT.Selection, \textcolor{keyword}{new} Listener() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00283}00283               \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleEvent(Event e) \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00284}00284                   IpPacket packet = ((IpPacket)packets.getData(packets.getSelection()[0]));}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00285}00285                   packetInfo.setText(packet.getHeader().toString());}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00286}00286                   \textcolor{keywordtype}{byte}[] payloadBytes = packet.getPayload().getRawData();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00287}00287                   String asciiPayloadStr = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00288}00288                   String hexPayloadStr = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00289}00289                   \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index = 0; index < payloadBytes.length;index++)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00290}00290                   \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00291}00291                       asciiPayloadStr+=(char) payloadBytes[index];}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00292}00292                       hexPayloadStr+=String.format(\textcolor{stringliteral}{"{}\%02X "{}}, payloadBytes[index]);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00293}00293                   \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00294}00294                   asciiPayload.setText(asciiPayloadStr);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00295}00295                   hexPayload.setText(hexPayloadStr);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00296}00296               \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00297}00297             \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00298}00298         packetTrace = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace}{PacketTrace}}();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00299}00299         updateNetwork();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00300}00300     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00301}00301     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00305}00305     \textcolor{keyword}{private} \textcolor{keyword}{synchronized} \textcolor{keywordtype}{void} updateNetwork()}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00306}00306     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00307}00307         Thread updateThread = \textcolor{keyword}{new} Thread(() -\/> \{ \textcolor{comment}{// Set up thread for each network interface}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00308}00308             \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00309}00309             \{               }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00310}00310                 HashMap<String, String> newDevices = packetTrace.\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a546db74809de18f0e2549e8d69311324}{getDevices}}();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00311}00311                 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00312}00312                     Display.getDefault().asyncExec(\textcolor{keyword}{new} Runnable() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00313}00313                         \textcolor{keyword}{public} \textcolor{keywordtype}{void} run() \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00314}00314                             \textcolor{keywordflow}{if}(!newDevices.equals(devices))}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00315}00315                             \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00316}00316                                 devices = newDevices;}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00317}00317                                 networkInterfaces.removeAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00318}00318                                 \textcolor{keywordflow}{for}(Entry<String, String> device : devices.entrySet())}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00319}00319                                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00320}00320                                     networkInterfaces.add(device.getValue());}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00321}00321                                     networkInterfaces.setData(device.getValue(), device.getKey());}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00322}00322                                 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00323}00323                             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00324}00324                             \textcolor{keywordflow}{if}(addressSelected)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00325}00325                             \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00326}00326                               \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00327}00327                               \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00328}00328                                   ArrayList<IpPacket> packetList = packetTrace.\mbox{\hyperlink{classdynamic_analysis_1_1_packet_trace_a4ff9c2f039ca73693de73e12a2e0bfe1}{getPackets}}(addresses.getSelection()[0], 0);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00329}00329                                   \textcolor{keywordflow}{if}(packetList == \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00330}00330                                   \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00331}00331                                       errorAlert(\textcolor{stringliteral}{"{}Something went wrong when fetching packets."{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00332}00332                                   \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00333}00333                                   \textcolor{keywordflow}{for}(IpPacket packet : packetList)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00334}00334                                   \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00335}00335                                       String packetDescription = packet.getHeader().getProtocol().name()+\textcolor{stringliteral}{"{} -\/ "{}}+packet.getPayload().getRawData().length+\textcolor{stringliteral}{"{} bytes \{"{}}+packet.hashCode()+\textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00336}00336                                       packets.add(packetDescription);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00337}00337                                       packets.setData(packetDescription, packet);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00338}00338                                   \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00339}00339                               \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00340}00340                               \textcolor{keywordflow}{catch}(ArrayIndexOutOfBoundsException e) \{\}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00341}00341                             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00342}00342                         \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00343}00343                     \});                         }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00344}00344                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00345}00345                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00346}00346                     TimeUnit.SECONDS.sleep(1);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00347}00347                 \} \textcolor{keywordflow}{catch} (InterruptedException e)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00348}00348                 \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00349}00349                     e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00350}00350                 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00351}00351             \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00352}00352         \});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00353}00353         updateThread.start();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00354}00354     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00355}00355     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00361}00361     \textcolor{keyword}{private} \textcolor{keywordtype}{void} errorAlert(String message)}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00362}00362     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00363}00363         MessageBox messageBox = \textcolor{keyword}{new} MessageBox(this.getShell(), SWT.ERROR);                     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00364}00364         messageBox.setText(\textcolor{stringliteral}{"{}Error"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00365}00365         messageBox.setMessage(message);}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00366}00366         messageBox.open();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00367}00367     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00368}00368     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00372}00372     \textcolor{keyword}{private} \textcolor{keywordtype}{void} clearAll()}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00373}00373     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00374}00374         networkInterfaces.deselectAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00375}00375         addresses.removeAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00376}00376         addresses.deselectAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00377}00377         packets.removeAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00378}00378         packets.deselectAll();}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00379}00379         packetInfo.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00380}00380         hexPayload.setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00381}00381     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00382}00382     }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00386}00386     @Override}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00387}\mbox{\hyperlink{classdynamic_analysis_1_1_network_composite_a1a80163120fa7161a5118dc5f017887f}{00387}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_network_composite_a1a80163120fa7161a5118dc5f017887f}{checkSubclass}}()}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00388}00388     \{}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00389}00389         \textcolor{comment}{// Disable the check that prevents subclassing of SWT components}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00390}00390     \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00391}00391 \}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00392}00392 }
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00393}00393 \textcolor{comment}{//list netstat info}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00394}00394 \textcolor{comment}{//dropdowns for network interface, address, list packet}}
+\DoxyCodeLine{\Hypertarget{_network_composite_8java_source_l00395}00395 \textcolor{comment}{//show udp/tcp info}}
+
+\end{DoxyCode}

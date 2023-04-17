@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="_mnem_8java" kind="file" language="Java">
+    <compoundname>Mnem.java</compoundname>
+    <innerclass refid="enumdynamic_analysis_1_1_mnem" prot="public">dynamicAnalysis::Mnem</innerclass>
+    <innernamespace refid="namespacedynamic_analysis">dynamicAnalysis</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">dynamicAnalysis;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="enumdynamic_analysis_1_1_mnem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem" kindref="compound">Mnem</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12" refid="enumdynamic_analysis_1_1_mnem_1accfc0b363780274ee4162919f2591199" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1accfc0b363780274ee4162919f2591199" kindref="member">JNE</ref>,<sp/></highlight></codeline>
+<codeline lineno="14" refid="enumdynamic_analysis_1_1_mnem_1ae2871c7553a4b0e0da2b9da03125902d" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1ae2871c7553a4b0e0da2b9da03125902d" kindref="member">JMP</ref>,<sp/></highlight></codeline>
+<codeline lineno="16" refid="enumdynamic_analysis_1_1_mnem_1a4af452817150b5c07c245a24e41981fd" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a4af452817150b5c07c245a24e41981fd" kindref="member">JL</ref>,<sp/></highlight></codeline>
+<codeline lineno="18" refid="enumdynamic_analysis_1_1_mnem_1a37f3b706cb3e0e1ea8a325c40c101c90" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a37f3b706cb3e0e1ea8a325c40c101c90" kindref="member">JBE</ref>,<sp/></highlight></codeline>
+<codeline lineno="20" refid="enumdynamic_analysis_1_1_mnem_1a2d24ecad352ef1f01abc41939d5600ba" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a2d24ecad352ef1f01abc41939d5600ba" kindref="member">JE</ref>,<sp/></highlight></codeline>
+<codeline lineno="22" refid="enumdynamic_analysis_1_1_mnem_1ac03029670dfc3dd09bf59444e4194660" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1ac03029670dfc3dd09bf59444e4194660" kindref="member">JAE</ref>,<sp/></highlight></codeline>
+<codeline lineno="24" refid="enumdynamic_analysis_1_1_mnem_1ad8667d3eca3388e81e4f4175470e879b" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1ad8667d3eca3388e81e4f4175470e879b" kindref="member">JB</ref>,<sp/></highlight></codeline>
+<codeline lineno="26" refid="enumdynamic_analysis_1_1_mnem_1a117694353ebc8cffe274109ce7b8d1ec" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a117694353ebc8cffe274109ce7b8d1ec" kindref="member">JA</ref>,<sp/></highlight></codeline>
+<codeline lineno="28" refid="enumdynamic_analysis_1_1_mnem_1a22c5e2e70b76c25e76e5d762ec1f64af" refkind="member"><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a22c5e2e70b76c25e76e5d762ec1f64af" kindref="member">JLE</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35" refid="enumdynamic_analysis_1_1_mnem_1a8cb6a9ef4e5138742d0294c1b53c52a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="enumdynamic_analysis_1_1_mnem_1a8cb6a9ef4e5138742d0294c1b53c52a9" kindref="member">getByte</ref>()</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(</highlight><highlight class="keyword">this</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JAE:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>115;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JBE:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>118;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JE:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>15;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JL:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>124;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JMP:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-21;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JNE:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>117;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JB:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>114;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JA:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>119;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JLE:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>126;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/dynamicAnalysis/Mnem.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,102 @@
+\hypertarget{_command_line_8java_source}{}\doxysection{Command\+Line.\+java}
+\label{_command_line_8java_source}\index{src/dynamicAnalysis/CommandLine.java@{src/dynamicAnalysis/CommandLine.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00002}00002 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00003}00003 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00004}00004 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00006}00006 \textcolor{keyword}{import} java.io.BufferedReader;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00007}00007 \textcolor{keyword}{import} java.io.IOException;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00008}00008 \textcolor{keyword}{import} java.io.InputStreamReader;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00013}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line}{00013}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_command_line}{CommandLine}}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00015}00015     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00017}00017     \textcolor{keyword}{private} \textcolor{keywordtype}{long} pid;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00018}00018     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00024}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a82add1841b76e35da9685cb49fdea9ee}{00024}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a82add1841b76e35da9685cb49fdea9ee}{CommandLine}}(\textcolor{keywordtype}{long} pid)}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00025}00025     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00026}00026         \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_ac0bad68fc056bd6db7cf45248a0c955b}{setPid}}(pid);}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00027}00027     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00032}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a54a78106b7525309795adecc3321d127}{00032}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a54a78106b7525309795adecc3321d127}{CommandLine}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00033}00033     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00034}00034         }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00035}00035     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00042}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a10101256d2fed3b38660c0f3c8e32a39}{00042}}     \textcolor{keyword}{public} \textcolor{keywordtype}{long} \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a10101256d2fed3b38660c0f3c8e32a39}{getPid}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00043}00043     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00044}00044         \textcolor{keywordflow}{return} pid;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00045}00045     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00052}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_ac0bad68fc056bd6db7cf45248a0c955b}{00052}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_ac0bad68fc056bd6db7cf45248a0c955b}{setPid}}(\textcolor{keywordtype}{long} pid)}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00053}00053     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00054}00054         this.pid = pid;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00055}00055     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00056}00056     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00064}00064     \textcolor{keyword}{private} String run(String command, \textcolor{keywordtype}{boolean} cmdCheck)}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00065}00065     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00066}00066         String response = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00067}00067         ProcessBuilder builder;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00068}00068         \textcolor{keywordflow}{if}(cmdCheck) builder = \textcolor{keyword}{new} ProcessBuilder(\textcolor{stringliteral}{"{}cmd.exe"{}}, \textcolor{stringliteral}{"{}/c"{}}, command);}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00069}00069         \textcolor{keywordflow}{else} builder = \textcolor{keyword}{new} ProcessBuilder(\textcolor{stringliteral}{"{}cmd.exe"{}}, \textcolor{stringliteral}{"{}/c"{}}, \textcolor{stringliteral}{"{}cd /d \(\backslash\)"{}"{}}+System.getProperty(\textcolor{stringliteral}{"{}user.dir"{}})+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)lib\(\backslash\)"{} \&\& "{}}+command);}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00070}00070         builder.redirectErrorStream(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00071}00071         Process p = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00072}00072         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00073}00073             p = builder.start();}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00074}00074         \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00075}00075             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00076}00076         \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00077}00077         BufferedReader r = \textcolor{keyword}{new} BufferedReader(\textcolor{keyword}{new} InputStreamReader(p.getInputStream()));}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00078}00078         String line = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00079}00079         \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00080}00080             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00081}00081                 line = r.readLine();}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00082}00082             \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00083}00083                 e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00084}00084             \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00085}00085             \textcolor{keywordflow}{if} (line == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00086}00086                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00087}00087             \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00088}00088             response += line + \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00089}00089         \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00090}00090         \textcolor{keywordflow}{return} response;}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00091}00091     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00092}00092     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00098}00098     \textcolor{comment}{//replace with listdlls}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00099}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a030e96fe7adcd3f8cfbdce553d95bdcd}{00099}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a030e96fe7adcd3f8cfbdce553d95bdcd}{runName}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00100}00100     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00101}00101         \textcolor{keywordflow}{return} run(\textcolor{stringliteral}{"{}tasklist /fi \(\backslash\)"{}pid eq "{}}+\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a10101256d2fed3b38660c0f3c8e32a39}{getPid}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{} /fo csv"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00102}00102     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00103}00103     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00109}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a0d8b220dd139b037b03ec575f8d02903}{00109}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a0d8b220dd139b037b03ec575f8d02903}{runDLLs}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00110}00110     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00111}00111         \textcolor{keywordflow}{return} run(\textcolor{stringliteral}{"{}listdlls "{}}+\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a10101256d2fed3b38660c0f3c8e32a39}{getPid}}(), \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00112}00112     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00113}00113     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00119}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a22a58fef9f251921e85d3bbbf0a1e169}{00119}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a22a58fef9f251921e85d3bbbf0a1e169}{runFiles}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00120}00120     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00121}00121         \textcolor{keywordflow}{return} run(\textcolor{stringliteral}{"{}handle -\/p "{}}+\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a10101256d2fed3b38660c0f3c8e32a39}{getPid}}()+\textcolor{stringliteral}{"{} -\/v"{}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00123}00123     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00129}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a471aba28b3804d10d4c4a2725b4cf9ff}{00129}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_a471aba28b3804d10d4c4a2725b4cf9ff}{getAll}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00130}00130     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00131}00131         \textcolor{keywordflow}{return} run(\textcolor{stringliteral}{"{}tasklist /fo csv"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00132}00132     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00133}00133     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00139}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_af7960559de9981ae31dbd34d6ff3bf69}{00139}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_af7960559de9981ae31dbd34d6ff3bf69}{getNetstat}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00140}00140     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00141}00141         \textcolor{keywordflow}{return} run(\textcolor{stringliteral}{"{}netstat -\/ano"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00142}00142     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00143}00143     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00149}00149     @Override}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00150}\mbox{\hyperlink{classdynamic_analysis_1_1_command_line_ab9795a602f2df7a4ecfc1e18459ab878}{00150}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classdynamic_analysis_1_1_command_line_ab9795a602f2df7a4ecfc1e18459ab878}{toString}}()}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00151}00151     \{}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00152}00152         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CommandLine [pid="{}} + pid + \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00153}00153     \}}
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00154}00154     }
+\DoxyCodeLine{\Hypertarget{_command_line_8java_source_l00155}00155 \}}
+
+\end{DoxyCode}

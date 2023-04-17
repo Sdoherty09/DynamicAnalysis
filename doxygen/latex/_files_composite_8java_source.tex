@@ -1,0 +1,82 @@
+\hypertarget{_files_composite_8java_source}{}\doxysection{Files\+Composite.\+java}
+\label{_files_composite_8java_source}\index{src/dynamicAnalysis/FilesComposite.java@{src/dynamicAnalysis/FilesComposite.java}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00001}00001 \textcolor{keyword}{package }dynamicAnalysis;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00003}00003 \textcolor{keyword}{import} org.eclipse.swt.widgets.Composite;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00004}00004 \textcolor{keyword}{import} org.eclipse.swt.layout.GridLayout;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00005}00005 \textcolor{keyword}{import} org.eclipse.swt.widgets.Table;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00006}00006 \textcolor{keyword}{import} org.eclipse.swt.widgets.TableItem;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00007}00007 \textcolor{keyword}{import} org.eclipse.swt.SWT;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00008}00008 \textcolor{keyword}{import} org.eclipse.swt.widgets.Label;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00009}00009 \textcolor{keyword}{import} org.eclipse.swt.layout.GridData;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00010}00010 \textcolor{keyword}{import} org.eclipse.swt.layout.FormLayout;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00011}00011 \textcolor{keyword}{import} org.eclipse.swt.layout.FormData;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00012}00012 \textcolor{keyword}{import} org.eclipse.swt.layout.FormAttachment;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00017}\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite}{00017}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite}{FilesComposite}} \textcolor{keyword}{extends} Composite}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00018}00018 \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00021}00021     \textcolor{keyword}{private} Table dllsTable;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00022}00022     }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00024}00024     \textcolor{keyword}{private} Table filesTable;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00025}00025     }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00027}00027     \textcolor{keyword}{private} \textcolor{keywordtype}{int} processId;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00035}\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_ad3c8ffa1ebbc33c3afb1d2b4a1947071}{00035}}     \textcolor{keyword}{public} \mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_ad3c8ffa1ebbc33c3afb1d2b4a1947071}{FilesComposite}}(Composite parent, \textcolor{keywordtype}{int} style)}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00036}00036     \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00037}00037         super(parent, style);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00038}00038         \mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_a6943e80061d749c951a05c2c3d3ef691}{setProcessId}}(\mbox{\hyperlink{classdynamic_analysis_1_1_window}{Window}}.\mbox{\hyperlink{classdynamic_analysis_1_1_window_aaac1f2fb6cb29eff3c39ef2f40ce5731}{processId}});}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00039}00039         setLayout(\textcolor{keyword}{new} GridLayout(2, \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00040}00040         }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00041}00041         dllsTable = \textcolor{keyword}{new} Table(\textcolor{keyword}{this}, SWT.BORDER | SWT.FULL\_SELECTION);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00042}00042         GridData gd\_dllsTable = \textcolor{keyword}{new} GridData(SWT.FILL, SWT.FILL, \textcolor{keyword}{false}, \textcolor{keyword}{true}, 1, 1);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00043}00043         gd\_dllsTable.widthHint = 222;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00044}00044         dllsTable.setLayoutData(gd\_dllsTable);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00045}00045         dllsTable.setHeaderVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00046}00046         dllsTable.setLinesVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00047}00047         }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00048}00048         filesTable = \textcolor{keyword}{new} Table(\textcolor{keyword}{this}, SWT.BORDER | SWT.FULL\_SELECTION);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00049}00049         filesTable.setLayoutData(\textcolor{keyword}{new} GridData(SWT.FILL, SWT.FILL, \textcolor{keyword}{true}, \textcolor{keyword}{true}, 1, 1));}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00050}00050         filesTable.setHeaderVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00051}00051         filesTable.setLinesVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00052}00052         }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00053}00053         \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}} processManager = \textcolor{keyword}{new} \mbox{\hyperlink{classdynamic_analysis_1_1_process_manager}{ProcessManager}}(\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_ac0472d0f5e26009a31de8e65cbbe2b69}{getProcessId}}());}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00054}00054         String[] DLLs = processManager.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a921c3a4a3d421101858a043a4805d54a}{getDLLs}}();}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00055}00055         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index=0;index<DLLs.length;index++)}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00056}00056         \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00057}00057             TableItem tableItem = \textcolor{keyword}{new} TableItem(dllsTable, SWT.NULL);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00058}00058             tableItem.setText(DLLs[index]);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00059}00059         \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00060}00060         String files[] = processManager.\mbox{\hyperlink{classdynamic_analysis_1_1_process_manager_a794bc50a1490e81588fbf3d8fc03c26f}{getFiles}}();}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00061}00061         System.out.println(\textcolor{stringliteral}{"{}files: "{}}+files.length);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00062}00062         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} index=0;index<files.length;index++)}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00063}00063         \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00064}00064             TableItem tableItem = \textcolor{keyword}{new} TableItem(filesTable, SWT.NULL);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00065}00065             System.out.println(\textcolor{stringliteral}{"{}files: "{}}+files[index]);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00066}00066             tableItem.setText(files[index]);}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00067}00067         \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00068}00068         }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00071}00071     }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00072}00072     }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00078}\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_ac0472d0f5e26009a31de8e65cbbe2b69}{00078}}     \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_ac0472d0f5e26009a31de8e65cbbe2b69}{getProcessId}}()}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00080}00080         \textcolor{keywordflow}{return} processId;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00088}\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_a6943e80061d749c951a05c2c3d3ef691}{00088}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_a6943e80061d749c951a05c2c3d3ef691}{setProcessId}}(\textcolor{keywordtype}{int} processId)}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00089}00089     \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00090}00090         this.processId = processId;}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00091}00091     \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00096}00096     @Override}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00097}\mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_af5132a8805817e3adc938b325842e112}{00097}}     \textcolor{keyword}{protected} \textcolor{keywordtype}{void} \mbox{\hyperlink{classdynamic_analysis_1_1_files_composite_af5132a8805817e3adc938b325842e112}{checkSubclass}}()}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00098}00098     \{}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00099}00099         \textcolor{comment}{// Disable the check that prevents subclassing of SWT components}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00100}00100     \}}
+\DoxyCodeLine{\Hypertarget{_files_composite_8java_source_l00101}00101 \}}
+
+\end{DoxyCode}

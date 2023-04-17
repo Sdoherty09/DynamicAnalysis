@@ -59,14 +59,14 @@ public class InstructionsComposite extends Composite
 	/** The updated instruction set when replacing instructions. */
 	private byte[] updatedInstructions;
 	
-	/** The parent. */
+	/** The main window that acts as the composite parent. */
 	private Composite parent;
 	
-	/** The table items. */
+	/** The values used by the GUI array. */
 	private TableItem[] tableItems = null;
 	
 	/**
-	 * Create the composite.
+	 * Create the instructions composite.
 	 *
 	 * @param parent the parent that contains the composite
 	 * @param style the SWT style

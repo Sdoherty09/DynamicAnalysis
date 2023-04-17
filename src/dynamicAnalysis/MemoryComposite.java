@@ -37,71 +37,50 @@ import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
 
 /**
- * The Class MemoryComposite.
+ * The composite to display the virtual memory in the GUI
  */
 public class MemoryComposite extends Composite
 {
 	
-	/** The memory field. */
+	/** The GUI text field containing the raw memory space. */
 	private Text memoryField;
 	
-	/** The process id. */
+	/** The unique identifier for the process. */
 	private int processId;
-	
-	/** The txt length. */
-	private Label txtLength;
 	
 	/** The bytes. */
 	private byte[] bytes;
 	
-	/** The x. */
-	private int x;
-	
-	/** The y. */
-	private int y;
-	
-	/** The ascii table. */
+	/** The virtual table to display ASCII strings contained within the virtual memory. */
 	private Table asciiTable;
 	
-	/** The btn new button. */
-	private Button btnNewButton;
-	
-	/** The search text. */
+	/** The text field to input search values. */
 	private Text searchText;
 	
-	/** The table store. */
+	/** A temporary location to store the table when a search is performed. It is used while the contents are removed from the GUI. */
 	private TableItem[] tableStore = null;
 	
 	/** The table items. */
 	private TableItem[] tableItems;
 	
-	/** The btn update. */
-	private Button btnUpdate;
-	
-	/** The gd ascii table. */
-	private GridData gd_asciiTable;
-	
-	/** The progress bar. */
-	private ProgressBar progressBar;
-	
-	/** The ascii sections. */
+	/** The array of ASCII sections found in the virtual memory. */
 	private String[] asciiSections;
 	
-	/** The red. */
+	/** SWT color for highlighting the table red. */
 	private Color red;
 	
-	/** The memory. */
+	/** The string value containing the virtual memory. */
 	private String memory;
 	
-	/** The memory count. */
+	/** the amount of characters to display in the memory text field. Used to increase performance. */
 	private final int memoryCount = 10000;
 	
 	/**
-	 * Create the composite.
+	 * Create the memory composite.
 	 *
-	 * @param parent the parent
-	 * @param style the style
-	 * @param green the green
+	 * @param parent the main window that acts as the parent
+	 * @param style the SWT style applied to the composite
+	 * @param green the SWT color green
 	 */
 	public MemoryComposite(Composite parent, int style, Color green)
 	{
@@ -231,9 +210,9 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Read memory.
+	 * Calls the method to retrieve the virtual memory space of an application from its process ID.
 	 *
-	 * @return the byte[]
+	 * @return the byte array containing the entire virtual memory space
 	 */
 	private byte[] readMemory()
 	{
@@ -243,9 +222,9 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Gets the bytes.
+	 * Gets the virtual memory space.
 	 *
-	 * @return the bytes
+	 * @return the virtual memory space byte array
 	 */
 	public byte[] getBytes()
 	{
@@ -253,9 +232,9 @@ public class MemoryComposite extends Composite
 	}
 
 	/**
-	 * Sets the bytes.
+	 * Sets the virtual memory space.
 	 *
-	 * @param bytes the new bytes
+	 * @param bytes the new virtual memory space.
 	 */
 	public void setBytes(byte[] bytes)
 	{
@@ -263,27 +242,27 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Gets the red.
+	 * Gets the SWT color red.
 	 *
-	 * @return the red
+	 * @return the SWT color red
 	 */
 	public Color getRed() {
 		return red;
 	}
 
 	/**
-	 * Sets the red.
+	 * Sets the SWT color red.
 	 *
-	 * @param red the new red
+	 * @param red the new SWT color red
 	 */
 	public void setRed(Color red) {
 		this.red = red;
 	}
 
 	/**
-	 * Update memory.
+	 * Retrieve the memory text field with the current values stored within.
 	 *
-	 * @return the string
+	 * @return the updated memory space
 	 */
 	private String updateMemory()
 	{
@@ -317,9 +296,9 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Find ascii sections.
+	 * Looks through the virtual memory space for sections containing ASCII values. The threshhold is at least 8 readable characters in a row. The complexity of this algorithm is O(N).
 	 *
-	 * @return the string[]
+	 * @return the string array containing sections of readable data from the virtual memory space
 	 */
 	private String[] findAsciiSections()
 	{
@@ -351,10 +330,10 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Checks if is ascii.
+	 * Checks if a character is ASCII.
 	 *
-	 * @param character the character
-	 * @return true, if is ascii
+	 * @param character the character to check
+	 * @return true, if the given character is considered ASCII
 	 */
 	private boolean isAscii(char character)
 	{
@@ -362,11 +341,11 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Search.
+	 * The search algorithm that filters the readable data.
 	 *
-	 * @param entries the entries
-	 * @param toSearch the to search
-	 * @return the string[]
+	 * @param entries the ASCII string array
+	 * @param toSearch the value to search for
+	 * @return the filtered ASCII string array that match the search
 	 */
 	private String[] search(String[] entries, String toSearch)
 	{
@@ -401,7 +380,7 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Search event.
+	 * When a search request is supplied by the GUI, this method gets called first.
 	 */
 	private void searchEvent()
 	{
@@ -431,12 +410,12 @@ public class MemoryComposite extends Composite
 	}
 	
 	/**
-	 * Populate memory.
+	 * Populate the memory text space. Split from main process to increase performance.
 	 *
-	 * @param text the text
+	 * @param text the GUI text field for the memory
 	 * @param memoryIndex the memory index
 	 * @param tableText the table text
-	 * @return the string
+	 * @return the new memory
 	 */
 	private String populateMemory(Text text, int memoryIndex, String tableText)
 	{

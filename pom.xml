@@ -40,6 +40,30 @@
           <release>14</release>
         </configuration>
       </plugin>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.10.2</version>
+            <reportSets>
+                <reportSet>
+                    <id>PDF</id>
+                    <reports>
+                        <report>javadoc</report>
+                    </reports>
+                    <configuration>
+                        <name>PDF</name>
+                        <description>This is my Documentation on PDF.</description>
+                        <destDir>pdf</destDir>
+                        <doclet>com.tarsec.javadoc.pdfdoclet.PDFDoclet</doclet>
+                        <docletPath>${basedir}\..\..\tools\pdfdoclet-1.0.3-all.jar</docletPath>
+                        <useStandardDocletOptions>false</useStandardDocletOptions>
+                        <additionalparam>
+                            -pdf javadoc.pdf
+                        </additionalparam>
+                    </configuration>
+                </reportSet>
+            </reportSets>
+        </plugin>
     </plugins>
   </build>
 </project>

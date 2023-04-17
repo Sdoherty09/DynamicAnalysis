@@ -4,33 +4,33 @@
 package dynamicAnalysis;
 
 /**
- * The Enum Mnem.
+ * The Enum for mnemonics used by the x86 instruction set.
  */
 public enum Mnem {
 	
-	/** The jne. */
+	/** Jump Not Equal. */
 	JNE, 
- /** The jmp. */
+ /** Jump. */
  JMP, 
- /** The jl. */
+ /** Jump Less than. */
  JL, 
- /** The jbe. */
+ /** Jump Before or Equal. */
  JBE, 
- /** The je. */
+ /** Jump if Equal. */
  JE, 
  /** The jae. */
  JAE, 
- /** The jb. */
+ /** Jump Below. */
  JB, 
- /** The ja. */
+ /** Jump Above. */
  JA, 
- /** The jle. */
+ /** Jump if Less or Equal. */
  JLE;
 	
 	/**
-	 * Gets the byte.
+	 * Gets the byte value of the jump instruction.
 	 *
-	 * @return the byte
+	 * @return the byte value of the jump instruction
 	 */
 	public byte getByte()
 	{

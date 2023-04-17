@@ -7,43 +7,43 @@ import java.io.File;
 import java.util.Arrays;
 
 /**
- * The Class ExecuteCode.
+ * Unused implementation that would have allowed for registry view. Included for demonstration purposes only
  */
 public class ExecuteCode {
 	
-	/** The codes. */
+	/** The registry byte values. */
 	private byte[] codes;
 	
-	/** The code. */
+	/** The registry byte value. */
 	private byte code;
 	
-	/** The is arr. */
+	/** The check for if an array is supplied to a method. */
 	private boolean isArr;
 	
-	/** The file. */
+	/** The file to be accessed. */
 	private File file;
 	
 	/**
-	 * Execute instruction.
+	 * JNI implementation for executing the instructions.
 	 *
-	 * @param code the code
+	 * @param code the registry byte
 	 */
 	private native void executeInstruction(byte code);
 	
 	/**
-	 * Read registers.
+	 * Load the JNI method to read a file.
 	 *
-	 * @return the int[]
+	 * @return registry integer array, containing four values
 	 */
 	private native int[] readRegisters();
 	
 	static {System.load(getFile("execute.dll"));}
 	
 	/**
-	 * Instantiates a new execute code.
+	 * Instantiates the ExecuteCode method with an array
 	 *
-	 * @param codes the codes
-	 * @param file the file
+	 * @param codes the byte array of registry values
+	 * @param file the file to be accessed
 	 */
 	public ExecuteCode(byte[] codes, File file) {
 		setCodes(codes);
@@ -52,10 +52,10 @@ public class ExecuteCode {
 	}
 	
 	/**
-	 * Instantiates a new execute code.
+	 * Instantiates the ExecuteCode method with single instruction
 	 *
-	 * @param code the code
-	 * @param file the file
+	 * @param codes the byte containing a registry value
+	 * @param file the file to be accessed
 	 */
 	public ExecuteCode(byte code, File file) {
 		setCode(code);
@@ -84,46 +84,46 @@ public class ExecuteCode {
 	}
 	
 	/**
-	 * Gets the codes.
+	 * Gets the registry codes.
 	 *
-	 * @return the codes
+	 * @return the registry codes
 	 */
 	public byte[] getCodes() {
 		return codes;
 	}
 	
 	/**
-	 * Sets the codes.
+	 * Sets the registry codes.
 	 *
-	 * @param codes the new codes
+	 * @param codes the new registry codes
 	 */
 	public void setCodes(byte[] codes) {
 		this.codes = codes;
 	}
 	
 	/**
-	 * Gets the code.
+	 * Gets a single registry code.
 	 *
-	 * @return the code
+	 * @return the registry code
 	 */
 	public byte getCode() {
 		return code;
 	}
 	
 	/**
-	 * Sets the code.
+	 * Sets the registry code.
 	 *
-	 * @param code the new code
+	 * @param code the new registry code
 	 */
 	public void setCode(byte code) {
 		this.code = code;
 	}
 	
 	/**
-	 * Gets the file.
+	 * Gets the file path that was accessed.
 	 *
 	 * @param fileName the file name
-	 * @return the file
+	 * @return the full file path
 	 */
 	private static String getFile(String fileName)
 	{
@@ -137,16 +137,17 @@ public class ExecuteCode {
 	 */
 	public native String test();
 	
-	/**
-	 * Read.
-	 *
-	 * @return the int[]
-	 */
+	
 	/*public ProcessManager execute()
 	{
 		ExecuteCode executeCode = new ExecuteCode(getCode(), getFile());
 		executeCode.executeInstruction(getCode());
 	}*/
+	/**
+	 * Read the current registry values.
+	 *
+	 * @return the array containing the four registry values
+	 */
 	public int[] read()
 	{
 		int[] registers = new int[4];
@@ -158,7 +159,7 @@ public class ExecuteCode {
 	/**
 	 * To string.
 	 *
-	 * @return the string
+	 * @return the string describing values being used
 	 */
 	@Override
 	public String toString()

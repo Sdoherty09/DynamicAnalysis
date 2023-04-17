@@ -15,34 +15,34 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
- * The Class Details.
+ * Unused implementation of a composite to show the details of a process. This is included as a demonstration only.
  */
 public class Details extends Composite
 {
 	
-	/** The table. */
+	/** The GUI table for details. */
 	private Table table;
 	
-	/** The table items. */
+	/** The table items that contain information on the process. */
 	private TableItem tableItems[] = new TableItem[4];
 	
-	/** The selection. */
+	/** Toggle for selection. */
 	private boolean selection;
 	
-	/** The btn instructions. */
+	/** The button to open the x86 instruction view. */
 	private Button btnInstructions = new Button(this, SWT.NONE);
 	
-	/** The btn memory. */
+	/** The button to open the virtual memory view. */
 	private Button btnMemory = new Button(this, SWT.NONE);
 	
-	/** The btn advanced. */
+	/** The button to open the file imports view. */
 	private Button btnAdvanced = new Button(this, SWT.NONE);
 	
 	/**
-	 * Create the composite.
+	 * Create the details composite.
 	 *
-	 * @param parent the parent
-	 * @param style the style
+	 * @param parent the main window that acts as the parent
+	 * @param style the SWT style applied to the composite
 	 * @param selection the selection
 	 */
 	public Details(Composite parent, int style, boolean selection)
@@ -116,7 +116,7 @@ public class Details extends Composite
 	}
 	
 	/**
-	 * Clear data.
+	 * Clear data from the GUI table.
 	 */
 	public void clearData()
 	{
@@ -132,9 +132,9 @@ public class Details extends Composite
 	}
 	
 	/**
-	 * Checks if is selection.
+	 * Checks if the selection is toggled.
 	 *
-	 * @return true, if is selection
+	 * @return the selection value
 	 */
 	public boolean isSelection()
 	{
@@ -142,9 +142,9 @@ public class Details extends Composite
 	}
 
 	/**
-	 * Sets the selection.
+	 * Sets the selection toggle.
 	 *
-	 * @param selection the new selection
+	 * @param selection the new selection value
 	 */
 	public void setSelection(boolean selection)
 	{

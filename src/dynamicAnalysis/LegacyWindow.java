@@ -31,7 +31,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import javax.sound.sampled.*;
 
 /**
- * The Class LegacyWindow.
+ * The initial window used by the program. Now unused, included for demonstration purposes only.
  */
 public class LegacyWindow {
 

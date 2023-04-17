@@ -1,6 +1,3 @@
-/*
- * 
- */
 package dynamicAnalysis;
 
 import org.eclipse.swt.widgets.Composite;

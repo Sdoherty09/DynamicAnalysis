@@ -86,7 +86,7 @@ public class SelectFile
 	{
 		System.out.println(getX());
 		shell = new Shell();
-		shell.setBackground(SWTResourceManager.getColor(192, 192, 192));
+		shell.setBackground(SWTResourceManager.getColor(220, 220, 220));
 		shell.setSize(400, 180);
 		
 		if(!isPidMode()) shell.setText("Choose a file");
@@ -176,7 +176,7 @@ public class SelectFile
 		btnSelectFile.setText("Select File");
 		
 		Label lblFileLocation = new Label(shell, SWT.NONE);
-		lblFileLocation.setBackground(SWTResourceManager.getColor(192, 192, 192));
+		lblFileLocation.setBackground(SWTResourceManager.getColor(220, 220, 220));
 		lblFileLocation.setBounds(161, 17, 67, 15);
 		lblFileLocation.setText("File Location");
 		

@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
@@ -62,7 +63,6 @@ public class InstructionsComposite extends Composite
 	private Button btnNewButton_1;
 	
 	private final Color blue;
-	private Button btnNewButton_2;
 	
 	/**
 	 * Create the instructions composite.
@@ -100,61 +100,67 @@ public class InstructionsComposite extends Composite
 		    	Capstone.CsInsn instruction = getAllInsn()[tableInstructions.getSelectionIndex()];
 		    	if(tableItems!=null) clearColors(tableItems);
 		    	tableItems = null;
-		    	if(instruction.groups.length == 2)
+		    	try
 		    	{
-		    		if(instruction.groups[0] == 7 && instruction.groups[1] == 1) //group for jump instructions, jmp works differently ?
-		    		{
-		    			long entryIndex = tableInstructions.getSelectionIndex();
-		    			long operandIndex = instruction.bytes[1] + entryIndex;
-		    			boolean lowerOperand = instruction.bytes[1] < 0;
-		    			System.out.println("lower operand: "+lowerOperand);
-		    			System.out.println("entry index" + entryIndex);
-		    			System.out.println("operand index " + operandIndex );
-	    				if(lowerOperand) entryIndex--;
-	    				else entryIndex++;
-	    				System.out.println("instruction addr: "+Long.decode(instruction.opStr));
-	    				tableItems = new TableItem[Math.abs(instruction.bytes[1])];
-	    				int tableIndex = 0;
-	    				try
-	    				{
-	    					while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(tableInstructions.getItem((int) entryIndex).getData())).address)
+		    		if(instruction.groups.length == 2)
+			    	{
+			    		if(instruction.groups[0] == 7 && instruction.groups[1] == 1) //group for jump instructions, jmp works differently ?
+			    		{
+			    			long entryIndex = tableInstructions.getSelectionIndex();
+			    			long operandIndex = instruction.bytes[1] + entryIndex;
+			    			boolean lowerOperand = instruction.bytes[1] < 0;
+			    			System.out.println("lower operand: "+lowerOperand);
+			    			System.out.println("entry index" + entryIndex);
+			    			System.out.println("operand index " + operandIndex );
+		    				if(lowerOperand) entryIndex--;
+		    				else entryIndex++;
+		    				System.out.println("instruction addr: "+Long.decode(instruction.opStr));
+		    				tableItems = new TableItem[Math.abs(instruction.bytes[1])];
+		    				int tableIndex = 0;
+		    				try
 		    				{
-		    					System.out.println(entryIndex);
-		    					try
-		    					{
-		    						tableItems = setGray(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
-			    					tableIndex++;
-		    					}
-		    					catch(ArrayIndexOutOfBoundsException e1)
-		    					{
-		    						e1.printStackTrace();
-		    						clearColors(tableItems);
-		    					}
-		    					if(lowerOperand) entryIndex--;
-		    					else entryIndex++;
-		    				}    				
-		    				tableItems = setGreen(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
-	    				}
-	    				catch(IllegalArgumentException e1)
-	    				{
-	    					e1.printStackTrace();
-	    					clearColors(tableItems);
-	    				}
-		    		}
+		    					while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(tableInstructions.getItem((int) entryIndex).getData())).address)
+			    				{
+			    					System.out.println(entryIndex);
+			    					try
+			    					{
+			    						tableItems = setGray(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
+				    					tableIndex++;
+			    					}
+			    					catch(ArrayIndexOutOfBoundsException e1)
+			    					{
+			    						e1.printStackTrace();
+			    						clearColors(tableItems);
+			    					}
+			    					if(lowerOperand) entryIndex--;
+			    					else entryIndex++;
+			    				}    				
+			    				tableItems = setGreen(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
+		    				}
+		    				catch(IllegalArgumentException e1)
+		    				{
+		    					e1.printStackTrace();
+		    					clearColors(tableItems);
+		    				}
+			    		}
+			    	}
+		    	  	TableItem item = tableInstructions.getSelection()[0];
+					System.out.println(item.getText());
+					//comboMnemonic.setText(Integer.toString(instruction.bytes[0] & 0xff));
+					comboMnemonic.setText(Byte.toString(instruction.bytes[0]));
+					String opcode = "";
+					for(int index = 1;index<instruction.bytes.length;index++)
+					{
+						//opcode+=Integer.toString(instruction.bytes[index] & 0xff)+" ";
+						opcode+=Byte.toString(instruction.bytes[index])+" ";
+					}
+					if(opcode.length()!=0) textOpcode.setText(opcode.substring(0, opcode.length()-1));
+					else textOpcode.setText(opcode); 
 		    	}
-	    	  	TableItem item = tableInstructions.getSelection()[0];
-				System.out.println(item.getText());
-				//comboMnemonic.setText(Integer.toString(instruction.bytes[0] & 0xff));
-				comboMnemonic.setText(Byte.toString(instruction.bytes[0]));
-				String opcode = "";
-				for(int index = 1;index<instruction.bytes.length;index++)
-				{
-					//opcode+=Integer.toString(instruction.bytes[index] & 0xff)+" ";
-					opcode+=Byte.toString(instruction.bytes[index])+" ";
-				}
-				if(opcode.length()!=0) textOpcode.setText(opcode.substring(0, opcode.length()-1));
-				else textOpcode.setText(opcode);
-		    	  
+		    	catch(NullPointerException e1)
+		    	{
+		    		e1.printStackTrace();
+		    	}
 		      }
 		});
 		
@@ -241,6 +247,7 @@ public class InstructionsComposite extends Composite
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				Capstone.CsInsn originalInstruction = allInsn[tableInstructions.indexOf(tableInstructions.getSelection()[0])];
 				String opcodeInstructions = textOpcode.getText();
 				int count = 2;
 				for(int index = 0;index<opcodeInstructions.length();index++)
@@ -252,34 +259,49 @@ public class InstructionsComposite extends Composite
 				}
 				if(opcodeInstructions.equals("")) count=1;
 				byte[] updatedInstruction = new byte[count];
-				updatedInstruction[0]=Byte.parseByte(comboMnemonic.getText());
-				Capstone cs;
-				if(codeExtract.getVersion() == Version.x32)
+				try
 				{
-					cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
-				}
-				else
-				{
-					cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
-				}
-				if(!opcodeInstructions.equals(""))
-				{
-					int instructionIndex = 1;
-					while(opcodeInstructions.contains(" "))
+					updatedInstruction[0]=Byte.parseByte(comboMnemonic.getText());
+					Capstone cs;
+					if(codeExtract.getVersion() == Version.x32)
 					{
-						updatedInstruction[instructionIndex]=Byte.parseByte(opcodeInstructions.substring(0, opcodeInstructions.indexOf(' ')));
-						opcodeInstructions = opcodeInstructions.substring(opcodeInstructions.indexOf(' ')+1);
-						instructionIndex++;
+						cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_32);
 					}
-					updatedInstruction[instructionIndex]=Byte.parseByte(opcodeInstructions);
+					else
+					{
+						cs = new Capstone(Capstone.CS_ARCH_X86, Capstone.CS_MODE_64);
+					}
+					if(!opcodeInstructions.equals(""))
+					{
+						int instructionIndex = 1;
+						while(opcodeInstructions.contains(" "))
+						{
+							updatedInstruction[instructionIndex]=Byte.parseByte(opcodeInstructions.substring(0, opcodeInstructions.indexOf(' ')));
+							opcodeInstructions = opcodeInstructions.substring(opcodeInstructions.indexOf(' ')+1);
+							instructionIndex++;
+						}
+						updatedInstruction[instructionIndex]=Byte.parseByte(opcodeInstructions);
+					}
+					Capstone.CsInsn[] instruction = cs.disasm(updatedInstruction, ((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).address);
+					if(instruction[0].bytes.length!=originalInstruction.bytes.length)
+					{
+						MessageDialog.openError(parent.getShell(), "Error", "Modified length must be equal to original length.");
+					}
+					else
+					{
+						tableInstructions.getSelection()[0].setText(0, "0x"+Long.toHexString(instruction[0].address));
+					    tableInstructions.getSelection()[0].setText(1, instruction[0].mnemonic);
+					    tableInstructions.getSelection()[0].setText(2, instruction[0].opStr);
+					    tableInstructions.getSelection()[0].setData(instruction[0]);
+					    allInsn[tableInstructions.indexOf(tableInstructions.getSelection()[0])]=instruction[0];
+					    System.out.println(((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).opStr);
+					}
 				}
-				Capstone.CsInsn[] instruction = cs.disasm(updatedInstruction, ((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).address);
-				tableInstructions.getSelection()[0].setText(0, "0x"+Long.toHexString(instruction[0].address));
-			    tableInstructions.getSelection()[0].setText(1, instruction[0].mnemonic);
-			    tableInstructions.getSelection()[0].setText(2, instruction[0].opStr);
-			    tableInstructions.getSelection()[0].setData(instruction[0]);
-			    allInsn[tableInstructions.indexOf(tableInstructions.getSelection()[0])]=instruction[0];
-			    System.out.println(((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).opStr);
+				catch(NumberFormatException e1)
+				{
+					MessageDialog.openError(parent.getShell(), "Error", "Entered value is invalid.");
+				}
+				
 			}
 		});
 		fd_textOpcode.right = new FormAttachment(100, -143);
@@ -292,13 +314,15 @@ public class InstructionsComposite extends Composite
 		btnNewButton.setText("Replace");
 		
 		text = new Text(this, SWT.BORDER);
+		text.setVisible(false);
 		FormData fd_text = new FormData();
-		fd_text.top = new FormAttachment(tableInstructions, 0, SWT.TOP);
-		fd_text.right = new FormAttachment(btnSave, 6, SWT.RIGHT);
 		fd_text.left = new FormAttachment(tableInstructions, 6);
 		text.setLayoutData(fd_text);
 		
 		btnNewButton_1 = new Button(this, SWT.NONE);
+		fd_text.bottom = new FormAttachment(btnNewButton_1, -6);
+		fd_text.right = new FormAttachment(btnNewButton_1, 0, SWT.RIGHT);
+		btnNewButton_1.setVisible(false);
 		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -318,31 +342,11 @@ public class InstructionsComposite extends Composite
 			}
 		});
 		FormData fd_btnNewButton_1 = new FormData();
-		fd_btnNewButton_1.top = new FormAttachment(text, 6);
+		fd_btnNewButton_1.top = new FormAttachment(0, 136);
 		fd_btnNewButton_1.right = new FormAttachment(tableInstructions, 62, SWT.RIGHT);
 		fd_btnNewButton_1.left = new FormAttachment(tableInstructions, 6);
 		btnNewButton_1.setLayoutData(fd_btnNewButton_1);
 		btnNewButton_1.setText("Search");
-		
-		btnNewButton_2 = new Button(this, SWT.NONE);
-		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				String string = "";
-				byte[] bytes = codeExtract.getInstructions();
-				for(int index = 0;index<bytes.length;index++)
-				{
-					string+=bytes[index];
-				}
-				System.out.println("making to read");
-				ReadWrite.writeLine(string, "file.txt");
-			}
-		});
-		FormData fd_btnNewButton_2 = new FormData();
-		fd_btnNewButton_2.top = new FormAttachment(btnNewButton_1, 31);
-		fd_btnNewButton_2.left = new FormAttachment(tableInstructions);
-		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
-		btnNewButton_2.setText("New Button");
 		
 	}
 	
@@ -384,6 +388,9 @@ public class InstructionsComposite extends Composite
 	 */
 	private TableItem[] setColor(TableItem item, Color color, TableItem[] items, int index)
 	{
+		System.out.println("back: "+item.getBackground());
+		System.out.println("blue: "+blue);
+		if(item.getBackground() == blue) return items;
 		items[index] = item;
 		item.setBackground(color);
 		return items;
@@ -397,7 +404,8 @@ public class InstructionsComposite extends Composite
 	 */
 	private void setColor(TableItem item, Color color)
 	{
-		item.setBackground(color);
+		if(!item.getBackground().toString().equals(blue.toString())) item.setBackground(color);
+		System.out.println("color: "+item.getBackground());
 	}
 	
 	/**
@@ -461,13 +469,14 @@ public class InstructionsComposite extends Composite
 		{
 			try
 			{
-				if(items[index].getBackground() == blue)
+				if(items[index].getBackground().toString().equals(blue.toString()))
 				{
 					setColor(items[index], new Color(parent.getDisplay(), 255, 255, 255));
 				}				
 			}
 			catch(NullPointerException e)
 			{
+				e.printStackTrace();
 				break;
 			}
 		}

@@ -6,6 +6,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Label;
 
 /**
  * Composite to display the files used by the process
@@ -35,16 +36,18 @@ public class FilesComposite extends Composite
 		setLayout(new GridLayout(2, false));
 		
 		dllsTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
-		GridData gd_dllsTable = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
-		gd_dllsTable.widthHint = 222;
+		GridData gd_dllsTable = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_dllsTable.widthHint = 506;
 		dllsTable.setLayoutData(gd_dllsTable);
 		dllsTable.setHeaderVisible(true);
 		dllsTable.setLinesVisible(true);
+		new Label(this, SWT.NONE);
 		
-		filesTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		/*filesTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		filesTable.setVisible(false);
 		filesTable.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		filesTable.setHeaderVisible(true);
-		filesTable.setLinesVisible(true);
+		filesTable.setLinesVisible(true);*/
 		
 		ProcessManager processManager = new ProcessManager(getProcessId());
 		String[] DLLs = processManager.getDLLs();
@@ -55,12 +58,12 @@ public class FilesComposite extends Composite
 		}
 		String files[] = processManager.getFiles();
 		System.out.println("files: "+files.length);
-		for(int index=0;index<files.length;index++)
+		/*for(int index=0;index<files.length;index++)
 		{
 			TableItem tableItem = new TableItem(filesTable, SWT.NULL);
 			System.out.println("files: "+files[index]);
 			tableItem.setText(files[index]);
-		}
+		}*/
 		
 	}
 

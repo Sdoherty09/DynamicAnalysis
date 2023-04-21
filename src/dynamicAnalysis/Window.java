@@ -189,7 +189,7 @@ public class Window
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				System.out.println("selection: "+btnProcess.getSelection());
-				selectFile = new SelectFile(shlMaldive.getLocation().x, shlMaldive.getLocation().y, btnProcess.getSelection());
+				selectFile = new SelectFile(shlMaldive.getLocation().x-(shlMaldive.getSize().x/2), shlMaldive.getLocation().y, btnProcess.getSelection());
 				filePath = selectFile.getText();	
 				if(!selectFile.isPidMode())
 				{

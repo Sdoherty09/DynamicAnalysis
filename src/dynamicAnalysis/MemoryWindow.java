@@ -8,6 +8,7 @@ import org.eclipse.swt.layout.GridLayout;
 
 import java.util.ArrayList;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
@@ -100,6 +101,7 @@ public class MemoryWindow
 		} catch (Exception e)
 		{
 			e.printStackTrace();
+			MessageDialog.openError(shell, "Error", e.getMessage());
 		}
 	}
 

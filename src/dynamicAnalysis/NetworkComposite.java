@@ -68,6 +68,8 @@ public class NetworkComposite extends Composite
 	/** The packet payload displayed in ASCII. */
 	private StyledText asciiPayload;
 	
+	/** Check for if network sniffing should be paused. */
+	private boolean paused = false;
 	/**
 	 * Instantiates the network composite.
 	 *
@@ -171,22 +173,23 @@ public class NetworkComposite extends Composite
 		btnFilterByProcess.setText("Filter by process");
 		btnFilterByProcess.setVisible(false);
 		FormData fd_btnFilterByProcess = new FormData();
-		fd_btnFilterByProcess.top = new FormAttachment(0, 11);
 		fd_btnFilterByProcess.bottom = new FormAttachment(packetInfo, -6);
-		fd_btnFilterByProcess.left = new FormAttachment(packetInfo, 0, SWT.LEFT);
 		btnFilterByProcess.setLayoutData(fd_btnFilterByProcess);
 		formToolkit.adapt(btnFilterByProcess, true, true);
 		
 		Label pidMatch = formToolkit.createLabel(this, "", SWT.NONE);
+		fd_btnFilterByProcess.top = new FormAttachment(pidMatch, 0, SWT.TOP);
+		fd_btnFilterByProcess.left = new FormAttachment(pidMatch, 139);
 		pidMatch.setBackground(SWTResourceManager.getColor(240, 240, 240));
 		FormData fd_pidMatch = new FormData();
-		fd_pidMatch.bottom = new FormAttachment(networkInterfaces, -15);
-		fd_pidMatch.right = new FormAttachment(btnFilterByProcess, -6);
+		fd_pidMatch.right = new FormAttachment(100, -234);
 		fd_pidMatch.left = new FormAttachment(0, 5);
+		fd_pidMatch.bottom = new FormAttachment(networkInterfaces, -15);
 		fd_pidMatch.top = new FormAttachment(0, 11);
 		pidMatch.setLayoutData(fd_pidMatch);
 		
 		Button btnClear = formToolkit.createButton(this, "Clear", SWT.NONE);
+		fd_btnFilterByProcess.right = new FormAttachment(btnClear, -6);
 		btnClear.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -198,6 +201,24 @@ public class NetworkComposite extends Composite
 		fd_btnClear.right = new FormAttachment(100, -4);
 		fd_btnClear.top = new FormAttachment(0, 10);
 		btnClear.setLayoutData(fd_btnClear);
+		
+		Button btnPause = new Button(this, SWT.NONE);
+		btnPause.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				paused = !paused;
+				if(paused) btnPause.setText("Resume");
+				else btnPause.setText("Pause");
+			}
+		});
+		FormData fd_btnPause = new FormData();
+		fd_btnPause.right = new FormAttachment(pidMatch, 59, SWT.RIGHT);
+		fd_btnPause.top = new FormAttachment(packetInfo, -31, SWT.TOP);
+		fd_btnPause.bottom = new FormAttachment(packetInfo, -6);
+		fd_btnPause.left = new FormAttachment(pidMatch, 6);
+		btnPause.setLayoutData(fd_btnPause);
+		formToolkit.adapt(btnPause, true, true);
+		btnPause.setText("Pause");
 		
 		String address = "";
 		System.out.println("pid: "+pid);
@@ -294,9 +315,11 @@ public class NetworkComposite extends Composite
 	{
 		Thread updateThread = new Thread(() -> { // Set up thread for each network interface
             while (true)
-            {           	
-            	HashMap<String, String> newDevices = packetTrace.getDevices();
-            	
+            {
+            	if(!paused)
+            	{
+            		HashMap<String, String> newDevices = packetTrace.getDevices();
+                	
             		Display.getDefault().asyncExec(new Runnable() {
                         public void run() {
                         	if(!newDevices.equals(devices))
@@ -329,6 +352,8 @@ public class NetworkComposite extends Composite
                         	}
                         }
                     });           	         	
+            	
+            	}
             	try
 				{
 					TimeUnit.SECONDS.sleep(1);
@@ -366,6 +391,8 @@ public class NetworkComposite extends Composite
 		packets.deselectAll();
 		packetInfo.setText("");
 		hexPayload.setText("");
+		asciiPayload.setText("");
+		packetTrace.clearAll();
 	}
 	
 	/**

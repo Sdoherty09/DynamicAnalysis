@@ -121,18 +121,24 @@ public class MemoryComposite extends Composite
             public void run() {
             	String memoryText = updateMemory();
         		asciiSections = findAsciiSections();
+        		int[] data = new int[asciiSections.length];
+        		String[] text = new String[asciiSections.length];
+        		for(int index = 0;index<asciiSections.length;index++)
+        		{
+        			data[index] = Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}')));
+        			text[index] = asciiSections[index].substring(asciiSections[index].indexOf('}')+1);
+        		}
             	Display.getDefault().asyncExec(new Runnable() {
                     @Override
                     public void run() {
-                    	System.out.println(memoryText);
                     	memoryField.setText(memoryText);
                     	txtLength.setText("Length: "+getBytes().length);
                     	tableItems = new TableItem[asciiSections.length];
                     	asciiTable.setItemCount(asciiSections.length);
                     	for(int index=0;index<asciiSections.length;index++)
                 		{
-                    		asciiTable.getItem(index).setText(asciiSections[index].substring(asciiSections[index].indexOf('}')+1));
-                    		asciiTable.getItem(index).setData(Integer.parseInt(asciiSections[index].substring(1, asciiSections[index].indexOf('}'))));
+                    		asciiTable.getItem(index).setText(text[index]);
+                    		asciiTable.getItem(index).setData(data[index]);
                 		}
                     }
                  });
@@ -418,7 +424,6 @@ public class MemoryComposite extends Composite
 			
 		}
 		text.setText(memory);
-		System.out.println(memory);
 		System.out.println("startindex: "+memory.indexOf(tableText));
 		System.out.println("endindex: "+(memory.indexOf(tableText)+tableText.length()));
 		text.setFocus();

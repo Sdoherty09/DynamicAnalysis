@@ -58,6 +58,11 @@ public class InstructionsComposite extends Composite
 	
 	/** The values used by the GUI array. */
 	private TableItem[] tableItems = null;
+	private Text text;
+	private Button btnNewButton_1;
+	
+	private final Color blue;
+	private Button btnNewButton_2;
 	
 	/**
 	 * Create the instructions composite.
@@ -70,6 +75,7 @@ public class InstructionsComposite extends Composite
 	{
 		super(parent, style);
 		this.parent = parent;
+		blue  = new Color(parent.getDisplay(), 180, 0, 180);
 		setLayout(new FormLayout());
 		
 		CodeExtract codeExtract = new CodeExtract(file);
@@ -109,23 +115,31 @@ public class InstructionsComposite extends Composite
 	    				System.out.println("instruction addr: "+Long.decode(instruction.opStr));
 	    				tableItems = new TableItem[Math.abs(instruction.bytes[1])];
 	    				int tableIndex = 0;
-	    				while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(tableInstructions.getItem((int) entryIndex).getData())).address)
+	    				try
 	    				{
-	    					System.out.println(entryIndex);
-	    					try
-	    					{
-	    						tableItems = setGray(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
-		    					tableIndex++;
-	    					}
-	    					catch(ArrayIndexOutOfBoundsException e1)
-	    					{
-	    						e1.printStackTrace();
-	    						clearColors(tableItems);
-	    					}
-	    					if(lowerOperand) entryIndex--;
-	    					else entryIndex++;
-	    				}    				
-	    				tableItems = setGreen(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
+	    					while(Long.decode(instruction.opStr) != ((Capstone.CsInsn)(tableInstructions.getItem((int) entryIndex).getData())).address)
+		    				{
+		    					System.out.println(entryIndex);
+		    					try
+		    					{
+		    						tableItems = setGray(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
+			    					tableIndex++;
+		    					}
+		    					catch(ArrayIndexOutOfBoundsException e1)
+		    					{
+		    						e1.printStackTrace();
+		    						clearColors(tableItems);
+		    					}
+		    					if(lowerOperand) entryIndex--;
+		    					else entryIndex++;
+		    				}    				
+		    				tableItems = setGreen(tableInstructions.getItem((int) entryIndex), tableItems, tableIndex);
+	    				}
+	    				catch(IllegalArgumentException e1)
+	    				{
+	    					e1.printStackTrace();
+	    					clearColors(tableItems);
+	    				}
 		    		}
 		    	}
 	    	  	TableItem item = tableInstructions.getSelection()[0];
@@ -178,7 +192,7 @@ public class InstructionsComposite extends Composite
 						bytesIndex++;
 					}
 				}
-				FileDialog fileDialog = new FileDialog(parent.getShell(), SWT.MULTI);
+				FileDialog fileDialog = new FileDialog(parent.getShell(), SWT.SAVE);
             	String[] files = {
                         "*.exe",
                     };
@@ -193,14 +207,17 @@ public class InstructionsComposite extends Composite
 					} catch (IOException e1)
 					{
 						e1.printStackTrace();
+					} catch (NullPointerException e1)
+					{
+						e1.printStackTrace();
 					}
 			}
 		});
 		fd_tableInstructions.bottom = new FormAttachment(100, -41);
 		fd_tableInstructions.right = new FormAttachment(btnSave, -20);
 		FormData fd_btnSave = new FormData();
+		fd_btnSave.top = new FormAttachment(comboMnemonic, -2, SWT.TOP);
 		fd_btnSave.right = new FormAttachment(100, -10);
-		fd_btnSave.top = new FormAttachment(0, 10);
 		btnSave.setLayoutData(fd_btnSave);
 		btnSave.setText("Save");
 
@@ -261,6 +278,7 @@ public class InstructionsComposite extends Composite
 			    tableInstructions.getSelection()[0].setText(1, instruction[0].mnemonic);
 			    tableInstructions.getSelection()[0].setText(2, instruction[0].opStr);
 			    tableInstructions.getSelection()[0].setData(instruction[0]);
+			    allInsn[tableInstructions.indexOf(tableInstructions.getSelection()[0])]=instruction[0];
 			    System.out.println(((Capstone.CsInsn)tableInstructions.getSelection()[0].getData()).opStr);
 			}
 		});
@@ -272,6 +290,59 @@ public class InstructionsComposite extends Composite
 		fd_btnNewButton.left = new FormAttachment(textOpcode, 28);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.setText("Replace");
+		
+		text = new Text(this, SWT.BORDER);
+		FormData fd_text = new FormData();
+		fd_text.top = new FormAttachment(tableInstructions, 0, SWT.TOP);
+		fd_text.right = new FormAttachment(btnSave, 6, SWT.RIGHT);
+		fd_text.left = new FormAttachment(tableInstructions, 6);
+		text.setLayoutData(fd_text);
+		
+		btnNewButton_1 = new Button(this, SWT.NONE);
+		btnNewButton_1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				TableItem[] tableItems = new TableItem[tableInstructions.getItemCount()];
+				clearBlue(tableItems);
+				for(int index = 0;index<tableInstructions.getItemCount();index++)
+				{
+					tableItems[index] = tableInstructions.getItem(index);
+				}
+				for(int index = 0;index<tableInstructions.getItemCount();index++)
+				{
+					if(text.getText().equals(getAllInsn()[index].mnemonic.toString()))
+					{
+						tableItems = setBlue(tableInstructions.getItem(index), tableItems, index);
+					}
+				}
+			}
+		});
+		FormData fd_btnNewButton_1 = new FormData();
+		fd_btnNewButton_1.top = new FormAttachment(text, 6);
+		fd_btnNewButton_1.right = new FormAttachment(tableInstructions, 62, SWT.RIGHT);
+		fd_btnNewButton_1.left = new FormAttachment(tableInstructions, 6);
+		btnNewButton_1.setLayoutData(fd_btnNewButton_1);
+		btnNewButton_1.setText("Search");
+		
+		btnNewButton_2 = new Button(this, SWT.NONE);
+		btnNewButton_2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String string = "";
+				byte[] bytes = codeExtract.getInstructions();
+				for(int index = 0;index<bytes.length;index++)
+				{
+					string+=bytes[index];
+				}
+				System.out.println("making to read");
+				ReadWrite.writeLine(string, "file.txt");
+			}
+		});
+		FormData fd_btnNewButton_2 = new FormData();
+		fd_btnNewButton_2.top = new FormAttachment(btnNewButton_1, 31);
+		fd_btnNewButton_2.left = new FormAttachment(tableInstructions);
+		btnNewButton_2.setLayoutData(fd_btnNewButton_2);
+		btnNewButton_2.setText("New Button");
 		
 	}
 	
@@ -355,6 +426,11 @@ public class InstructionsComposite extends Composite
 		return setColor(item, new Color(parent.getDisplay(), 0, 255, 0), items, index);
 	}
 	
+	private TableItem[] setBlue(TableItem item, TableItem[] items, int index)
+	{
+		return setColor(item, blue, items, index);
+	}
+	
 	/**
 	 * Set color of table items to default color.
 	 *
@@ -362,12 +438,33 @@ public class InstructionsComposite extends Composite
 	 */
 	private void clearColors(TableItem[] items)
 	{
+		
 		for(int index = 0;index < items.length;index++)
 		{
 			try
 			{
-				System.out.println("data: "+items[index]);
-				setColor(items[index], new Color(parent.getDisplay(), 255, 255, 255));
+				if(items[index].getBackground() != blue)
+				{
+					setColor(items[index], new Color(parent.getDisplay(), 255, 255, 255));
+				}				
+			}
+			catch(NullPointerException e)
+			{
+				break;
+			}
+		}
+	}
+	
+	private void clearBlue(TableItem[] items)
+	{
+		for(int index = 0;index < items.length;index++)
+		{
+			try
+			{
+				if(items[index].getBackground() == blue)
+				{
+					setColor(items[index], new Color(parent.getDisplay(), 255, 255, 255));
+				}				
 			}
 			catch(NullPointerException e)
 			{

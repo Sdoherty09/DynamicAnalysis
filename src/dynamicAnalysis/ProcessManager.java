@@ -98,8 +98,6 @@ public class ProcessManager
 			e.printStackTrace();
 			
 		}
-		System.out.println("children: "+process.children());
-		System.out.println("info: " + process.info());
 		return process;
 	}
 	
@@ -129,6 +127,7 @@ public class ProcessManager
 	private void setName()
 	{
 		String name = commandLine.runName();
+		System.out.println("name: "+name);
 		try
 		{
 			this.name = name.substring(name.lastIndexOf("\"", name.indexOf(".exe"))+1, name.lastIndexOf("\"", name.indexOf(".exe")+4));

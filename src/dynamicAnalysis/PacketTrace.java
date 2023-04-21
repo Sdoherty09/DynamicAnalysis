@@ -115,7 +115,13 @@ public class PacketTrace
 	 */
 	public String[] getAddresses(String deviceName)
 	{
-		return addressMap.get(deviceName).toArray(new String[addressMap.size()]);
+		String[] addressStr = addressMap.get(deviceName).toArray(new String[addressMap.size()]);
+		ArrayList<String> filteredAddresses = new ArrayList<String>();
+		for(int index = 0;index < addressStr.length; index++)
+		{
+			if(!filteredAddresses.contains(addressStr[index])) filteredAddresses.add(addressStr[index]);
+		}
+		return (String[]) filteredAddresses.toArray(new String[filteredAddresses.size()]);
 	}
 	
 	/**
@@ -159,4 +165,12 @@ public class PacketTrace
 		return packetList;
 	}
 
+	public void clearAll()
+	{
+		packets.clear();
+		packets.add(ArrayListMultimap.create());
+		addressMap.clear();
+		interfaceMap.clear();
+	}
+	
 }
